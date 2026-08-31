@@ -39,6 +39,12 @@ Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
   - Wasm target: `./gradlew :shared:wasmJsTest`
   - JS target: `./gradlew :shared:jsTest`
 
+Before pushing, run exactly what CI runs:
+
+```
+./gradlew :androidApp:assembleDebug :androidApp:lintDebug :shared:testAndroidHostTest
+```
+
 ---
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
