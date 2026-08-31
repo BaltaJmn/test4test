@@ -1,5 +1,6 @@
 package com.baltajmn.test4test
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,20 +10,29 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import org.jetbrains.compose.resources.painterResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.ic_tester
 
 // Issue #28: en Web la ventana es mucho mas ancha que un movil. Una columna
 // centrada con ancho maximo evita lineas de texto de 1500px sin escribir un
@@ -74,14 +84,57 @@ fun ErrorText(message: String?, modifier: Modifier = Modifier) {
 // Test4Test, no descargas ni seguidores de Play Store.
 @Composable
 fun FollowerBadge(count: Long, modifier: Modifier = Modifier) {
-    Text(
-        text = if (count == 1L) "1 tester" else "$count testers",
-        style = MaterialTheme.typography.labelLarge,
+    Row(
         modifier = modifier,
-    )
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        // Decorativo: el texto de al lado ya dice lo mismo, asi que anunciarlo
+        // otra vez solo duplicaria la lectura del lector de pantalla.
+        Icon(
+            painter = painterResource(Res.drawable.ic_tester),
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(16.dp),
+        )
+        Text(
+            text = if (count == 1L) "1 tester" else "$count testers",
+            style = MaterialTheme.typography.labelLarge,
+        )
+    }
 }
 
 const val FOLLOWER_HELP = "Personas que se han unido como tester desde Test4Test."
+
+// Issue #27: la foto sale de profiles.avatar_url, que rellena Google al registrarse.
+// La inicial se pinta siempre por debajo, asi que hay algo visible mientras carga
+// y tambien cuando el perfil no trae foto o la descarga falla: no hace falta
+// manejar estados de error de imagen.
+@Composable
+fun Avatar(profile: Profile?, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .size(64.dp)
+            .clip(CircleShape)
+            .background(MaterialTheme.colorScheme.secondaryContainer),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = avatarInitial(profile?.displayName),
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+        )
+        val url = profile?.avatarUrl
+        if (!url.isNullOrBlank()) {
+            AsyncImage(
+                model = url,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.matchParentSize(),
+            )
+        }
+    }
+}
 
 @Composable
 fun AppCard(

@@ -9,9 +9,9 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
 }
 
-// Credenciales de Supabase: variables de entorno en CI, local.properties en local.
+// Credenciales: variables de entorno en CI, local.properties en local.
 // local.properties esta gitignored y el fichero generado vive en build/, asi que
-// la anon key nunca entra en un fichero versionado.
+// ninguna clave entra en un fichero versionado.
 val localProperties: Map<String, String> =
     providers.fileContents(rootProject.layout.projectDirectory.file("local.properties"))
         .asText.orNull.orEmpty()
@@ -20,16 +20,21 @@ val localProperties: Map<String, String> =
         .mapNotNull { line -> line.split("=", limit = 2).takeIf { it.size == 2 } }
         .associate { (key, value) -> key.trim() to value.trim() }
 
-fun supabaseValue(property: String, envVar: String): Provider<String> =
+fun secretValue(property: String, envVar: String): Provider<String> =
     providers.environmentVariable(envVar).orElse(localProperties[property] ?: "")
 
-val generateSupabaseConfig by tasks.registering {
-    val url = supabaseValue("supabase.url", "SUPABASE_URL")
-    val anonKey = supabaseValue("supabase.anonKey", "SUPABASE_ANON_KEY")
+val generateAppConfig by tasks.registering {
+    val url = secretValue("supabase.url", "SUPABASE_URL")
+    val anonKey = secretValue("supabase.anonKey", "SUPABASE_ANON_KEY")
+    // A diferencia de las de Supabase, esta puede faltar: sin ella la seccion de
+    // compra no se pinta, asi que el repo y la CI siguen compilando sin tener dada
+    // de alta la cuenta de RevenueCat (issue #23).
+    val revenueCatKey = secretValue("revenuecat.androidKey", "REVENUECAT_ANDROID_KEY")
     val outputDir = layout.buildDirectory.dir("generated/supabase")
 
     inputs.property("url", url)
     inputs.property("anonKey", anonKey)
+    inputs.property("revenueCatKey", revenueCatKey)
     outputs.dir(outputDir)
 
     doLast {
@@ -39,7 +44,8 @@ val generateSupabaseConfig by tasks.registering {
             "Faltan credenciales de Supabase. Copia local.properties.example a local.properties y rellena " +
                 "supabase.url y supabase.anonKey, o exporta SUPABASE_URL y SUPABASE_ANON_KEY."
         }
-        outputDir.get().file("com/baltajmn/test4test/SupabaseConfig.kt").asFile.apply {
+        val generatedDir = outputDir.get()
+        generatedDir.file("com/baltajmn/test4test/SupabaseConfig.kt").asFile.apply {
             parentFile.mkdirs()
             writeText(
                 """
@@ -54,6 +60,17 @@ val generateSupabaseConfig by tasks.registering {
                 """.trimIndent()
             )
         }
+        generatedDir.file("com/baltajmn/test4test/RevenueCatConfig.kt").asFile.writeText(
+            """
+            package com.baltajmn.test4test
+
+            // Generado por Gradle. No editar a mano ni versionar: se reescribe en cada build.
+            object RevenueCatConfig {
+                const val ANDROID_KEY: String = "${revenueCatKey.get()}"
+            }
+
+            """.trimIndent()
+        )
     }
 }
 
@@ -93,9 +110,13 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
             implementation(libs.ktor.client.okhttp)
+            // LocalActivity: RevenueCat necesita la Activity viva para lanzar el
+            // dialogo de compra de Play Billing.
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.revenuecat.purchases)
         }
         commonMain {
-            kotlin.srcDir(generateSupabaseConfig)
+            kotlin.srcDir(generateAppConfig)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -108,6 +129,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             api(libs.supabase.auth)
             implementation(libs.supabase.postgrest)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor3)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

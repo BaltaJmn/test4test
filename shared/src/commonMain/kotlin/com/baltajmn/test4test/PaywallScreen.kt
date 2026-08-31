@@ -1,7 +1,5 @@
 package com.baltajmn.test4test
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,7 +9,12 @@ import androidx.compose.ui.Modifier
 // igual (mismo profiles.is_premium) pero no se vende nada.
 // Fuera del MVP: via de pago Web con Stripe / RevenueCat Web Billing.
 @Composable
-fun PaywallScreen(me: Profile?, modifier: Modifier = Modifier) {
+fun PaywallScreen(
+    uid: String,
+    me: Profile?,
+    modifier: Modifier = Modifier,
+    onPurchased: () -> Unit,
+) {
     PageColumn(modifier) {
         Text("Slots ilimitados", style = MaterialTheme.typography.headlineSmall)
         Text(
@@ -20,15 +23,7 @@ fun PaywallScreen(me: Profile?, modifier: Modifier = Modifier) {
         )
         when {
             me?.isPremium == true -> Text("Ya tienes slots ilimitados.")
-
-            getPlatform().isAndroid -> {
-                // Se habilita al entrar RevenueCat (issue #23).
-                Button(onClick = {}, enabled = false, modifier = Modifier.fillMaxWidth()) {
-                    Text("Suscribirme")
-                }
-                Text("Compra en preparacion.", style = MaterialTheme.typography.bodySmall)
-            }
-
+            getPlatform().isAndroid -> PurchaseSection(uid, onPurchased)
             else -> Text("Gestiona tu suscripcion desde la app Android: la compra no esta disponible en la Web.")
         }
     }

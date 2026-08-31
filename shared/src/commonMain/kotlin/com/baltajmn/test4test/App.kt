@@ -18,6 +18,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import coil3.ImageLoader
+import coil3.compose.setSingletonImageLoaderFactory
+import coil3.network.ktor3.KtorNetworkFetcherFactory
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.status.SessionStatus
 
@@ -33,6 +36,14 @@ sealed interface Screen {
 
 @Composable
 fun App() {
+    // Coil solo autodetecta el fetcher de red en Android, asi que el ImageLoader se
+    // construye aqui una vez para las dos plataformas, sobre el motor de Ktor que ya
+    // arrastra supabase-kt (okhttp en Android, js en Web).
+    setSingletonImageLoaderFactory { context ->
+        ImageLoader.Builder(context)
+            .components { add(KtorNetworkFetcherFactory()) }
+            .build()
+    }
     MaterialTheme {
         val status by supabase.auth.sessionStatus.collectAsState()
         when (status) {
@@ -130,14 +141,30 @@ private fun Home() {
             )
             is Screen.EditApp -> CreateAppScreen(
                 uid = uid,
+                me = me,
                 existing = screen.app,
                 modifier = modifier,
                 onDone = {
                     profileReload++
                     back()
                 },
+                // Se sale del formulario antes de entrar al paywall: volver atras
+                // desde ahi tiene que llevar a "Mis apps", no a un alta que la RLS
+                // acaba de rechazar.
+                onPaywall = {
+                    back()
+                    push(Screen.Paywall)
+                },
             )
-            is Screen.Paywall -> PaywallScreen(me, modifier)
+            is Screen.Paywall -> PaywallScreen(
+                uid = uid,
+                me = me,
+                modifier = modifier,
+                onPurchased = {
+                    profileReload++
+                    back()
+                },
+            )
         }
     }
 }

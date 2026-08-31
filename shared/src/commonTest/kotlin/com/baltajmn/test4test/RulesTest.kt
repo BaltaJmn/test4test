@@ -22,6 +22,16 @@ class RulesTest {
     }
 
     @Test
+    fun avatarInitialAlwaysRendersSomething() {
+        assertEquals("B", avatarInitial("baltasar"))
+        assertEquals("B", avatarInitial("  Baltasar Jimenez  "))
+        // Sin nombre no puede quedarse el circulo vacio: la foto puede tardar o no venir.
+        assertEquals("?", avatarInitial(null))
+        assertEquals("?", avatarInitial(""))
+        assertEquals("?", avatarInitial("   "))
+    }
+
+    @Test
     fun validFormPasses() {
         assertNull(appFormError("Mi app", "https://g.co/a", "https://play.google.com/b", "https://g.co/c"))
     }

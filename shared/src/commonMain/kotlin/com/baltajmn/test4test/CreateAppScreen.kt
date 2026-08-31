@@ -18,9 +18,11 @@ import kotlinx.coroutines.launch
 @Composable
 fun CreateAppScreen(
     uid: String,
+    me: Profile?,
     existing: AppRow?,
     modifier: Modifier = Modifier,
     onDone: () -> Unit,
+    onPaywall: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
     var name by remember { mutableStateOf(existing?.name.orEmpty()) }
@@ -80,7 +82,19 @@ fun CreateAppScreen(
                         if (existing == null) createApp(input) else updateApp(existing.id, input)
                     }
                         .onSuccess { onDone() }
-                        .onFailure { error = it.message ?: "No se pudo guardar" }
+                        .onFailure { failure ->
+                            // Issue #15: un alta rechazada por la policy
+                            // apps_insert_own_within_slots devuelve un mensaje de
+                            // Postgres generico, asi que no se parsea el error: se
+                            // vuelven a contar las apps propias y se decide con la
+                            // misma regla que aplica la RLS. Si el recuento falla,
+                            // gana el mensaje de error en vez de un paywall a ciegas.
+                            val owned = runCatching { myApps(uid).size }.getOrNull()
+                            val outOfSlots = existing == null && owned != null &&
+                                !canCreateApp(me?.isPremium == true, owned)
+                            if (outOfSlots) onPaywall()
+                            else error = failure.message ?: "No se pudo guardar"
+                        }
                     saving = false
                 }
             },

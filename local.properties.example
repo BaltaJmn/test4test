@@ -8,3 +8,8 @@ supabase.url=https://xxxxxxxxxxxxxxxxxxxx.supabase.co
 # Dashboard Supabase -> Settings -> API -> Project API keys -> anon / public
 # Seguro compartir/versionar en local: esta protegida por RLS, no es secreta.
 supabase.anonKey=eyJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# RevenueCat -> Project settings -> API keys -> Public app key de Android (goog_...)
+# Opcional: sin ella la app compila igual, solo que el boton de compra no aparece.
+# Publica por diseno, pero no vale para nada sin la cuenta detras.
+revenuecat.androidKey=goog_xxxxxxxxxxxxxxxxxxxxxxxxxxxx

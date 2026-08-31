@@ -3,6 +3,7 @@ package com.baltajmn.test4test
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.query.Order
+import kotlinx.coroutines.delay
 
 private const val APPS = "apps"
 // Vista de lectura: apps + follower_count. Para escribir se usa la tabla.
@@ -68,6 +69,20 @@ suspend fun leaveApp(appId: String, uid: String) {
 
 suspend fun profile(uid: String): Profile? =
     supabase.from(PROFILES).select { filter { eq("id", uid) } }.decodeSingleOrNull()
+
+// El cliente nunca escribe is_premium: lo hace el webhook de RevenueCat contra
+// Supabase (issue #25), asi que tras comprar el cambio tarda unos segundos en
+// aparecer. Se reintenta en vez de darlo por hecho, porque la policy
+// apps_insert_own_within_slots solo deja crear la segunda app cuando la fila ya
+// dice true. Devuelve null si no llega a activarse.
+suspend fun awaitPremium(uid: String, attempts: Int = 6): Profile? {
+    repeat(attempts) { attempt ->
+        if (attempt > 0) delay(2_000)
+        val me = runCatching { profile(uid) }.getOrNull()
+        if (me?.isPremium == true) return me
+    }
+    return null
+}
 
 // Sin embeds de PostgREST a proposito: app_comments tiene dos FK contra apps
 // (app_id y linked_app_id), asi que el embed necesitaria hints por nombre de

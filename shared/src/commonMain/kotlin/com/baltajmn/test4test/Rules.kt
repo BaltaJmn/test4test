@@ -5,6 +5,12 @@ package com.baltajmn.test4test
 // a un formulario que el backend va a rechazar.
 fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || ownedApps < 1
 
+// Inicial del avatar (issue #27). Se pinta cuando el perfil no trae foto y tambien
+// por debajo mientras carga, asi que tiene que devolver algo siempre: un nombre en
+// blanco o a solo espacios cae al interrogante.
+fun avatarInitial(displayName: String?): String =
+    displayName?.trim()?.take(1)?.uppercase()?.takeIf { it.isNotBlank() } ?: "?"
+
 // Validacion de cliente del alta de app (issue #15): evita el viaje al backend.
 // Los mismos limites estan como CHECK en la tabla apps.
 fun appFormError(
