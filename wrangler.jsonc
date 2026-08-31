@@ -1,0 +1,15 @@
+{
+  // Workers Static Assets, not Pages: Cloudflare's own best-practices guide says
+  // new projects should use Workers, and that Pages only gets maintenance now.
+  "name": "test4test",
+  "compatibility_date": "2026-08-31",
+
+  "assets": {
+    "directory": "./webApp/build/dist/wasmJs/productionExecutable",
+    // The whole app is one Compose canvas, so every path must serve index.html
+    // rather than 404 on a deep link or a refresh.
+    "not_found_handling": "single-page-application"
+  }
+  // No "main" and no ASSETS binding on purpose: there is no Worker script, the
+  // client talks to Supabase directly.
+}

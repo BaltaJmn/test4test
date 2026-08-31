@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:  # lets you redeploy without a commit
 
-# Never let two deploys race to the same Pages project.
+# Never let two deploys race to the same Worker.
 concurrency:
   group: deploy-web
   cancel-in-progress: true
@@ -33,7 +33,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: >-
-            pages deploy webApp/build/dist/wasmJs/productionExecutable
-            --project-name=test4test
-            --branch=main
+          # Name, asset directory and SPA routing all come from wrangler.jsonc.
+          command: deploy
