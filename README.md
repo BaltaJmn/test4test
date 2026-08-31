@@ -1,5 +1,11 @@
 This is a Kotlin Multiplatform project targeting Android, Web, Desktop (JVM).
 
+## Setup
+
+1. Copy `local.properties.example` to `local.properties`.
+2. Fill in `supabase.url` and `supabase.anonKey` from the [Supabase dashboard](https://supabase.com/dashboard) → Settings → API.
+3. Never commit `local.properties` (already gitignored) or the `service_role` key anywhere in this repo — that one only lives in Supabase Edge Function secrets.
+
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
   - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.

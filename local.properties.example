@@ -1,0 +1,10 @@
+## Copia este archivo a local.properties (gitignored) y rellena tus valores.
+## local.properties NO se sube nunca a git.
+
+sdk.dir=/path/to/your/Android/sdk
+
+# Dashboard Supabase -> Settings -> API -> Project URL
+supabase.url=https://xxxxxxxxxxxxxxxxxxxx.supabase.co
+# Dashboard Supabase -> Settings -> API -> Project API keys -> anon / public
+# Seguro compartir/versionar en local: esta protegida por RLS, no es secreta.
+supabase.anonKey=eyJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
