@@ -1,0 +1,39 @@
+name: Deploy Web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # lets you redeploy without a commit
+
+# Never let two deploys race to the same Pages project.
+concurrency:
+  group: deploy-web
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # ships the Android SDK, which configuring :shared needs
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'  # matches toolchainVersion in gradle/gradle-daemon-jvm.properties
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - run: ./gradlew :webApp:wasmJsBrowserDistribution
+
+      # Source maps carry the full Kotlin source. Browsers only fetch them with
+      # devtools open, so shipping them buys nothing and publishes the source.
+      - run: rm -f webApp/build/dist/wasmJs/productionExecutable/*.map
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy webApp/build/dist/wasmJs/productionExecutable
+            --project-name=test4test
+            --branch=main
