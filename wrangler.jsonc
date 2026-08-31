@@ -8,9 +8,9 @@
   // la URL *.workers.dev sin avisar mas que con un WARNING.
   "workers_dev": true,
 
-  // Cloudflare crea y gestiona el registro DNS del apex el solo.
+  // Cloudflare crea y gestiona este registro DNS el solo. El apex queda libre.
   // Ojo: quilt.baltajmn.dev es GitHub Pages y va aparte, en DNS only.
-  "routes": [{ "pattern": "baltajmn.dev", "custom_domain": true }],
+  "routes": [{ "pattern": "testers.baltajmn.dev", "custom_domain": true }],
 
   "assets": {
     "directory": "./webApp/build/dist/wasmJs/productionExecutable",
