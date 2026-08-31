@@ -23,7 +23,11 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
+      # Supabase credentials replace local.properties, which is gitignored.
       - run: ./gradlew :webApp:wasmJsBrowserDistribution
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       # Source maps carry the full Kotlin source. Browsers only fetch them with
       # devtools open, so shipping them buys nothing and publishes the source.

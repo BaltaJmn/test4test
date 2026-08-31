@@ -6,6 +6,11 @@ This is a Kotlin Multiplatform project targeting Android and Web.
 2. Fill in `supabase.url` and `supabase.anonKey` from the [Supabase dashboard](https://supabase.com/dashboard) → Settings → API.
 3. Never commit `local.properties` (already gitignored) or the `service_role` key anywhere in this repo — that one only lives in Supabase Edge Function secrets.
 
+Gradle generates `SupabaseConfig` from those two values into `shared/build/generated`, so every target
+reads them without a platform-specific mechanism. The build fails with an explicit message if they are
+missing. CI has no `local.properties`, so it passes them as the `SUPABASE_URL` and `SUPABASE_ANON_KEY`
+environment variables instead — the env vars win when both are present.
+
 ## Database
 
 The schema lives in [`supabase/migrations`](./supabase/migrations) and is already applied to the

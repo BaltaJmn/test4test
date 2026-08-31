@@ -8,6 +8,54 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 
+// Credenciales de Supabase: variables de entorno en CI, local.properties en local.
+// local.properties esta gitignored y el fichero generado vive en build/, asi que
+// la anon key nunca entra en un fichero versionado.
+val localProperties: Map<String, String> =
+    providers.fileContents(rootProject.layout.projectDirectory.file("local.properties"))
+        .asText.orNull.orEmpty()
+        .lineSequence()
+        .filterNot { it.isBlank() || it.trimStart().startsWith("#") }
+        .mapNotNull { line -> line.split("=", limit = 2).takeIf { it.size == 2 } }
+        .associate { (key, value) -> key.trim() to value.trim() }
+
+fun supabaseValue(property: String, envVar: String): Provider<String> =
+    providers.environmentVariable(envVar).orElse(localProperties[property] ?: "")
+
+val generateSupabaseConfig by tasks.registering {
+    val url = supabaseValue("supabase.url", "SUPABASE_URL")
+    val anonKey = supabaseValue("supabase.anonKey", "SUPABASE_ANON_KEY")
+    val outputDir = layout.buildDirectory.dir("generated/supabase")
+
+    inputs.property("url", url)
+    inputs.property("anonKey", anonKey)
+    outputs.dir(outputDir)
+
+    doLast {
+        val urlValue = url.get()
+        val anonKeyValue = anonKey.get()
+        check(urlValue.isNotBlank() && anonKeyValue.isNotBlank()) {
+            "Faltan credenciales de Supabase. Copia local.properties.example a local.properties y rellena " +
+                "supabase.url y supabase.anonKey, o exporta SUPABASE_URL y SUPABASE_ANON_KEY."
+        }
+        outputDir.get().file("com/baltajmn/test4test/SupabaseConfig.kt").asFile.apply {
+            parentFile.mkdirs()
+            writeText(
+                """
+                package com.baltajmn.test4test
+
+                // Generado por Gradle. No editar a mano ni versionar: se reescribe en cada build.
+                object SupabaseConfig {
+                    const val URL: String = "$urlValue"
+                    const val ANON_KEY: String = "$anonKeyValue"
+                }
+
+                """.trimIndent()
+            )
+        }
+    }
+}
+
 kotlin {
     js {
         browser()
@@ -43,6 +91,9 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
+        }
+        commonMain {
+            kotlin.srcDir(generateSupabaseConfig)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
