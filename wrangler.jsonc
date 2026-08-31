@@ -4,6 +4,10 @@
   "name": "test4test",
   "compatibility_date": "2026-08-31",
 
+  // Explicito a proposito: declarar "routes" lo apaga por defecto y tira abajo
+  // la URL *.workers.dev sin avisar mas que con un WARNING.
+  "workers_dev": true,
+
   "assets": {
     "directory": "./webApp/build/dist/wasmJs/productionExecutable",
     // The whole app is one Compose canvas, so every path must serve index.html
