@@ -37,5 +37,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # wrangler-action trae 3.90 por defecto, y esa version exige un
+          # "main": no sabe desplegar solo assets. Con 4.x el Worker sin script
+          # es un deploy valido.
+          wranglerVersion: "4.127.1"
           # Name, asset directory and SPA routing all come from wrangler.jsonc.
           command: deploy
