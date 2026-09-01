@@ -1,0 +1,37 @@
+name: Release to Play
+
+# Por etiqueta y no por push a main: cada publicacion quema un versionCode y avisa
+# a los testers. Se etiqueta cuando se quiere publicar de verdad.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      track:
+        description: Canal de Play
+        type: choice
+        options: [alpha, internal, beta, production]
+        default: alpha
+
+jobs:
+  release:
+    # La secuencia vive en BaltaJmn/ci, compartida con Quilt. Aqui solo lo que
+    # distingue a esta app: Java 21, el certificado propio y las credenciales que
+    # necesita generateAppConfig para no romper el build.
+    uses: BaltaJmn/ci/.github/workflows/android-play-release.yml@main
+    with:
+      package-name: com.baltajmn.test4test
+      signer-cn: CN=Test4Test
+      java-version: '21'
+      gradle-tasks: ':shared:testAndroidHostTest :androidApp:bundleRelease'
+      track: ${{ inputs.track || 'alpha' }}
+    secrets:
+      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+      KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+      BUILD_ENV: |
+        SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+        SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }}
+        REVENUECAT_ANDROID_KEY=${{ secrets.REVENUECAT_ANDROID_KEY }}
