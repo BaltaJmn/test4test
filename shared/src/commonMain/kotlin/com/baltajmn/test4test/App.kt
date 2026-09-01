@@ -1,14 +1,28 @@
 package com.baltajmn.test4test
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -17,7 +31,11 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
 import coil3.ImageLoader
 import coil3.compose.setSingletonImageLoaderFactory
 import coil3.network.ktor3.KtorNetworkFetcherFactory
@@ -55,7 +73,7 @@ fun App() {
             .components { add(KtorNetworkFetcherFactory()) }
             .build()
     }
-    MaterialTheme {
+    Test4TestTheme {
         val status by supabase.auth.sessionStatus.collectAsState()
         when (status) {
             // Initializing va aparte a proposito: colapsarlo con "sin sesion"
@@ -92,34 +110,22 @@ private fun Home() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(title(current)) },
+                title = { Text(title(current), style = MaterialTheme.typography.titleLarge) },
                 navigationIcon = {
                     if (stack.size > 1) TextButton(onClick = ::back) { Text(stringResource(Res.string.nav_back)) }
                 },
+                // Transparente sobre el papel del Scaffold: sin barra de color, el
+                // titulo se lee como el encabezado de la pagina y no como un bloque.
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent,
+                    titleContentColor = MaterialTheme.colorScheme.onSurface,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                ),
             )
         },
         bottomBar = {
             if (current is Screen.Feed || current is Screen.MyApps || current is Screen.Profile) {
-                NavigationBar {
-                    NavigationBarItem(
-                        selected = current is Screen.Feed,
-                        onClick = { goRoot(Screen.Feed) },
-                        icon = {},
-                        label = { Text(stringResource(Res.string.tab_feed)) },
-                    )
-                    NavigationBarItem(
-                        selected = current is Screen.MyApps,
-                        onClick = { goRoot(Screen.MyApps) },
-                        icon = {},
-                        label = { Text(stringResource(Res.string.tab_my_apps)) },
-                    )
-                    NavigationBarItem(
-                        selected = current is Screen.Profile,
-                        onClick = { goRoot(Screen.Profile) },
-                        icon = {},
-                        label = { Text(stringResource(Res.string.tab_profile)) },
-                    )
-                }
+                BottomTabs(current, ::goRoot)
             }
         },
     ) { padding ->
@@ -177,6 +183,48 @@ private fun Home() {
                 },
             )
         }
+    }
+}
+
+// Barra propia y no NavigationBar: la app no tiene juego de iconos, y
+// NavigationBar sin icono deja las etiquetas apretadas contra el borde. Aqui la
+// pestana activa se marca con un subrayado, que es lo unico que hace falta.
+@Composable
+private fun BottomTabs(current: Screen, onSelect: (Screen) -> Unit) {
+    Column(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceContainer)) {
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+        Row(Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.navigationBars)) {
+            Tab(stringResource(Res.string.tab_feed), current is Screen.Feed) { onSelect(Screen.Feed) }
+            Tab(stringResource(Res.string.tab_my_apps), current is Screen.MyApps) { onSelect(Screen.MyApps) }
+            Tab(stringResource(Res.string.tab_profile), current is Screen.Profile) { onSelect(Screen.Profile) }
+        }
+    }
+}
+
+@Composable
+private fun RowScope.Tab(label: String, selected: Boolean, onClick: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .weight(1f)
+            .selectable(selected = selected, role = Role.Tab, onClick = onClick)
+            .padding(top = 12.dp, bottom = 10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelLarge,
+            color = if (selected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Box(
+            Modifier
+                .width(18.dp)
+                .height(2.dp)
+                .background(
+                    if (selected) MaterialTheme.colorScheme.primary else Color.Transparent,
+                    RoundedCornerShape(1.dp),
+                )
+        )
     }
 }
 

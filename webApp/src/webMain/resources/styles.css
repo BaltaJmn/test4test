@@ -1,7 +1,16 @@
+/* Mismos valores que Theme.kt: el papel de la pagina tiene que ser el mismo
+   antes y despues de que arranque Compose, o el arranque parpadea en blanco. */
+:root {
+    --paper: #FBFAFC;
+    --line: #E7E4EE;
+    --violet: #5330D9;
+}
+
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: var(--paper);
 }

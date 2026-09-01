@@ -1,5 +1,6 @@
 package com.baltajmn.test4test
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -84,7 +85,11 @@ fun ProfileScreen(
             if (me?.isPremium == true) {
                 Text(stringResource(Res.string.profile_premium), style = MaterialTheme.typography.labelLarge)
             } else {
-                OutlinedButton(onClick = onPaywall, modifier = Modifier.fillMaxWidth()) {
+                OutlinedButton(
+                    onClick = onPaywall,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
                     Text(stringResource(Res.string.profile_free))
                 }
             }
@@ -96,7 +101,7 @@ fun ProfileScreen(
             item { Text(stringResource(Res.string.profile_none_yet), style = MaterialTheme.typography.bodyMedium) }
         }
         for (app in mine) {
-            item(key = "mine-${app.id}") { AppCard(app, onClick = { onOpen(app.id) }) }
+            item(key = "mine-${app.id}") { AppListItem(app, onClick = { onOpen(app.id) }) }
         }
 
         item { Text(stringResource(Res.string.profile_testing), style = MaterialTheme.typography.titleMedium) }
@@ -104,7 +109,7 @@ fun ProfileScreen(
             item { Text(stringResource(Res.string.profile_not_joined), style = MaterialTheme.typography.bodyMedium) }
         }
         for (app in testing) {
-            item(key = "testing-${app.id}") { AppCard(app, onClick = { onOpen(app.id) }) }
+            item(key = "testing-${app.id}") { AppListItem(app, onClick = { onOpen(app.id) }) }
         }
 
         item {

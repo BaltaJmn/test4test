@@ -84,7 +84,7 @@ fun FeedScreen(
                 }
                 for (app in list) {
                     item(key = app.id) {
-                        AppCard(app, onClick = { onOpen(app.id) }) {
+                        AppListItem(app, onClick = { onOpen(app.id) }) {
                             if (me?.isAdmin == true) {
                                 TextButton(onClick = { pendingDelete = app }) { Text(stringResource(Res.string.action_delete)) }
                             }

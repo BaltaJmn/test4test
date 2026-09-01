@@ -12,7 +12,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -128,24 +127,15 @@ fun AppDetailScreen(
     PageLazyColumn(modifier) {
         item {
             Text(current.name, style = MaterialTheme.typography.headlineSmall)
-            FollowerBadge(current.followerCount)
+            TesterSummary(current.followerCount)
             FollowerHelp()
         }
         item { ErrorText(error) }
         item {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(
-                    onClick = { uriHandler.openUri(current.googleGroupsUrl) },
-                    modifier = Modifier.fillMaxWidth(),
-                ) { Text(stringResource(Res.string.detail_groups)) }
-                OutlinedButton(
-                    onClick = { uriHandler.openUri(current.playStoreUrl) },
-                    modifier = Modifier.fillMaxWidth(),
-                ) { Text(stringResource(Res.string.detail_play)) }
-                OutlinedButton(
-                    onClick = { uriHandler.openUri(current.optInUrl) },
-                    modifier = Modifier.fillMaxWidth(),
-                ) { Text(stringResource(Res.string.detail_opt_in)) }
+                LinkButton(stringResource(Res.string.detail_groups)) { uriHandler.openUri(current.googleGroupsUrl) }
+                LinkButton(stringResource(Res.string.detail_play)) { uriHandler.openUri(current.playStoreUrl) }
+                LinkButton(stringResource(Res.string.detail_opt_in)) { uriHandler.openUri(current.optInUrl) }
             }
         }
         item {

@@ -9,7 +9,6 @@ import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.paywall_active
 import test4test.shared.generated.resources.paywall_body
 import test4test.shared.generated.resources.paywall_web
-import test4test.shared.generated.resources.title_paywall
 
 // Issue #26: la compra solo existe en Android. En Web el estado premium se lee
 // igual (mismo profiles.is_premium) pero no se vende nada.
@@ -22,9 +21,8 @@ fun PaywallScreen(
     onPurchased: () -> Unit,
 ) {
     PageColumn(modifier) {
-        Text(stringResource(Res.string.title_paywall), style = MaterialTheme.typography.headlineSmall)
         Text(
-            "El plan gratuito incluye 1 app. Con slots ilimitados publicas todas las que quieras.",
+            stringResource(Res.string.paywall_body),
             style = MaterialTheme.typography.bodyLarge,
         )
         when {

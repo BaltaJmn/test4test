@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -38,6 +39,7 @@ import test4test.shared.generated.resources.google_g
 import test4test.shared.generated.resources.login_error
 import test4test.shared.generated.resources.login_google
 import test4test.shared.generated.resources.login_tagline
+import test4test.shared.generated.resources.logo_mark
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
@@ -47,13 +49,22 @@ fun LoginScreen(modifier: Modifier = Modifier) {
     val loginErrorText = stringResource(Res.string.login_error)
 
     PageColumn(modifier) {
-        Spacer(Modifier.height(64.dp))
-        Text(stringResource(Res.string.app_name), style = MaterialTheme.typography.headlineLarge)
+        Spacer(Modifier.height(112.dp))
+        // La marca antes del nombre: dos checks, el tuyo y el del otro. Es todo lo
+        // que hace la app, y cabe en un dibujo.
+        Icon(
+            painter = painterResource(Res.drawable.logo_mark),
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.size(72.dp),
+        )
+        Text(stringResource(Res.string.app_name), style = MaterialTheme.typography.displaySmall)
         Text(
             stringResource(Res.string.login_tagline),
             style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(8.dp))
         GoogleSignInButton(
             enabled = !loading,
             onClick = {

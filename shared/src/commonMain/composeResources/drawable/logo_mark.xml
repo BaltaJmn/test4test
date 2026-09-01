@@ -1,0 +1,24 @@
+<!-- La marca: dos checks, el tuyo y el del otro. Misma geometria que
+     branding/icon-fg.svg y que el icono de launcher; si cambia una, cambian
+     todas. Sin color propio: lo pinta Icon() con el color del tema, y el
+     strokeAlpha del check de atras sobrevive al tinte. -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <path
+      android:pathData="M46,59 L56,67 L79,41"
+      android:strokeColor="#FFFFFF"
+      android:strokeAlpha="0.5"
+      android:strokeWidth="8.5"
+      android:strokeLineCap="round"
+      android:strokeLineJoin="round" />
+  <path
+      android:pathData="M27,55 L39,67 L62,41"
+      android:strokeColor="#FFFFFF"
+      android:strokeWidth="8.5"
+      android:strokeLineCap="round"
+      android:strokeLineJoin="round" />
+</vector>

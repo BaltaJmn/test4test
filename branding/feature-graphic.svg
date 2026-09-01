@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
   <!-- Grafico de funciones de Play. Todo el contenido importante queda a mas de
        80px de los bordes: algunas superficies de Play recortan por ahi. -->
-  <rect width="1024" height="500" fill="#6750A4"/>
+  <rect width="1024" height="500" fill="#5330D9"/>
   <g transform="translate(238 258) scale(3.1) translate(-53 -54)"
      fill="none" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M46 59 L56 67 L79 41" opacity="0.55"/>

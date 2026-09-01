@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
   <!-- Fuente unica del icono. 108x108 = viewport del adaptive icon de Android.
        El arte cabe en el circulo central de 72 que el launcher garantiza visible. -->
-  <rect width="108" height="108" fill="#6750A4"/>
+  <rect width="108" height="108" fill="#5330D9"/>
   <g fill="none" stroke="#FFFFFF" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M46 59 L56 67 L79 41" opacity="0.55"/>
     <path d="M27 55 L39 67 L62 41"/>

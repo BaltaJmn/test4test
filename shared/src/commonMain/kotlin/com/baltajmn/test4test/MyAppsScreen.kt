@@ -94,7 +94,7 @@ fun MyAppsScreen(
         }
         for (app in list) {
             item(key = app.id) {
-                AppCard(app, onClick = { onOpen(app.id) }) {
+                AppListItem(app, onClick = { onOpen(app.id) }) {
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                         TextButton(onClick = { onEdit(app) }) { Text(stringResource(Res.string.action_edit)) }
                         TextButton(onClick = { pendingDelete = app }) { Text(stringResource(Res.string.action_delete)) }
