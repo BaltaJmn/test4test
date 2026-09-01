@@ -31,8 +31,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.action_cancel
+import test4test.shared.generated.resources.action_delete
+import test4test.shared.generated.resources.confirm_title
+import test4test.shared.generated.resources.follower_help
 import test4test.shared.generated.resources.ic_tester
+import test4test.shared.generated.resources.linked_app
+import test4test.shared.generated.resources.testers
 
 // Issue #28: en Web la ventana es mucho mas ancha que un movil. Una columna
 // centrada con ancho maximo evita lineas de texto de 1500px sin escribir un
@@ -98,13 +106,22 @@ fun FollowerBadge(count: Long, modifier: Modifier = Modifier) {
             modifier = Modifier.size(16.dp),
         )
         Text(
-            text = if (count == 1L) "1 tester" else "$count testers",
+            // pluralStringResource elige la forma segun el idioma: el indonesio no
+            // tiene singular y el ingles y el espanol si.
+            text = pluralStringResource(Res.plurals.testers, count.toInt(), count.toInt()),
             style = MaterialTheme.typography.labelLarge,
         )
     }
 }
 
-const val FOLLOWER_HELP = "Personas que se han unido como tester desde Test4Test."
+@Composable
+fun FollowerHelp(modifier: Modifier = Modifier) {
+    Text(
+        stringResource(Res.string.follower_help),
+        style = MaterialTheme.typography.bodySmall,
+        modifier = modifier,
+    )
+}
 
 // Issue #27: la foto sale de profiles.avatar_url, que rellena Google al registrarse.
 // La inicial se pinta siempre por debajo, asi que hay algo visible mientras carga
@@ -164,7 +181,7 @@ fun AppCard(
 fun LinkedAppChip(app: AppRow, onClick: () -> Unit, modifier: Modifier = Modifier) {
     AssistChip(
         onClick = onClick,
-        label = { Text("${app.name} - ${app.followerCount} testers") },
+        label = { Text(stringResource(Res.string.linked_app, app.name, app.followerCount.toInt())) },
         modifier = modifier,
     )
 }
@@ -175,9 +192,9 @@ fun LinkedAppChip(app: AppRow, onClick: () -> Unit, modifier: Modifier = Modifie
 fun ConfirmDialog(text: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Confirmar") },
+        title = { Text(stringResource(Res.string.confirm_title)) },
         text = { Text(text) },
-        confirmButton = { TextButton(onClick = onConfirm) { Text("Borrar") } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text("Cancelar") } },
+        confirmButton = { TextButton(onClick = onConfirm) { Text(stringResource(Res.string.action_delete)) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(Res.string.action_cancel)) } },
     )
 }

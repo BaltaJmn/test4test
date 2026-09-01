@@ -1,0 +1,98 @@
+<resources>
+    <!-- Indonesio. Existe duplicado en values-in a proposito: java.util.Locale
+         devuelve "in" para el indonesio (codigo antiguo) mientras que el navegador
+         devuelve "id", asi que Android y Web buscan carpetas distintas. Si tocas
+         una, toca la otra. -->
+    <string name="nav_back">Kembali</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Aplikasi saya</string>
+    <string name="tab_profile">Profil</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_new_app">Aplikasi baru</string>
+    <string name="title_edit_app">Edit aplikasi</string>
+    <string name="title_paywall">Slot tanpa batas</string>
+
+    <string name="login_tagline">Dapatkan tester untuk aplikasi Google Play Anda dengan membantu orang lain mendapatkan tester mereka.</string>
+    <string name="login_google">Lanjutkan dengan Google</string>
+    <string name="login_error">Tidak bisa masuk</string>
+
+    <string name="feed_error">Tidak bisa memuat feed</string>
+    <string name="feed_empty">Belum ada aplikasi dari developer lain. Coba lagi nanti.</string>
+
+    <string name="detail_error">Tidak bisa memuat aplikasi</string>
+    <string name="detail_own_app">Aplikasi ini milik Anda.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Tautan opt-in</string>
+    <string name="detail_join">Gabung sebagai tester</string>
+    <string name="detail_leave">Keluar</string>
+    <string name="detail_delete_app">Hapus aplikasi</string>
+    <string name="detail_action_error">Tidak bisa diselesaikan</string>
+
+    <string name="comments_title">Komentar</string>
+    <string name="comment_placeholder">Tulis komentar</string>
+    <string name="comment_link_app">Tautkan aplikasi saya (opsional)</string>
+    <string name="comment_send">Kirim</string>
+    <string name="comment_send_error">Tidak bisa mengirim</string>
+    <string name="comments_empty">Belum ada komentar.</string>
+    <string name="comment_author_fallback">Pengguna</string>
+
+    <string name="my_apps_error">Tidak bisa memuat aplikasi Anda</string>
+    <string name="my_apps_add">Tambah aplikasi</string>
+    <string name="my_apps_empty">Anda belum menambahkan aplikasi apa pun.</string>
+
+    <string name="form_name">Nama aplikasi</string>
+    <string name="form_groups_url">Tautan Google Groups</string>
+    <string name="form_play_url">Tautan Play Store</string>
+    <string name="form_opt_in_url">Tautan opt-in</string>
+    <string name="form_create">Buat aplikasi</string>
+    <string name="form_save">Simpan perubahan</string>
+    <string name="form_save_error">Tidak bisa menyimpan</string>
+
+    <string name="error_name_empty">Nama tidak boleh kosong</string>
+    <string name="error_name_too_long">Nama tidak boleh lebih dari 100 karakter</string>
+    <string name="error_groups_url">Tautan Google Groups harus diawali https://</string>
+    <string name="error_play_url">Tautan Play Store harus diawali https://</string>
+    <string name="error_opt_in_url">Tautan opt-in harus diawali https://</string>
+
+    <string name="profile_error">Tidak bisa memuat profil</string>
+    <string name="profile_fallback_name">Pengguna</string>
+    <string name="profile_premium">Premium: slot tanpa batas</string>
+    <string name="profile_free">Paket gratis - 1 aplikasi</string>
+    <string name="profile_my_apps">Aplikasi saya</string>
+    <string name="profile_none_yet">Belum ada.</string>
+    <string name="profile_testing">Aplikasi yang saya uji</string>
+    <string name="profile_not_joined">Anda belum bergabung dengan satu pun.</string>
+    <string name="profile_sign_out">Keluar</string>
+    <string name="profile_privacy">Kebijakan privasi</string>
+
+    <string name="paywall_body">Paket gratis mencakup 1 aplikasi. Dengan slot tanpa batas Anda bisa memublikasikan sebanyak yang Anda mau.</string>
+    <string name="paywall_active">Anda sudah punya slot tanpa batas.</string>
+    <string name="paywall_web">Kelola langganan Anda dari aplikasi Android: pembelian tidak tersedia di web.</string>
+    <string name="paywall_preparing">Pembelian segera hadir.</string>
+    <string name="paywall_no_product">Belum ada produk yang tersedia.</string>
+    <string name="paywall_price_error">Tidak bisa memuat harga: %1$s</string>
+    <string name="paywall_subscribe">Berlangganan</string>
+    <string name="paywall_subscribe_price">Berlangganan seharga %1$s</string>
+    <string name="paywall_restore">Pulihkan pembelian</string>
+    <string name="paywall_no_purchase">Kami tidak menemukan pembelian aktif.</string>
+    <string name="paywall_pending">Pembelian tercatat, tetapi akses belum aktif. Kembali lagi sebentar.</string>
+    <string name="paywall_purchase_error">Tidak bisa menyelesaikan pembelian</string>
+
+    <string name="confirm_title">Konfirmasi</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_edit">Edit</string>
+    <string name="confirm_delete_app_comments">Hapus \"%1$s\" dan semua komentarnya?</string>
+    <string name="confirm_delete_app_content">Hapus \"%1$s\" dan seluruh isinya?</string>
+    <string name="confirm_delete_my_app">Hapus \"%1$s\"? Tester dan komentarnya ikut terhapus.</string>
+    <string name="confirm_delete_comment">Hapus komentar ini?</string>
+    <string name="delete_error">Tidak bisa menghapus</string>
+
+    <string name="follower_help">Orang yang bergabung sebagai tester lewat Test4Test.</string>
+    <string name="linked_app">%1$s - %2$d tester</string>
+
+    <plurals name="testers">
+        <item quantity="other">%1$d tester</item>
+    </plurals>
+</resources>

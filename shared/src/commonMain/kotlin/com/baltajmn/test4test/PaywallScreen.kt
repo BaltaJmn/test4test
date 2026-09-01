@@ -4,6 +4,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.paywall_active
+import test4test.shared.generated.resources.paywall_body
+import test4test.shared.generated.resources.paywall_web
+import test4test.shared.generated.resources.title_paywall
 
 // Issue #26: la compra solo existe en Android. En Web el estado premium se lee
 // igual (mismo profiles.is_premium) pero no se vende nada.
@@ -16,15 +22,15 @@ fun PaywallScreen(
     onPurchased: () -> Unit,
 ) {
     PageColumn(modifier) {
-        Text("Slots ilimitados", style = MaterialTheme.typography.headlineSmall)
+        Text(stringResource(Res.string.title_paywall), style = MaterialTheme.typography.headlineSmall)
         Text(
             "El plan gratuito incluye 1 app. Con slots ilimitados publicas todas las que quieras.",
             style = MaterialTheme.typography.bodyLarge,
         )
         when {
-            me?.isPremium == true -> Text("Ya tienes slots ilimitados.")
+            me?.isPremium == true -> Text(stringResource(Res.string.paywall_active))
             getPlatform().isAndroid -> PurchaseSection(uid, onPurchased)
-            else -> Text("Gestiona tu suscripcion desde la app Android: la compra no esta disponible en la Web.")
+            else -> Text(stringResource(Res.string.paywall_web))
         }
     }
 }

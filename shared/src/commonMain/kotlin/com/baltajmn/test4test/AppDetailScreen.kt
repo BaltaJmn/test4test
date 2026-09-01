@@ -27,6 +27,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.action_delete
+import test4test.shared.generated.resources.comment_author_fallback
+import test4test.shared.generated.resources.comment_link_app
+import test4test.shared.generated.resources.comment_placeholder
+import test4test.shared.generated.resources.comment_send
+import test4test.shared.generated.resources.comment_send_error
+import test4test.shared.generated.resources.comments_empty
+import test4test.shared.generated.resources.comments_title
+import test4test.shared.generated.resources.confirm_delete_app_content
+import test4test.shared.generated.resources.confirm_delete_comment
+import test4test.shared.generated.resources.delete_error
+import test4test.shared.generated.resources.detail_action_error
+import test4test.shared.generated.resources.detail_delete_app
+import test4test.shared.generated.resources.detail_error
+import test4test.shared.generated.resources.detail_groups
+import test4test.shared.generated.resources.detail_join
+import test4test.shared.generated.resources.detail_leave
+import test4test.shared.generated.resources.detail_opt_in
+import test4test.shared.generated.resources.detail_own_app
+import test4test.shared.generated.resources.detail_play
 
 @Composable
 fun AppDetailScreen(
@@ -51,6 +73,11 @@ fun AppDetailScreen(
     var reload by remember { mutableStateOf(0) }
     var pendingCommentDelete by remember { mutableStateOf<CommentRow?>(null) }
     var pendingAppDelete by remember { mutableStateOf(false) }
+    // Resueltos aqui: LaunchedEffect y los lambdas de onClick no son composables.
+    val loadErrorText = stringResource(Res.string.detail_error)
+    val deleteErrorText = stringResource(Res.string.delete_error)
+    val actionErrorText = stringResource(Res.string.detail_action_error)
+    val sendErrorText = stringResource(Res.string.comment_send_error)
 
     LaunchedEffect(appId, reload) {
         runCatching {
@@ -58,7 +85,7 @@ fun AppDetailScreen(
             comments = commentsFor(appId)
             isTester = appId in testerAppIds(uid)
             myOwnApps = myApps(uid)
-        }.onFailure { error = it.message ?: "No se pudo cargar la app" }
+        }.onFailure { error = it.message ?: loadErrorText }
     }
 
     val current = app
@@ -71,13 +98,13 @@ fun AppDetailScreen(
 
     if (pendingAppDelete) {
         ConfirmDialog(
-            text = "Borrar \"${current.name}\" y todo su contenido?",
+            text = stringResource(Res.string.confirm_delete_app_content, current.name),
             onConfirm = {
                 pendingAppDelete = false
                 scope.launch {
                     runCatching { deleteApp(current.id) }
                         .onSuccess { onDeleted() }
-                        .onFailure { error = it.message ?: "No se pudo borrar" }
+                        .onFailure { error = it.message ?: deleteErrorText }
                 }
             },
             onDismiss = { pendingAppDelete = false },
@@ -85,13 +112,13 @@ fun AppDetailScreen(
     }
     pendingCommentDelete?.let { target ->
         ConfirmDialog(
-            text = "Borrar este comentario?",
+            text = stringResource(Res.string.confirm_delete_comment),
             onConfirm = {
                 pendingCommentDelete = null
                 scope.launch {
                     runCatching { deleteComment(target.id) }
                         .onSuccess { reload++ }
-                        .onFailure { error = it.message ?: "No se pudo borrar" }
+                        .onFailure { error = it.message ?: deleteErrorText }
                 }
             },
             onDismiss = { pendingCommentDelete = null },
@@ -102,7 +129,7 @@ fun AppDetailScreen(
         item {
             Text(current.name, style = MaterialTheme.typography.headlineSmall)
             FollowerBadge(current.followerCount)
-            Text(FOLLOWER_HELP, style = MaterialTheme.typography.bodySmall)
+            FollowerHelp()
         }
         item { ErrorText(error) }
         item {
@@ -110,20 +137,20 @@ fun AppDetailScreen(
                 OutlinedButton(
                     onClick = { uriHandler.openUri(current.googleGroupsUrl) },
                     modifier = Modifier.fillMaxWidth(),
-                ) { Text("Google Groups") }
+                ) { Text(stringResource(Res.string.detail_groups)) }
                 OutlinedButton(
                     onClick = { uriHandler.openUri(current.playStoreUrl) },
                     modifier = Modifier.fillMaxWidth(),
-                ) { Text("Play Store") }
+                ) { Text(stringResource(Res.string.detail_play)) }
                 OutlinedButton(
                     onClick = { uriHandler.openUri(current.optInUrl) },
                     modifier = Modifier.fillMaxWidth(),
-                ) { Text("Enlace de opt-in") }
+                ) { Text(stringResource(Res.string.detail_opt_in)) }
             }
         }
         item {
             when {
-                isOwner -> Text("Esta app es tuya.", style = MaterialTheme.typography.bodyMedium)
+                isOwner -> Text(stringResource(Res.string.detail_own_app), style = MaterialTheme.typography.bodyMedium)
                 else -> Button(
                     // busy bloquea el doble clic mientras se resuelve la llamada.
                     enabled = !busy,
@@ -134,29 +161,29 @@ fun AppDetailScreen(
                                 if (isTester) leaveApp(current.id, uid) else joinApp(current.id, uid)
                             }
                                 .onSuccess { reload++ }
-                                .onFailure { error = it.message ?: "No se pudo completar" }
+                                .onFailure { error = it.message ?: actionErrorText }
                             busy = false
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text(if (isTester) "Salir" else "Unirme como tester")
+                    Text(stringResource(if (isTester) Res.string.detail_leave else Res.string.detail_join))
                 }
             }
         }
         if (isOwner || canModerate) {
             item {
-                TextButton(onClick = { pendingAppDelete = true }) { Text("Borrar app") }
+                TextButton(onClick = { pendingAppDelete = true }) { Text(stringResource(Res.string.detail_delete_app)) }
             }
         }
 
         item { HorizontalDivider() }
-        item { Text("Comentarios", style = MaterialTheme.typography.titleMedium) }
+        item { Text(stringResource(Res.string.comments_title), style = MaterialTheme.typography.titleMedium) }
         item {
             OutlinedTextField(
                 value = body,
                 onValueChange = { body = it },
-                label = { Text("Escribe un comentario") },
+                label = { Text(stringResource(Res.string.comment_placeholder)) },
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -164,7 +191,7 @@ fun AppDetailScreen(
         if (myOwnApps.isNotEmpty()) {
             item {
                 Column {
-                    Text("Vincular una app mia (opcional)", style = MaterialTheme.typography.bodySmall)
+                    Text(stringResource(Res.string.comment_link_app), style = MaterialTheme.typography.bodySmall)
                     Row(
                         Modifier.horizontalScroll(rememberScrollState()),
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -199,27 +226,30 @@ fun AppDetailScreen(
                             body = ""
                             linkedAppId = null
                             reload++
-                        }.onFailure { error = it.message ?: "No se pudo enviar" }
+                        }.onFailure { error = it.message ?: sendErrorText }
                         busy = false
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
-            ) { Text("Enviar") }
+            ) { Text(stringResource(Res.string.comment_send)) }
         }
         if (comments.isEmpty()) {
-            item { Text("Todavia no hay comentarios.", style = MaterialTheme.typography.bodyMedium) }
+            item { Text(stringResource(Res.string.comments_empty), style = MaterialTheme.typography.bodyMedium) }
         }
         for (view in comments) {
             item(key = view.comment.id) {
                 Card(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(view.authorName, style = MaterialTheme.typography.labelLarge)
+                        Text(
+                            view.authorName.ifBlank { stringResource(Res.string.comment_author_fallback) },
+                            style = MaterialTheme.typography.labelLarge,
+                        )
                         Text(view.comment.body, style = MaterialTheme.typography.bodyMedium)
                         view.linkedApp?.let { linked ->
                             LinkedAppChip(linked, onClick = { onOpen(linked.id) })
                         }
                         if (view.comment.authorId == uid || canModerate) {
-                            TextButton(onClick = { pendingCommentDelete = view.comment }) { Text("Borrar") }
+                            TextButton(onClick = { pendingCommentDelete = view.comment }) { Text(stringResource(Res.string.action_delete)) }
                         }
                     }
                 }

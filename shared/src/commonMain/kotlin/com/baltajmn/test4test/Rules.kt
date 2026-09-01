@@ -1,5 +1,13 @@
 package com.baltajmn.test4test
 
+import org.jetbrains.compose.resources.StringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.error_groups_url
+import test4test.shared.generated.resources.error_name_empty
+import test4test.shared.generated.resources.error_name_too_long
+import test4test.shared.generated.resources.error_opt_in_url
+import test4test.shared.generated.resources.error_play_url
+
 // Plan free: 1 app por usuario. La misma condicion vive en la policy
 // apps_insert_own_within_slots; aqui solo se replica para no llevar al usuario
 // a un formulario que el backend va a rechazar.
@@ -12,17 +20,18 @@ fun avatarInitial(displayName: String?): String =
     displayName?.trim()?.take(1)?.uppercase()?.takeIf { it.isNotBlank() } ?: "?"
 
 // Validacion de cliente del alta de app (issue #15): evita el viaje al backend.
-// Los mismos limites estan como CHECK en la tabla apps.
+// Los mismos limites estan como CHECK en la tabla apps. Devuelve la clave del
+// mensaje y no el texto: esta funcion no es composable y no sabe el idioma.
 fun appFormError(
     name: String,
     googleGroupsUrl: String,
     playStoreUrl: String,
     optInUrl: String,
-): String? = when {
-    name.trim().isEmpty() -> "El nombre no puede estar vacio"
-    name.trim().length > 100 -> "El nombre no puede pasar de 100 caracteres"
-    !googleGroupsUrl.startsWith("https://") -> "El enlace de Google Groups tiene que empezar por https://"
-    !playStoreUrl.startsWith("https://") -> "El enlace de Play Store tiene que empezar por https://"
-    !optInUrl.startsWith("https://") -> "El enlace de opt-in tiene que empezar por https://"
+): StringResource? = when {
+    name.trim().isEmpty() -> Res.string.error_name_empty
+    name.trim().length > 100 -> Res.string.error_name_too_long
+    !googleGroupsUrl.startsWith("https://") -> Res.string.error_groups_url
+    !playStoreUrl.startsWith("https://") -> Res.string.error_play_url
+    !optInUrl.startsWith("https://") -> Res.string.error_opt_in_url
     else -> null
 }

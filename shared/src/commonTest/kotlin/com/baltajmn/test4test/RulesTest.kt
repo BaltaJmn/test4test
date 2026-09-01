@@ -1,5 +1,7 @@
 package com.baltajmn.test4test
 
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.error_play_url
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -39,8 +41,9 @@ class RulesTest {
     @Test
     fun blankNameAndHttpUrlsFail() {
         assertNotNull(appFormError("   ", "https://a", "https://b", "https://c"))
+        // La clave y no el texto: appFormError no sabe el idioma, lo resuelve la UI.
         assertEquals(
-            "El enlace de Play Store tiene que empezar por https://",
+            Res.string.error_play_url,
             appFormError("Mi app", "https://a", "http://b", "https://c"),
         )
     }

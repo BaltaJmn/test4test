@@ -23,6 +23,17 @@ import coil3.compose.setSingletonImageLoaderFactory
 import coil3.network.ktor3.KtorNetworkFetcherFactory
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.status.SessionStatus
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.app_name
+import test4test.shared.generated.resources.nav_back
+import test4test.shared.generated.resources.tab_feed
+import test4test.shared.generated.resources.tab_my_apps
+import test4test.shared.generated.resources.tab_profile
+import test4test.shared.generated.resources.title_detail
+import test4test.shared.generated.resources.title_edit_app
+import test4test.shared.generated.resources.title_new_app
+import test4test.shared.generated.resources.title_paywall
 
 sealed interface Screen {
     data object Feed : Screen
@@ -83,7 +94,7 @@ private fun Home() {
             TopAppBar(
                 title = { Text(title(current)) },
                 navigationIcon = {
-                    if (stack.size > 1) TextButton(onClick = ::back) { Text("Atras") }
+                    if (stack.size > 1) TextButton(onClick = ::back) { Text(stringResource(Res.string.nav_back)) }
                 },
             )
         },
@@ -94,19 +105,19 @@ private fun Home() {
                         selected = current is Screen.Feed,
                         onClick = { goRoot(Screen.Feed) },
                         icon = {},
-                        label = { Text("Feed") },
+                        label = { Text(stringResource(Res.string.tab_feed)) },
                     )
                     NavigationBarItem(
                         selected = current is Screen.MyApps,
                         onClick = { goRoot(Screen.MyApps) },
                         icon = {},
-                        label = { Text("Mis apps") },
+                        label = { Text(stringResource(Res.string.tab_my_apps)) },
                     )
                     NavigationBarItem(
                         selected = current is Screen.Profile,
                         onClick = { goRoot(Screen.Profile) },
                         icon = {},
-                        label = { Text("Perfil") },
+                        label = { Text(stringResource(Res.string.tab_profile)) },
                     )
                 }
             }
@@ -169,11 +180,14 @@ private fun Home() {
     }
 }
 
-private fun title(screen: Screen): String = when (screen) {
-    is Screen.Feed -> "Test4Test"
-    is Screen.MyApps -> "Mis apps"
-    is Screen.Profile -> "Perfil"
-    is Screen.Detail -> "Detalle"
-    is Screen.EditApp -> if (screen.app == null) "Nueva app" else "Editar app"
-    is Screen.Paywall -> "Slots ilimitados"
-}
+@Composable
+private fun title(screen: Screen): String = stringResource(
+    when (screen) {
+        is Screen.Feed -> Res.string.app_name
+        is Screen.MyApps -> Res.string.tab_my_apps
+        is Screen.Profile -> Res.string.tab_profile
+        is Screen.Detail -> Res.string.title_detail
+        is Screen.EditApp -> if (screen.app == null) Res.string.title_new_app else Res.string.title_edit_app
+        is Screen.Paywall -> Res.string.title_paywall
+    }
+)

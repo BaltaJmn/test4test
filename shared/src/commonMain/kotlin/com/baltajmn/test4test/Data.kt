@@ -103,7 +103,9 @@ suspend fun commentsFor(appId: String): List<CommentView> {
     return rows.map { row ->
         CommentView(
             comment = row,
-            authorName = authors[row.authorId]?.displayName ?: "Usuario",
+            // Vacio y no un literal: el texto de repuesto lo pone la UI, que es la
+            // que sabe el idioma.
+            authorName = authors[row.authorId]?.displayName.orEmpty(),
             linkedApp = row.linkedAppId?.let(linked::get),
         )
     }

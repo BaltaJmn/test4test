@@ -1,0 +1,95 @@
+<resources>
+    <string name="nav_back">वापस</string>
+    <string name="tab_feed">फ़ीड</string>
+    <string name="tab_my_apps">मेरे ऐप</string>
+    <string name="tab_profile">प्रोफ़ाइल</string>
+    <string name="title_detail">विवरण</string>
+    <string name="title_new_app">नया ऐप</string>
+    <string name="title_edit_app">ऐप संपादित करें</string>
+    <string name="title_paywall">असीमित स्लॉट</string>
+
+    <string name="login_tagline">दूसरों को टेस्टर दिलाने में मदद करें और अपने Google Play ऐप के लिए टेस्टर पाएं।</string>
+    <string name="login_google">Google से जारी रखें</string>
+    <string name="login_error">साइन इन नहीं हो सका</string>
+
+    <string name="feed_error">फ़ीड लोड नहीं हो सकी</string>
+    <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। थोड़ी देर बाद देखें।</string>
+
+    <string name="detail_error">ऐप लोड नहीं हो सका</string>
+    <string name="detail_own_app">यह ऐप आपका है।</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">ऑप्ट-इन लिंक</string>
+    <string name="detail_join">टेस्टर बनें</string>
+    <string name="detail_leave">छोड़ें</string>
+    <string name="detail_delete_app">ऐप हटाएं</string>
+    <string name="detail_action_error">पूरा नहीं हो सका</string>
+
+    <string name="comments_title">टिप्पणियां</string>
+    <string name="comment_placeholder">टिप्पणी लिखें</string>
+    <string name="comment_link_app">अपना कोई ऐप जोड़ें (वैकल्पिक)</string>
+    <string name="comment_send">भेजें</string>
+    <string name="comment_send_error">भेजा नहीं जा सका</string>
+    <string name="comments_empty">अभी कोई टिप्पणी नहीं है।</string>
+    <string name="comment_author_fallback">उपयोगकर्ता</string>
+
+    <string name="my_apps_error">आपके ऐप लोड नहीं हो सके</string>
+    <string name="my_apps_add">ऐप जोड़ें</string>
+    <string name="my_apps_empty">आपने अभी तक कोई ऐप नहीं जोड़ा है।</string>
+
+    <string name="form_name">ऐप का नाम</string>
+    <string name="form_groups_url">Google Groups लिंक</string>
+    <string name="form_play_url">Play Store लिंक</string>
+    <string name="form_opt_in_url">ऑप्ट-इन लिंक</string>
+    <string name="form_create">ऐप बनाएं</string>
+    <string name="form_save">बदलाव सहेजें</string>
+    <string name="form_save_error">सहेजा नहीं जा सका</string>
+
+    <string name="error_name_empty">नाम खाली नहीं हो सकता</string>
+    <string name="error_name_too_long">नाम 100 अक्षरों से बड़ा नहीं हो सकता</string>
+    <string name="error_groups_url">Google Groups लिंक https:// से शुरू होना चाहिए</string>
+    <string name="error_play_url">Play Store लिंक https:// से शुरू होना चाहिए</string>
+    <string name="error_opt_in_url">ऑप्ट-इन लिंक https:// से शुरू होना चाहिए</string>
+
+    <string name="profile_error">प्रोफ़ाइल लोड नहीं हो सकी</string>
+    <string name="profile_fallback_name">उपयोगकर्ता</string>
+    <string name="profile_premium">प्रीमियम: असीमित स्लॉट</string>
+    <string name="profile_free">मुफ़्त प्लान - 1 ऐप</string>
+    <string name="profile_my_apps">मेरे ऐप</string>
+    <string name="profile_none_yet">अभी कोई नहीं।</string>
+    <string name="profile_testing">जिन ऐप का मैं टेस्ट कर रहा हूं</string>
+    <string name="profile_not_joined">आप अभी किसी में शामिल नहीं हुए हैं।</string>
+    <string name="profile_sign_out">साइन आउट</string>
+    <string name="profile_privacy">गोपनीयता नीति</string>
+
+    <string name="paywall_body">मुफ़्त प्लान में 1 ऐप शामिल है। असीमित स्लॉट के साथ आप जितने चाहें उतने ऐप प्रकाशित कर सकते हैं।</string>
+    <string name="paywall_active">आपके पास पहले से असीमित स्लॉट हैं।</string>
+    <string name="paywall_web">अपनी सदस्यता Android ऐप से प्रबंधित करें: वेब पर खरीदारी उपलब्ध नहीं है।</string>
+    <string name="paywall_preparing">खरीदारी जल्द आ रही है।</string>
+    <string name="paywall_no_product">अभी कोई उत्पाद उपलब्ध नहीं है।</string>
+    <string name="paywall_price_error">कीमत लोड नहीं हो सकी: %1$s</string>
+    <string name="paywall_subscribe">सदस्यता लें</string>
+    <string name="paywall_subscribe_price">%1$s में सदस्यता लें</string>
+    <string name="paywall_restore">खरीदारी बहाल करें</string>
+    <string name="paywall_no_purchase">हमें कोई सक्रिय खरीदारी नहीं मिली।</string>
+    <string name="paywall_pending">खरीदारी दर्ज हो गई, लेकिन एक्सेस अभी सक्रिय नहीं है। एक मिनट बाद वापस आएं।</string>
+    <string name="paywall_purchase_error">खरीदारी पूरी नहीं हो सकी</string>
+
+    <string name="confirm_title">पुष्टि करें</string>
+    <string name="action_delete">हटाएं</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_edit">संपादित करें</string>
+    <string name="confirm_delete_app_comments">\"%1$s\" और उसकी सभी टिप्पणियां हटाएं?</string>
+    <string name="confirm_delete_app_content">\"%1$s\" और उसकी सारी सामग्री हटाएं?</string>
+    <string name="confirm_delete_my_app">\"%1$s\" हटाएं? उसके टेस्टर और टिप्पणियां भी चली जाएंगी।</string>
+    <string name="confirm_delete_comment">यह टिप्पणी हटाएं?</string>
+    <string name="delete_error">हटाया नहीं जा सका</string>
+
+    <string name="follower_help">वे लोग जो Test4Test से टेस्टर बने।</string>
+    <string name="linked_app">%1$s - %2$d टेस्टर</string>
+
+    <plurals name="testers">
+        <item quantity="one">%1$d टेस्टर</item>
+        <item quantity="other">%1$d टेस्टर</item>
+    </plurals>
+</resources>

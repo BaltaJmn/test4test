@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.jan.supabase.auth.auth
@@ -32,19 +33,24 @@ import io.github.jan.supabase.auth.providers.Google
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.app_name
 import test4test.shared.generated.resources.google_g
+import test4test.shared.generated.resources.login_error
+import test4test.shared.generated.resources.login_google
+import test4test.shared.generated.resources.login_tagline
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
     val scope = rememberCoroutineScope()
     var loading by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
+    val loginErrorText = stringResource(Res.string.login_error)
 
     PageColumn(modifier) {
         Spacer(Modifier.height(64.dp))
-        Text("Test4Test", style = MaterialTheme.typography.headlineLarge)
+        Text(stringResource(Res.string.app_name), style = MaterialTheme.typography.headlineLarge)
         Text(
-            "Consigue testers para tu app de Google Play ayudando a otros a conseguir los suyos.",
+            stringResource(Res.string.login_tagline),
             style = MaterialTheme.typography.bodyLarge,
         )
         Spacer(Modifier.height(16.dp))
@@ -57,7 +63,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                     // Mismo camino en Android y Web: OAuth por navegador. En
                     // Android vuelve por el deeplink test4test://login.
                     runCatching { supabase.auth.signInWith(Google) }
-                        .onFailure { error = it.message ?: "No se pudo iniciar sesion" }
+                        .onFailure { error = it.message ?: loginErrorText }
                     loading = false
                 }
             },
@@ -98,7 +104,7 @@ private fun GoogleSignInButton(enabled: Boolean, onClick: () -> Unit) {
             )
             Spacer(Modifier.width(10.dp))
             Text(
-                "Continuar con Google",
+                stringResource(Res.string.login_google),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Medium,
             )

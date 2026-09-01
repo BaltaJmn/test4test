@@ -27,6 +27,18 @@ import com.revenuecat.purchases.awaitOfferings
 import com.revenuecat.purchases.awaitPurchase
 import com.revenuecat.purchases.awaitRestore
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.paywall_no_product
+import test4test.shared.generated.resources.paywall_no_purchase
+import test4test.shared.generated.resources.paywall_pending
+import test4test.shared.generated.resources.paywall_preparing
+import test4test.shared.generated.resources.paywall_price_error
+import test4test.shared.generated.resources.paywall_purchase_error
+import test4test.shared.generated.resources.paywall_restore
+import test4test.shared.generated.resources.paywall_subscribe
+import test4test.shared.generated.resources.paywall_subscribe_price
 
 // Issues #23 y #24: precio real desde el offering de RevenueCat, compra y
 // restaurar. Quien decide si el usuario es premium sigue siendo la fila de
@@ -36,7 +48,7 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
     // Sin API key la compra no existe todavia. Asi el repo, la CI y cualquiera que
     // clone compilan sin tener dada de alta la cuenta de RevenueCat.
     if (RevenueCatConfig.ANDROID_KEY.isBlank()) {
-        Text("Compra en preparacion.", style = MaterialTheme.typography.bodySmall)
+        Text(stringResource(Res.string.paywall_preparing), style = MaterialTheme.typography.bodySmall)
         return
     }
 
@@ -55,8 +67,10 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
             offer = Purchases.sharedInstance.awaitOfferings()
                 .current?.availablePackages?.firstOrNull()
         }.fold(
-            onSuccess = { if (offer == null) "No hay ningun producto disponible todavia." else null },
-            onFailure = { "No se pudo cargar el precio: ${it.message}" },
+            // getString y no stringResource: esto no es un composable, es una
+            // corrutina. Misma tabla de traducciones, misma clave.
+            onSuccess = { if (offer == null) getString(Res.string.paywall_no_product) else null },
+            onFailure = { getString(Res.string.paywall_price_error, it.message.orEmpty()) },
         )
         busy = false
     }
@@ -83,7 +97,10 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
         modifier = Modifier.fillMaxWidth(),
     ) {
         val price = offer?.product?.price?.formatted
-        Text(if (price == null) "Suscribirme" else "Suscribirme por $price")
+        Text(
+            if (price == null) stringResource(Res.string.paywall_subscribe)
+            else stringResource(Res.string.paywall_subscribe_price, price)
+        )
     }
 
     // Reinstalar en otro movil no genera evento nuevo en RevenueCat, asi que sin
@@ -96,7 +113,7 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
                 runCatching { Purchases.sharedInstance.awaitRestore() }
                     .onSuccess { info ->
                         message =
-                            if (info.entitlements.active.isEmpty()) "No hemos encontrado ninguna compra activa."
+                            if (info.entitlements.active.isEmpty()) getString(Res.string.paywall_no_purchase)
                             else activate(uid, onPurchased)
                     }
                     .onFailure { message = purchaseError(it) }
@@ -105,7 +122,7 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
         },
         enabled = !busy,
     ) {
-        Text("Restaurar compras")
+        Text(stringResource(Res.string.paywall_restore))
     }
 
     if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())
@@ -132,10 +149,10 @@ private suspend fun activate(uid: String, onPurchased: () -> Unit): String? =
         onPurchased()
         null
     } else {
-        "Compra registrada, pero el acceso aun no se ha activado. Vuelve a entrar en un minuto."
+        getString(Res.string.paywall_pending)
     }
 
 // Cancelar no es un fallo: el usuario ya sabe que ha cancelado.
-private fun purchaseError(cause: Throwable): String? =
+private suspend fun purchaseError(cause: Throwable): String? =
     if ((cause as? PurchasesTransactionException)?.userCancelled == true) null
-    else cause.message ?: "No se pudo completar la compra"
+    else cause.message ?: getString(Res.string.paywall_purchase_error)

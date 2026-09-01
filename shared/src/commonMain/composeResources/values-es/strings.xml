@@ -1,0 +1,96 @@
+<resources>
+    <!-- Sin tildes, igual que el resto del repo. -->
+    <string name="nav_back">Atras</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Mis apps</string>
+    <string name="tab_profile">Perfil</string>
+    <string name="title_detail">Detalle</string>
+    <string name="title_new_app">Nueva app</string>
+    <string name="title_edit_app">Editar app</string>
+    <string name="title_paywall">Slots ilimitados</string>
+
+    <string name="login_tagline">Consigue testers para tu app de Google Play ayudando a otros a conseguir los suyos.</string>
+    <string name="login_google">Continuar con Google</string>
+    <string name="login_error">No se pudo iniciar sesion</string>
+
+    <string name="feed_error">No se pudo cargar el feed</string>
+    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Vuelve en un rato.</string>
+
+    <string name="detail_error">No se pudo cargar la app</string>
+    <string name="detail_own_app">Esta app es tuya.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Enlace de opt-in</string>
+    <string name="detail_join">Unirme como tester</string>
+    <string name="detail_leave">Salir</string>
+    <string name="detail_delete_app">Borrar app</string>
+    <string name="detail_action_error">No se pudo completar</string>
+
+    <string name="comments_title">Comentarios</string>
+    <string name="comment_placeholder">Escribe un comentario</string>
+    <string name="comment_link_app">Vincular una app mia (opcional)</string>
+    <string name="comment_send">Enviar</string>
+    <string name="comment_send_error">No se pudo enviar</string>
+    <string name="comments_empty">Todavia no hay comentarios.</string>
+    <string name="comment_author_fallback">Usuario</string>
+
+    <string name="my_apps_error">No se pudieron cargar tus apps</string>
+    <string name="my_apps_add">Anadir app</string>
+    <string name="my_apps_empty">Aun no has dado de alta ninguna app.</string>
+
+    <string name="form_name">Nombre de la app</string>
+    <string name="form_groups_url">Enlace de Google Groups</string>
+    <string name="form_play_url">Enlace de Play Store</string>
+    <string name="form_opt_in_url">Enlace de opt-in</string>
+    <string name="form_create">Crear app</string>
+    <string name="form_save">Guardar cambios</string>
+    <string name="form_save_error">No se pudo guardar</string>
+
+    <string name="error_name_empty">El nombre no puede estar vacio</string>
+    <string name="error_name_too_long">El nombre no puede pasar de 100 caracteres</string>
+    <string name="error_groups_url">El enlace de Google Groups tiene que empezar por https://</string>
+    <string name="error_play_url">El enlace de Play Store tiene que empezar por https://</string>
+    <string name="error_opt_in_url">El enlace de opt-in tiene que empezar por https://</string>
+
+    <string name="profile_error">No se pudo cargar el perfil</string>
+    <string name="profile_fallback_name">Usuario</string>
+    <string name="profile_premium">Premium: slots ilimitados</string>
+    <string name="profile_free">Plan gratuito - 1 app</string>
+    <string name="profile_my_apps">Mis apps</string>
+    <string name="profile_none_yet">Ninguna todavia.</string>
+    <string name="profile_testing">Apps donde soy tester</string>
+    <string name="profile_not_joined">Aun no te has unido a ninguna.</string>
+    <string name="profile_sign_out">Cerrar sesion</string>
+    <string name="profile_privacy">Politica de privacidad</string>
+
+    <string name="paywall_body">El plan gratuito incluye 1 app. Con slots ilimitados publicas todas las que quieras.</string>
+    <string name="paywall_active">Ya tienes slots ilimitados.</string>
+    <string name="paywall_web">Gestiona tu suscripcion desde la app Android: la compra no esta disponible en la Web.</string>
+    <string name="paywall_preparing">Compra en preparacion.</string>
+    <string name="paywall_no_product">No hay ningun producto disponible todavia.</string>
+    <string name="paywall_price_error">No se pudo cargar el precio: %1$s</string>
+    <string name="paywall_subscribe">Suscribirme</string>
+    <string name="paywall_subscribe_price">Suscribirme por %1$s</string>
+    <string name="paywall_restore">Restaurar compras</string>
+    <string name="paywall_no_purchase">No hemos encontrado ninguna compra activa.</string>
+    <string name="paywall_pending">Compra registrada, pero el acceso aun no se ha activado. Vuelve a entrar en un minuto.</string>
+    <string name="paywall_purchase_error">No se pudo completar la compra</string>
+
+    <string name="confirm_title">Confirmar</string>
+    <string name="action_delete">Borrar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_edit">Editar</string>
+    <string name="confirm_delete_app_comments">Borrar \"%1$s\" y todos sus comentarios?</string>
+    <string name="confirm_delete_app_content">Borrar \"%1$s\" y todo su contenido?</string>
+    <string name="confirm_delete_my_app">Borrar \"%1$s\"? Se iran tambien sus testers y comentarios.</string>
+    <string name="confirm_delete_comment">Borrar este comentario?</string>
+    <string name="delete_error">No se pudo borrar</string>
+
+    <string name="follower_help">Personas que se han unido como tester desde Test4Test.</string>
+    <string name="linked_app">%1$s - %2$d testers</string>
+
+    <plurals name="testers">
+        <item quantity="one">%1$d tester</item>
+        <item quantity="other">%1$d testers</item>
+    </plurals>
+</resources>

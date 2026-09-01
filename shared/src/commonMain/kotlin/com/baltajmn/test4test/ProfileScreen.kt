@@ -21,6 +21,18 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import io.github.jan.supabase.auth.auth
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.profile_error
+import test4test.shared.generated.resources.profile_fallback_name
+import test4test.shared.generated.resources.profile_free
+import test4test.shared.generated.resources.profile_my_apps
+import test4test.shared.generated.resources.profile_none_yet
+import test4test.shared.generated.resources.profile_not_joined
+import test4test.shared.generated.resources.profile_premium
+import test4test.shared.generated.resources.profile_privacy
+import test4test.shared.generated.resources.profile_sign_out
+import test4test.shared.generated.resources.profile_testing
 
 // La misma URL que va en la ficha de Play Console. El ancla lleva a como pedir
 // la eliminacion de la cuenta, que Play exige tener accesible desde la app.
@@ -40,12 +52,13 @@ fun ProfileScreen(
     var testing by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var error by remember { mutableStateOf<String?>(null) }
     var loaded by remember { mutableStateOf(false) }
+    val loadErrorText = stringResource(Res.string.profile_error)
 
     LaunchedEffect(uid) {
         runCatching {
             mine = myApps(uid)
             testing = appsByIds(testerAppIds(uid).toList())
-        }.onFailure { error = it.message ?: "No se pudo cargar el perfil" }
+        }.onFailure { error = it.message ?: loadErrorText }
         loaded = true
     }
 
@@ -61,31 +74,34 @@ fun ProfileScreen(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 Avatar(me)
-                Text(me?.displayName ?: "Usuario", style = MaterialTheme.typography.headlineSmall)
+                Text(
+                    me?.displayName?.takeIf { it.isNotBlank() } ?: stringResource(Res.string.profile_fallback_name),
+                    style = MaterialTheme.typography.headlineSmall,
+                )
             }
         }
         item {
             if (me?.isPremium == true) {
-                Text("Premium: slots ilimitados", style = MaterialTheme.typography.labelLarge)
+                Text(stringResource(Res.string.profile_premium), style = MaterialTheme.typography.labelLarge)
             } else {
                 OutlinedButton(onClick = onPaywall, modifier = Modifier.fillMaxWidth()) {
-                    Text("Plan gratuito - 1 app")
+                    Text(stringResource(Res.string.profile_free))
                 }
             }
         }
         item { ErrorText(error) }
 
-        item { Text("Mis apps", style = MaterialTheme.typography.titleMedium) }
+        item { Text(stringResource(Res.string.profile_my_apps), style = MaterialTheme.typography.titleMedium) }
         if (mine.isEmpty()) {
-            item { Text("Ninguna todavia.", style = MaterialTheme.typography.bodyMedium) }
+            item { Text(stringResource(Res.string.profile_none_yet), style = MaterialTheme.typography.bodyMedium) }
         }
         for (app in mine) {
             item(key = "mine-${app.id}") { AppCard(app, onClick = { onOpen(app.id) }) }
         }
 
-        item { Text("Apps donde soy tester", style = MaterialTheme.typography.titleMedium) }
+        item { Text(stringResource(Res.string.profile_testing), style = MaterialTheme.typography.titleMedium) }
         if (testing.isEmpty()) {
-            item { Text("Aun no te has unido a ninguna.", style = MaterialTheme.typography.bodyMedium) }
+            item { Text(stringResource(Res.string.profile_not_joined), style = MaterialTheme.typography.bodyMedium) }
         }
         for (app in testing) {
             item(key = "testing-${app.id}") { AppCard(app, onClick = { onOpen(app.id) }) }
@@ -96,7 +112,7 @@ fun ProfileScreen(
                 onClick = { scope.launch { supabase.auth.signOut() } },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Cerrar sesion")
+                Text(stringResource(Res.string.profile_sign_out))
             }
         }
         item {
@@ -104,7 +120,7 @@ fun ProfileScreen(
                 onClick = { uriHandler.openUri(PRIVACY_URL) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Politica de privacidad", style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(Res.string.profile_privacy), style = MaterialTheme.typography.bodySmall)
             }
         }
     }

@@ -17,6 +17,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
+import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.action_delete
+import test4test.shared.generated.resources.action_edit
+import test4test.shared.generated.resources.confirm_delete_my_app
+import test4test.shared.generated.resources.delete_error
+import test4test.shared.generated.resources.my_apps_add
+import test4test.shared.generated.resources.my_apps_empty
+import test4test.shared.generated.resources.my_apps_error
 
 @Composable
 fun MyAppsScreen(
@@ -33,22 +42,24 @@ fun MyAppsScreen(
     var error by remember { mutableStateOf<String?>(null) }
     var reload by remember { mutableStateOf(0) }
     var pendingDelete by remember { mutableStateOf<AppRow?>(null) }
+    val loadErrorText = stringResource(Res.string.my_apps_error)
+    val deleteErrorText = stringResource(Res.string.delete_error)
 
     LaunchedEffect(uid, reload) {
         runCatching { myApps(uid) }
             .onSuccess { apps = it; error = null }
-            .onFailure { error = it.message ?: "No se pudieron cargar tus apps" }
+            .onFailure { error = it.message ?: loadErrorText }
     }
 
     pendingDelete?.let { target ->
         ConfirmDialog(
-            text = "Borrar \"${target.name}\"? Se iran tambien sus testers y comentarios.",
+            text = stringResource(Res.string.confirm_delete_my_app, target.name),
             onConfirm = {
                 pendingDelete = null
                 scope.launch {
                     runCatching { deleteApp(target.id) }
                         .onSuccess { reload++ }
-                        .onFailure { error = it.message ?: "No se pudo borrar" }
+                        .onFailure { error = it.message ?: deleteErrorText }
                 }
             },
             onDismiss = { pendingDelete = null },
@@ -69,14 +80,14 @@ fun MyAppsScreen(
                 onClick = { if (canCreateApp(me?.isPremium == true, list.size)) onCreate() else onPaywall() },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text("Anadir app")
+                Text(stringResource(Res.string.my_apps_add))
             }
         }
         item { ErrorText(error) }
         if (list.isEmpty()) {
             item {
                 Text(
-                    "Aun no has dado de alta ninguna app.",
+                    stringResource(Res.string.my_apps_empty),
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -85,8 +96,8 @@ fun MyAppsScreen(
             item(key = app.id) {
                 AppCard(app, onClick = { onOpen(app.id) }) {
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                        TextButton(onClick = { onEdit(app) }) { Text("Editar") }
-                        TextButton(onClick = { pendingDelete = app }) { Text("Borrar") }
+                        TextButton(onClick = { onEdit(app) }) { Text(stringResource(Res.string.action_edit)) }
+                        TextButton(onClick = { pendingDelete = app }) { Text(stringResource(Res.string.action_delete)) }
                     }
                 }
             }
