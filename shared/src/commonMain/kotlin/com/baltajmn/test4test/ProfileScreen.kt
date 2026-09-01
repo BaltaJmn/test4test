@@ -7,6 +7,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -16,9 +17,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import io.github.jan.supabase.auth.auth
 import kotlinx.coroutines.launch
+
+// La misma URL que va en la ficha de Play Console. El ancla lleva a como pedir
+// la eliminacion de la cuenta, que Play exige tener accesible desde la app.
+private const val PRIVACY_URL = "https://testers.baltajmn.dev/privacy"
 
 @Composable
 fun ProfileScreen(
@@ -29,6 +35,7 @@ fun ProfileScreen(
     onPaywall: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
+    val uriHandler = LocalUriHandler.current
     var mine by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var testing by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var error by remember { mutableStateOf<String?>(null) }
@@ -90,6 +97,14 @@ fun ProfileScreen(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text("Cerrar sesion")
+            }
+        }
+        item {
+            TextButton(
+                onClick = { uriHandler.openUri(PRIVACY_URL) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text("Politica de privacidad", style = MaterialTheme.typography.bodySmall)
             }
         }
     }
