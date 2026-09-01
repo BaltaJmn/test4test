@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Doble check: tu app testeada y la del otro. El trazo cabe entero dentro del
-     circulo central de 72 que el launcher garantiza que no recorta.
-     Fuente en branding/icon-fg.svg; si cambia una, cambian las dos. -->
+<!-- Iconos tematizados de Android 13+. Mismo glifo, un solo tono: el sistema lo
+     tinta con el color del fondo de pantalla, asi que aqui no se elige color. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"

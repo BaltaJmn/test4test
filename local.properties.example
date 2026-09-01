@@ -13,3 +13,12 @@ supabase.anonKey=eyJxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 # Opcional: sin ella la app compila igual, solo que el boton de compra no aparece.
 # Publica por diseno, pero no vale para nada sin la cuenta detras.
 revenuecat.androidKey=goog_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Clave de subida a Google Play. Generala con:
+#   keytool -genkeypair -v -keystore keystore/upload.jks -alias upload \
+#     -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Test4Test, O=Test4Test, C=ES"
+# Sin estas cuatro lineas el release compila igual, solo que sale sin firmar.
+keystore.path=keystore/upload.jks
+keystore.alias=upload
+keystore.password=xxxxxxxxxxxx
+keystore.aliasPassword=xxxxxxxxxxxx

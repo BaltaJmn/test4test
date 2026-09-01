@@ -20,3 +20,11 @@ node_modules/
 
 # Estado local de wrangler, no aporta nada al repo
 .wrangler/
+
+# Clave de publicacion. Nunca al repo.
+*.jks
+*.keystore
+
+# Artefactos de release.
+*.aab
+*.apk

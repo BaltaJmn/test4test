@@ -19,6 +19,26 @@ dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
 
+// Mismo mecanismo que en :shared. El keystore nunca entra en el repo: aqui solo
+// viaja la ruta, y local.properties esta gitignored.
+val localProperties: Map<String, String> =
+    providers.fileContents(rootProject.layout.projectDirectory.file("local.properties"))
+        .asText.orNull.orEmpty()
+        .lineSequence()
+        .filterNot { it.isBlank() || it.trimStart().startsWith("#") }
+        .mapNotNull { line -> line.split("=", limit = 2).takeIf { it.size == 2 } }
+        .associate { (key, value) -> key.trim() to value.trim() }
+
+fun secret(property: String, envVar: String): String =
+    providers.environmentVariable(envVar).orNull ?: localProperties[property].orEmpty()
+
+// Si no hay keystore el release sale sin firmar en vez de romper el build: asi la
+// CI y cualquiera que clone siguen compilando sin tener la clave de publicacion.
+val keystoreFile = secret("keystore.path", "KEYSTORE_PATH")
+    .takeIf { it.isNotBlank() }
+    ?.let { rootProject.file(it) }
+    ?.takeIf { it.isFile }
+
 android {
     namespace = "com.baltajmn.test4test"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -35,8 +55,19 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    if (keystoreFile != null) {
+        signingConfigs {
+            create("release") {
+                storeFile = keystoreFile
+                storePassword = secret("keystore.password", "KEYSTORE_PASSWORD")
+                keyAlias = secret("keystore.alias", "KEYSTORE_ALIAS")
+                keyPassword = secret("keystore.aliasPassword", "KEYSTORE_ALIAS_PASSWORD")
+            }
+        }
+    }
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
