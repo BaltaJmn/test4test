@@ -69,12 +69,12 @@
 
     <string name="paywall_body">El plan gratuito incluye 1 app. Con slots ilimitados publicas todas las que quieras.</string>
     <string name="paywall_active">Ya tienes slots ilimitados.</string>
-    <string name="paywall_web">Gestiona tu suscripcion desde la app Android: la compra no esta disponible en la Web.</string>
+    <string name="paywall_web">La compra solo esta disponible en la app Android.</string>
     <string name="paywall_preparing">Compra en preparacion.</string>
     <string name="paywall_no_product">No hay ningun producto disponible todavia.</string>
     <string name="paywall_price_error">No se pudo cargar el precio: %1$s</string>
-    <string name="paywall_subscribe">Suscribirme</string>
-    <string name="paywall_subscribe_price">Suscribirme por %1$s</string>
+    <string name="paywall_subscribe">Comprar</string>
+    <string name="paywall_subscribe_price">Comprar por %1$s</string>
     <string name="paywall_restore">Restaurar compras</string>
     <string name="paywall_no_purchase">No hemos encontrado ninguna compra activa.</string>
     <string name="paywall_pending">Compra registrada, pero el acceso aun no se ha activado. Vuelve a entrar en un minuto.</string>

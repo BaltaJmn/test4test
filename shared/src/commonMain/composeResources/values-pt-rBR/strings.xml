@@ -68,12 +68,12 @@
 
     <string name="paywall_body">O plano gratuito inclui 1 app. Com vagas ilimitadas voce publica quantos quiser.</string>
     <string name="paywall_active">Voce ja tem vagas ilimitadas.</string>
-    <string name="paywall_web">Gerencie sua assinatura pelo app Android: a compra nao esta disponivel na web.</string>
+    <string name="paywall_web">A compra so esta disponivel no app Android.</string>
     <string name="paywall_preparing">Compra em preparacao.</string>
     <string name="paywall_no_product">Ainda nao ha nenhum produto disponivel.</string>
     <string name="paywall_price_error">Nao foi possivel carregar o preco: %1$s</string>
-    <string name="paywall_subscribe">Assinar</string>
-    <string name="paywall_subscribe_price">Assinar por %1$s</string>
+    <string name="paywall_subscribe">Comprar</string>
+    <string name="paywall_subscribe_price">Comprar por %1$s</string>
     <string name="paywall_restore">Restaurar compras</string>
     <string name="paywall_no_purchase">Nao encontramos nenhuma compra ativa.</string>
     <string name="paywall_pending">Compra registrada, mas o acesso ainda nao foi ativado. Volte em um minuto.</string>

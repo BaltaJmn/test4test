@@ -72,12 +72,12 @@
 
     <string name="paywall_body">Paket gratis mencakup 1 aplikasi. Dengan slot tanpa batas Anda bisa memublikasikan sebanyak yang Anda mau.</string>
     <string name="paywall_active">Anda sudah punya slot tanpa batas.</string>
-    <string name="paywall_web">Kelola langganan Anda dari aplikasi Android: pembelian tidak tersedia di web.</string>
+    <string name="paywall_web">Pembelian hanya tersedia di aplikasi Android.</string>
     <string name="paywall_preparing">Pembelian segera hadir.</string>
     <string name="paywall_no_product">Belum ada produk yang tersedia.</string>
     <string name="paywall_price_error">Tidak bisa memuat harga: %1$s</string>
-    <string name="paywall_subscribe">Berlangganan</string>
-    <string name="paywall_subscribe_price">Berlangganan seharga %1$s</string>
+    <string name="paywall_subscribe">Beli</string>
+    <string name="paywall_subscribe_price">Beli seharga %1$s</string>
     <string name="paywall_restore">Pulihkan pembelian</string>
     <string name="paywall_no_purchase">Kami tidak menemukan pembelian aktif.</string>
     <string name="paywall_pending">Pembelian tercatat, tetapi akses belum aktif. Kembali lagi sebentar.</string>

@@ -68,12 +68,12 @@
 
     <string name="paywall_body">मुफ़्त प्लान में 1 ऐप शामिल है। असीमित स्लॉट के साथ आप जितने चाहें उतने ऐप प्रकाशित कर सकते हैं।</string>
     <string name="paywall_active">आपके पास पहले से असीमित स्लॉट हैं।</string>
-    <string name="paywall_web">अपनी सदस्यता Android ऐप से प्रबंधित करें: वेब पर खरीदारी उपलब्ध नहीं है।</string>
+    <string name="paywall_web">खरीदारी केवल Android ऐप में उपलब्ध है।</string>
     <string name="paywall_preparing">खरीदारी जल्द आ रही है।</string>
     <string name="paywall_no_product">अभी कोई उत्पाद उपलब्ध नहीं है।</string>
     <string name="paywall_price_error">कीमत लोड नहीं हो सकी: %1$s</string>
-    <string name="paywall_subscribe">सदस्यता लें</string>
-    <string name="paywall_subscribe_price">%1$s में सदस्यता लें</string>
+    <string name="paywall_subscribe">खरीदें</string>
+    <string name="paywall_subscribe_price">%1$s में खरीदें</string>
     <string name="paywall_restore">खरीदारी बहाल करें</string>
     <string name="paywall_no_purchase">हमें कोई सक्रिय खरीदारी नहीं मिली।</string>
     <string name="paywall_pending">खरीदारी दर्ज हो गई, लेकिन एक्सेस अभी सक्रिय नहीं है। एक मिनट बाद वापस आएं।</string>
