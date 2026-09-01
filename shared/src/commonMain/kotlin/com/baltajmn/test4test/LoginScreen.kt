@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -12,6 +13,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -26,17 +29,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.Google
+import io.github.jan.supabase.auth.providers.builtin.Email
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.app_name
 import test4test.shared.generated.resources.google_g
+import test4test.shared.generated.resources.login_email
+import test4test.shared.generated.resources.login_email_submit
+import test4test.shared.generated.resources.login_email_toggle
 import test4test.shared.generated.resources.login_error
+import test4test.shared.generated.resources.login_password
 import test4test.shared.generated.resources.login_google
 import test4test.shared.generated.resources.login_tagline
 import test4test.shared.generated.resources.logo_mark
@@ -46,6 +56,12 @@ fun LoginScreen(modifier: Modifier = Modifier) {
     val scope = rememberCoroutineScope()
     var loading by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
+    // Google es el camino normal. El de correo esta plegado porque casi nadie lo
+    // usa: hace falta para que el revisor de Google Play pueda entrar, que no
+    // puede usar su propia cuenta ni crearse una.
+    var emailOpen by remember { mutableStateOf(false) }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     val loginErrorText = stringResource(Res.string.login_error)
 
     PageColumn(modifier) {
@@ -79,6 +95,46 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 }
             },
         )
+        if (emailOpen) {
+            OutlinedTextField(
+                value = email,
+                onValueChange = { email = it },
+                label = { Text(stringResource(Res.string.login_email)) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+                modifier = Modifier.fillMaxWidth(),
+            )
+            OutlinedTextField(
+                value = password,
+                onValueChange = { password = it },
+                label = { Text(stringResource(Res.string.login_password)) },
+                singleLine = true,
+                visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Button(
+                onClick = {
+                    error = null
+                    loading = true
+                    scope.launch {
+                        runCatching {
+                            supabase.auth.signInWith(Email) {
+                                this.email = email.trim()
+                                this.password = password
+                            }
+                        }.onFailure { error = it.message ?: loginErrorText }
+                        loading = false
+                    }
+                },
+                enabled = !loading && email.isNotBlank() && password.isNotBlank(),
+                modifier = Modifier.fillMaxWidth(),
+            ) { Text(stringResource(Res.string.login_email_submit)) }
+        } else {
+            TextButton(onClick = { emailOpen = true }, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(Res.string.login_email_toggle))
+            }
+        }
         if (loading) LinearProgressIndicator(Modifier.fillMaxWidth())
         ErrorText(error)
     }

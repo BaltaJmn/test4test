@@ -11,6 +11,10 @@
     <string name="login_tagline">दूसरों को टेस्टर दिलाने में मदद करें और अपने Google Play ऐप के लिए टेस्टर पाएं।</string>
     <string name="login_google">Google से जारी रखें</string>
     <string name="login_error">साइन इन नहीं हो सका</string>
+    <string name="login_email_toggle">ईमेल से साइन इन करें</string>
+    <string name="login_email">ईमेल</string>
+    <string name="login_password">पासवर्ड</string>
+    <string name="login_email_submit">साइन इन करें</string>
 
     <string name="feed_error">फ़ीड लोड नहीं हो सकी</string>
     <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। थोड़ी देर बाद देखें।</string>

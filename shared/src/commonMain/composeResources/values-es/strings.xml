@@ -12,6 +12,10 @@
     <string name="login_tagline">Consigue testers para tu app de Google Play ayudando a otros a conseguir los suyos.</string>
     <string name="login_google">Continuar con Google</string>
     <string name="login_error">No se pudo iniciar sesion</string>
+    <string name="login_email_toggle">Entrar con correo</string>
+    <string name="login_email">Correo</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_email_submit">Entrar</string>
 
     <string name="feed_error">No se pudo cargar el feed</string>
     <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Vuelve en un rato.</string>

@@ -15,6 +15,10 @@
     <string name="login_tagline">Dapatkan tester untuk aplikasi Google Play Anda dengan membantu orang lain mendapatkan tester mereka.</string>
     <string name="login_google">Lanjutkan dengan Google</string>
     <string name="login_error">Tidak bisa masuk</string>
+    <string name="login_email_toggle">Masuk dengan email</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Kata sandi</string>
+    <string name="login_email_submit">Masuk</string>
 
     <string name="feed_error">Tidak bisa memuat feed</string>
     <string name="feed_empty">Belum ada aplikasi dari developer lain. Coba lagi nanti.</string>

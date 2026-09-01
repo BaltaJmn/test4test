@@ -15,6 +15,10 @@
     <string name="login_tagline">Get testers for your Google Play app by helping others get theirs.</string>
     <string name="login_google">Continue with Google</string>
     <string name="login_error">Could not sign in</string>
+    <string name="login_email_toggle">Sign in with email</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_email_submit">Sign in</string>
 
     <string name="feed_error">Could not load the feed</string>
     <string name="feed_empty">No apps from other developers yet. Check back in a while.</string>
