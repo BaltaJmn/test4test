@@ -47,6 +47,8 @@ import test4test.shared.generated.resources.confirm_title
 import test4test.shared.generated.resources.follower_help
 import test4test.shared.generated.resources.linked_app
 import test4test.shared.generated.resources.testers
+import test4test.shared.generated.resources.testers_days
+import test4test.shared.generated.resources.testers_days_done
 
 // Issue #28: en Web la ventana es mucho mas ancha que un movil. Una columna
 // centrada con ancho maximo evita lineas de texto de 1500px sin escribir un
@@ -59,6 +61,10 @@ private val ITEM_GAP = 14.dp
 // una cuenta personal. El numero suelto no dice nada; contra las 12 marcas se lee
 // cuanto falta, que es justo el orden en el que sale el feed.
 private const val TESTERS_REQUIRED = 12
+
+// Y los 12 tienen que aguantar 14 dias seguidos: si uno se va el dia 13, la
+// cuenta vuelve a empezar. Es la mitad del requisito que el X/12 no contaba.
+private const val FULL_DAYS_REQUIRED = 14
 
 @Composable
 fun PageColumn(
@@ -142,7 +148,7 @@ fun TesterCount(count: Long, modifier: Modifier = Modifier) {
 // Issue #19: el contador son las personas unidas como tester DENTRO de
 // Test4Test, no descargas ni seguidores de Play Store.
 @Composable
-fun TesterSummary(count: Long, modifier: Modifier = Modifier) {
+fun TesterSummary(count: Long, fullDays: Int, modifier: Modifier = Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
         TesterTally(count)
         Text(
@@ -151,7 +157,24 @@ fun TesterSummary(count: Long, modifier: Modifier = Modifier) {
             text = pluralStringResource(Res.plurals.testers, count.toInt(), count.toInt()),
             style = MaterialTheme.typography.titleMedium,
         )
+        FullDaysText(fullDays)
     }
+}
+
+// La otra mitad del requisito de Play: 12 testers, si, pero durante 14 dias
+// seguidos. La cuenta la lleva el trigger sync_full_since y la reinicia solo,
+// asi que esta linea tambien avisa de que alguien se ha ido.
+@Composable
+fun FullDaysText(fullDays: Int, modifier: Modifier = Modifier) {
+    if (fullDays <= 0) return
+    val done = fullDays >= FULL_DAYS_REQUIRED
+    Text(
+        text = if (done) stringResource(Res.string.testers_days_done, FULL_DAYS_REQUIRED)
+        else stringResource(Res.string.testers_days, fullDays, FULL_DAYS_REQUIRED),
+        style = MaterialTheme.typography.bodySmall,
+        color = if (done) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier,
+    )
 }
 
 @Composable
@@ -236,6 +259,7 @@ fun AppListItem(
                 TesterTally(app.followerCount)
                 trailing()
             }
+            FullDaysText(app.fullDays)
         }
     }
 }
@@ -244,9 +268,15 @@ fun AppListItem(
 // que el borde va con el gris de contorno y no con el de los filetes, que a este
 // tamano casi no se ve.
 @Composable
-fun LinkButton(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
+fun LinkButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+) {
     OutlinedButton(
         onClick = onClick,
+        enabled = enabled,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
         modifier = modifier.fillMaxWidth(),
     ) { Text(text) }

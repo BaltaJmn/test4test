@@ -21,6 +21,7 @@ import test4test.shared.generated.resources.confirm_delete_app_comments
 import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.feed_empty
 import test4test.shared.generated.resources.feed_error
+import test4test.shared.generated.resources.feed_intro
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -73,6 +74,16 @@ fun FeedScreen(
             Loading()
         } else {
             PageLazyColumn {
+                // Quien llega de fuera cae aqui sin saber que pinta. En una linea
+                // esta el trato entero y el porque del orden de la lista, que si
+                // no parece arbitrario.
+                item {
+                    Text(
+                        stringResource(Res.string.feed_intro),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
                 item { ErrorText(error) }
                 if (list.isEmpty()) {
                     item {
@@ -91,7 +102,6 @@ fun FeedScreen(
                         }
                     }
                 }
-                item { FollowerHelp() }
             }
         }
     }

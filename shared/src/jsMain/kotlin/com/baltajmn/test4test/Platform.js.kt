@@ -14,3 +14,7 @@ class JsPlatform: Platform {
 }
 
 actual fun getPlatform(): Platform = JsPlatform()
+
+private fun locationHash(): String = js("window.location.hash") as String
+
+actual fun startAppId(): String? = locationHash().removePrefix("#").takeIf { it.isNotBlank() }

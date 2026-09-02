@@ -21,7 +21,8 @@
     <string name="login_email_submit">Masuk</string>
 
     <string name="feed_error">Tidak bisa memuat feed</string>
-    <string name="feed_empty">Belum ada aplikasi dari developer lain. Coba lagi nanti.</string>
+    <string name="feed_empty">Belum ada aplikasi dari pengembang lain. Tambahkan aplikasi Anda di Aplikasi saya dan bagikan tautannya.</string>
+    <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi dengan penguji paling sedikit tampil lebih dulu.</string>
 
     <string name="detail_error">Tidak bisa memuat aplikasi</string>
     <string name="detail_own_app">Aplikasi ini milik Anda.</string>
@@ -32,6 +33,10 @@
     <string name="detail_leave">Keluar</string>
     <string name="detail_delete_app">Hapus aplikasi</string>
     <string name="detail_action_error">Tidak bisa diselesaikan</string>
+    <string name="detail_join_help">Buka grup dulu, lalu tautan opt-in. Jika terbalik, Play menampilkan halaman error.</string>
+    <string name="detail_copy_link">Salin tautan</string>
+    <string name="detail_link_copied">Tautan disalin</string>
+    <string name="detail_not_found">Aplikasi ini sudah tidak ada.</string>
 
     <string name="comments_title">Komentar</string>
     <string name="comment_placeholder">Tulis komentar</string>
@@ -43,7 +48,7 @@
 
     <string name="my_apps_error">Tidak bisa memuat aplikasi Anda</string>
     <string name="my_apps_add">Tambah aplikasi</string>
-    <string name="my_apps_empty">Anda belum menambahkan aplikasi apa pun.</string>
+    <string name="my_apps_empty">Tambahkan aplikasi Anda untuk mulai mendapatkan penguji. Anda perlu tautan Google Groups, tautan Play Store, dan tautan opt-in.</string>
 
     <string name="form_name">Nama aplikasi</string>
     <string name="form_groups_url">Tautan Google Groups</string>
@@ -55,9 +60,10 @@
 
     <string name="error_name_empty">Nama tidak boleh kosong</string>
     <string name="error_name_too_long">Nama tidak boleh lebih dari 100 karakter</string>
-    <string name="error_groups_url">Tautan Google Groups harus diawali https://</string>
-    <string name="error_play_url">Tautan Play Store harus diawali https://</string>
-    <string name="error_opt_in_url">Tautan opt-in harus diawali https://</string>
+    <string name="error_groups_url">Tautan Google Groups harus seperti https://groups.google.com/g/grup-anda</string>
+    <string name="error_play_url">Tautan Play Store harus seperti https://play.google.com/store/apps/details?id=paket.anda</string>
+    <string name="error_opt_in_url">Tautan opt-in harus seperti https://play.google.com/apps/testing/paket.anda</string>
+    <string name="error_package_mismatch">Tautan Play Store dan tautan opt-in menunjuk ke aplikasi yang berbeda</string>
 
     <string name="profile_error">Tidak bisa memuat profil</string>
     <string name="profile_fallback_name">Pengguna</string>
@@ -87,6 +93,8 @@
     <string name="action_delete">Hapus</string>
     <string name="action_cancel">Batal</string>
     <string name="action_edit">Edit</string>
+    <string name="action_report">Laporkan</string>
+    <string name="action_reported">Dilaporkan</string>
     <string name="confirm_delete_app_comments">Hapus \"%1$s\" dan semua komentarnya?</string>
     <string name="confirm_delete_app_content">Hapus \"%1$s\" dan seluruh isinya?</string>
     <string name="confirm_delete_my_app">Hapus \"%1$s\"? Tester dan komentarnya ikut terhapus.</string>
@@ -95,6 +103,8 @@
 
     <string name="follower_help">Orang yang bergabung sebagai tester lewat Test4Test.</string>
     <string name="linked_app">%1$s - %2$d tester</string>
+    <string name="testers_days">Hari ke-%1$d dari %2$d berturut-turut dengan 12 penguji</string>
+    <string name="testers_days_done">%1$d hari berturut-turut selesai. Anda bisa mengajukan publikasi.</string>
 
     <plurals name="testers">
         <item quantity="other">%1$d tester</item>

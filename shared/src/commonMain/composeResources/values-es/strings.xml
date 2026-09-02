@@ -18,7 +18,8 @@
     <string name="login_email_submit">Entrar</string>
 
     <string name="feed_error">No se pudo cargar el feed</string>
-    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Vuelve en un rato.</string>
+    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Anade la tuya desde Mis apps y comparte su enlace.</string>
+    <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Primero salen las apps con menos testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>
     <string name="detail_own_app">Esta app es tuya.</string>
@@ -29,6 +30,10 @@
     <string name="detail_leave">Salir</string>
     <string name="detail_delete_app">Borrar app</string>
     <string name="detail_action_error">No se pudo completar</string>
+    <string name="detail_join_help">Abre antes el grupo y despues el enlace de opt-in. Al reves, Play muestra una pagina de error.</string>
+    <string name="detail_copy_link">Copiar enlace</string>
+    <string name="detail_link_copied">Enlace copiado</string>
+    <string name="detail_not_found">Esta app ya no existe.</string>
 
     <string name="comments_title">Comentarios</string>
     <string name="comment_placeholder">Escribe un comentario</string>
@@ -40,7 +45,7 @@
 
     <string name="my_apps_error">No se pudieron cargar tus apps</string>
     <string name="my_apps_add">Anadir app</string>
-    <string name="my_apps_empty">Aun no has dado de alta ninguna app.</string>
+    <string name="my_apps_empty">Anade tu app para empezar a recibir testers. Necesitas su enlace de Google Groups, el de Play Store y el de opt-in.</string>
 
     <string name="form_name">Nombre de la app</string>
     <string name="form_groups_url">Enlace de Google Groups</string>
@@ -52,9 +57,10 @@
 
     <string name="error_name_empty">El nombre no puede estar vacio</string>
     <string name="error_name_too_long">El nombre no puede pasar de 100 caracteres</string>
-    <string name="error_groups_url">El enlace de Google Groups tiene que empezar por https://</string>
-    <string name="error_play_url">El enlace de Play Store tiene que empezar por https://</string>
-    <string name="error_opt_in_url">El enlace de opt-in tiene que empezar por https://</string>
+    <string name="error_groups_url">El enlace de Google Groups tiene que ser como https://groups.google.com/g/tu-grupo</string>
+    <string name="error_play_url">El enlace de Play Store tiene que ser como https://play.google.com/store/apps/details?id=tu.paquete</string>
+    <string name="error_opt_in_url">El enlace de opt-in tiene que ser como https://play.google.com/apps/testing/tu.paquete</string>
+    <string name="error_package_mismatch">El enlace de Play Store y el de opt-in apuntan a apps distintas</string>
 
     <string name="profile_error">No se pudo cargar el perfil</string>
     <string name="profile_fallback_name">Usuario</string>
@@ -84,6 +90,8 @@
     <string name="action_delete">Borrar</string>
     <string name="action_cancel">Cancelar</string>
     <string name="action_edit">Editar</string>
+    <string name="action_report">Denunciar</string>
+    <string name="action_reported">Denunciada</string>
     <string name="confirm_delete_app_comments">Borrar \"%1$s\" y todos sus comentarios?</string>
     <string name="confirm_delete_app_content">Borrar \"%1$s\" y todo su contenido?</string>
     <string name="confirm_delete_my_app">Borrar \"%1$s\"? Se iran tambien sus testers y comentarios.</string>
@@ -92,6 +100,8 @@
 
     <string name="follower_help">Personas que se han unido como tester desde Test4Test.</string>
     <string name="linked_app">%1$s - %2$d testers</string>
+    <string name="testers_days">Dia %1$d de %2$d seguidos con 12 testers</string>
+    <string name="testers_days_done">%1$d dias seguidos completados. Ya puedes pedir publicar.</string>
 
     <plurals name="testers">
         <item quantity="one">%1$d tester</item>

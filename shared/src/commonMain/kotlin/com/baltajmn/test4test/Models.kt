@@ -13,8 +13,11 @@ data class AppRow(
     @SerialName("play_store_url") val playStoreUrl: String,
     @SerialName("opt_in_url") val optInUrl: String,
     @SerialName("created_at") val createdAt: String? = null,
-    // Solo viene de la vista; al leer la tabla apps directamente no existe.
+    // Solo vienen de la vista; al leer la tabla apps directamente no existen.
     @SerialName("follower_count") val followerCount: Long = 0,
+    // Dia en curso de la racha con 12 testers, 0 si todavia no ha llegado. Lo
+    // calcula la vista: el cliente no lleva libreria de fechas.
+    @SerialName("full_days") val fullDays: Int = 0,
 )
 
 // Insert/update: sin id ni created_at, que los pone Postgres.
@@ -52,6 +55,15 @@ data class Profile(
     @SerialName("avatar_url") val avatarUrl: String? = null,
     @SerialName("is_premium") val isPremium: Boolean = false,
     @SerialName("is_admin") val isAdmin: Boolean = false,
+)
+
+// Denuncia de contenido de usuario. Uno de los dos ids va relleno y el otro no,
+// que es lo que comprueba el CHECK app_reports_target.
+@Serializable
+data class ReportInput(
+    @SerialName("reporter_id") val reporterId: String,
+    @SerialName("app_id") val appId: String? = null,
+    @SerialName("comment_id") val commentId: String? = null,
 )
 
 @Serializable

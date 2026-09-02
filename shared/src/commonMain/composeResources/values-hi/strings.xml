@@ -17,7 +17,8 @@
     <string name="login_email_submit">साइन इन करें</string>
 
     <string name="feed_error">फ़ीड लोड नहीं हो सकी</string>
-    <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। थोड़ी देर बाद देखें।</string>
+    <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। मेरे ऐप से अपना ऐप जोड़ें और उसका लिंक साझा करें।</string>
+    <string name="feed_intro">दूसरे डेवलपर के टेस्ट में शामिल हों और वे आपके टेस्ट में शामिल होंगे। सबसे कम टेस्टर वाले ऐप पहले दिखते हैं।</string>
 
     <string name="detail_error">ऐप लोड नहीं हो सका</string>
     <string name="detail_own_app">यह ऐप आपका है।</string>
@@ -28,6 +29,10 @@
     <string name="detail_leave">छोड़ें</string>
     <string name="detail_delete_app">ऐप हटाएं</string>
     <string name="detail_action_error">पूरा नहीं हो सका</string>
+    <string name="detail_join_help">पहले ग्रुप खोलें, फिर ऑप्ट-इन लिंक। उल्टे क्रम में Play एरर पेज दिखाता है।</string>
+    <string name="detail_copy_link">लिंक कॉपी करें</string>
+    <string name="detail_link_copied">लिंक कॉपी हो गया</string>
+    <string name="detail_not_found">यह ऐप अब मौजूद नहीं है।</string>
 
     <string name="comments_title">टिप्पणियां</string>
     <string name="comment_placeholder">टिप्पणी लिखें</string>
@@ -39,7 +44,7 @@
 
     <string name="my_apps_error">आपके ऐप लोड नहीं हो सके</string>
     <string name="my_apps_add">ऐप जोड़ें</string>
-    <string name="my_apps_empty">आपने अभी तक कोई ऐप नहीं जोड़ा है।</string>
+    <string name="my_apps_empty">टेस्टर पाने के लिए अपना ऐप जोड़ें। इसके लिए Google Groups लिंक, Play Store लिंक और ऑप्ट-इन लिंक चाहिए।</string>
 
     <string name="form_name">ऐप का नाम</string>
     <string name="form_groups_url">Google Groups लिंक</string>
@@ -51,9 +56,10 @@
 
     <string name="error_name_empty">नाम खाली नहीं हो सकता</string>
     <string name="error_name_too_long">नाम 100 अक्षरों से बड़ा नहीं हो सकता</string>
-    <string name="error_groups_url">Google Groups लिंक https:// से शुरू होना चाहिए</string>
-    <string name="error_play_url">Play Store लिंक https:// से शुरू होना चाहिए</string>
-    <string name="error_opt_in_url">ऑप्ट-इन लिंक https:// से शुरू होना चाहिए</string>
+    <string name="error_groups_url">Google Groups लिंक ऐसा होना चाहिए: https://groups.google.com/g/your-group</string>
+    <string name="error_play_url">Play Store लिंक ऐसा होना चाहिए: https://play.google.com/store/apps/details?id=your.package</string>
+    <string name="error_opt_in_url">ऑप्ट-इन लिंक ऐसा होना चाहिए: https://play.google.com/apps/testing/your.package</string>
+    <string name="error_package_mismatch">Play Store लिंक और ऑप्ट-इन लिंक अलग-अलग ऐप की ओर इशारा करते हैं</string>
 
     <string name="profile_error">प्रोफ़ाइल लोड नहीं हो सकी</string>
     <string name="profile_fallback_name">उपयोगकर्ता</string>
@@ -83,6 +89,8 @@
     <string name="action_delete">हटाएं</string>
     <string name="action_cancel">रद्द करें</string>
     <string name="action_edit">संपादित करें</string>
+    <string name="action_report">रिपोर्ट करें</string>
+    <string name="action_reported">रिपोर्ट किया गया</string>
     <string name="confirm_delete_app_comments">\"%1$s\" और उसकी सभी टिप्पणियां हटाएं?</string>
     <string name="confirm_delete_app_content">\"%1$s\" और उसकी सारी सामग्री हटाएं?</string>
     <string name="confirm_delete_my_app">\"%1$s\" हटाएं? उसके टेस्टर और टिप्पणियां भी चली जाएंगी।</string>
@@ -91,6 +99,8 @@
 
     <string name="follower_help">वे लोग जो Test4Test से टेस्टर बने।</string>
     <string name="linked_app">%1$s - %2$d टेस्टर</string>
+    <string name="testers_days">12 टेस्टर के साथ लगातार %2$d में से %1$d दिन</string>
+    <string name="testers_days_done">लगातार %1$d दिन पूरे। अब आप प्रकाशन के लिए आवेदन कर सकते हैं।</string>
 
     <plurals name="testers">
         <item quantity="one">%1$d टेस्टर</item>

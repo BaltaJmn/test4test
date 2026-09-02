@@ -89,7 +89,13 @@ fun App() {
 @Composable
 private fun Home() {
     val uid = currentUserId ?: return
-    val stack = remember { mutableStateListOf<Screen>(Screen.Feed) }
+    // Feed siempre debajo: al abrir un enlace compartido de una app, atras tiene
+    // que llevar al feed y no cerrar la pagina.
+    val stack = remember {
+        mutableStateListOf<Screen>(Screen.Feed).apply {
+            startAppId()?.let { add(Screen.Detail(it)) }
+        }
+    }
     val current = stack.last()
 
     // is_premium e is_admin viajan en el mismo fetch (issues #26 y #34).

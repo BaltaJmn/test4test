@@ -11,6 +11,7 @@ private const val FEED = "apps_with_followers"
 private const val TESTERS = "app_testers"
 private const val COMMENTS = "app_comments"
 private const val PROFILES = "profiles"
+private const val REPORTS = "app_reports"
 
 val currentUserId: String? get() = supabase.auth.currentUserOrNull()?.id
 
@@ -113,6 +114,12 @@ suspend fun commentsFor(appId: String): List<CommentView> {
 
 suspend fun postComment(input: CommentInput) {
     supabase.from(COMMENTS).insert(input)
+}
+
+// Solo escribe. Leerlas es cosa del admin, que ya tiene el boton de borrar; la
+// policy app_reports_select_admin no deja verlas a nadie mas.
+suspend fun report(input: ReportInput) {
+    supabase.from(REPORTS).insert(input)
 }
 
 suspend fun deleteComment(id: String) {
