@@ -15,9 +15,6 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.jetbrains_mono_medium
-import test4test.shared.generated.resources.schibsted_grotesk_bold
-import test4test.shared.generated.resources.schibsted_grotesk_medium
-import test4test.shared.generated.resources.schibsted_grotesk_regular
 
 // Un solo acento y el resto neutros. El violeta es el del icono y el grafico de
 // funciones: si se toca aqui, hay que tocar branding/*.svg y el fondo del
@@ -67,23 +64,19 @@ private val colors = lightColorScheme(
     onErrorContainer = Color(0xFF5C120D),
 )
 
-@Composable
-private fun grotesk() = FontFamily(
-    Font(Res.font.schibsted_grotesk_regular, FontWeight.Normal),
-    Font(Res.font.schibsted_grotesk_medium, FontWeight.Medium),
-    Font(Res.font.schibsted_grotesk_bold, FontWeight.Bold),
-)
-
 // Cifras monoespaciadas para los contadores: son datos que cambian, y el ancho
-// fijo evita que la fila baile cada vez que entra un tester.
+// fijo evita que la fila baile cada vez que entra un tester. Solo recibe digitos,
+// asi que la cobertura latina de JetBrains Mono sobra.
 @Composable
 fun monoFamily() = FontFamily(Font(Res.font.jetbrains_mono_medium, FontWeight.Medium))
 
+// Sin fontFamily a proposito: la del sistema es la unica que trae todos los
+// alfabetos. Aqui se publican apps de cualquier pais, y una fuente empaquetada
+// solo cubre lo que le quepa. Schibsted Grotesk traia 497 glifos, todos latinos,
+// asi que un nombre japones o el idioma hindi entero salian en cuadritos.
 @Composable
 private fun typography(): Typography {
-    val sans = grotesk()
     fun style(size: Int, line: Int, weight: FontWeight, tracking: Double) = TextStyle(
-        fontFamily = sans,
         fontSize = size.sp,
         lineHeight = line.sp,
         fontWeight = weight,
