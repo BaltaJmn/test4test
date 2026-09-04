@@ -18,6 +18,12 @@ data class AppRow(
     // Dia en curso de la racha con 12 testers, 0 si todavia no ha llegado. Lo
     // calcula la vista: el cliente no lleva libreria de fechas.
     @SerialName("full_days") val fullDays: Int = 0,
+    // Reciprocidad del dueno: apps ajenas que testea y cuantas se le piden. La
+    // vista las trae ya resueltas para que el feed pueda ordenar por ellas sin
+    // una segunda consulta por cada fila.
+    @SerialName("owner_testing_count") val ownerTestingCount: Int = 0,
+    @SerialName("owner_testing_required") val ownerTestingRequired: Int = 0,
+    @SerialName("owner_reciprocates") val ownerReciprocates: Boolean = true,
 )
 
 // Insert/update: sin id ni created_at, que los pone Postgres.
@@ -73,8 +79,10 @@ data class TesterRow(
 )
 
 // Comentario ya resuelto para pintar: autor y app vinculada en el mismo objeto.
+// El autor va entero y no solo su nombre: la ficha tambien pinta su foto y lleva
+// a su perfil, y el perfil ya venia en el mismo fetch.
 data class CommentView(
     val comment: CommentRow,
-    val authorName: String,
+    val author: Profile?,
     val linkedApp: AppRow?,
 )

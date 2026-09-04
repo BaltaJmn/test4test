@@ -57,6 +57,9 @@ sealed interface Screen {
     data object Feed : Screen
     data object MyApps : Screen
     data object Profile : Screen
+    // El perfil de otra persona se apila encima en vez de sustituir la pestana:
+    // volver atras tiene que devolver a la ficha desde la que se toco el nombre.
+    data class User(val userId: String) : Screen
     data class Detail(val appId: String) : Screen
     // app == null: alta. app != null: edicion (issue #16 reusa el formulario).
     data class EditApp(val app: AppRow?) : Screen
@@ -149,6 +152,15 @@ private fun Home() {
             )
             is Screen.Profile -> ProfileScreen(
                 uid = uid,
+                viewerId = uid,
+                me = me,
+                modifier = modifier,
+                onOpen = { push(Screen.Detail(it)) },
+                onPaywall = { push(Screen.Paywall) },
+            )
+            is Screen.User -> ProfileScreen(
+                uid = screen.userId,
+                viewerId = uid,
                 me = me,
                 modifier = modifier,
                 onOpen = { push(Screen.Detail(it)) },
@@ -160,6 +172,7 @@ private fun Home() {
                 me = me,
                 modifier = modifier,
                 onOpen = { push(Screen.Detail(it)) },
+                onOpenProfile = { push(Screen.User(it)) },
                 onDeleted = ::back,
             )
             is Screen.EditApp -> CreateAppScreen(
@@ -239,7 +252,7 @@ private fun title(screen: Screen): String = stringResource(
     when (screen) {
         is Screen.Feed -> Res.string.app_name
         is Screen.MyApps -> Res.string.tab_my_apps
-        is Screen.Profile -> Res.string.tab_profile
+        is Screen.Profile, is Screen.User -> Res.string.tab_profile
         is Screen.Detail -> Res.string.title_detail
         is Screen.EditApp -> if (screen.app == null) Res.string.title_new_app else Res.string.title_edit_app
         is Screen.Paywall -> Res.string.title_paywall

@@ -69,10 +69,9 @@
     <string name="profile_fallback_name">User</string>
     <string name="profile_premium">Premium: unlimited slots</string>
     <string name="profile_free">Free plan - 1 app</string>
-    <string name="profile_my_apps">My apps</string>
+    <string name="profile_my_apps">Published apps</string>
     <string name="profile_none_yet">None yet.</string>
-    <string name="profile_testing">Apps I am testing</string>
-    <string name="profile_not_joined">You have not joined any yet.</string>
+    <string name="profile_testing">Testing</string>
     <string name="profile_sign_out">Sign out</string>
     <string name="profile_privacy">Privacy policy</string>
 
@@ -103,11 +102,14 @@
 
     <string name="follower_help">People who joined as testers from Test4Test.</string>
     <string name="linked_app">%1$s - %2$d testers</string>
-    <string name="testers_days">Day %1$d of %2$d in a row with 12 testers</string>
+    <string name="testers_days">Day %1$d of %2$d in a row</string>
     <string name="testers_days_done">%1$d days in a row done. You can apply to publish.</string>
 
-    <plurals name="testers">
-        <item quantity="one">%1$d tester</item>
-        <item quantity="other">%1$d testers</item>
+    <string name="testers_of">%1$d of %2$d testers</string>
+    <string name="my_apps_rank">Your apps rank below developers who test others. You are testing %1$d of %2$d.</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Testing %1$d app</item>
+        <item quantity="other">Testing %1$d apps</item>
     </plurals>
 </resources>

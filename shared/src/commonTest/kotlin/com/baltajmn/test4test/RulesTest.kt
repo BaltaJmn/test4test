@@ -81,6 +81,18 @@ class RulesTest {
     }
 
     @Test
+    fun testerMeterPhasesFollowTheStreak() {
+        // Sin racha se esta llenando, aunque ya haya gente dentro.
+        assertEquals(TesterPhase.FILLING, testerPhase(0))
+        assertEquals(TesterPhase.HOLDING, testerPhase(1))
+        assertEquals(TesterPhase.HOLDING, testerPhase(FULL_DAYS_REQUIRED - 1))
+        assertEquals(TesterPhase.DONE, testerPhase(FULL_DAYS_REQUIRED))
+        // Si se va un tester, sync_full_since deja full_since a null y la escala
+        // vuelve a la primera fase sola.
+        assertEquals(TesterPhase.FILLING, testerPhase(0))
+    }
+
+    @Test
     fun shareUrlOpensTheApp() {
         assertEquals("https://testers.baltajmn.dev/#abc-123", appShareUrl("abc-123"))
     }

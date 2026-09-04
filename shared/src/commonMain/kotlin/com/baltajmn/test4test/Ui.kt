@@ -2,11 +2,13 @@ package com.baltajmn.test4test
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.jetbrains.compose.resources.pluralStringResource
@@ -46,9 +49,11 @@ import test4test.shared.generated.resources.action_delete
 import test4test.shared.generated.resources.confirm_title
 import test4test.shared.generated.resources.follower_help
 import test4test.shared.generated.resources.linked_app
-import test4test.shared.generated.resources.testers
+import test4test.shared.generated.resources.profile_fallback_name
 import test4test.shared.generated.resources.testers_days
 import test4test.shared.generated.resources.testers_days_done
+import test4test.shared.generated.resources.testers_of
+import test4test.shared.generated.resources.testing_count
 
 // Issue #28: en Web la ventana es mucho mas ancha que un movil. Una columna
 // centrada con ancho maximo evita lineas de texto de 1500px sin escribir un
@@ -57,14 +62,11 @@ private val CONTENT_MAX_WIDTH = 600.dp
 private val PAGE_PADDING = 20.dp
 private val ITEM_GAP = 14.dp
 
-// Google Play pide 12 testers durante 14 dias seguidos antes de dejar publicar a
-// una cuenta personal. El numero suelto no dice nada; contra las 12 marcas se lee
-// cuanto falta, que es justo el orden en el que sale el feed.
-private const val TESTERS_REQUIRED = 12
-
-// Y los 12 tienen que aguantar 14 dias seguidos: si uno se va el dia 13, la
-// cuenta vuelve a empezar. Es la mitad del requisito que el X/12 no contaba.
-private const val FULL_DAYS_REQUIRED = 14
+// Las 12 marcas del medidor: 4dp de ancho y 3dp de hueco entre ellas.
+private val TICK_WIDTH = 4.dp
+private val TICK_HEIGHT = 12.dp
+private val TICK_GAP = 3.dp
+private val METER_WIDTH = TICK_WIDTH * TESTERS_REQUIRED + TICK_GAP * (TESTERS_REQUIRED - 1)
 
 @Composable
 fun PageColumn(
@@ -109,74 +111,75 @@ fun ErrorText(message: String?, modifier: Modifier = Modifier) {
     }
 }
 
-// Decorativa: el recuento de al lado dice lo mismo en palabras, asi que
-// anunciarla otra vez solo duplicaria la lectura del lector de pantalla.
+// Play pide 12 testers y despues 14 dias seguidos con ellos. Las dos cosas caben
+// en un instrumento porque son consecutivas: primero se llenan las 12 marcas, y
+// solo cuando estan puestas empieza a correr la barra de los 14 dias. Antes esto
+// se contaba tres veces en la misma tarjeta (las marcas, "7/12" y "Dia 3 de 14"),
+// que es la misma informacion ocupando el triple de alto.
+//
+// Las marcas no llevan descripcion: el pie de linea dice lo mismo en palabras, y
+// anunciarlo dos veces solo alarga la lectura del lector de pantalla.
 @Composable
-fun TesterTally(count: Long, modifier: Modifier = Modifier) {
-    val filled = count.coerceIn(0, TESTERS_REQUIRED.toLong()).toInt()
-    Row(modifier, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-        repeat(TESTERS_REQUIRED) { index ->
+fun TesterMeter(count: Long, fullDays: Int, modifier: Modifier = Modifier) {
+    val phase = testerPhase(fullDays)
+    val accent = MaterialTheme.colorScheme.primary
+    // En cuanto arranca la racha las 12 estan puestas por definicion, asi que el
+    // recuento solo manda mientras se llena.
+    val filled = when (phase) {
+        TesterPhase.FILLING -> count.coerceIn(0, TESTERS_REQUIRED.toLong()).toInt()
+        else -> TESTERS_REQUIRED
+    }
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(TICK_GAP)) {
+            repeat(TESTERS_REQUIRED) { index ->
+                Box(
+                    Modifier
+                        .width(TICK_WIDTH)
+                        .height(TICK_HEIGHT)
+                        .clip(RoundedCornerShape(2.dp))
+                        .background(
+                            // Las marcas vacias van tenidas de violeta y no en gris:
+                            // son los huecos de la misma escala, no otro elemento.
+                            if (index < filled) accent else accent.copy(alpha = 0.15f)
+                        )
+                )
+            }
+        }
+        // La barra solo existe mientras corre la racha. En fase de llenado no hay
+        // nada que medir, y una barra a cero diria lo que ya dicen las marcas
+        // vacias de arriba.
+        if (phase == TesterPhase.HOLDING) {
             Box(
                 Modifier
-                    .width(4.dp)
-                    .height(12.dp)
-                    .clip(RoundedCornerShape(2.dp))
-                    .background(
-                        if (index < filled) MaterialTheme.colorScheme.primary
-                        // Las marcas vacias van tenidas de violeta y no en gris: son
-                        // los mismos huecos de la misma escala, no otro elemento.
-                        else MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)
-                    )
-            )
+                    .width(METER_WIDTH)
+                    .height(2.dp)
+                    .clip(RoundedCornerShape(1.dp))
+                    .background(accent.copy(alpha = 0.15f))
+            ) {
+                Box(
+                    Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(fullDays.toFloat() / FULL_DAYS_REQUIRED)
+                        .background(accent)
+                )
+            }
         }
+        Text(
+            text = when (phase) {
+                TesterPhase.FILLING -> stringResource(Res.string.testers_of, count.toInt(), TESTERS_REQUIRED)
+                TesterPhase.HOLDING -> stringResource(Res.string.testers_days, fullDays, FULL_DAYS_REQUIRED)
+                TesterPhase.DONE -> stringResource(Res.string.testers_days_done, FULL_DAYS_REQUIRED)
+            },
+            style = MaterialTheme.typography.bodySmall,
+            // El violeta se reserva para cuando la racha ya cuenta: en fase de
+            // llenado el dato todavia no es una buena noticia.
+            color = if (phase == TesterPhase.FILLING) MaterialTheme.colorScheme.onSurfaceVariant else accent,
+        )
     }
-}
-
-// "7/12" y no "7": el limite es la mitad de la informacion.
-@Composable
-fun TesterCount(count: Long, modifier: Modifier = Modifier) {
-    val done = count >= TESTERS_REQUIRED
-    Text(
-        text = "$count/$TESTERS_REQUIRED",
-        style = MaterialTheme.typography.labelLarge,
-        fontFamily = monoFamily(),
-        color = if (done) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = modifier,
-    )
 }
 
 // Issue #19: el contador son las personas unidas como tester DENTRO de
 // Test4Test, no descargas ni seguidores de Play Store.
-@Composable
-fun TesterSummary(count: Long, fullDays: Int, modifier: Modifier = Modifier) {
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        TesterTally(count)
-        Text(
-            // pluralStringResource elige la forma segun el idioma: el indonesio no
-            // tiene singular y el ingles y el espanol si.
-            text = pluralStringResource(Res.plurals.testers, count.toInt(), count.toInt()),
-            style = MaterialTheme.typography.titleMedium,
-        )
-        FullDaysText(fullDays)
-    }
-}
-
-// La otra mitad del requisito de Play: 12 testers, si, pero durante 14 dias
-// seguidos. La cuenta la lleva el trigger sync_full_since y la reinicia solo,
-// asi que esta linea tambien avisa de que alguien se ha ido.
-@Composable
-fun FullDaysText(fullDays: Int, modifier: Modifier = Modifier) {
-    if (fullDays <= 0) return
-    val done = fullDays >= FULL_DAYS_REQUIRED
-    Text(
-        text = if (done) stringResource(Res.string.testers_days_done, FULL_DAYS_REQUIRED)
-        else stringResource(Res.string.testers_days, fullDays, FULL_DAYS_REQUIRED),
-        style = MaterialTheme.typography.bodySmall,
-        color = if (done) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = modifier,
-    )
-}
-
 @Composable
 fun FollowerHelp(modifier: Modifier = Modifier) {
     Text(
@@ -192,17 +195,17 @@ fun FollowerHelp(modifier: Modifier = Modifier) {
 // y tambien cuando el perfil no trae foto o la descarga falla: no hace falta
 // manejar estados de error de imagen.
 @Composable
-fun Avatar(profile: Profile?, modifier: Modifier = Modifier) {
+fun Avatar(profile: Profile?, modifier: Modifier = Modifier, size: Dp = 56.dp) {
     Box(
         modifier = modifier
-            .size(56.dp)
+            .size(size)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.primaryContainer),
         contentAlignment = Alignment.Center,
     ) {
         Text(
             text = avatarInitial(profile?.displayName),
-            style = MaterialTheme.typography.titleLarge,
+            style = if (size < 40.dp) MaterialTheme.typography.titleSmall else MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
         )
         val url = profile?.avatarUrl
@@ -217,8 +220,50 @@ fun Avatar(profile: Profile?, modifier: Modifier = Modifier) {
     }
 }
 
+// Quien publica una app importa tanto como la app: es la persona a la que vas a
+// pedirle que pruebe la tuya. Debajo del nombre va cuantas prueba ella, que es
+// el unico dato con el que se decide si el intercambio va a ser reciproco.
+//
+// testingCount a null en las fichas de comentario: ahi el recuento costaria una
+// consulta por autor y no es lo que se esta mirando.
+@Composable
+fun PersonRow(
+    profile: Profile?,
+    testingCount: Int?,
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
+            .padding(vertical = 6.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Avatar(profile, size = 32.dp)
+        Column {
+            Text(
+                text = profile?.displayName?.takeIf { it.isNotBlank() }
+                    ?: stringResource(Res.string.profile_fallback_name),
+                style = MaterialTheme.typography.titleSmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            if (testingCount != null) {
+                Text(
+                    text = pluralStringResource(Res.plurals.testing_count, testingCount, testingCount),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
 // Blanco sobre papel y un filete de 1dp en vez de sombra: en una lista larga la
-// elevacion de Material se convierte en ruido.
+// elevacion de Material se convierte en ruido. Dos filas y no tres: el medidor ya
+// trae el recuento y los dias en su propio pie.
 @Composable
 fun AppListItem(
     app: AppRow,
@@ -235,11 +280,11 @@ fun AppListItem(
     ) {
         Column(
             Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Row(
                 Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
@@ -249,23 +294,15 @@ fun AppListItem(
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
                 )
-                TesterCount(app.followerCount)
-            }
-            Row(
-                Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                TesterTally(app.followerCount)
                 trailing()
             }
-            FullDaysText(app.fullDays)
+            TesterMeter(app.followerCount, app.fullDays)
         }
     }
 }
 
-// Los tres enlaces del detalle son el trabajo de esa pantalla, no un adorno, asi
-// que el borde va con el gris de contorno y no con el de los filetes, que a este
+// Los enlaces del detalle son el trabajo de esa pantalla, no un adorno, asi que
+// el borde va con el gris de contorno y no con el de los filetes, que a este
 // tamano casi no se ve.
 @Composable
 fun LinkButton(

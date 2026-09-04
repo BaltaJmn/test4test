@@ -18,7 +18,12 @@ val currentUserId: String? get() = supabase.auth.currentUserOrNull()?.id
 suspend fun feedApps(uid: String): List<AppRow> =
     supabase.from(FEED).select {
         filter { neq("owner_id", uid) }
-        // Menos testers primero: reparte el esfuerzo de la comunidad.
+        // Dos niveles. Primero quien testea apps ajenas: sin esto el intercambio
+        // se convierte en un tablon donde todos publican y nadie se une, que es
+        // de lo que se mueren los grupos de testers. No se oculta a nadie, solo
+        // se cobra el sitio de arriba.
+        order("owner_reciprocates", Order.DESCENDING)
+        // Y dentro de cada nivel, menos testers primero: reparte el esfuerzo.
         order("follower_count", Order.ASCENDING)
         order("created_at", Order.DESCENDING)
     }.decodeList()
@@ -104,9 +109,9 @@ suspend fun commentsFor(appId: String): List<CommentView> {
     return rows.map { row ->
         CommentView(
             comment = row,
-            // Vacio y no un literal: el texto de repuesto lo pone la UI, que es la
-            // que sabe el idioma.
-            authorName = authors[row.authorId]?.displayName.orEmpty(),
+            // Puede faltar: el nombre de repuesto lo pone la UI, que es la que
+            // sabe el idioma.
+            author = authors[row.authorId],
             linkedApp = row.linkedAppId?.let(linked::get),
         )
     }

@@ -69,10 +69,9 @@
     <string name="profile_fallback_name">Pengguna</string>
     <string name="profile_premium">Premium: slot tanpa batas</string>
     <string name="profile_free">Paket gratis - 1 aplikasi</string>
-    <string name="profile_my_apps">Aplikasi saya</string>
+    <string name="profile_my_apps">Aplikasi yang dipublikasikan</string>
     <string name="profile_none_yet">Belum ada.</string>
-    <string name="profile_testing">Aplikasi yang saya uji</string>
-    <string name="profile_not_joined">Anda belum bergabung dengan satu pun.</string>
+    <string name="profile_testing">Menguji</string>
     <string name="profile_sign_out">Keluar</string>
     <string name="profile_privacy">Kebijakan privasi</string>
 
@@ -103,10 +102,13 @@
 
     <string name="follower_help">Orang yang bergabung sebagai tester lewat Test4Test.</string>
     <string name="linked_app">%1$s - %2$d tester</string>
-    <string name="testers_days">Hari ke-%1$d dari %2$d berturut-turut dengan 12 penguji</string>
+    <string name="testers_days">Hari ke-%1$d dari %2$d berturut-turut</string>
     <string name="testers_days_done">%1$d hari berturut-turut selesai. Anda bisa mengajukan publikasi.</string>
 
-    <plurals name="testers">
-        <item quantity="other">%1$d tester</item>
+    <string name="testers_of">%1$d dari %2$d tester</string>
+    <string name="my_apps_rank">Aplikasi Anda tampil di bawah developer yang menguji aplikasi orang lain. Anda menguji %1$d dari %2$d.</string>
+
+    <plurals name="testing_count">
+        <item quantity="other">Menguji %1$d aplikasi</item>
     </plurals>
 </resources>

@@ -35,7 +35,6 @@ import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.action_delete
 import test4test.shared.generated.resources.action_report
 import test4test.shared.generated.resources.action_reported
-import test4test.shared.generated.resources.comment_author_fallback
 import test4test.shared.generated.resources.comment_link_app
 import test4test.shared.generated.resources.comment_placeholder
 import test4test.shared.generated.resources.comment_send
@@ -66,6 +65,7 @@ fun AppDetailScreen(
     me: Profile?,
     modifier: Modifier = Modifier,
     onOpen: (String) -> Unit,
+    onOpenProfile: (String) -> Unit,
     onDeleted: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -74,11 +74,15 @@ fun AppDetailScreen(
     val clipboard = LocalClipboardManager.current
 
     var app by remember { mutableStateOf<AppRow?>(null) }
+    var owner by remember(appId) { mutableStateOf<Profile?>(null) }
     var comments by remember { mutableStateOf<List<CommentView>>(emptyList()) }
     var myOwnApps by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var isTester by remember { mutableStateOf(false) }
     var body by remember { mutableStateOf("") }
     var linkedAppId by remember { mutableStateOf<String?>(null) }
+    // El compositor arranca plegado: abierto ocupa campo, chips y boton, y en un
+    // movil eso deja todos los comentarios fuera de pantalla.
+    var composing by remember(appId) { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var busy by remember { mutableStateOf(false) }
     var reload by remember { mutableStateOf(0) }
@@ -102,7 +106,9 @@ fun AppDetailScreen(
             // Un id que no existe no es un fallo de red: pasa al abrir un enlace
             // compartido de una app ya borrada. Sin esto la pantalla se queda
             // cargando para siempre.
-            app = appById(appId) ?: throw IllegalStateException(notFoundText)
+            val row = appById(appId) ?: throw IllegalStateException(notFoundText)
+            app = row
+            owner = profile(row.ownerId)
             comments = commentsFor(appId)
             isTester = appId in testerAppIds(uid)
             myOwnApps = myApps(uid)
@@ -158,17 +164,27 @@ fun AppDetailScreen(
     PageLazyColumn(modifier) {
         item {
             Text(current.name, style = MaterialTheme.typography.headlineSmall)
-            TesterSummary(current.followerCount, current.fullDays)
+            TesterMeter(current.followerCount, current.fullDays)
+            // Pegado al contador y no mas abajo: explica ese numero, y separado
+            // de el se leia como un parrafo suelto mas.
             FollowerHelp()
+        }
+        // Con quien se esta haciendo el intercambio, y cuantas apps prueba esa
+        // persona. Es el dato que decide si merece la pena entrar.
+        item {
+            PersonRow(
+                profile = owner,
+                testingCount = current.ownerTestingCount,
+                onClick = { onOpenProfile(current.ownerId) },
+            )
         }
         item { ErrorText(error) }
         item {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                // Los dos enlaces van numerados porque el orden importa: Play
-                // devuelve una pagina de error a quien abre el opt-in sin estar
-                // antes en el grupo, y esa es la queja mas repetida de todo el
-                // intercambio de testers. Por eso el segundo boton no se
-                // enciende hasta abrir el primero.
+                // Los pasos van numerados porque el orden importa: Play devuelve
+                // una pagina de error a quien abre el opt-in sin estar antes en
+                // el grupo, y esa es la queja mas repetida de todo el intercambio
+                // de testers. Por eso cada boton no se enciende hasta el anterior.
                 if (!stepsDone) {
                     Text(
                         stringResource(Res.string.detail_join_help),
@@ -176,7 +192,6 @@ fun AppDetailScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
-                LinkButton(stringResource(Res.string.detail_play)) { uriHandler.openUri(current.playStoreUrl) }
                 LinkButton("1. " + stringResource(Res.string.detail_groups)) {
                     opened = maxOf(opened, 1)
                     uriHandler.openUri(current.googleGroupsUrl)
@@ -188,31 +203,35 @@ fun AppDetailScreen(
                     opened = 2
                     uriHandler.openUri(current.optInUrl)
                 }
-            }
-        }
-        item {
-            when {
-                isOwner -> Text(stringResource(Res.string.detail_own_app), style = MaterialTheme.typography.bodyMedium)
-                // Sin los dos enlaces abiertos no se puede pulsar: esta fila es
-                // la que cuenta el X/12, y si se marca sin pasar por Play el
-                // contador dice una cosa y Play Console otra.
-                else -> Button(
-                    // busy bloquea el doble clic mientras se resuelve la llamada.
-                    enabled = !busy && (isTester || opened >= 2),
-                    onClick = {
-                        busy = true
-                        scope.launch {
-                            runCatching {
-                                if (isTester) leaveApp(current.id, uid) else joinApp(current.id, uid)
+                when {
+                    isOwner -> Text(
+                        stringResource(Res.string.detail_own_app),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    // Marcarse sin haber pasado por Play deja el contador diciendo
+                    // una cosa y Play Console otra, asi que el paso 3 depende de
+                    // los dos anteriores igual que ellos entre si.
+                    else -> Button(
+                        // busy bloquea el doble clic mientras se resuelve la llamada.
+                        enabled = !busy && (isTester || opened >= 2),
+                        onClick = {
+                            busy = true
+                            scope.launch {
+                                runCatching {
+                                    if (isTester) leaveApp(current.id, uid) else joinApp(current.id, uid)
+                                }
+                                    .onSuccess { reload++ }
+                                    .onFailure { error = it.message ?: actionErrorText }
+                                busy = false
                             }
-                                .onSuccess { reload++ }
-                                .onFailure { error = it.message ?: actionErrorText }
-                            busy = false
-                        }
-                    },
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(stringResource(if (isTester) Res.string.detail_leave else Res.string.detail_join))
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(
+                            if (isTester) stringResource(Res.string.detail_leave)
+                            else "3. " + stringResource(Res.string.detail_join)
+                        )
+                    }
                 }
             }
         }
@@ -221,6 +240,12 @@ fun AppDetailScreen(
                 Modifier.horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
+                // Play Store baja de boton a ancho completo a esta fila: en una
+                // prueba cerrada la ficha publica ni siquiera abre para quien
+                // todavia no es tester, asi que es contexto, no el trabajo.
+                TextButton(onClick = { uriHandler.openUri(current.playStoreUrl) }) {
+                    Text(stringResource(Res.string.detail_play))
+                }
                 // La app se anuncia fuera, asi que cada ficha necesita una URL
                 // suya que abra aqui directamente.
                 TextButton(onClick = {
@@ -245,59 +270,64 @@ fun AppDetailScreen(
 
         item { HorizontalDivider() }
         item { Text(stringResource(Res.string.comments_title), style = MaterialTheme.typography.titleMedium) }
-        item {
-            OutlinedTextField(
-                value = body,
-                onValueChange = { body = it },
-                label = { Text(stringResource(Res.string.comment_placeholder)) },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        // Issue #21: sin apps propias no hay nada que vincular, asi que no se pinta.
-        if (myOwnApps.isNotEmpty()) {
+        if (!composing) {
+            item { LinkButton(stringResource(Res.string.comment_placeholder)) { composing = true } }
+        } else {
             item {
-                Column {
-                    Text(stringResource(Res.string.comment_link_app), style = MaterialTheme.typography.bodySmall)
-                    Row(
-                        Modifier.horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        for (own in myOwnApps) {
-                            FilterChip(
-                                selected = linkedAppId == own.id,
-                                onClick = { linkedAppId = if (linkedAppId == own.id) null else own.id },
-                                label = { Text(own.name) },
-                            )
+                OutlinedTextField(
+                    value = body,
+                    onValueChange = { body = it },
+                    label = { Text(stringResource(Res.string.comment_placeholder)) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+            // Issue #21: sin apps propias no hay nada que vincular, asi que no se pinta.
+            if (myOwnApps.isNotEmpty()) {
+                item {
+                    Column {
+                        Text(stringResource(Res.string.comment_link_app), style = MaterialTheme.typography.bodySmall)
+                        Row(
+                            Modifier.horizontalScroll(rememberScrollState()),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            for (own in myOwnApps) {
+                                FilterChip(
+                                    selected = linkedAppId == own.id,
+                                    onClick = { linkedAppId = if (linkedAppId == own.id) null else own.id },
+                                    label = { Text(own.name) },
+                                )
+                            }
                         }
                     }
                 }
             }
-        }
-        item {
-            Button(
-                enabled = !busy && body.isNotBlank(),
-                onClick = {
-                    busy = true
-                    scope.launch {
-                        runCatching {
-                            postComment(
-                                CommentInput(
-                                    appId = current.id,
-                                    authorId = uid,
-                                    body = body.trim(),
-                                    linkedAppId = linkedAppId,
+            item {
+                Button(
+                    enabled = !busy && body.isNotBlank(),
+                    onClick = {
+                        busy = true
+                        scope.launch {
+                            runCatching {
+                                postComment(
+                                    CommentInput(
+                                        appId = current.id,
+                                        authorId = uid,
+                                        body = body.trim(),
+                                        linkedAppId = linkedAppId,
+                                    )
                                 )
-                            )
-                        }.onSuccess {
-                            body = ""
-                            linkedAppId = null
-                            reload++
-                        }.onFailure { error = it.message ?: sendErrorText }
-                        busy = false
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-            ) { Text(stringResource(Res.string.comment_send)) }
+                            }.onSuccess {
+                                body = ""
+                                linkedAppId = null
+                                composing = false
+                                reload++
+                            }.onFailure { error = it.message ?: sendErrorText }
+                            busy = false
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text(stringResource(Res.string.comment_send)) }
+            }
         }
         if (comments.isEmpty()) {
             item { Text(stringResource(Res.string.comments_empty), style = MaterialTheme.typography.bodyMedium) }
@@ -310,10 +340,11 @@ fun AppDetailScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                     border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
                 ) {
-                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(
-                            view.authorName.ifBlank { stringResource(Res.string.comment_author_fallback) },
-                            style = MaterialTheme.typography.labelLarge,
+                    Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        PersonRow(
+                            profile = view.author,
+                            testingCount = null,
+                            onClick = { onOpenProfile(view.comment.authorId) },
                         )
                         Text(view.comment.body, style = MaterialTheme.typography.bodyMedium)
                         view.linkedApp?.let { linked ->

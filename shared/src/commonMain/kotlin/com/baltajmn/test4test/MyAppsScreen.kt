@@ -2,8 +2,6 @@ package com.baltajmn.test4test
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -26,6 +24,7 @@ import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.my_apps_add
 import test4test.shared.generated.resources.my_apps_empty
 import test4test.shared.generated.resources.my_apps_error
+import test4test.shared.generated.resources.my_apps_rank
 
 @Composable
 fun MyAppsScreen(
@@ -74,13 +73,10 @@ fun MyAppsScreen(
 
     PageLazyColumn(modifier) {
         item {
-            Button(
+            LinkButton(stringResource(Res.string.my_apps_add)) {
                 // El limite de slots tambien lo aplica la RLS; esto solo evita
                 // mandar al usuario a un formulario que el backend rechazaria.
-                onClick = { if (canCreateApp(me?.isPremium == true, list.size)) onCreate() else onPaywall() },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(Res.string.my_apps_add))
+                if (canCreateApp(me?.isPremium == true, list.size)) onCreate() else onPaywall()
             }
         }
         item { ErrorText(error) }
@@ -89,6 +85,19 @@ fun MyAppsScreen(
                 Text(
                     stringResource(Res.string.my_apps_empty),
                     style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        }
+        // La reciprocidad es del dueno, no de cada app, asi que todas las filas
+        // traen el mismo dato y basta con mirar una. Se avisa aqui y no en el
+        // feed: quedar abajo sin saber por que es lo que hace que la gente se
+        // vaya pensando que la app no funciona.
+        list.firstOrNull()?.takeIf { !it.ownerReciprocates }?.let { row ->
+            item {
+                Text(
+                    stringResource(Res.string.my_apps_rank, row.ownerTestingCount, row.ownerTestingRequired),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
         }

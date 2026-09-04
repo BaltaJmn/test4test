@@ -65,10 +65,9 @@
     <string name="profile_fallback_name">उपयोगकर्ता</string>
     <string name="profile_premium">प्रीमियम: असीमित स्लॉट</string>
     <string name="profile_free">मुफ़्त प्लान - 1 ऐप</string>
-    <string name="profile_my_apps">मेरे ऐप</string>
+    <string name="profile_my_apps">प्रकाशित ऐप</string>
     <string name="profile_none_yet">अभी कोई नहीं।</string>
-    <string name="profile_testing">जिन ऐप का मैं टेस्ट कर रहा हूं</string>
-    <string name="profile_not_joined">आप अभी किसी में शामिल नहीं हुए हैं।</string>
+    <string name="profile_testing">टेस्ट कर रहे हैं</string>
     <string name="profile_sign_out">साइन आउट</string>
     <string name="profile_privacy">गोपनीयता नीति</string>
 
@@ -99,11 +98,14 @@
 
     <string name="follower_help">वे लोग जो Test4Test से टेस्टर बने।</string>
     <string name="linked_app">%1$s - %2$d टेस्टर</string>
-    <string name="testers_days">12 टेस्टर के साथ लगातार %2$d में से %1$d दिन</string>
+    <string name="testers_days">लगातार %2$d में से %1$d दिन</string>
     <string name="testers_days_done">लगातार %1$d दिन पूरे। अब आप प्रकाशन के लिए आवेदन कर सकते हैं।</string>
 
-    <plurals name="testers">
-        <item quantity="one">%1$d टेस्टर</item>
-        <item quantity="other">%1$d टेस्टर</item>
+    <string name="testers_of">%2$d में से %1$d टेस्टर</string>
+    <string name="my_apps_rank">आपके ऐप उन डेवलपर के नीचे दिखते हैं जो दूसरों के ऐप टेस्ट करते हैं। आप %2$d में से %1$d टेस्ट कर रहे हैं।</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">%1$d ऐप टेस्ट कर रहे हैं</item>
+        <item quantity="other">%1$d ऐप टेस्ट कर रहे हैं</item>
     </plurals>
 </resources>

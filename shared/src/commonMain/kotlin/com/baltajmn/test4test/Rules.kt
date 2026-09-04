@@ -9,6 +9,23 @@ import test4test.shared.generated.resources.error_opt_in_url
 import test4test.shared.generated.resources.error_package_mismatch
 import test4test.shared.generated.resources.error_play_url
 
+// Google Play pide 12 testers y que aguanten 14 dias seguidos antes de dejar
+// publicar a una cuenta personal. Son las dos mitades del mismo requisito.
+const val TESTERS_REQUIRED = 12
+const val FULL_DAYS_REQUIRED = 14
+
+// Y la segunda mitad no puede empezar hasta que acaba la primera: son fases de
+// una sola escala, no dos medidores. El trigger sync_full_since deja full_since
+// a null en cuanto el recuento baja de 12, asi que full_days lo dice todo: si
+// vale algo es que los 12 estan puestos, y si se va uno vuelve a cero solo.
+enum class TesterPhase { FILLING, HOLDING, DONE }
+
+fun testerPhase(fullDays: Int): TesterPhase = when {
+    fullDays >= FULL_DAYS_REQUIRED -> TesterPhase.DONE
+    fullDays > 0 -> TesterPhase.HOLDING
+    else -> TesterPhase.FILLING
+}
+
 // Plan free: 1 app por usuario. La misma condicion vive en la policy
 // apps_insert_own_within_slots; aqui solo se replica para no llevar al usuario
 // a un formulario que el backend va a rechazar.

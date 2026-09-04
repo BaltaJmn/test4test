@@ -8,13 +8,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.jetbrains.compose.resources.Font
-import test4test.shared.generated.resources.Res
-import test4test.shared.generated.resources.jetbrains_mono_medium
 
 // Un solo acento y el resto neutros. El violeta es el del icono y el grafico de
 // funciones: si se toca aqui, hay que tocar branding/*.svg y el fondo del
@@ -63,12 +59,6 @@ private val colors = lightColorScheme(
     errorContainer = Color(0xFFFDE7E5),
     onErrorContainer = Color(0xFF5C120D),
 )
-
-// Cifras monoespaciadas para los contadores: son datos que cambian, y el ancho
-// fijo evita que la fila baile cada vez que entra un tester. Solo recibe digitos,
-// asi que la cobertura latina de JetBrains Mono sobra.
-@Composable
-fun monoFamily() = FontFamily(Font(Res.font.jetbrains_mono_medium, FontWeight.Medium))
 
 // Sin fontFamily a proposito: la del sistema es la unica que trae todos los
 // alfabetos. Aqui se publican apps de cualquier pais, y una fuente empaquetada
