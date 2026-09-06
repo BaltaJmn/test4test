@@ -60,6 +60,23 @@ suspend fun testerAppIds(uid: String): Set<String> =
     supabase.from(TESTERS).select { filter { eq("user_id", uid) } }
         .decodeList<TesterRow>().map { it.appId }.toSet()
 
+// Quien esta dentro de una prueba, en orden de llegada inversa. La politica
+// app_testers_select_all ya deja leer estas filas a cualquiera, pero solo se
+// pintan en la ficha del dueno: es el unico que tiene algo que hacer con ellas.
+suspend fun testersOf(appId: String): List<Profile> {
+    val ids = supabase.from(TESTERS).select {
+        filter { eq("app_id", appId) }
+        order("joined_at", Order.DESCENDING)
+    }.decodeList<TesterRow>().map { it.userId }
+    if (ids.isEmpty()) return emptyList()
+    val byId = supabase.from(PROFILES)
+        .select { filter { isIn("id", ids) } }
+        .decodeList<Profile>()
+        .associateBy { it.id }
+    // El orden lo manda app_testers: la consulta de perfiles vuelve como quiera.
+    return ids.mapNotNull(byId::get)
+}
+
 suspend fun joinApp(appId: String, uid: String) {
     supabase.from(TESTERS).insert(TesterRow(appId, uid))
 }

@@ -55,8 +55,9 @@ import test4test.shared.generated.resources.detail_leave
 import test4test.shared.generated.resources.detail_link_copied
 import test4test.shared.generated.resources.detail_not_found
 import test4test.shared.generated.resources.detail_opt_in
-import test4test.shared.generated.resources.detail_own_app
 import test4test.shared.generated.resources.detail_play
+import test4test.shared.generated.resources.detail_testers_empty
+import test4test.shared.generated.resources.detail_testers_title
 
 @Composable
 fun AppDetailScreen(
@@ -75,6 +76,7 @@ fun AppDetailScreen(
 
     var app by remember { mutableStateOf<AppRow?>(null) }
     var owner by remember(appId) { mutableStateOf<Profile?>(null) }
+    var testers by remember(appId) { mutableStateOf<List<Profile>>(emptyList()) }
     var comments by remember { mutableStateOf<List<CommentView>>(emptyList()) }
     var myOwnApps by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var isTester by remember { mutableStateOf(false) }
@@ -112,6 +114,8 @@ fun AppDetailScreen(
             comments = commentsFor(appId)
             isTester = appId in testerAppIds(uid)
             myOwnApps = myApps(uid)
+            // Solo en la propia: es la unica ficha donde la lista sirve para algo.
+            if (row.ownerId == uid) testers = testersOf(appId)
         }.onFailure { error = it.message ?: loadErrorText }
     }
 
@@ -170,13 +174,47 @@ fun AppDetailScreen(
             FollowerHelp()
         }
         // Con quien se esta haciendo el intercambio, y cuantas apps prueba esa
-        // persona. Es el dato que decide si merece la pena entrar.
-        item {
-            PersonRow(
-                profile = owner,
-                testingCount = current.ownerTestingCount,
-                onClick = { onOpenProfile(current.ownerId) },
-            )
+        // persona. Es el dato que decide si merece la pena entrar. En la propia
+        // ficha sobra: seria uno mismo.
+        if (!isOwner) {
+            item {
+                PersonRow(
+                    profile = owner,
+                    testingCount = current.ownerTestingCount,
+                    onClick = { onOpenProfile(current.ownerId) },
+                )
+            }
+        }
+        // Y en la propia, en su lugar, el recuento se abre en las personas que
+        // hay detras. Play pide doce testers y catorce dias seguidos, pero lo
+        // unico que se podia ver hasta ahora era el numero: sin nombres no se
+        // sabe a quien devolverle el favor ni quien se fue cuando la racha cae.
+        if (isOwner) {
+            item {
+                Text(
+                    stringResource(Res.string.detail_testers_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
+            if (testers.isEmpty()) {
+                item {
+                    Text(
+                        stringResource(Res.string.detail_testers_empty),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            for (person in testers) {
+                item(key = "tester-" + person.id) {
+                    PersonRow(
+                        profile = person,
+                        testingCount = null,
+                        onClick = { onOpenProfile(person.id) },
+                    )
+                }
+            }
+            item { HorizontalDivider() }
         }
         item { ErrorText(error) }
         item {
@@ -184,7 +222,7 @@ fun AppDetailScreen(
                 // Los pasos van numerados porque el orden importa: Play devuelve
                 // una pagina de error a quien abre el opt-in sin estar antes en
                 // el grupo, y esa es la queja mas repetida de todo el intercambio
-                // de testers. Por eso cada boton no se enciende hasta el anterior.
+                // de testers. Por eso el 2 no se enciende hasta abrir el 1.
                 if (!stepsDone) {
                     Text(
                         stringResource(Res.string.detail_join_help),
@@ -203,17 +241,18 @@ fun AppDetailScreen(
                     opened = 2
                     uriHandler.openUri(current.optInUrl)
                 }
-                when {
-                    isOwner -> Text(
-                        stringResource(Res.string.detail_own_app),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                    // Marcarse sin haber pasado por Play deja el contador diciendo
-                    // una cosa y Play Console otra, asi que el paso 3 depende de
-                    // los dos anteriores igual que ellos entre si.
-                    else -> Button(
+                // El paso 3 no comprueba nada, declara: nadie puede saber desde
+                // aqui si Play acepto el opt-in. Estuvo condicionado a haber
+                // abierto los otros dos, pero ese estado vivia en memoria, y el
+                // camino normal (salir al navegador, que Android mate el proceso,
+                // volver) lo borraba: el usuario hacia los tres pasos y encontraba
+                // el boton apagado. Bloqueaba a los honestos y no paraba a nadie,
+                // porque abrir dos enlaces no prueba nada. El texto dice ahora lo
+                // que se esta afirmando.
+                if (!isOwner) {
+                    Button(
                         // busy bloquea el doble clic mientras se resuelve la llamada.
-                        enabled = !busy && (isTester || opened >= 2),
+                        enabled = !busy,
                         onClick = {
                             busy = true
                             scope.launch {

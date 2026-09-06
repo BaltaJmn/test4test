@@ -25,11 +25,12 @@
     <string name="feed_intro">Join tests from other developers and they join yours. Apps with the fewest testers show first.</string>
 
     <string name="detail_error">Could not load the app</string>
-    <string name="detail_own_app">This app is yours.</string>
+    <string name="detail_testers_title">Who joined</string>
+    <string name="detail_testers_empty">No testers yet. Join other tests and yours moves up the feed.</string>
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Opt-in link</string>
-    <string name="detail_join">Join as tester</string>
+    <string name="detail_join">I opted in on Play</string>
     <string name="detail_leave">Leave</string>
     <string name="detail_delete_app">Delete app</string>
     <string name="detail_action_error">Could not complete</string>

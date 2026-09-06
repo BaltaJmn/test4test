@@ -22,11 +22,12 @@
     <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Primero salen las apps con menos testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>
-    <string name="detail_own_app">Esta app es tuya.</string>
+    <string name="detail_testers_title">Quien se ha unido</string>
+    <string name="detail_testers_empty">Nadie todavia. Entra en otras pruebas y la tuya sube en el feed.</string>
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Enlace de opt-in</string>
-    <string name="detail_join">Unirme como tester</string>
+    <string name="detail_join">Ya he entrado en Play</string>
     <string name="detail_leave">Salir</string>
     <string name="detail_delete_app">Borrar app</string>
     <string name="detail_action_error">No se pudo completar</string>

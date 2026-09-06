@@ -25,11 +25,12 @@
     <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi dengan penguji paling sedikit tampil lebih dulu.</string>
 
     <string name="detail_error">Tidak bisa memuat aplikasi</string>
-    <string name="detail_own_app">Aplikasi ini milik Anda.</string>
+    <string name="detail_testers_title">Siapa yang bergabung</string>
+    <string name="detail_testers_empty">Belum ada tester. Ikut tes lain dan milik Anda naik di feed.</string>
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Tautan opt-in</string>
-    <string name="detail_join">Gabung sebagai tester</string>
+    <string name="detail_join">Saya sudah ikut di Play</string>
     <string name="detail_leave">Keluar</string>
     <string name="detail_delete_app">Hapus aplikasi</string>
     <string name="detail_action_error">Tidak bisa diselesaikan</string>

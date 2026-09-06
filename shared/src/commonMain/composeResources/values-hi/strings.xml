@@ -21,11 +21,12 @@
     <string name="feed_intro">दूसरे डेवलपर के टेस्ट में शामिल हों और वे आपके टेस्ट में शामिल होंगे। सबसे कम टेस्टर वाले ऐप पहले दिखते हैं।</string>
 
     <string name="detail_error">ऐप लोड नहीं हो सका</string>
-    <string name="detail_own_app">यह ऐप आपका है।</string>
+    <string name="detail_testers_title">कौन शामिल हुआ</string>
+    <string name="detail_testers_empty">अभी कोई टेस्टर नहीं। दूसरे टेस्ट में शामिल हों और आपका फीड में ऊपर आएगा।</string>
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">ऑप्ट-इन लिंक</string>
-    <string name="detail_join">टेस्टर बनें</string>
+    <string name="detail_join">मैंने Play पर ऑप्ट-इन कर लिया</string>
     <string name="detail_leave">छोड़ें</string>
     <string name="detail_delete_app">ऐप हटाएं</string>
     <string name="detail_action_error">पूरा नहीं हो सका</string>
