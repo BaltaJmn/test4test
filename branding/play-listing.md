@@ -10,6 +10,8 @@ Limites de Play: titulo 30, descripcion breve 80, descripcion completa 4000.
 - Eliminacion de cuenta: https://testers.baltajmn.dev/privacy#delete-account
 - Correo de contacto: baltax.75@gmail.com
 - Sitio web: https://testers.baltajmn.dev
+- Grupo de la prueba cerrada: https://groups.google.com/g/test4test-baltajmn
+- Enlace de acceso (opt-in): https://play.google.com/apps/testing/com.baltajmn.test4test
 
 ## English (default)
 
@@ -21,7 +23,7 @@ Test4Test
 
 Find real testers for your Play Store app, and test theirs back. No bots.
 
-### Full description (1711/4000)
+### Full description (1805/4000)
 
 Google Play asks for 12 testers over 14 continuous days before a personal
 developer account can publish an app. Finding those people is the part nobody
@@ -36,9 +38,11 @@ WHAT YOU CAN DO
 - Publish your app with its Google Group, its Play Store page and its opt-in link.
 - Browse the apps that still need testers. The ones with fewest testers come first,
   so nobody is left behind.
-- Join a test in two taps: open the group, accept the invite, install from Play.
+- Join a test in three steps, in this order: open the group, open the opt-in link,
+  then mark yourself in.
 - Leave a comment under an app to say you are in, ask a question, or link your own
   app so the developer can test you back.
+- See who joined your test, by name, so you know who to test back.
 - Track from your profile which apps you own and which ones you are testing.
 
 WHY IT IS FAIR
@@ -73,7 +77,7 @@ Test4Test
 
 Encuentra testers reales para tu app de Play y testea tu las de otros. Sin bots.
 
-### Descripcion completa (1820/4000)
+### Descripcion completa (1931/4000)
 
 Google Play pide 12 testers durante 14 dias seguidos antes de que una cuenta de
 desarrollador personal pueda publicar una app. Encontrar a esas personas es la
@@ -89,10 +93,11 @@ QUE PUEDES HACER
 - Publicar tu app con su grupo de Google, su ficha de Play Store y su enlace de acceso.
 - Ver las apps que todavia necesitan testers. Salen primero las que menos tienen,
   para que ninguna se quede atras.
-- Entrar en una prueba en dos toques: abres el grupo, aceptas la invitacion e
-  instalas desde Play.
+- Entrar en una prueba en tres pasos y en ese orden: abres el grupo, abres el
+  enlace de acceso y despues te marcas dentro.
 - Dejar un comentario bajo una app para avisar de que ya estas dentro, preguntar
   algo o enlazar la tuya para que te devuelvan el favor.
+- Ver quien ha entrado en tu prueba, con nombre, para saber a quien devolver el favor.
 - Ver desde tu perfil cuales son tus apps y en cuales estas de tester.
 
 POR QUE ES JUSTO
