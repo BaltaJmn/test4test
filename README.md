@@ -20,6 +20,12 @@ the only thing that exists on Android alone. Live at
 2. `local.properties` is gitignored and stays that way. So does
    `keystore/upload.jks`.
 
+Everything that lives outside this repo (Google Cloud, Play Console, RevenueCat,
+Supabase and Cloudflare) is written down in
+[docs/servicios-externos.md](./docs/servicios-externos.md), together with the
+mistakes each of those dashboards already cost us. Read it before touching any
+of them.
+
 The Supabase `service_role` key is not in this repo and must never be: it only
 lives in the Supabase Edge Function secrets. The `anon` key is safe to hold
 locally, it is protected by RLS and designed to ship inside clients.
@@ -58,6 +64,7 @@ option on any migration that replaces the view.
   `:shared`, nothing else: anything that needs `foundation` or `material3` has
   to live in `:shared`.
 * [/branding](./branding) holds the Play Store listing copy.
+* [/docs](./docs) holds the runbook for the external services.
 
 ### Translations
 
@@ -123,6 +130,10 @@ To publish a build:
 4. Write the release notes by hand in Play Console. The workflow does not pass a
    `whatsnew-dir`, so a release uploaded without this step reaches testers with
    no notes at all.
+
+The service account the upload runs as, the permissions it needs and the rest of
+the Play Console setup are in
+[docs/servicios-externos.md](./docs/servicios-externos.md).
 
 Only the **closed** testing track counts toward the 12 testers and 14 continuous
 days that Play requires. Internal testing does not, whatever the tester count
