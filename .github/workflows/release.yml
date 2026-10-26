@@ -12,6 +12,13 @@ on:
         type: choice
         options: [alpha, internal, beta, production]
         default: alpha
+      # draft deja la version subida sin enviarla a revision: sirve para subirla
+      # antes de que este listo lo que el revisor necesita (cuenta, login).
+      status:
+        description: Estado de la version
+        type: choice
+        options: [completed, draft]
+        default: completed
 
 jobs:
   release:
@@ -25,6 +32,7 @@ jobs:
       java-version: '21'
       gradle-tasks: ':shared:testAndroidHostTest :androidApp:bundleRelease'
       track: ${{ inputs.track || 'alpha' }}
+      status: ${{ inputs.status || 'completed' }}
     secrets:
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
