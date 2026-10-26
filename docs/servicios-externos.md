@@ -13,11 +13,11 @@ ellos la pagina no sirve de nada.
 |---|---|
 | Package | `com.baltajmn.test4test` |
 | Proyecto de Google Cloud | `test4test-baltajmn` |
-| Proyecto de Supabase | `fhsrjyuzkrbfuvuzplvy` (eu-central-1) |
-| Callback de Supabase | `https://fhsrjyuzkrbfuvuzplvy.supabase.co/auth/v1/callback` |
-| Deep link de vuelta del login | `test4test://login` |
-| Web | `https://testers.baltajmn.dev` (Cloudflare Worker `test4test`) |
-| Producto de compra | `unlimited_slots`, pago unico, no consumible |
+| Proyecto de Supabase | `tneuaccyzausvszpplms` (eu-central-1), desde el 26-10-2026 |
+| Callback de Supabase | `https://tneuaccyzausvszpplms.supabase.co/auth/v1/callback` |
+| Deep links | `test4test://login` (vuelta del login), `test4test://app/<id>` (ficha compartida) |
+| Web | `https://testers.baltajmn.dev` (Cloudflare Worker `test4test`): landing y privacidad, sin app |
+| Producto de compra | Suscripcion `unlimited_apps` (por crear). `unlimited_slots`, pago unico, queda como legado |
 | Grupo de la prueba cerrada | `https://groups.google.com/g/test4test-baltajmn` |
 
 ## Google Cloud
@@ -27,7 +27,10 @@ cuentas de servicio.
 
 ### OAuth para el login con Google
 
-Hace falta **un solo cliente, de tipo Web**. Es el que se pega en Supabase.
+Hace falta **un solo cliente, de tipo Web**. Es el que se pega en Supabase, y en
+sus URIs de redireccion autorizados tiene que estar el callback de Supabase de la
+tabla de arriba. Al cambiar de proyecto de Supabase hay que anadir el nuevo: sin
+el, Google devuelve `redirect_uri_mismatch`.
 
 No hace falta cliente de tipo Android ni el SHA-1 del keystore. Lo dimos por
 necesario al principio y es falso: la app no usa Google Sign-In nativo, usa
@@ -74,9 +77,16 @@ aunque la casilla se vea marcada.
 
 ### El producto de compra
 
-`unlimited_slots`, pago unico, no consumible. No suscripcion: una suscripcion
-que se renueva sola sobre un problema que se resuelve en tres semanas es una
-fabrica de resenas de una estrella.
+Desde la 1.6 es una suscripcion: plan gratuito con una app a la vez, y la
+suscripcion para tener mas a la vez (decision del 26-10-2026, monetizacion mas
+agresiva). Hasta la 1.5 fue `unlimited_slots`, pago unico; el webhook sigue
+aceptando `NON_RENEWING_PURCHASE` para que quien lo compro lo recupere con
+Restaurar. Riesgo conocido: una renovacion automatica sobre un problema que se
+resuelve en tres semanas trae cancelaciones y alguna resena mala; el paywall y
+el perfil dicen como cancelar para que no sea por sorpresa.
+
+La app coge el primer paquete del offering actual, sea el que sea: cambiar de
+producto es cosa de RevenueCat y no pide version nueva.
 
 **El producto tiene que estar activo, no en borrador.** Un producto guardado
 pero inactivo no aparece en RevenueCat, y es el fallo que mas tiempo hizo perder
@@ -94,6 +104,14 @@ de todo el montaje.
 
 Ojo: con `is_premium` a `true` en la fila del perfil, `PurchaseSection` ni
 siquiera se monta y no hay nada que probar.
+
+### Seguridad de los datos
+
+Desde la 1.6 la app comprueba si estan instaladas las apps a las que el usuario
+se ha unido (`<queries>` de launcher, no `QUERY_ALL_PACKAGES`). En el formulario
+de Seguridad de los datos eso es "Actividad en la app: apps instaladas",
+recogido, no compartido con terceros, obligatorio para la funcion y no opcional.
+Cambiarlo antes de subir la 1.6 a revision.
 
 ### Publicar
 
@@ -133,7 +151,7 @@ el cliente solo lee `profiles.is_premium`, nunca lo escribe.
 
 En el panel de RevenueCat:
 
-- URL: `https://fhsrjyuzkrbfuvuzplvy.supabase.co/functions/v1/revenuecat-webhook`
+- URL: `https://tneuaccyzausvszpplms.supabase.co/functions/v1/revenuecat-webhook`
 - Cabecera Authorization: el secreto **pelado, sin `Bearer ` delante**. La
   funcion compara la cabecera entera contra el valor guardado.
 - Environment: **Sandbox y Production**. Si solo se manda Production, la compra
@@ -143,14 +161,14 @@ El secreto se genera con `openssl rand -hex 32` y se pone en los dos lados. Del
 lado de Supabase:
 
 ```bash
-supabase secrets set REVENUECAT_WEBHOOK_SECRET=VALOR --project-ref fhsrjyuzkrbfuvuzplvy
+supabase secrets set REVENUECAT_WEBHOOK_SECRET=VALOR --project-ref tneuaccyzausvszpplms
 ```
 
 Y el despliegue lleva `--no-verify-jwt` obligatoriamente, porque RevenueCat no
 manda un token de Supabase, se autentica con esa cabecera:
 
 ```bash
-supabase functions deploy revenuecat-webhook --project-ref fhsrjyuzkrbfuvuzplvy --no-verify-jwt
+supabase functions deploy revenuecat-webhook --project-ref tneuaccyzausvszpplms --no-verify-jwt
 ```
 
 La funcion responde 200 a los eventos que no cambian nada. Un 4xx haria a
@@ -158,13 +176,29 @@ RevenueCat reintentar el mismo evento durante horas.
 
 ## Supabase
 
-Proyecto `fhsrjyuzkrbfuvuzplvy`. Esquema y politicas en
-[`supabase/migrations`](../supabase/migrations).
+Proyecto `tneuaccyzausvszpplms`. Esquema y politicas en
+[`supabase/migrations`](../supabase/migrations), y la bateria de RLS en
+[`supabase/tests/rls_test.sql`](../supabase/tests/rls_test.sql).
+
+**Como se perdio el primero.** El plan gratuito pausa un proyecto tras una
+semana sin trafico. `fhsrjyuzkrbfuvuzplvy` se pauso el 26-09-2026 (aviso por
+correo el 25), siguio pausado y el 26-10 ya no existia: con el se fueron todas
+las cuentas, apps y testers, y la app estuvo un mes sin backend en plena prueba
+cerrada. Ademas tenia aplicadas a mano migraciones que nunca entraron en el repo
+(racha, denuncias, reciprocidad) y hubo que reconstruirlas. Desde entonces:
+`keep-alive.yml` lo despierta cada dia, y nada se aplica sin su fichero en
+`supabase/migrations`.
+
+**Huecos del plan gratuito.** Dos proyectos activos por organizacion. Para crear
+este se pauso Wachemon (`dsefqvklpngxahosioqq`) el 26-10-2026, no se borro: se
+restaura desde el dashboard si hace falta, pausando otro.
 
 - **Authentication, Providers, Google**: el Client ID y el Client secret del
   cliente **Web**. El de tipo Android no va aqui (y no existe).
 - **Authentication, URL Configuration**: Site URL `https://testers.baltajmn.dev`
-  y, en Redirect URLs, tambien `test4test://login` para la vuelta en Android.
+  y, en Redirect URLs, `test4test://login` para la vuelta en Android.
+- **Authentication, Users**: la cuenta de correo y contrasena del revisor de
+  Play, la misma que figura en Play Console, Acceso a la aplicacion.
 - La clave `anon` es publica por diseno: esta protegida por RLS y va dentro de
   los clientes. La `service_role` no esta en el repo y no debe estarlo, vive
   solo en los secretos de Edge Functions.
@@ -173,8 +207,8 @@ Proyecto `fhsrjyuzkrbfuvuzplvy`. Esquema y politicas en
 
 ## Cloudflare
 
-Worker `test4test` con Workers Static Assets, sin script: el cliente habla
-directamente con Supabase. Configuracion en
+Worker `test4test` con Workers Static Assets, sin script, sirviendo la carpeta
+[`web/`](../web) tal cual: landing, `/privacy` y `/privacy-es`. Configuracion en
 [`wrangler.jsonc`](../wrangler.jsonc), despliegue en `deploy-web.yml`.
 
 Tres cosas que rompieron el sitio en produccion:
