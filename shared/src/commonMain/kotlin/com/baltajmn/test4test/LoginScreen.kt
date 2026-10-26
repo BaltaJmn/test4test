@@ -87,10 +87,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 error = null
                 loading = true
                 scope.launch {
-                    // Mismo camino en Android y Web: OAuth por navegador. En
-                    // Android vuelve por el deeplink test4test://login.
+                    // OAuth por navegador: vuelve por el deeplink test4test://login.
                     runCatching { supabase.auth.signInWith(Google) }
-                        .onFailure { error = it.message ?: loginErrorText }
+                        .onFailure { error = loginErrorText }
                     loading = false
                 }
             },
@@ -123,7 +122,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                                 this.email = email.trim()
                                 this.password = password
                             }
-                        }.onFailure { error = it.message ?: loginErrorText }
+                        }.onFailure { error = loginErrorText }
                         loading = false
                     }
                 },

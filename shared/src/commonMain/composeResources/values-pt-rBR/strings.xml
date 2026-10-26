@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Test4Test</string>
     <string name="nav_back">Voltar</string>
     <string name="tab_feed">Feed</string>
     <string name="tab_my_apps">Meus apps</string>
@@ -6,7 +7,7 @@
     <string name="title_detail">Detalhes</string>
     <string name="title_new_app">Novo app</string>
     <string name="title_edit_app">Editar app</string>
-    <string name="title_paywall">Vagas ilimitadas</string>
+    <string name="title_paywall">Apps ilimitados</string>
 
     <string name="login_tagline">Consiga testadores para o seu app da Google Play ajudando outros a conseguir os deles.</string>
     <string name="login_google">Continuar com o Google</string>
@@ -27,10 +28,10 @@
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Link de participacao</string>
     <string name="detail_join">Ja entrei no Play</string>
-    <string name="detail_leave">Sair</string>
+    <string name="detail_leave">Sair do teste</string>
     <string name="detail_delete_app">Excluir app</string>
     <string name="detail_action_error">Nao foi possivel concluir</string>
-    <string name="detail_join_help">Abra primeiro o grupo e depois o link de opt-in. Na ordem inversa a Play mostra uma pagina de erro.</string>
+    <string name="detail_join_help">Abra primeiro o grupo e depois o link de opt-in: na ordem inversa a Play mostra uma pagina de erro. Depois que voce entrar, o Test4Test verifica neste celular se o app foi instalado pela Play e mostra isso ao dono do app.</string>
     <string name="detail_copy_link">Copiar link</string>
     <string name="detail_link_copied">Link copiado</string>
     <string name="detail_not_found">Este app nao existe mais.</string>
@@ -41,15 +42,13 @@
     <string name="comment_send">Enviar</string>
     <string name="comment_send_error">Nao foi possivel enviar</string>
     <string name="comments_empty">Ainda nao ha comentarios.</string>
-    <string name="comment_author_fallback">Usuario</string>
 
     <string name="my_apps_error">Nao foi possivel carregar seus apps</string>
     <string name="my_apps_add">Adicionar app</string>
-    <string name="my_apps_empty">Adicione seu app para comecar a receber testadores. Voce precisa do link do Google Groups, do link da Play Store e do link de opt-in.</string>
+    <string name="my_apps_empty">Adicione seu app para comecar a receber testadores. Voce precisa de dois links do Play Console: o do Google Groups e o de opt-in.</string>
 
     <string name="form_name">Nome do app</string>
     <string name="form_groups_url">Link do Google Groups</string>
-    <string name="form_play_url">Link da Play Store</string>
     <string name="form_opt_in_url">Link de participacao</string>
     <string name="form_create">Criar app</string>
     <string name="form_save">Salvar alteracoes</string>
@@ -58,32 +57,29 @@
     <string name="error_name_empty">O nome nao pode ficar vazio</string>
     <string name="error_name_too_long">O nome nao pode passar de 100 caracteres</string>
     <string name="error_groups_url">O link do Google Groups precisa ser como https://groups.google.com/g/seu-grupo</string>
-    <string name="error_play_url">O link da Play Store precisa ser como https://play.google.com/store/apps/details?id=seu.pacote</string>
     <string name="error_opt_in_url">O link de opt-in precisa ser como https://play.google.com/apps/testing/seu.pacote</string>
-    <string name="error_package_mismatch">O link da Play Store e o de opt-in apontam para apps diferentes</string>
 
     <string name="profile_error">Nao foi possivel carregar o perfil</string>
     <string name="profile_fallback_name">Usuario</string>
-    <string name="profile_premium">Premium: vagas ilimitadas</string>
-    <string name="profile_free">Plano gratuito - 1 app</string>
+    <string name="profile_premium">Assinatura ativa: apps ilimitados</string>
+    <string name="profile_free">Plano gratuito: 1 app por vez. Ver a assinatura</string>
     <string name="profile_my_apps">Apps publicados</string>
     <string name="profile_none_yet">Nenhum ainda.</string>
     <string name="profile_testing">Testando</string>
     <string name="profile_sign_out">Sair da conta</string>
     <string name="profile_privacy">Politica de privacidade</string>
 
-    <string name="paywall_body">O plano gratuito inclui 1 app. Com vagas ilimitadas voce publica quantos quiser.</string>
-    <string name="paywall_active">Voce ja tem vagas ilimitadas.</string>
-    <string name="paywall_web">A compra so esta disponivel no app Android.</string>
-    <string name="paywall_preparing">Compra em preparacao.</string>
+    <string name="paywall_body">O plano gratuito permite 1 app por vez. Com a assinatura, voce publica quantos quiser enquanto ela estiver ativa.</string>
+    <string name="paywall_active">Sua assinatura esta ativa.</string>
+    <string name="paywall_preparing">Assinaturas em breve.</string>
     <string name="paywall_no_product">Ainda nao ha nenhum produto disponivel.</string>
     <string name="paywall_price_error">Nao foi possivel carregar o preco: %1$s</string>
-    <string name="paywall_subscribe">Comprar</string>
-    <string name="paywall_subscribe_price">Comprar por %1$s</string>
-    <string name="paywall_restore">Restaurar compras</string>
-    <string name="paywall_no_purchase">Nao encontramos nenhuma compra ativa.</string>
-    <string name="paywall_pending">Compra registrada, mas o acesso ainda nao foi ativado. Volte em um minuto.</string>
-    <string name="paywall_purchase_error">Nao foi possivel concluir a compra</string>
+    <string name="paywall_subscribe">Assinar</string>
+    <string name="paywall_subscribe_price">Assinar por %1$s</string>
+    <string name="paywall_restore">Restaurar assinatura</string>
+    <string name="paywall_no_purchase">Nao encontramos nenhuma assinatura ativa.</string>
+    <string name="paywall_pending">Assinatura registrada, mas o acesso ainda nao foi ativado. Volte em um minuto.</string>
+    <string name="paywall_purchase_error">Nao foi possivel concluir a assinatura</string>
 
     <string name="confirm_title">Confirmar</string>
     <string name="action_delete">Excluir</string>
@@ -100,10 +96,30 @@
     <string name="follower_help">Pessoas que entraram como testadoras pelo Test4Test.</string>
     <string name="linked_app">%1$s - %2$d testadores</string>
     <string name="testers_days">Dia %1$d de %2$d seguidos</string>
-    <string name="testers_days_done">%1$d dias seguidos concluidos. Ja pode pedir para publicar.</string>
+    <string name="testers_days_done">%1$d dias seguidos concluidos. Voce ja pode pedir para ir a producao.</string>
 
     <string name="testers_of">%1$d de %2$d testadores</string>
     <string name="my_apps_rank">Seus apps aparecem abaixo de quem testa os dos outros. Voce esta testando %1$d de %2$d.</string>
+
+    <string name="detail_install">Instalar pela Google Play</string>
+    <string name="detail_installed">Instalado pela Google Play. O dono do app pode ver que voce realmente o tem instalado. Mantenha por 14 dias.</string>
+    <string name="detail_not_installed">Ainda nao instalado neste celular. A Play so conta os testadores que instalam o app.</string>
+    <string name="detail_verified">%1$d com o app instalado</string>
+    <string name="tester_installed">Tem o app instalado</string>
+    <string name="tester_stale">Faz dias que nao aparece instalado</string>
+    <string name="tester_unverified">Instalacao ainda nao confirmada</string>
+    <string name="confirm_leave">Sair do teste de \"%1$s\"? Se voce era um dos 12 testadores dele, a sequencia de 14 dias recomeca do zero.</string>
+    <string name="feed_testing">Testando</string>
+    <string name="my_apps_add_locked">Adicionar outro app (assinatura)</string>
+    <string name="form_groups_hint">Play Console, Teste fechado, Testadores: o Google Group que voce adicionou ali.</string>
+    <string name="form_opt_in_hint">Na mesma pagina, Participar na Web: https://play.google.com/apps/testing/seu.pacote</string>
+    <string name="profile_manage_subscription">Gerenciar assinatura na Google Play</string>
+    <string name="profile_delete_account">Excluir conta</string>
+    <string name="confirm_delete_account">Excluir sua conta, seus apps, seus testes e seus comentarios? Isso nao pode ser desfeito. Uma assinatura ativa nao e cancelada aqui: cancele no Google Play.</string>
+    <string name="paywall_terms">Renova automaticamente ate voce cancelar. Cancele quando quiser no Google Play, em Pagamentos e assinaturas. Se cancelar, seus apps continuam publicados; so nao vai dar para adicionar mais de um.</string>
+    <string name="price_per_week">%1$s/semana</string>
+    <string name="price_per_month">%1$s/mes</string>
+    <string name="price_per_year">%1$s/ano</string>
 
     <plurals name="testing_count">
         <item quantity="one">Testando %1$d app</item>

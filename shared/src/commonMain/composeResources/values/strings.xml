@@ -10,7 +10,7 @@
     <string name="title_detail">Details</string>
     <string name="title_new_app">New app</string>
     <string name="title_edit_app">Edit app</string>
-    <string name="title_paywall">Unlimited slots</string>
+    <string name="title_paywall">Unlimited apps</string>
 
     <string name="login_tagline">Get testers for your Google Play app by helping others get theirs.</string>
     <string name="login_google">Continue with Google</string>
@@ -31,10 +31,10 @@
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Opt-in link</string>
     <string name="detail_join">I opted in on Play</string>
-    <string name="detail_leave">Leave</string>
+    <string name="detail_leave">Leave the test</string>
     <string name="detail_delete_app">Delete app</string>
     <string name="detail_action_error">Could not complete</string>
-    <string name="detail_join_help">Open the group first, then the opt-in link. In the other order Play shows an error page.</string>
+    <string name="detail_join_help">Open the group first, then the opt-in link: in the other order Play shows an error page. Once you join, Test4Test checks on this phone that the app was installed from Play and shows it to its owner.</string>
     <string name="detail_copy_link">Copy link</string>
     <string name="detail_link_copied">Link copied</string>
     <string name="detail_not_found">This app no longer exists.</string>
@@ -45,15 +45,13 @@
     <string name="comment_send">Send</string>
     <string name="comment_send_error">Could not send</string>
     <string name="comments_empty">No comments yet.</string>
-    <string name="comment_author_fallback">User</string>
 
     <string name="my_apps_error">Could not load your apps</string>
     <string name="my_apps_add">Add app</string>
-    <string name="my_apps_empty">Add your app to start getting testers. You need its Google Groups link, its Play Store link and its opt-in link.</string>
+    <string name="my_apps_empty">Add your app to start getting testers. You need two links from Play Console: its Google Group and its opt-in link.</string>
 
     <string name="form_name">App name</string>
     <string name="form_groups_url">Google Groups link</string>
-    <string name="form_play_url">Play Store link</string>
     <string name="form_opt_in_url">Opt-in link</string>
     <string name="form_create">Create app</string>
     <string name="form_save">Save changes</string>
@@ -62,32 +60,29 @@
     <string name="error_name_empty">The name cannot be empty</string>
     <string name="error_name_too_long">The name cannot be longer than 100 characters</string>
     <string name="error_groups_url">The Google Groups link must look like https://groups.google.com/g/your-group</string>
-    <string name="error_play_url">The Play Store link must look like https://play.google.com/store/apps/details?id=your.package</string>
     <string name="error_opt_in_url">The opt-in link must look like https://play.google.com/apps/testing/your.package</string>
-    <string name="error_package_mismatch">The Play Store link and the opt-in link point to different apps</string>
 
     <string name="profile_error">Could not load the profile</string>
     <string name="profile_fallback_name">User</string>
-    <string name="profile_premium">Premium: unlimited slots</string>
-    <string name="profile_free">Free plan - 1 app</string>
+    <string name="profile_premium">Subscription active: unlimited apps</string>
+    <string name="profile_free">Free plan: 1 app at a time. See the subscription</string>
     <string name="profile_my_apps">Published apps</string>
     <string name="profile_none_yet">None yet.</string>
     <string name="profile_testing">Testing</string>
     <string name="profile_sign_out">Sign out</string>
     <string name="profile_privacy">Privacy policy</string>
 
-    <string name="paywall_body">The free plan includes 1 app. With unlimited slots you can publish as many as you want.</string>
-    <string name="paywall_active">You already have unlimited slots.</string>
-    <string name="paywall_web">Purchases are only available in the Android app.</string>
-    <string name="paywall_preparing">Purchases coming soon.</string>
+    <string name="paywall_body">The free plan lists 1 app at a time. With the subscription you list as many as you want while it is active.</string>
+    <string name="paywall_active">Your subscription is active.</string>
+    <string name="paywall_preparing">Subscriptions coming soon.</string>
     <string name="paywall_no_product">No product is available yet.</string>
     <string name="paywall_price_error">Could not load the price: %1$s</string>
-    <string name="paywall_subscribe">Buy</string>
-    <string name="paywall_subscribe_price">Buy for %1$s</string>
-    <string name="paywall_restore">Restore purchases</string>
-    <string name="paywall_no_purchase">We could not find an active purchase.</string>
-    <string name="paywall_pending">Purchase registered, but access is not active yet. Come back in a minute.</string>
-    <string name="paywall_purchase_error">Could not complete the purchase</string>
+    <string name="paywall_subscribe">Subscribe</string>
+    <string name="paywall_subscribe_price">Subscribe for %1$s</string>
+    <string name="paywall_restore">Restore subscription</string>
+    <string name="paywall_no_purchase">We could not find an active subscription.</string>
+    <string name="paywall_pending">Subscription registered, but access is not active yet. Come back in a minute.</string>
+    <string name="paywall_purchase_error">Could not complete the subscription</string>
 
     <string name="confirm_title">Confirm</string>
     <string name="action_delete">Delete</string>
@@ -104,10 +99,30 @@
     <string name="follower_help">People who joined as testers from Test4Test.</string>
     <string name="linked_app">%1$s - %2$d testers</string>
     <string name="testers_days">Day %1$d of %2$d in a row</string>
-    <string name="testers_days_done">%1$d days in a row done. You can apply to publish.</string>
+    <string name="testers_days_done">%1$d days in a row done. You can apply for production.</string>
 
     <string name="testers_of">%1$d of %2$d testers</string>
     <string name="my_apps_rank">Your apps rank below developers who test others. You are testing %1$d of %2$d.</string>
+
+    <string name="detail_install">Install from Google Play</string>
+    <string name="detail_installed">Installed from Google Play. Its owner can see that you really have it. Keep it for 14 days.</string>
+    <string name="detail_not_installed">Not installed on this phone yet. Play only counts testers who install the app.</string>
+    <string name="detail_verified">%1$d with the app installed</string>
+    <string name="tester_installed">Has the app installed</string>
+    <string name="tester_stale">Not seen installed for days</string>
+    <string name="tester_unverified">Install not confirmed yet</string>
+    <string name="confirm_leave">Leave the test of \"%1$s\"? If you were one of its 12 testers, its 14-day streak starts over.</string>
+    <string name="feed_testing">Testing</string>
+    <string name="my_apps_add_locked">Add another app (subscription)</string>
+    <string name="form_groups_hint">Play Console, Closed testing, Testers: the Google Group you added there.</string>
+    <string name="form_opt_in_hint">Same page, Join on the web: https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">Manage subscription in Google Play</string>
+    <string name="profile_delete_account">Delete account</string>
+    <string name="confirm_delete_account">Delete your account, your apps, your tests and your comments? This cannot be undone. An active subscription is not cancelled here: cancel it in Google Play.</string>
+    <string name="paywall_terms">Renews automatically until you cancel. Cancel anytime in Google Play, Payments and subscriptions. If you cancel, your apps stay listed; you just cannot add more than one.</string>
+    <string name="price_per_week">%1$s/week</string>
+    <string name="price_per_month">%1$s/month</string>
+    <string name="price_per_year">%1$s/year</string>
 
     <plurals name="testing_count">
         <item quantity="one">Testing %1$d app</item>

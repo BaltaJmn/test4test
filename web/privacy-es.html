@@ -57,7 +57,7 @@
 <body>
 
 <h1>Politica de privacidad de Test4Test</h1>
-<p class="updated">Ultima actualizacion: 1 de septiembre de 2026 &middot; <a href="/privacy">English</a></p>
+<p class="updated">Ultima actualizacion: 26 de octubre de 2026 &middot; <a href="/privacy">English</a></p>
 
 <p>
   Test4Test es un servicio que pone en contacto a desarrolladores de Android para
@@ -94,10 +94,10 @@
 <h3>2.2 Que parte del perfil es publica</h3>
 <div class="note">
   <p>
-    El nombre para mostrar y la foto de perfil son <strong>visibles para
-    cualquiera</strong>, incluidas personas sin cuenta en Test4Test. El correo
-    electronico <strong>no</strong> es publico y no se muestra en ningun sitio de
-    la aplicacion.
+    El nombre para mostrar y la foto de perfil son <strong>visibles para cualquier
+    persona con sesion iniciada en Test4Test</strong>. El correo electronico
+    <strong>no</strong> es publico y no se muestra en ningun sitio de la
+    aplicacion.
   </p>
 </div>
 <p>
@@ -106,24 +106,35 @@
 </p>
 
 <h3>2.3 Contenido que se publica al usar el servicio</h3>
-<p>Todo lo siguiente es publico por diseno, porque el servicio consiste en ensenarlo:</p>
+<p>Todo lo siguiente lo ve cualquier persona con sesion iniciada, por diseno, porque el servicio consiste en ensenarlo:</p>
 <ul>
   <li>Las aplicaciones dadas de alta: nombre, enlace al grupo de Google, enlace a Google Play y enlace de acceso a la prueba.</li>
   <li>Las aplicaciones a las que la persona se ha unido como tester.</li>
   <li>Los comentarios escritos bajo cualquier aplicacion, con su autor y su fecha.</li>
 </ul>
 
-<h3>2.4 Compras</h3>
+<h3>2.4 Comprobacion de instalacion</h3>
 <p>
-  Test4Test ofrece un plan gratuito con una aplicacion y un plan de pago con
-  aplicaciones ilimitadas. La compra se realiza dentro de la aplicacion de Android,
-  a traves de Google Play, y la gestiona RevenueCat. Test4Test
-  <strong>no recibe, no ve y no almacena ningun dato de pago</strong>: ni numeros
-  de tarjeta, ni direcciones de facturacion, ni nombre del titular. Lo unico que
-  llega es un indicador de si el plan de pago esta activo.
+  Al unirse a una aplicacion como tester, la aplicacion de Android de Test4Test
+  comprueba en el telefono si <strong>esa aplicacion concreta</strong> esta instalada
+  y si la instalo Google Play. Solo mira las aplicaciones a las que la persona se ha
+  unido dentro de Test4Test, nunca el resto. Lo unico que se envia es la hora en que
+  se vio instalada por ultima vez, y se le muestra al dueno de esa aplicacion para que
+  distinga a los testers reales. Al salir de la prueba se deja de comprobar.
 </p>
 
-<h3>2.5 Lo que no se hace</h3>
+<h3>2.5 Compras</h3>
+<p>
+  Test4Test ofrece un plan gratuito con una aplicacion a la vez y una suscripcion con
+  aplicaciones ilimitadas. La suscripcion se compra dentro de la aplicacion de
+  Android, a traves de Google Play, se renueva sola hasta que se cancela en Google
+  Play, y la gestiona RevenueCat. Test4Test
+  <strong>no recibe, no ve y no almacena ningun dato de pago</strong>: ni numeros
+  de tarjeta, ni direcciones de facturacion, ni nombre del titular. Lo unico que
+  llega es un indicador de si la suscripcion esta activa.
+</p>
+
+<h3>2.6 Lo que no se hace</h3>
 <ul>
   <li>No hay analitica ni medicion de comportamiento.</li>
   <li>No hay publicidad.</li>
@@ -134,12 +145,10 @@
 
 <h2>3. Almacenamiento en el dispositivo</h2>
 <p>
-  Para no pedir el inicio de sesion en cada visita, la sesion se guarda en el
-  almacenamiento local del navegador (<code>localStorage</code>) en la version web,
-  y en el almacenamiento privado de la aplicacion en Android. Es almacenamiento
-  tecnicamente necesario para que el servicio funcione, no se usa para seguimiento
-  y por eso no se muestra ningun aviso de cookies. Se puede eliminar cerrando la
-  sesion o borrando los datos del navegador o de la aplicacion.
+  Para no pedir el inicio de sesion cada vez, la sesion se guarda en el
+  almacenamiento privado de la aplicacion en Android. Es almacenamiento tecnicamente
+  necesario para que el servicio funcione y no se usa para seguimiento. Se puede
+  eliminar cerrando la sesion o borrando los datos de la aplicacion.
 </p>
 
 <h2>4. Para que se tratan y con que base legal</h2>
@@ -147,11 +156,11 @@
 <table>
   <tr><th>Finalidad</th><th>Base juridica (RGPD art. 6)</th></tr>
   <tr>
-    <td>Crear y mantener la cuenta, publicar aplicaciones, unirse como tester y comentar.</td>
+    <td>Crear y mantener la cuenta, publicar aplicaciones, unirse como tester, comprobar que las aplicaciones a las que se une estan instaladas y comentar.</td>
     <td>Ejecucion del contrato (art. 6.1.b).</td>
   </tr>
   <tr>
-    <td>Gestionar el plan de pago y reflejar si esta activo.</td>
+    <td>Gestionar la suscripcion y reflejar si esta activa.</td>
     <td>Ejecucion del contrato (art. 6.1.b).</td>
   </tr>
   <tr>
@@ -170,9 +179,9 @@
 <table>
   <tr><th>Proveedor</th><th>Para que</th><th>Ubicacion</th></tr>
   <tr><td>Supabase</td><td>Base de datos y autenticacion. Aqui vive la cuenta y todo el contenido.</td><td>Frankfurt, Alemania (Union Europea)</td></tr>
-  <tr><td>Cloudflare</td><td>Servir la version web.</td><td>Red global; puede tratar la direccion IP fuera de la UE</td></tr>
+  <tr><td>Cloudflare</td><td>Servir esta web y esta politica.</td><td>Red global; puede tratar la direccion IP fuera de la UE</td></tr>
   <tr><td>Google</td><td>Inicio de sesion y, en Android, el cobro a traves de Google Play.</td><td>Global</td></tr>
-  <tr><td>RevenueCat</td><td>Gestion de las compras. Solo interviene si se compra el plan de pago.</td><td>Estados Unidos</td></tr>
+  <tr><td>RevenueCat</td><td>Gestion de las compras. Solo interviene si se contrata la suscripcion.</td><td>Estados Unidos</td></tr>
 </table>
 </div>
 <p>
@@ -201,13 +210,16 @@
 
 <h2 id="borrar-cuenta">8. Como eliminar la cuenta y los datos</h2>
 <p>
-  Para eliminar la cuenta hay que escribir a
-  <a href="mailto:baltax.75@gmail.com?subject=Eliminar%20mi%20cuenta%20de%20Test4Test">baltax.75@gmail.com</a>
-  desde la misma direccion de correo con la que se accede a Test4Test, indicando
-  que se desea eliminar la cuenta.
+  Desde la aplicacion: <strong>Perfil, Borrar cuenta</strong>. Es inmediato. Una
+  suscripcion activa no se cancela con esto: se cancela en Google Play, Pagos y
+  suscripciones.
 </p>
 <p>
-  La solicitud se atiende en un plazo maximo de 30 dias. Se eliminan la cuenta, el
+  Sin la aplicacion, escribiendo a
+  <a href="mailto:baltax.75@gmail.com?subject=Eliminar%20mi%20cuenta%20de%20Test4Test">baltax.75@gmail.com</a>
+  desde la misma direccion de correo con la que se accede a Test4Test, indicando
+  que se desea eliminar la cuenta. Por correo se atiende en un plazo maximo de 30
+  dias. Se eliminan la cuenta, el
   perfil, las aplicaciones publicadas, las participaciones como tester y los
   comentarios. La eliminacion es definitiva y no se puede deshacer.
 </p>

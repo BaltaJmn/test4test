@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy - Test4Test</title>
-<!-- Estilos propios y no styles.css: aquel pone overflow:hidden en body para el
-     canvas de Compose, y aqui hay que poder hacer scroll. Version en castellano
-     en privacy-es.html: si cambia una politica, cambian las dos. -->
+<!-- Version en castellano en privacy-es.html: si cambia una politica, cambian
+     las dos. -->
 <style>
   :root {
     --bg: #ffffff;
@@ -58,7 +57,7 @@
 <body>
 
 <h1>Test4Test Privacy Policy</h1>
-<p class="updated">Last updated: 1 September 2026 &middot; <a href="/privacy-es">Espanol</a></p>
+<p class="updated">Last updated: 26 October 2026 &middot; <a href="/privacy-es">Espanol</a></p>
 
 <p>
   Test4Test is a service that puts Android developers in touch with each other so
@@ -95,9 +94,9 @@
 <h3>2.2 Which part of the profile is public</h3>
 <div class="note">
   <p>
-    Your display name and profile picture are <strong>visible to anyone</strong>,
-    including people without a Test4Test account. Your email address is
-    <strong>not</strong> public and is not shown anywhere in the app.
+    Your display name and profile picture are <strong>visible to every signed-in
+    Test4Test user</strong>. Your email address is <strong>not</strong> public and
+    is not shown anywhere in the app.
   </p>
 </div>
 <p>
@@ -106,23 +105,34 @@
 </p>
 
 <h3>2.3 Content published by using the service</h3>
-<p>Everything below is public by design, because showing it is what the service is for:</p>
+<p>Everything below is visible to every signed-in user by design, because showing it is what the service is for:</p>
 <ul>
   <li>The apps you list: name, Google Group link, Google Play link and testing opt-in link.</li>
   <li>The apps you have joined as a tester.</li>
   <li>The comments you write under any app, with their author and date.</li>
 </ul>
 
-<h3>2.4 Purchases</h3>
+<h3>2.4 Install check</h3>
 <p>
-  Test4Test offers a free plan with one app and a paid plan with unlimited apps. The
-  purchase is made inside the Android app, through Google Play, and is handled by
-  RevenueCat. Test4Test <strong>does not receive, see or store any payment
-  data</strong>: no card numbers, no billing addresses, no cardholder name. All that
-  arrives is a flag saying whether the paid plan is active.
+  When you join an app as a tester, the Test4Test Android app checks on your phone
+  whether <strong>that specific app</strong> is installed and whether Google Play
+  installed it. It only looks at the apps you joined inside Test4Test, never at the
+  rest of your apps. The only thing sent is the time the app was last seen
+  installed, and it is shown to the owner of that app so they can tell real testers
+  apart. Leaving the test stops the check for that app.
 </p>
 
-<h3>2.5 What is not done</h3>
+<h3>2.5 Purchases</h3>
+<p>
+  Test4Test offers a free plan with one app at a time and a subscription with
+  unlimited apps. The subscription is bought inside the Android app, through Google
+  Play, renews automatically until you cancel it in Google Play, and is handled by
+  RevenueCat. Test4Test <strong>does not receive, see or store any payment
+  data</strong>: no card numbers, no billing addresses, no cardholder name. All that
+  arrives is a flag saying whether the subscription is active.
+</p>
+
+<h3>2.6 What is not done</h3>
 <ul>
   <li>There is no analytics or behaviour measurement.</li>
   <li>There is no advertising.</li>
@@ -133,11 +143,10 @@
 
 <h2>3. Storage on your device</h2>
 <p>
-  So you are not asked to sign in on every visit, the session is kept in your
-  browser local storage (<code>localStorage</code>) on the web version, and in the
-  app private storage on Android. It is storage that is technically necessary for
-  the service to work, it is not used for tracking, and that is why no cookie banner
-  is shown. You can remove it by signing out or by clearing your browser or app data.
+  So you are not asked to sign in every time, the session is kept in the app private
+  storage on Android. It is storage that is technically necessary for the service to
+  work and it is not used for tracking. You can remove it by signing out or by
+  clearing the app data.
 </p>
 
 <h2>4. Purposes and legal bases</h2>
@@ -145,11 +154,11 @@
 <table>
   <tr><th>Purpose</th><th>Legal basis (GDPR art. 6)</th></tr>
   <tr>
-    <td>Creating and maintaining your account, listing apps, joining as a tester and commenting.</td>
+    <td>Creating and maintaining your account, listing apps, joining as a tester, checking that joined apps are installed and commenting.</td>
     <td>Performance of a contract (art. 6.1.b).</td>
   </tr>
   <tr>
-    <td>Managing the paid plan and reflecting whether it is active.</td>
+    <td>Managing the subscription and reflecting whether it is active.</td>
     <td>Performance of a contract (art. 6.1.b).</td>
   </tr>
   <tr>
@@ -168,9 +177,9 @@
 <table>
   <tr><th>Provider</th><th>What for</th><th>Location</th></tr>
   <tr><td>Supabase</td><td>Database and authentication. Your account and all content live here.</td><td>Frankfurt, Germany (European Union)</td></tr>
-  <tr><td>Cloudflare</td><td>Serving the web version.</td><td>Global network; may process your IP address outside the EU</td></tr>
+  <tr><td>Cloudflare</td><td>Serving this website and this policy.</td><td>Global network; may process your IP address outside the EU</td></tr>
   <tr><td>Google</td><td>Sign-in and, on Android, payment through Google Play.</td><td>Global</td></tr>
-  <tr><td>RevenueCat</td><td>Purchase management. Only involved if you buy the paid plan.</td><td>United States</td></tr>
+  <tr><td>RevenueCat</td><td>Purchase management. Only involved if you subscribe.</td><td>United States</td></tr>
 </table>
 </div>
 <p>
@@ -198,13 +207,15 @@
 
 <h2 id="delete-account">8. How to delete your account and your data</h2>
 <p>
-  To delete your account, write to
-  <a href="mailto:baltax.75@gmail.com?subject=Delete%20my%20Test4Test%20account">baltax.75@gmail.com</a>
-  from the same email address you use to sign in to Test4Test, saying that you want
-  your account deleted.
+  From the app: <strong>Profile, Delete account</strong>. It is immediate. An active
+  subscription is not cancelled by this: cancel it in Google Play, Payments and
+  subscriptions.
 </p>
 <p>
-  Requests are handled within a maximum of 30 days. The account, the profile, the
+  Without the app, write to
+  <a href="mailto:baltax.75@gmail.com?subject=Delete%20my%20Test4Test%20account">baltax.75@gmail.com</a>
+  from the same email address you use to sign in to Test4Test, saying that you want
+  your account deleted. Requests by email are handled within a maximum of 30 days. The account, the profile, the
   published apps, the tester participations and the comments are deleted. Deletion
   is permanent and cannot be undone.
 </p>

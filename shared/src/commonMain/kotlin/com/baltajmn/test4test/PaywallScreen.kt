@@ -8,11 +8,10 @@ import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.paywall_active
 import test4test.shared.generated.resources.paywall_body
-import test4test.shared.generated.resources.paywall_web
+import test4test.shared.generated.resources.paywall_terms
 
-// Issue #26: la compra solo existe en Android. En Web el estado premium se lee
-// igual (mismo profiles.is_premium) pero no se vende nada.
-// Fuera del MVP: via de pago Web con Stripe / RevenueCat Web Billing.
+// Plan gratuito: una app a la vez. Mas apps, con la suscripcion. El estado se lee
+// de profiles.is_premium, que solo escribe el webhook de RevenueCat.
 @Composable
 fun PaywallScreen(
     uid: String,
@@ -25,10 +24,17 @@ fun PaywallScreen(
             stringResource(Res.string.paywall_body),
             style = MaterialTheme.typography.bodyLarge,
         )
-        when {
-            me?.isPremium == true -> Text(stringResource(Res.string.paywall_active))
-            getPlatform().isAndroid -> PurchaseSection(uid, onPurchased)
-            else -> Text(stringResource(Res.string.paywall_web))
+        if (me?.isPremium == true) {
+            Text(stringResource(Res.string.paywall_active))
+        } else {
+            PurchaseSection(uid, onPurchased)
+            // Play pide que la renovacion y como cancelar se lean antes de pagar,
+            // no en la hoja de compra.
+            Text(
+                stringResource(Res.string.paywall_terms),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }

@@ -5,16 +5,17 @@ days before it lets the app go to production. Test4Test is where Android
 developers find each other to cover that: you list your app, other developers
 join your closed test, you join theirs.
 
-Kotlin Multiplatform and Compose Multiplatform, one codebase for Android and
-Web. The web build is functionally identical to Android; the in-app purchase is
-the only thing that exists on Android alone. Live at
-[testers.baltajmn.dev](https://testers.baltajmn.dev).
+Android only, written with Kotlin Multiplatform and Compose Multiplatform so the
+UI and data layer live in `:shared`. The web version was dropped in 1.6:
+[testers.baltajmn.dev](https://testers.baltajmn.dev) is now a static page that
+explains how to join the closed test, opens shared app links in the app and
+hosts the privacy policy.
 
 ## Setup
 
 1. Copy `local.properties.example` to `local.properties` and fill it in. That
    file documents every key it takes: the Supabase project, the RevenueCat
-   public Android key (optional, without it the purchase button is not drawn)
+   public Android key (optional, without it the subscribe button is not drawn)
    and the upload keystore (optional, without it the release build comes out
    unsigned).
 2. `local.properties` is gitignored and stays that way. So does
@@ -37,32 +38,56 @@ fails with an explicit message if they are missing. CI has no
 `REVENUECAT_ANDROID_KEY` as environment variables instead: the env vars win when
 both are present.
 
+The Supabase project is `tneuaccyzausvszpplms` since 26-10-2026. The first one
+was paused for inactivity on the free plan and then lost, together with every
+account and app in it; `keep-alive.yml` pings it daily so it does not happen
+again.
+
 ## Database
 
 The schema lives in [`supabase/migrations`](./supabase/migrations) and is already
-applied to the hosted project. Authorization is enforced entirely by RLS,
-because clients talk to PostgREST directly with the public anon key: see the
-migration comments for what each policy guards.
+applied to the hosted project. Everything applied to the database goes through
+that directory: the first project lost the streak, reports and reciprocity
+because they were applied by hand and never committed. Authorization is enforced
+entirely by RLS, because clients talk to PostgREST directly with the public anon
+key: see the migration comments for what each policy guards.
 
-`is_premium` (paid tier) and `is_admin` (moderation) sit behind a column-level
-grant on `profiles`, so users cannot set them on themselves. Flip `is_admin`
-from the Supabase dashboard.
+Roles:
 
-The feed reads `apps_with_followers`, a view that adds the tester count, the
-days at 12 testers and whether the owner reciprocates. It carries
-`security_invoker=true` so RLS still applies to whoever queries it: keep that
-option on any migration that replaces the view.
+| Who | Can |
+|---|---|
+| anon | Nothing. Every read and write needs a session. |
+| Signed-in user | Read everything; list 1 app at a time, edit its name and links, delete it; join and leave tests as themselves; comment as themselves; report; delete their own account. |
+| Subscriber (`is_premium`) | The same, with no limit on apps. Only the RevenueCat webhook writes the flag. |
+| Admin (`is_admin`) | Also delete any app or comment, and read and clear reports. Set from the dashboard. |
+
+`is_premium` and `is_admin` sit behind a column-level grant on `profiles`, and
+`apps` only lets owners update name and links, so nobody can move their own
+streak or hand an app to someone else.
+
+Proof of install: `app_testers.verified_at` is only written by
+`confirm_installed()`, with the server clock, and the Android client calls it
+on every resume for the apps it sees installed from Google Play. Owners see the
+result per tester through `app_tester_status`.
+
+The feed reads `apps_with_followers`, a view that adds the tester count, how
+many of them were seen with the app installed, the streak day and whether the
+owner reciprocates. It carries `security_invoker=true` so RLS still applies to
+whoever queries it: keep that option on any migration that replaces the view.
+
+[`supabase/tests/rls_test.sql`](./supabase/tests/rls_test.sql) covers every
+rule above inside a transaction that is rolled back. Run it after any change to
+a policy, grant or view.
 
 ## Project layout
 
-* [/shared](./shared/src) holds the code shared between Android and Web.
-  - [commonMain](./shared/src/commonMain/kotlin) is common to both targets.
-  - Other folders compile only for the platform named in the folder.
-* [/androidApp](./androidApp) is the Android entry point and the only module
-  that knows about billing.
-* [/webApp](./webApp) is the Web entry point. It depends on `compose.ui` and
-  `:shared`, nothing else: anything that needs `foundation` or `material3` has
-  to live in `:shared`.
+* [/shared](./shared/src) holds the UI and data layer.
+  - [commonMain](./shared/src/commonMain/kotlin) is platform-agnostic.
+  - [androidMain](./shared/src/androidMain/kotlin) has billing, the install
+    check and the system back handler.
+* [/androidApp](./androidApp) is the Android entry point: manifest, deep links
+  (`test4test://login`, `test4test://app/<id>`) and signing.
+* [/web](./web) is the static site: landing page and privacy policy.
 * [/branding](./branding) holds the Play Store listing copy.
 * [/docs](./docs) holds the runbook for the external services.
 
@@ -76,22 +101,8 @@ string added to one has to be added to all six or the build fails.
 
 ### Running the apps
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You
-can also use these commands and options:
-
 - Android app: `./gradlew :androidApp:assembleDebug`
-- Web app:
-  - Wasm target (faster, modern browsers): `./gradlew :webApp:wasmJsBrowserDevelopmentRun`
-  - JS target (slower, supports older browsers): `./gradlew :webApp:jsBrowserDevelopmentRun`
-
-### Running tests
-
-Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
-
-- Android tests: `./gradlew :shared:testAndroidHostTest`
-- Web tests:
-  - Wasm target: `./gradlew :shared:wasmJsTest`
-  - JS target: `./gradlew :shared:jsTest`
+- Tests: `./gradlew :shared:testAndroidHostTest`
 
 Before pushing, run exactly what CI runs:
 
@@ -99,21 +110,14 @@ Before pushing, run exactly what CI runs:
 ./gradlew :androidApp:assembleDebug :androidApp:lintDebug :shared:testAndroidHostTest
 ```
 
-Note there is no `:shared:compileDebugKotlinAndroid` task in this project. To
-check that a change compiles for every target without running the whole CI line:
-
-```
-./gradlew :shared:testAndroidHostTest :shared:compileKotlinWasmJs :shared:compileKotlinJs
-```
-
 ## Releasing
 
-Three workflows live in [`.github/workflows`](./.github/workflows):
+Four workflows live in [`.github/workflows`](./.github/workflows):
 
 - `android-ci.yml` runs on every push and pull request to `main`.
-- `deploy-web.yml` builds the wasm distribution and deploys it to the Cloudflare
-  Worker on every push to `main`. It strips the source maps first, because they
-  carry the full Kotlin source and browsers only fetch them with devtools open.
+- `deploy-web.yml` deploys [`web/`](./web) to the Cloudflare Worker when it
+  changes on `main`. Nothing is built.
+- `keep-alive.yml` pings Supabase once a day so the free plan never pauses it.
 - `release.yml` ships the Android bundle to Play. It delegates to
   `BaltaJmn/ci/.github/workflows/android-play-release.yml`, which is shared with
   another app, so anything that changes the signing or upload sequence has to be

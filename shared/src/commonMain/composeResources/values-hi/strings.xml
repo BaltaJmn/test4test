@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">Test4Test</string>
     <string name="nav_back">वापस</string>
     <string name="tab_feed">फ़ीड</string>
     <string name="tab_my_apps">मेरे ऐप</string>
@@ -6,7 +7,7 @@
     <string name="title_detail">विवरण</string>
     <string name="title_new_app">नया ऐप</string>
     <string name="title_edit_app">ऐप संपादित करें</string>
-    <string name="title_paywall">असीमित स्लॉट</string>
+    <string name="title_paywall">असीमित ऐप</string>
 
     <string name="login_tagline">दूसरों को टेस्टर दिलाने में मदद करें और अपने Google Play ऐप के लिए टेस्टर पाएं।</string>
     <string name="login_google">Google से जारी रखें</string>
@@ -27,10 +28,10 @@
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">ऑप्ट-इन लिंक</string>
     <string name="detail_join">मैंने Play पर ऑप्ट-इन कर लिया</string>
-    <string name="detail_leave">छोड़ें</string>
+    <string name="detail_leave">टेस्ट छोड़ें</string>
     <string name="detail_delete_app">ऐप हटाएं</string>
     <string name="detail_action_error">पूरा नहीं हो सका</string>
-    <string name="detail_join_help">पहले ग्रुप खोलें, फिर ऑप्ट-इन लिंक। उल्टे क्रम में Play एरर पेज दिखाता है।</string>
+    <string name="detail_join_help">पहले ग्रुप खोलें, फिर ऑप्ट-इन लिंक। उल्टे क्रम में Play एरर पेज दिखाता है। जुड़ने के बाद Test4Test इस फ़ोन पर जाँचता है कि ऐप Play से इंस्टॉल हुआ है, और यह ऐप के मालिक को दिखाता है।</string>
     <string name="detail_copy_link">लिंक कॉपी करें</string>
     <string name="detail_link_copied">लिंक कॉपी हो गया</string>
     <string name="detail_not_found">यह ऐप अब मौजूद नहीं है।</string>
@@ -41,15 +42,13 @@
     <string name="comment_send">भेजें</string>
     <string name="comment_send_error">भेजा नहीं जा सका</string>
     <string name="comments_empty">अभी कोई टिप्पणी नहीं है।</string>
-    <string name="comment_author_fallback">उपयोगकर्ता</string>
 
     <string name="my_apps_error">आपके ऐप लोड नहीं हो सके</string>
     <string name="my_apps_add">ऐप जोड़ें</string>
-    <string name="my_apps_empty">टेस्टर पाने के लिए अपना ऐप जोड़ें। इसके लिए Google Groups लिंक, Play Store लिंक और ऑप्ट-इन लिंक चाहिए।</string>
+    <string name="my_apps_empty">टेस्टर पाने के लिए अपना ऐप जोड़ें। इसके लिए Play Console से दो लिंक चाहिए: उसका Google Group और ऑप्ट-इन लिंक।</string>
 
     <string name="form_name">ऐप का नाम</string>
     <string name="form_groups_url">Google Groups लिंक</string>
-    <string name="form_play_url">Play Store लिंक</string>
     <string name="form_opt_in_url">ऑप्ट-इन लिंक</string>
     <string name="form_create">ऐप बनाएं</string>
     <string name="form_save">बदलाव सहेजें</string>
@@ -58,32 +57,29 @@
     <string name="error_name_empty">नाम खाली नहीं हो सकता</string>
     <string name="error_name_too_long">नाम 100 अक्षरों से बड़ा नहीं हो सकता</string>
     <string name="error_groups_url">Google Groups लिंक ऐसा होना चाहिए: https://groups.google.com/g/your-group</string>
-    <string name="error_play_url">Play Store लिंक ऐसा होना चाहिए: https://play.google.com/store/apps/details?id=your.package</string>
     <string name="error_opt_in_url">ऑप्ट-इन लिंक ऐसा होना चाहिए: https://play.google.com/apps/testing/your.package</string>
-    <string name="error_package_mismatch">Play Store लिंक और ऑप्ट-इन लिंक अलग-अलग ऐप की ओर इशारा करते हैं</string>
 
     <string name="profile_error">प्रोफ़ाइल लोड नहीं हो सकी</string>
     <string name="profile_fallback_name">उपयोगकर्ता</string>
-    <string name="profile_premium">प्रीमियम: असीमित स्लॉट</string>
-    <string name="profile_free">मुफ़्त प्लान - 1 ऐप</string>
+    <string name="profile_premium">सदस्यता सक्रिय: असीमित ऐप</string>
+    <string name="profile_free">मुफ़्त प्लान: एक बार में 1 ऐप। सदस्यता देखें</string>
     <string name="profile_my_apps">प्रकाशित ऐप</string>
     <string name="profile_none_yet">अभी कोई नहीं।</string>
     <string name="profile_testing">टेस्ट कर रहे हैं</string>
     <string name="profile_sign_out">साइन आउट</string>
     <string name="profile_privacy">गोपनीयता नीति</string>
 
-    <string name="paywall_body">मुफ़्त प्लान में 1 ऐप शामिल है। असीमित स्लॉट के साथ आप जितने चाहें उतने ऐप प्रकाशित कर सकते हैं।</string>
-    <string name="paywall_active">आपके पास पहले से असीमित स्लॉट हैं।</string>
-    <string name="paywall_web">खरीदारी केवल Android ऐप में उपलब्ध है।</string>
-    <string name="paywall_preparing">खरीदारी जल्द आ रही है।</string>
+    <string name="paywall_body">मुफ़्त प्लान में एक बार में 1 ऐप शामिल है। सदस्यता के साथ, जब तक वह सक्रिय है, आप जितने चाहें उतने ऐप प्रकाशित कर सकते हैं।</string>
+    <string name="paywall_active">आपकी सदस्यता सक्रिय है।</string>
+    <string name="paywall_preparing">सदस्यताएं जल्द आ रही हैं।</string>
     <string name="paywall_no_product">अभी कोई उत्पाद उपलब्ध नहीं है।</string>
     <string name="paywall_price_error">कीमत लोड नहीं हो सकी: %1$s</string>
-    <string name="paywall_subscribe">खरीदें</string>
-    <string name="paywall_subscribe_price">%1$s में खरीदें</string>
-    <string name="paywall_restore">खरीदारी बहाल करें</string>
-    <string name="paywall_no_purchase">हमें कोई सक्रिय खरीदारी नहीं मिली।</string>
-    <string name="paywall_pending">खरीदारी दर्ज हो गई, लेकिन एक्सेस अभी सक्रिय नहीं है। एक मिनट बाद वापस आएं।</string>
-    <string name="paywall_purchase_error">खरीदारी पूरी नहीं हो सकी</string>
+    <string name="paywall_subscribe">सदस्यता लें</string>
+    <string name="paywall_subscribe_price">%1$s में सदस्यता लें</string>
+    <string name="paywall_restore">सदस्यता बहाल करें</string>
+    <string name="paywall_no_purchase">हमें कोई सक्रिय सदस्यता नहीं मिली।</string>
+    <string name="paywall_pending">सदस्यता दर्ज हो गई, लेकिन एक्सेस अभी सक्रिय नहीं है। एक मिनट बाद वापस आएं।</string>
+    <string name="paywall_purchase_error">सदस्यता पूरी नहीं हो सकी</string>
 
     <string name="confirm_title">पुष्टि करें</string>
     <string name="action_delete">हटाएं</string>
@@ -100,10 +96,30 @@
     <string name="follower_help">वे लोग जो Test4Test से टेस्टर बने।</string>
     <string name="linked_app">%1$s - %2$d टेस्टर</string>
     <string name="testers_days">लगातार %2$d में से %1$d दिन</string>
-    <string name="testers_days_done">लगातार %1$d दिन पूरे। अब आप प्रकाशन के लिए आवेदन कर सकते हैं।</string>
+    <string name="testers_days_done">लगातार %1$d दिन पूरे। अब आप प्रोडक्शन के लिए आवेदन कर सकते हैं।</string>
 
     <string name="testers_of">%2$d में से %1$d टेस्टर</string>
     <string name="my_apps_rank">आपके ऐप उन डेवलपर के नीचे दिखते हैं जो दूसरों के ऐप टेस्ट करते हैं। आप %2$d में से %1$d टेस्ट कर रहे हैं।</string>
+
+    <string name="detail_install">Google Play से इंस्टॉल करें</string>
+    <string name="detail_installed">Google Play से इंस्टॉल किया गया। ऐप के मालिक को दिखता है कि आपके पास यह सच में है। इसे 14 दिन तक रखें।</string>
+    <string name="detail_not_installed">इस फ़ोन पर अभी इंस्टॉल नहीं है। Play केवल उन्हीं टेस्टर को गिनता है जो ऐप इंस्टॉल करते हैं।</string>
+    <string name="detail_verified">ऐप इंस्टॉल वाले %1$d</string>
+    <string name="tester_installed">ऐप इंस्टॉल है</string>
+    <string name="tester_stale">कई दिनों से इंस्टॉल नहीं दिखा</string>
+    <string name="tester_unverified">इंस्टॉल की पुष्टि नहीं हुई</string>
+    <string name="confirm_leave">\"%1$s\" का टेस्ट छोड़ें? अगर आप इसके 12 टेस्टर में से एक थे, तो इसकी 14 दिन की लगातार अवधि फिर से शुरू होगी।</string>
+    <string name="feed_testing">टेस्ट कर रहे हैं</string>
+    <string name="my_apps_add_locked">एक और ऐप जोड़ें (सदस्यता)</string>
+    <string name="form_groups_hint">Play Console में Closed testing, Testers: वहाँ जोड़ा गया Google Group।</string>
+    <string name="form_opt_in_hint">उसी पेज पर, Join on the web: https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">Google Play में सदस्यता प्रबंधित करें</string>
+    <string name="profile_delete_account">खाता हटाएं</string>
+    <string name="confirm_delete_account">आपका खाता, आपके ऐप, आपके टेस्ट और आपकी टिप्पणियां हटाएं? इसे वापस नहीं लिया जा सकता। सक्रिय सदस्यता यहां रद्द नहीं होती: उसे Google Play में रद्द करें।</string>
+    <string name="paywall_terms">रद्द न करने तक यह अपने-आप नवीनीकृत होती रहती है। कभी भी Google Play में, Payments and subscriptions में जाकर रद्द करें। रद्द करने पर आपके ऐप सूची में बने रहेंगे; बस एक से ज़्यादा ऐप जोड़ नहीं पाएंगे।</string>
+    <string name="price_per_week">%1$s/सप्ताह</string>
+    <string name="price_per_month">%1$s/महीना</string>
+    <string name="price_per_year">%1$s/वर्ष</string>
 
     <plurals name="testing_count">
         <item quantity="one">%1$d ऐप टेस्ट कर रहे हैं</item>
