@@ -1,0 +1,24 @@
+name: Keep Supabase awake
+
+# The free plan pauses a project after a week without traffic, and a paused
+# project is deleted for good if nobody restores it in time. That is how the
+# first Test4Test database was lost in October 2026: the app went quiet between
+# releases and the closed test died with it. One request a day is enough.
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      # anon sees no rows (reads need a session), but the request still reaches
+      # Postgres, which is what counts as activity.
+      - run: |
+          curl -fsS -o /dev/null \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            "$SUPABASE_URL/rest/v1/apps?select=id&limit=1"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
