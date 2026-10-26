@@ -25,11 +25,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.action_delete
@@ -43,21 +45,30 @@ import test4test.shared.generated.resources.comments_empty
 import test4test.shared.generated.resources.comments_title
 import test4test.shared.generated.resources.confirm_delete_app_content
 import test4test.shared.generated.resources.confirm_delete_comment
+import test4test.shared.generated.resources.confirm_leave
 import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.detail_action_error
 import test4test.shared.generated.resources.detail_copy_link
 import test4test.shared.generated.resources.detail_delete_app
 import test4test.shared.generated.resources.detail_error
 import test4test.shared.generated.resources.detail_groups
+import test4test.shared.generated.resources.detail_install
+import test4test.shared.generated.resources.detail_installed
 import test4test.shared.generated.resources.detail_join
 import test4test.shared.generated.resources.detail_join_help
 import test4test.shared.generated.resources.detail_leave
 import test4test.shared.generated.resources.detail_link_copied
 import test4test.shared.generated.resources.detail_not_found
+import test4test.shared.generated.resources.detail_not_installed
 import test4test.shared.generated.resources.detail_opt_in
 import test4test.shared.generated.resources.detail_play
 import test4test.shared.generated.resources.detail_testers_empty
 import test4test.shared.generated.resources.detail_testers_title
+import test4test.shared.generated.resources.detail_verified
+import test4test.shared.generated.resources.tester_installed
+import test4test.shared.generated.resources.tester_stale
+import test4test.shared.generated.resources.tester_unverified
+import test4test.shared.generated.resources.testing_count
 
 @Composable
 fun AppDetailScreen(
@@ -76,7 +87,7 @@ fun AppDetailScreen(
 
     var app by remember { mutableStateOf<AppRow?>(null) }
     var owner by remember(appId) { mutableStateOf<Profile?>(null) }
-    var testers by remember(appId) { mutableStateOf<List<Profile>>(emptyList()) }
+    var testers by remember(appId) { mutableStateOf<List<TesterView>>(emptyList()) }
     var comments by remember { mutableStateOf<List<CommentView>>(emptyList()) }
     var myOwnApps by remember { mutableStateOf<List<AppRow>>(emptyList()) }
     var isTester by remember { mutableStateOf(false) }
@@ -90,12 +101,21 @@ fun AppDetailScreen(
     var reload by remember { mutableStateOf(0) }
     var pendingCommentDelete by remember { mutableStateOf<CommentRow?>(null) }
     var pendingAppDelete by remember { mutableStateOf(false) }
+    var pendingLeave by remember { mutableStateOf(false) }
     var copied by remember(appId) { mutableStateOf(false) }
     // Ids ya denunciados en esta sesion, de la app y de los comentarios. Solo
     // apaga el boton: la fila la protege el UNIQUE app_reports_once.
     var reported by remember(appId) { mutableStateOf(emptySet<String>()) }
     // Cuantos pasos del alta como tester lleva abiertos: 1 el grupo, 2 el opt-in.
     var opened by remember(appId) { mutableStateOf(0) }
+    // Se vuelve aqui desde Play despues de instalar: cada vuelta recalcula si la
+    // app esta en el movil, sin esperar a ninguna consulta.
+    val installedFromPlay = rememberInstalledFromPlay()
+    var resumes by remember { mutableStateOf(0) }
+    LifecycleResumeEffect(Unit) {
+        resumes++
+        onPauseOrDispose { }
+    }
     // Resueltos aqui: LaunchedEffect y los lambdas de onClick no son composables.
     val loadErrorText = stringResource(Res.string.detail_error)
     val notFoundText = stringResource(Res.string.detail_not_found)
@@ -116,7 +136,7 @@ fun AppDetailScreen(
             myOwnApps = myApps(uid)
             // Solo en la propia: es la unica ficha donde la lista sirve para algo.
             if (row.ownerId == uid) testers = testersOf(appId)
-        }.onFailure { error = it.message ?: loadErrorText }
+        }.onFailure { error = if (it is IllegalStateException) notFoundText else loadErrorText }
     }
 
     val current = app
@@ -128,6 +148,28 @@ fun AppDetailScreen(
     val canModerate = me?.isAdmin == true
     // Quien ya paso por Play no tiene que volver a recorrer los pasos en orden.
     val stepsDone = isOwner || isTester
+    val installedHere = remember(resumes, current.packageName) {
+        current.packageName?.let(installedFromPlay) == true
+    }
+
+    fun toggleTester() {
+        busy = true
+        scope.launch {
+            runCatching {
+                if (isTester) {
+                    leaveApp(current.id, uid)
+                } else {
+                    joinApp(current.id, uid)
+                    // Quien ya la tenia instalada no tiene que esperar a volver a
+                    // abrir Test4Test para que el dueno lo vea.
+                    if (installedHere) runCatching { confirmInstalls(uid, installedFromPlay) }
+                }
+            }
+                .onSuccess { reload++ }
+                .onFailure { error = actionErrorText }
+            busy = false
+        }
+    }
 
     if (pendingAppDelete) {
         ConfirmDialog(
@@ -137,7 +179,7 @@ fun AppDetailScreen(
                 scope.launch {
                     runCatching { deleteApp(current.id) }
                         .onSuccess { onDeleted() }
-                        .onFailure { error = it.message ?: deleteErrorText }
+                        .onFailure { error = deleteErrorText }
                 }
             },
             onDismiss = { pendingAppDelete = false },
@@ -151,10 +193,23 @@ fun AppDetailScreen(
                 scope.launch {
                     runCatching { deleteComment(target.id) }
                         .onSuccess { reload++ }
-                        .onFailure { error = it.message ?: deleteErrorText }
+                        .onFailure { error = deleteErrorText }
                 }
             },
             onDismiss = { pendingCommentDelete = null },
+        )
+    }
+    // Salir no es borrar, pero tumba la racha del otro si era uno de sus 12. Un
+    // toque sin querer no deberia poder hacerle eso a nadie.
+    if (pendingLeave) {
+        ConfirmDialog(
+            text = stringResource(Res.string.confirm_leave, current.name),
+            confirmLabel = stringResource(Res.string.detail_leave),
+            onConfirm = {
+                pendingLeave = false
+                toggleTester()
+            },
+            onDismiss = { pendingLeave = false },
         )
     }
 
@@ -172,6 +227,14 @@ fun AppDetailScreen(
             // Pegado al contador y no mas abajo: explica ese numero, y separado
             // de el se leia como un parrafo suelto mas.
             FollowerHelp()
+            // Cuantos de esos tienen la app de verdad, que es lo que cuenta Play.
+            if (current.followerCount > 0) {
+                Text(
+                    stringResource(Res.string.detail_verified, current.verifiedCount.toInt()),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
         }
         // Con quien se esta haciendo el intercambio, y cuantas apps prueba esa
         // persona. Es el dato que decide si merece la pena entrar. En la propia
@@ -180,7 +243,9 @@ fun AppDetailScreen(
             item {
                 PersonRow(
                     profile = owner,
-                    testingCount = current.ownerTestingCount,
+                    subtitle = pluralStringResource(
+                        Res.plurals.testing_count, current.ownerTestingCount, current.ownerTestingCount,
+                    ),
                     onClick = { onOpenProfile(current.ownerId) },
                 )
             }
@@ -205,12 +270,20 @@ fun AppDetailScreen(
                     )
                 }
             }
-            for (person in testers) {
-                item(key = "tester-" + person.id) {
+            // Con el estado de instalacion al lado: el dueno ve quien tiene la app
+            // de verdad y a quien escribir cuando la racha se cae.
+            for (tester in testers) {
+                item(key = "tester-" + tester.profile.id) {
                     PersonRow(
-                        profile = person,
-                        testingCount = null,
-                        onClick = { onOpenProfile(person.id) },
+                        profile = tester.profile,
+                        subtitle = stringResource(
+                            when (tester.install) {
+                                InstallState.INSTALLED -> Res.string.tester_installed
+                                InstallState.STALE -> Res.string.tester_stale
+                                InstallState.UNVERIFIED -> Res.string.tester_unverified
+                            }
+                        ),
+                        onClick = { onOpenProfile(tester.profile.id) },
                     )
                 }
             }
@@ -241,35 +314,40 @@ fun AppDetailScreen(
                     opened = 2
                     uriHandler.openUri(current.optInUrl)
                 }
-                // El paso 3 no comprueba nada, declara: nadie puede saber desde
-                // aqui si Play acepto el opt-in. Estuvo condicionado a haber
-                // abierto los otros dos, pero ese estado vivia en memoria, y el
-                // camino normal (salir al navegador, que Android mate el proceso,
-                // volver) lo borraba: el usuario hacia los tres pasos y encontraba
-                // el boton apagado. Bloqueaba a los honestos y no paraba a nadie,
-                // porque abrir dos enlaces no prueba nada. El texto dice ahora lo
-                // que se esta afirmando.
-                if (!isOwner) {
+                // El paso 3 declara, no comprueba: nadie puede saber desde aqui si
+                // Play acepto el opt-in. Estuvo condicionado a haber abierto los
+                // otros dos, pero ese estado vivia en memoria y el camino normal
+                // (salir al navegador, que Android mate el proceso, volver) lo
+                // borraba. Lo que si se comprueba viene despues: el paso 4.
+                if (!isOwner && !isTester) {
                     Button(
                         // busy bloquea el doble clic mientras se resuelve la llamada.
                         enabled = !busy,
-                        onClick = {
-                            busy = true
-                            scope.launch {
-                                runCatching {
-                                    if (isTester) leaveApp(current.id, uid) else joinApp(current.id, uid)
-                                }
-                                    .onSuccess { reload++ }
-                                    .onFailure { error = it.message ?: actionErrorText }
-                                busy = false
-                            }
-                        },
+                        onClick = ::toggleTester,
                         modifier = Modifier.fillMaxWidth(),
                     ) {
-                        Text(
-                            if (isTester) stringResource(Res.string.detail_leave)
-                            else "3. " + stringResource(Res.string.detail_join)
-                        )
+                        Text("3. " + stringResource(Res.string.detail_join))
+                    }
+                }
+                // El paso 4 es la prueba: instalada y desde Play. Un APK suelto o
+                // una app sin opt-in no pasan. Mientras no este, el boton lleva a
+                // instalarla; cuando esta, se dice, porque es lo que ve el dueno.
+                if (isTester) {
+                    Text(
+                        stringResource(if (installedHere) Res.string.detail_installed else Res.string.detail_not_installed),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (installedHere) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    if (!installedHere) {
+                        Button(
+                            onClick = { uriHandler.openUri(current.playStoreUrl) },
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Text("4. " + stringResource(Res.string.detail_install))
+                        }
+                    }
+                    TextButton(enabled = !busy, onClick = { pendingLeave = true }) {
+                        Text(stringResource(Res.string.detail_leave))
                     }
                 }
             }
@@ -360,7 +438,7 @@ fun AppDetailScreen(
                                 linkedAppId = null
                                 composing = false
                                 reload++
-                            }.onFailure { error = it.message ?: sendErrorText }
+                            }.onFailure { error = sendErrorText }
                             busy = false
                         }
                     },
@@ -382,7 +460,6 @@ fun AppDetailScreen(
                     Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         PersonRow(
                             profile = view.author,
-                            testingCount = null,
                             onClick = { onOpenProfile(view.comment.authorId) },
                         )
                         Text(view.comment.body, style = MaterialTheme.typography.bodyMedium)

@@ -23,7 +23,7 @@ Test4Test
 
 Find real testers for your Play Store app, and test theirs back. No bots.
 
-### Full description (1805/4000)
+### Full description (2218/4000)
 
 Google Play asks for 12 testers over 14 continuous days before a personal
 developer account can publish an app. Finding those people is the part nobody
@@ -35,35 +35,42 @@ people on real devices, not a bot farm and not a spreadsheet in a chat group.
 
 WHAT YOU CAN DO
 
-- Publish your app with its Google Group, its Play Store page and its opt-in link.
-- Browse the apps that still need testers. The ones with fewest testers come first,
-  so nobody is left behind.
-- Join a test in three steps, in this order: open the group, open the opt-in link,
-  then mark yourself in.
-- Leave a comment under an app to say you are in, ask a question, or link your own
-  app so the developer can test you back.
-- See who joined your test, by name, so you know who to test back.
-- Track from your profile which apps you own and which ones you are testing.
+- List your app with its Google Group and its opt-in link. That is all it takes.
+- Browse the apps that still need testers. Developers who test others go first,
+  and within that, the apps with the fewest testers.
+- Join a test in four steps, in order: open the group, open the opt-in link,
+  mark yourself in, install the app from Google Play.
+- Leave a comment under an app to say you are in, ask a question, or link your
+  own app so the developer can test you back.
+- See who joined your test and whether they really have your app installed.
+- Follow the 14-day streak: it starts the day you reach 12 testers, and the app
+  tells you when it is done.
+
+PROOF, NOT PROMISES
+
+Pressing "I joined" proves nothing, and that is why most tester swaps fail.
+Test4Test checks on the tester's phone that your app is installed and that
+Google Play installed it, and shows it to you next to their name. It only looks
+at the apps they joined inside Test4Test, never at the rest of their phone.
 
 WHY IT IS FAIR
 
-The feed is sorted by how many testers an app already has, ascending. New apps go
-to the top instead of sinking under the popular ones. There is no ranking, no
-score and no way to buy a better position.
+Developers who test other apps rank above those who only post. Within each
+group, the apps with the fewest testers go first, so new ones do not sink. There
+is no way to buy a better position.
 
-FREE AND PAID
+FREE AND SUBSCRIPTION
 
-The free plan lets you publish one app, which is what most developers need. If you
-ship more than one, unlimited slots are a single purchase away. Joining tests,
-commenting and browsing are always free.
+The free plan lists one app at a time, which is what most developers need. To
+list more at once there is a subscription, which you can cancel anytime from
+Google Play. Joining tests, commenting and browsing are always free.
 
 PRIVACY
 
-No analytics, no advertising, no tracking cookies. Your email address is never
-shown to anyone. Your name and profile picture are public, because that is how
-other developers know who joined their test.
-
-Test4Test also runs in the browser at testers.baltajmn.dev with the same account.
+No analytics, no advertising, no tracking. Your email address is never shown to
+anyone. Your name and profile picture are visible to other signed-in users,
+because that is how developers know who joined their test. You can delete your
+account from the app at any time.
 
 Made by an Android developer who got tired of asking for testers in forums.
 
@@ -77,7 +84,7 @@ Test4Test
 
 Encuentra testers reales para tu app de Play y testea tu las de otros. Sin bots.
 
-### Descripcion completa (1931/4000)
+### Descripcion completa (2354/4000)
 
 Google Play pide 12 testers durante 14 dias seguidos antes de que una cuenta de
 desarrollador personal pueda publicar una app. Encontrar a esas personas es la
@@ -90,35 +97,42 @@ hoja de calculo en un grupo de chat.
 
 QUE PUEDES HACER
 
-- Publicar tu app con su grupo de Google, su ficha de Play Store y su enlace de acceso.
-- Ver las apps que todavia necesitan testers. Salen primero las que menos tienen,
-  para que ninguna se quede atras.
-- Entrar en una prueba en tres pasos y en ese orden: abres el grupo, abres el
-  enlace de acceso y despues te marcas dentro.
+- Publicar tu app con su grupo de Google y su enlace de acceso. No hace falta mas.
+- Ver las apps que todavia necesitan testers. Salen primero las de quien prueba
+  las de otros, y dentro de eso, las que menos testers tienen.
+- Entrar en una prueba en cuatro pasos y en ese orden: abres el grupo, abres el
+  enlace de acceso, te marcas dentro e instalas la app desde Google Play.
 - Dejar un comentario bajo una app para avisar de que ya estas dentro, preguntar
   algo o enlazar la tuya para que te devuelvan el favor.
-- Ver quien ha entrado en tu prueba, con nombre, para saber a quien devolver el favor.
-- Ver desde tu perfil cuales son tus apps y en cuales estas de tester.
+- Ver quien ha entrado en tu prueba y si de verdad tiene tu app instalada.
+- Seguir la racha de 14 dias: empieza el dia que llegas a 12 testers y la app te
+  avisa cuando esta cumplida.
+
+PRUEBAS, NO PROMESAS
+
+Pulsar "ya he entrado" no demuestra nada, y por eso fallan casi todos los
+intercambios de testers. Test4Test comprueba en el movil del tester que tu app
+esta instalada y que la instalo Google Play, y te lo ensena junto a su nombre.
+Solo mira las apps a las que se unio dentro de Test4Test, nunca el resto del
+movil.
 
 POR QUE ES JUSTO
 
-El listado se ordena por numero de testers de menos a mas. Las apps nuevas suben
-arriba en lugar de hundirse debajo de las populares. No hay ranking, ni
-puntuacion, ni forma de comprar una posicion mejor.
+Quien prueba las apps de otros sale por encima de quien solo publica. Dentro de
+cada grupo salen primero las que menos testers tienen, para que las nuevas no se
+hundan. No hay forma de comprar una posicion mejor.
 
-GRATIS Y DE PAGO
+GRATIS Y CON SUSCRIPCION
 
-El plan gratuito permite publicar una app, que es lo que necesita la mayoria. Si
-publicas mas de una, las plazas ilimitadas son una sola compra. Entrar en pruebas,
-comentar y navegar son gratis siempre.
+El plan gratuito permite una app a la vez, que es lo que necesita la mayoria.
+Para tener mas a la vez hay una suscripcion, que cancelas cuando quieras desde
+Google Play. Entrar en pruebas, comentar y navegar son gratis siempre.
 
 PRIVACIDAD
 
-Sin analitica, sin publicidad y sin cookies de seguimiento. Tu correo no se le
-ensena a nadie. Tu nombre y tu foto si son publicos, porque es asi como los demas
-saben quien ha entrado en su prueba.
+Sin analitica, sin publicidad y sin seguimiento. Tu correo no se le ensena a
+nadie. Tu nombre y tu foto los ven los demas usuarios con sesion, porque es asi
+como saben quien ha entrado en su prueba. Puedes borrar tu cuenta desde la app
+cuando quieras.
 
-Test4Test funciona tambien en el navegador, en testers.baltajmn.dev, con la misma
-cuenta.
-
-Hecho por un desarrollador de Android harto de pedir testers en foros.
+Hecha por un desarrollador de Android cansado de pedir testers en foros.

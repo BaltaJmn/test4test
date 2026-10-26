@@ -22,6 +22,7 @@ import test4test.shared.generated.resources.action_edit
 import test4test.shared.generated.resources.confirm_delete_my_app
 import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.my_apps_add
+import test4test.shared.generated.resources.my_apps_add_locked
 import test4test.shared.generated.resources.my_apps_empty
 import test4test.shared.generated.resources.my_apps_error
 import test4test.shared.generated.resources.my_apps_rank
@@ -47,7 +48,7 @@ fun MyAppsScreen(
     LaunchedEffect(uid, reload) {
         runCatching { myApps(uid) }
             .onSuccess { apps = it; error = null }
-            .onFailure { error = it.message ?: loadErrorText }
+            .onFailure { error = loadErrorText }
     }
 
     pendingDelete?.let { target ->
@@ -58,7 +59,7 @@ fun MyAppsScreen(
                 scope.launch {
                     runCatching { deleteApp(target.id) }
                         .onSuccess { reload++ }
-                        .onFailure { error = it.message ?: deleteErrorText }
+                        .onFailure { error = deleteErrorText }
                 }
             },
             onDismiss = { pendingDelete = null },
@@ -71,12 +72,14 @@ fun MyAppsScreen(
         return
     }
 
+    // El limite de slots tambien lo aplica la RLS; esto solo evita mandar al
+    // usuario a un formulario que el backend rechazaria. Y lo dice en el boton:
+    // descubrir el muro despues de tocar es peor que verlo venir.
+    val canCreate = canCreateApp(me?.isPremium == true, list.size)
     PageLazyColumn(modifier) {
         item {
-            LinkButton(stringResource(Res.string.my_apps_add)) {
-                // El limite de slots tambien lo aplica la RLS; esto solo evita
-                // mandar al usuario a un formulario que el backend rechazaria.
-                if (canCreateApp(me?.isPremium == true, list.size)) onCreate() else onPaywall()
+            LinkButton(stringResource(if (canCreate) Res.string.my_apps_add else Res.string.my_apps_add_locked)) {
+                if (canCreate) onCreate() else onPaywall()
             }
         }
         item { ErrorText(error) }

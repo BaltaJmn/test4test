@@ -2,13 +2,20 @@ package com.baltajmn.test4test
 
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.postgrest.from
+import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.rpc
 import kotlinx.coroutines.delay
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.buildJsonObject
 
 private const val APPS = "apps"
 // Vista de lectura: apps + follower_count. Para escribir se usa la tabla.
 private const val FEED = "apps_with_followers"
 private const val TESTERS = "app_testers"
+// Vista de lectura de app_testers con el estado de instalacion ya resuelto.
+private const val TESTER_STATUS = "app_tester_status"
 private const val COMMENTS = "app_comments"
 private const val PROFILES = "profiles"
 private const val REPORTS = "app_reports"
@@ -60,21 +67,46 @@ suspend fun testerAppIds(uid: String): Set<String> =
     supabase.from(TESTERS).select { filter { eq("user_id", uid) } }
         .decodeList<TesterRow>().map { it.appId }.toSet()
 
-// Quien esta dentro de una prueba, en orden de llegada inversa. La politica
-// app_testers_select_all ya deja leer estas filas a cualquiera, pero solo se
-// pintan en la ficha del dueno: es el unico que tiene algo que hacer con ellas.
-suspend fun testersOf(appId: String): List<Profile> {
-    val ids = supabase.from(TESTERS).select {
+// Quien esta dentro de una prueba, en orden de llegada inversa, y si su movil
+// confirmo la instalacion. La politica app_testers_select_all ya deja leer estas
+// filas a cualquiera con sesion, pero solo se pintan en la ficha del dueno: es el
+// unico que tiene algo que hacer con ellas.
+suspend fun testersOf(appId: String): List<TesterView> {
+    val rows = supabase.from(TESTER_STATUS).select {
         filter { eq("app_id", appId) }
         order("joined_at", Order.DESCENDING)
-    }.decodeList<TesterRow>().map { it.userId }
-    if (ids.isEmpty()) return emptyList()
+    }.decodeList<TesterStatusRow>()
+    if (rows.isEmpty()) return emptyList()
     val byId = supabase.from(PROFILES)
-        .select { filter { isIn("id", ids) } }
+        .select { filter { isIn("id", rows.map { it.userId }) } }
         .decodeList<Profile>()
         .associateBy { it.id }
     // El orden lo manda app_testers: la consulta de perfiles vuelve como quiera.
-    return ids.mapNotNull(byId::get)
+    return rows.mapNotNull { row ->
+        byId[row.userId]?.let { TesterView(it, installState(row.installedRecently, row.verifiedAt)) }
+    }
+}
+
+// Sella con la hora del servidor las apps que el movil ve instaladas desde Play.
+// Solo las de las pruebas en las que el usuario esta: el resto del movil no se
+// mira ni se manda. Las que no aparecen no se tocan, y su sello envejece solo.
+suspend fun confirmInstalls(uid: String, installedFromPlay: (String) -> Boolean) {
+    val seen = appsByIds(testerAppIds(uid).toList())
+        .filter { app -> app.packageName?.let(installedFromPlay) == true }
+        .map { it.id }
+    if (seen.isEmpty()) return
+    supabase.postgrest.rpc(
+        "confirm_installed",
+        buildJsonObject { put("app_ids", JsonArray(seen.map(::JsonPrimitive))) },
+    )
+}
+
+// Borra auth.users y, en cascada, perfil, apps, pruebas y comentarios. Despues
+// no queda sesion que cerrar en el servidor, pero si la local.
+suspend fun deleteMyAccount() {
+    supabase.postgrest.rpc("delete_my_account")
+    runCatching { supabase.auth.signOut() }
+    supabase.auth.clearSession()
 }
 
 suspend fun joinApp(appId: String, uid: String) {

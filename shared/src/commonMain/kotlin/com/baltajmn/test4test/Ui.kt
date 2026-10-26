@@ -41,7 +41,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.action_cancel
@@ -53,11 +52,9 @@ import test4test.shared.generated.resources.profile_fallback_name
 import test4test.shared.generated.resources.testers_days
 import test4test.shared.generated.resources.testers_days_done
 import test4test.shared.generated.resources.testers_of
-import test4test.shared.generated.resources.testing_count
 
-// Issue #28: en Web la ventana es mucho mas ancha que un movil. Una columna
-// centrada con ancho maximo evita lineas de texto de 1500px sin escribir un
-// layout distinto por plataforma.
+// Una columna centrada con ancho maximo: en una tablet o un movil en horizontal
+// evita lineas de texto de punta a punta sin un layout aparte.
 private val CONTENT_MAX_WIDTH = 600.dp
 private val PAGE_PADDING = 20.dp
 private val ITEM_GAP = 14.dp
@@ -221,16 +218,15 @@ fun Avatar(profile: Profile?, modifier: Modifier = Modifier, size: Dp = 56.dp) {
 }
 
 // Quien publica una app importa tanto como la app: es la persona a la que vas a
-// pedirle que pruebe la tuya. Debajo del nombre va cuantas prueba ella, que es
-// el unico dato con el que se decide si el intercambio va a ser reciproco.
-//
-// testingCount a null en las fichas de comentario: ahi el recuento costaria una
-// consulta por autor y no es lo que se esta mirando.
+// pedirle que pruebe la tuya. Debajo del nombre va el dato que decide algo: en el
+// dueno, cuantas apps prueba (si el intercambio va a ser reciproco); en la lista
+// de testers, si tiene la app instalada. En los comentarios no va nada: costaria
+// una consulta por autor y no es lo que se esta mirando.
 @Composable
 fun PersonRow(
     profile: Profile?,
-    testingCount: Int?,
     modifier: Modifier = Modifier,
+    subtitle: String? = null,
     onClick: (() -> Unit)? = null,
 ) {
     Row(
@@ -250,9 +246,9 @@ fun PersonRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            if (testingCount != null) {
+            if (subtitle != null) {
                 Text(
-                    text = pluralStringResource(Res.plurals.testing_count, testingCount, testingCount),
+                    text = subtitle,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -333,10 +329,16 @@ fun LinkedAppChip(app: AppRow, onClick: () -> Unit, modifier: Modifier = Modifie
 }
 
 // Borrar es irreversible y en moderacion cae sobre contenido ajeno (issue #34),
-// asi que siempre pasa por confirmacion. El boton que borra va en rojo: es el
-// unico sitio de la app donde el color avisa en vez de decorar.
+// asi que siempre pasa por confirmacion. El boton que confirma va en rojo: es el
+// unico sitio de la app donde el color avisa en vez de decorar. Salir de una
+// prueba usa el mismo dialogo con otra etiqueta, porque tambien hace dano.
 @Composable
-fun ConfirmDialog(text: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
+fun ConfirmDialog(
+    text: String,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit,
+    confirmLabel: String = stringResource(Res.string.action_delete),
+) {
     AlertDialog(
         onDismissRequest = onDismiss,
         containerColor = MaterialTheme.colorScheme.surfaceContainer,
@@ -346,7 +348,7 @@ fun ConfirmDialog(text: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
             TextButton(
                 onClick = onConfirm,
                 colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
-            ) { Text(stringResource(Res.string.action_delete)) }
+            ) { Text(confirmLabel) }
         },
         dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(Res.string.action_cancel)) } },
     )

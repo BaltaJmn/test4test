@@ -12,12 +12,11 @@
   // Ojo: quilt.baltajmn.dev es GitHub Pages y va aparte, en DNS only.
   "routes": [{ "pattern": "testers.baltajmn.dev", "custom_domain": true }],
 
+  // The app is Android-only. What is left here is static: the landing page that
+  // explains how to join the closed test and opens shared links in the app, and
+  // the privacy policy Play links to (/privacy resolves to privacy.html).
   "assets": {
-    "directory": "./webApp/build/dist/wasmJs/productionExecutable",
-    // The whole app is one Compose canvas, so every path must serve index.html
-    // rather than 404 on a deep link or a refresh.
-    "not_found_handling": "single-page-application"
+    "directory": "./web"
   }
-  // No "main" and no ASSETS binding on purpose: there is no Worker script, the
-  // client talks to Supabase directly.
+  // No "main" and no ASSETS binding on purpose: there is no Worker script.
 }

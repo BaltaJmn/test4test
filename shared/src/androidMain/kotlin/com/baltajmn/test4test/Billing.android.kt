@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.revenuecat.purchases.Package
+import com.revenuecat.purchases.models.Period
 import com.revenuecat.purchases.PurchaseParams
 import com.revenuecat.purchases.Purchases
 import com.revenuecat.purchases.PurchasesConfiguration
@@ -39,10 +40,13 @@ import test4test.shared.generated.resources.paywall_purchase_error
 import test4test.shared.generated.resources.paywall_restore
 import test4test.shared.generated.resources.paywall_subscribe
 import test4test.shared.generated.resources.paywall_subscribe_price
+import test4test.shared.generated.resources.price_per_month
+import test4test.shared.generated.resources.price_per_week
+import test4test.shared.generated.resources.price_per_year
 
-// Issues #23 y #24: precio real desde el offering de RevenueCat, compra y
-// restaurar. Quien decide si el usuario es premium sigue siendo la fila de
-// profiles, no esta pantalla: aqui solo se dispara la compra y se espera.
+// Precio real desde el offering de RevenueCat, suscripcion y restaurar. Quien
+// decide si el usuario es premium sigue siendo la fila de profiles, no esta
+// pantalla: aqui solo se dispara la compra y se espera.
 @Composable
 actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
     // Sin API key la compra no existe todavia. Asi el repo, la CI y cualquiera que
@@ -62,7 +66,7 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
     LaunchedEffect(uid) {
         message = runCatching {
             signIn(context, uid)
-            // Primer paquete del offering actual: slots ilimitados es el unico
+            // Primer paquete del offering actual: la suscripcion es el unico
             // producto que se vende, no hay nada que elegir.
             offer = Purchases.sharedInstance.awaitOfferings()
                 .current?.availablePackages?.firstOrNull()
@@ -96,10 +100,11 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
         enabled = !busy && offer != null && activity != null,
         modifier = Modifier.fillMaxWidth(),
     ) {
-        val price = offer?.product?.price?.formatted
+        val product = offer?.product
+        val price = product?.price?.formatted
         Text(
             if (price == null) stringResource(Res.string.paywall_subscribe)
-            else stringResource(Res.string.paywall_subscribe_price, price)
+            else stringResource(Res.string.paywall_subscribe_price, pricePerPeriod(price, product.period))
         )
     }
 
@@ -129,6 +134,19 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
     ErrorText(message)
 }
 
+// "4,99 EUR/mes": el periodo va pegado al precio porque Play exige que se vea
+// cuanto y cada cuanto antes de suscribirse. Un periodo raro sale sin sufijo.
+@Composable
+private fun pricePerPeriod(price: String, period: Period?): String {
+    if (period?.value != 1) return price
+    return when (period.unit) {
+        Period.Unit.WEEK -> stringResource(Res.string.price_per_week, price)
+        Period.Unit.MONTH -> stringResource(Res.string.price_per_month, price)
+        Period.Unit.YEAR -> stringResource(Res.string.price_per_year, price)
+        else -> price
+    }
+}
+
 // app_user_id = profiles.id: es la clave con la que el webhook sabe a quien
 // actualizar. Si no coinciden, la compra se cobra y nadie se entera (issue #25).
 private suspend fun signIn(context: Context, uid: String) {
@@ -155,4 +173,4 @@ private suspend fun activate(uid: String, onPurchased: () -> Unit): String? =
 // Cancelar no es un fallo: el usuario ya sabe que ha cancelado.
 private suspend fun purchaseError(cause: Throwable): String? =
     if ((cause as? PurchasesTransactionException)?.userCancelled == true) null
-    else cause.message ?: getString(Res.string.paywall_purchase_error)
+    else getString(Res.string.paywall_purchase_error)

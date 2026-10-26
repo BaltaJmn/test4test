@@ -22,6 +22,7 @@ import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.feed_empty
 import test4test.shared.generated.resources.feed_error
 import test4test.shared.generated.resources.feed_intro
+import test4test.shared.generated.resources.feed_testing
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,6 +34,7 @@ fun FeedScreen(
 ) {
     val scope = rememberCoroutineScope()
     var apps by remember { mutableStateOf<List<AppRow>?>(null) }
+    var testing by remember { mutableStateOf(emptySet<String>()) }
     var error by remember { mutableStateOf<String?>(null) }
     var refreshing by remember { mutableStateOf(false) }
     var reload by remember { mutableStateOf(0) }
@@ -43,9 +45,14 @@ fun FeedScreen(
 
     // Sin Realtime en el MVP: los datos se refrescan al entrar y al deslizar.
     LaunchedEffect(uid, reload) {
-        runCatching { feedApps(uid) }
+        runCatching {
+            testing = testerAppIds(uid)
+            // Las que ya pruebas bajan al final sin perder el orden del servidor:
+            // arriba queda solo lo que todavia puedes hacer.
+            feedApps(uid).sortedBy { it.id in testing }
+        }
             .onSuccess { apps = it; error = null }
-            .onFailure { error = it.message ?: loadErrorText }
+            .onFailure { error = loadErrorText }
         refreshing = false
     }
 
@@ -57,7 +64,7 @@ fun FeedScreen(
                 scope.launch {
                     runCatching { deleteApp(target.id) }
                         .onSuccess { reload++ }
-                        .onFailure { error = it.message ?: deleteErrorText }
+                        .onFailure { error = deleteErrorText }
                 }
             },
             onDismiss = { pendingDelete = null },
@@ -96,6 +103,13 @@ fun FeedScreen(
                 for (app in list) {
                     item(key = app.id) {
                         AppListItem(app, onClick = { onOpen(app.id) }) {
+                            if (app.id in testing) {
+                                Text(
+                                    stringResource(Res.string.feed_testing),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                            }
                             if (me?.isAdmin == true) {
                                 TextButton(onClick = { pendingDelete = app }) { Text(stringResource(Res.string.action_delete)) }
                             }

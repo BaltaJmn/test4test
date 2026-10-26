@@ -3,6 +3,7 @@ package com.baltajmn.test4test
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,10 +18,11 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.form_create
+import test4test.shared.generated.resources.form_groups_hint
 import test4test.shared.generated.resources.form_groups_url
 import test4test.shared.generated.resources.form_name
+import test4test.shared.generated.resources.form_opt_in_hint
 import test4test.shared.generated.resources.form_opt_in_url
-import test4test.shared.generated.resources.form_play_url
 import test4test.shared.generated.resources.form_save
 import test4test.shared.generated.resources.form_save_error
 
@@ -37,7 +39,6 @@ fun CreateAppScreen(
     val scope = rememberCoroutineScope()
     var name by remember { mutableStateOf(existing?.name.orEmpty()) }
     var groups by remember { mutableStateOf(existing?.googleGroupsUrl ?: "https://") }
-    var play by remember { mutableStateOf(existing?.playStoreUrl ?: "https://") }
     var optIn by remember { mutableStateOf(existing?.optInUrl ?: "https://") }
     // Dos estados y no uno: el de validacion es una clave de recurso que resuelve
     // la UI, y el del backend ya llega como texto de Postgres.
@@ -58,13 +59,9 @@ fun CreateAppScreen(
             value = groups,
             onValueChange = { groups = it },
             label = { Text(stringResource(Res.string.form_groups_url)) },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        OutlinedTextField(
-            value = play,
-            onValueChange = { play = it },
-            label = { Text(stringResource(Res.string.form_play_url)) },
+            // Donde se saca cada enlace en Play Console: es la duda que hace que
+            // la gente abandone el alta a medias.
+            supportingText = { Hint(stringResource(Res.string.form_groups_hint)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
         )
@@ -72,6 +69,7 @@ fun CreateAppScreen(
             value = optIn,
             onValueChange = { optIn = it },
             label = { Text(stringResource(Res.string.form_opt_in_url)) },
+            supportingText = { Hint(stringResource(Res.string.form_opt_in_hint)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
         )
@@ -80,23 +78,22 @@ fun CreateAppScreen(
         Button(
             enabled = !saving,
             onClick = {
-                formError = appFormError(name, groups, play, optIn)
+                formError = appFormError(name, groups, optIn)
                 error = null
                 if (formError != null) return@Button
                 saving = true
                 scope.launch {
                     val input = AppInput(
-                        ownerId = uid,
                         name = name.trim(),
                         googleGroupsUrl = groups.trim(),
-                        playStoreUrl = play.trim(),
+                        playStoreUrl = playUrlFor(optIn),
                         optInUrl = optIn.trim(),
                     )
                     runCatching {
                         if (existing == null) createApp(input) else updateApp(existing.id, input)
                     }
                         .onSuccess { onDone() }
-                        .onFailure { failure ->
+                        .onFailure {
                             // Issue #15: un alta rechazada por la policy
                             // apps_insert_own_within_slots devuelve un mensaje de
                             // Postgres generico, asi que no se parsea el error: se
@@ -107,7 +104,7 @@ fun CreateAppScreen(
                             val outOfSlots = existing == null && owned != null &&
                                 !canCreateApp(me?.isPremium == true, owned)
                             if (outOfSlots) onPaywall()
-                            else error = failure.message ?: saveErrorText
+                            else error = saveErrorText
                         }
                     saving = false
                 }
@@ -118,3 +115,6 @@ fun CreateAppScreen(
         }
     }
 }
+
+@Composable
+private fun Hint(text: String) = Text(text, style = MaterialTheme.typography.bodySmall)
