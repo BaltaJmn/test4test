@@ -15,8 +15,8 @@ ellos la pagina no sirve de nada.
 | Proyecto de Google Cloud | `test4test-baltajmn` |
 | Proyecto de Supabase | `tneuaccyzausvszpplms` (eu-central-1), desde el 26-10-2026 |
 | Callback de Supabase | `https://tneuaccyzausvszpplms.supabase.co/auth/v1/callback` |
-| Deep links | `test4test://login` (vuelta del login), `test4test://app/<id>` (ficha compartida) |
-| Web | `https://testers.baltajmn.dev` (Cloudflare Worker `test4test`): landing y privacidad, sin app |
+| Deep link | `test4test://login` (vuelta del login). No hay enlaces a fichas: todo pasa dentro de la app |
+| Web | Solo `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Sin landing, la raiz da 404 |
 | Producto de compra | Suscripcion `unlimited_apps`, plan base `monthly`, 1,99 EUR al mes. `unlimited_slots_lifetime` queda como legado |
 | Grupo de la prueba cerrada | `https://groups.google.com/g/test4test-baltajmn` |
 
@@ -216,8 +216,8 @@ restaura desde el dashboard si hace falta, pausando otro.
 
 - **Authentication, Providers, Google**: el Client ID y el Client secret del
   cliente **Web**. El de tipo Android no va aqui (y no existe).
-- **Authentication, URL Configuration**: Site URL `https://testers.baltajmn.dev`
-  y, en Redirect URLs, `test4test://login` para la vuelta en Android.
+- **Authentication, URL Configuration**: Site URL `test4test://login` (no hay
+  web a la que volver) y lo mismo en Redirect URLs.
 - **Authentication, Users**: la cuenta de correo y contrasena del revisor de
   Play, la misma que figura en Play Console, Acceso a la aplicacion.
 - La clave `anon` es publica por diseno: esta protegida por RLS y va dentro de
@@ -229,7 +229,7 @@ restaura desde el dashboard si hace falta, pausando otro.
 ## Cloudflare
 
 Worker `test4test` con Workers Static Assets, sin script, sirviendo la carpeta
-[`web/`](../web) tal cual: landing, `/privacy` y `/privacy-es`. Configuracion en
+[`web/`](../web) tal cual: solo `/privacy` y `/privacy-es`. Configuracion en
 [`wrangler.jsonc`](../wrangler.jsonc), despliegue en `deploy-web.yml`.
 
 Tres cosas que rompieron el sitio en produccion:

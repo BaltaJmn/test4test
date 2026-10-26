@@ -44,7 +44,6 @@ import coil3.compose.setSingletonImageLoaderFactory
 import coil3.network.ktor3.KtorNetworkFetcherFactory
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.status.SessionStatus
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
@@ -70,10 +69,6 @@ sealed interface Screen {
     data class EditApp(val app: AppRow?) : Screen
     data object Paywall : Screen
 }
-
-// Ficha pedida desde fuera (test4test://app/<id>). Vive fuera de Compose porque
-// puede llegar antes de que haya sesion, y Home la recoge en cuanto la hay.
-val pendingAppId = MutableStateFlow<String?>(null)
 
 @Composable
 fun App() {
@@ -120,14 +115,6 @@ private fun Home() {
     fun goRoot(screen: Screen) {
         stack.clear()
         stack.add(screen)
-    }
-
-    val shared by pendingAppId.collectAsState()
-    LaunchedEffect(shared) {
-        shared?.let {
-            push(Screen.Detail(it))
-            pendingAppId.value = null
-        }
     }
 
     // Atras desanda la pila, y desde otra pestana vuelve al feed antes de salir.

@@ -18,7 +18,7 @@
     <string name="login_email_submit">Entrar</string>
 
     <string name="feed_error">No se pudo cargar el feed</string>
-    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Anade la tuya desde Mis apps y comparte su enlace.</string>
+    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Anade la tuya desde Mis apps.</string>
     <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Primero salen las apps con menos testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>
@@ -32,8 +32,6 @@
     <string name="detail_delete_app">Borrar app</string>
     <string name="detail_action_error">No se pudo completar</string>
     <string name="detail_join_help">Abre antes el grupo y despues el enlace de opt-in: al reves, Play muestra una pagina de error. Cuando te unas, Test4Test comprobara en este movil que la app se instalo desde Play y se lo ensenara a su dueno.</string>
-    <string name="detail_copy_link">Copiar enlace</string>
-    <string name="detail_link_copied">Enlace copiado</string>
     <string name="detail_not_found">Esta app ya no existe.</string>
 
     <string name="comments_title">Comentarios</string>

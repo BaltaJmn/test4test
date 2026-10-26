@@ -95,20 +95,4 @@ class RulesTest {
         assertEquals(InstallState.STALE, installState(false, "2026-10-01T10:00:00Z"))
         assertEquals(InstallState.UNVERIFIED, installState(null, null))
     }
-
-    @Test
-    fun deepLinkOnlyOpensAppIds() {
-        val id = "0b6c1c2e-3f4a-4b5c-8d9e-0f1a2b3c4d5e"
-        assertEquals(id, appIdFromDeepLink("app", "/$id"))
-        // La vuelta del login usa el mismo scheme con otro host.
-        assertNull(appIdFromDeepLink("login", "/$id"))
-        // Lo que llega de fuera no pasa a una consulta si no es un uuid.
-        assertNull(appIdFromDeepLink("app", "/x' or 1=1"))
-        assertNull(appIdFromDeepLink("app", null))
-    }
-
-    @Test
-    fun shareUrlOpensTheApp() {
-        assertEquals("https://testers.baltajmn.dev/#abc-123", appShareUrl("abc-123"))
-    }
 }

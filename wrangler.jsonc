@@ -12,9 +12,9 @@
   // Ojo: quilt.baltajmn.dev es GitHub Pages y va aparte, en DNS only.
   "routes": [{ "pattern": "testers.baltajmn.dev", "custom_domain": true }],
 
-  // The app is Android-only. What is left here is static: the landing page that
-  // explains how to join the closed test and opens shared links in the app, and
-  // the privacy policy Play links to (/privacy resolves to privacy.html).
+  // The app is Android-only and everything happens inside it. All that is left
+  // here is the privacy policy, because Play and Google sign-in require a public
+  // URL for it (/privacy resolves to privacy.html). "/" is a 404 on purpose.
   "assets": {
     "directory": "./web"
   }

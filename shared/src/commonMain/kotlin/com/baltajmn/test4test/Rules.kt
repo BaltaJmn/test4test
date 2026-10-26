@@ -79,16 +79,3 @@ fun appFormError(
         Res.string.error_opt_in_url
     else -> null
 }
-
-// La app se anuncia en Telegram y por correo, asi que cada ficha tiene que poder
-// enlazarse sola. La pagina de ese dominio abre la ficha en la app instalada, o
-// explica como entrar en la prueba si no lo esta. Hash y no ruta: es una pagina
-// estatica, y con una ruta de verdad cualquier /algo daria 404.
-fun appShareUrl(appId: String): String = "https://testers.baltajmn.dev/#$appId"
-
-// Lo que llega por test4test://app/<id>, que es a donde manda esa pagina. Solo un
-// uuid: el resto de la URL viene de fuera y no se pasa a ninguna consulta.
-private val UUID = Regex("[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}")
-
-fun appIdFromDeepLink(host: String?, path: String?): String? =
-    path?.trim('/')?.takeIf { host == "app" && UUID.matches(it) }

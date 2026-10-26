@@ -26,9 +26,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.LifecycleResumeEffect
-import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.pluralStringResource
@@ -48,7 +46,6 @@ import test4test.shared.generated.resources.confirm_delete_comment
 import test4test.shared.generated.resources.confirm_leave
 import test4test.shared.generated.resources.delete_error
 import test4test.shared.generated.resources.detail_action_error
-import test4test.shared.generated.resources.detail_copy_link
 import test4test.shared.generated.resources.detail_delete_app
 import test4test.shared.generated.resources.detail_error
 import test4test.shared.generated.resources.detail_groups
@@ -57,7 +54,6 @@ import test4test.shared.generated.resources.detail_installed
 import test4test.shared.generated.resources.detail_join
 import test4test.shared.generated.resources.detail_join_help
 import test4test.shared.generated.resources.detail_leave
-import test4test.shared.generated.resources.detail_link_copied
 import test4test.shared.generated.resources.detail_not_found
 import test4test.shared.generated.resources.detail_not_installed
 import test4test.shared.generated.resources.detail_opt_in
@@ -82,8 +78,6 @@ fun AppDetailScreen(
 ) {
     val scope = rememberCoroutineScope()
     val uriHandler = LocalUriHandler.current
-    @Suppress("DEPRECATION")
-    val clipboard = LocalClipboardManager.current
 
     var app by remember { mutableStateOf<AppRow?>(null) }
     var owner by remember(appId) { mutableStateOf<Profile?>(null) }
@@ -102,7 +96,6 @@ fun AppDetailScreen(
     var pendingCommentDelete by remember { mutableStateOf<CommentRow?>(null) }
     var pendingAppDelete by remember { mutableStateOf(false) }
     var pendingLeave by remember { mutableStateOf(false) }
-    var copied by remember(appId) { mutableStateOf(false) }
     // Ids ya denunciados en esta sesion, de la app y de los comentarios. Solo
     // apaga el boton: la fila la protege el UNIQUE app_reports_once.
     var reported by remember(appId) { mutableStateOf(emptySet<String>()) }
@@ -362,14 +355,6 @@ fun AppDetailScreen(
                 // todavia no es tester, asi que es contexto, no el trabajo.
                 TextButton(onClick = { uriHandler.openUri(current.playStoreUrl) }) {
                     Text(stringResource(Res.string.detail_play))
-                }
-                // La app se anuncia fuera, asi que cada ficha necesita una URL
-                // suya que abra aqui directamente.
-                TextButton(onClick = {
-                    clipboard.setText(AnnotatedString(appShareUrl(current.id)))
-                    copied = true
-                }) {
-                    Text(stringResource(if (copied) Res.string.detail_link_copied else Res.string.detail_copy_link))
                 }
                 if (!isOwner) {
                     TextButton(
