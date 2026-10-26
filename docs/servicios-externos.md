@@ -178,12 +178,16 @@ En el panel de RevenueCat:
 - Environment: **Sandbox y Production**. Si solo se manda Production, la compra
   de prueba no escribe nada y parece que el webhook esta roto.
 
-El secreto se genera con `openssl rand -hex 32` y se pone en los dos lados. Del
-lado de Supabase:
+El secreto se genera con `openssl rand -hex 32 | tr -d '\n' | pbcopy` (al
+portapapeles, sin verlo) y se pega en los dos lados. Del lado de Supabase, en
+Edge Functions, Secrets, como `REVENUECAT_WEBHOOK_SECRET`; o con la CLI:
 
 ```bash
 supabase secrets set REVENUECAT_WEBHOOK_SECRET=VALOR --project-ref tneuaccyzausvszpplms
 ```
+
+Comprobado el 26-10-2026 con el evento de prueba de RevenueCat: 200. Con el
+secreto mal puesto la funcion devuelve 401.
 
 Y el despliegue lleva `--no-verify-jwt` obligatoriamente, porque RevenueCat no
 manda un token de Supabase, se autentica con esa cabecera:
@@ -218,8 +222,10 @@ restaura desde el dashboard si hace falta, pausando otro.
   cliente **Web**. El de tipo Android no va aqui (y no existe).
 - **Authentication, URL Configuration**: Site URL `test4test://login` (no hay
   web a la que volver) y lo mismo en Redirect URLs.
-- **Authentication, Users**: la cuenta de correo y contrasena del revisor de
-  Play, la misma que figura en Play Console, Acceso a la aplicacion.
+- **Authentication, Users**: `revisor@baltajmn.dev`, la cuenta de correo y
+  contrasena del revisor de Play, con su fila en `profiles`. La misma que figura
+  en Play Console, Contenido de la aplicacion, Datos de inicio de sesion (antes
+  "Acceso a la aplicacion"). La contrasena solo vive ahi y en Supabase.
 - La clave `anon` es publica por diseno: esta protegida por RLS y va dentro de
   los clientes. La `service_role` no esta en el repo y no debe estarlo, vive
   solo en los secretos de Edge Functions.
