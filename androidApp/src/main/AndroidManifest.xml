@@ -39,16 +39,6 @@
 
                 <data android:scheme="test4test" android:host="login" />
             </intent-filter>
-
-            <!-- Fichas compartidas: testers.baltajmn.dev/#<id> abre test4test://app/<id>. -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="test4test" android:host="app" />
-            </intent-filter>
         </activity>
     </application>
 

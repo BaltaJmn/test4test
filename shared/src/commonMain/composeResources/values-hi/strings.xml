@@ -18,7 +18,7 @@
     <string name="login_email_submit">साइन इन करें</string>
 
     <string name="feed_error">फ़ीड लोड नहीं हो सकी</string>
-    <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। मेरे ऐप से अपना ऐप जोड़ें और उसका लिंक साझा करें।</string>
+    <string name="feed_empty">अभी किसी और डेवलपर का ऐप नहीं है। मेरे ऐप से अपना ऐप जोड़ें।</string>
     <string name="feed_intro">दूसरे डेवलपर के टेस्ट में शामिल हों और वे आपके टेस्ट में शामिल होंगे। सबसे कम टेस्टर वाले ऐप पहले दिखते हैं।</string>
 
     <string name="detail_error">ऐप लोड नहीं हो सका</string>
@@ -32,8 +32,6 @@
     <string name="detail_delete_app">ऐप हटाएं</string>
     <string name="detail_action_error">पूरा नहीं हो सका</string>
     <string name="detail_join_help">पहले ग्रुप खोलें, फिर ऑप्ट-इन लिंक। उल्टे क्रम में Play एरर पेज दिखाता है। जुड़ने के बाद Test4Test इस फ़ोन पर जाँचता है कि ऐप Play से इंस्टॉल हुआ है, और यह ऐप के मालिक को दिखाता है।</string>
-    <string name="detail_copy_link">लिंक कॉपी करें</string>
-    <string name="detail_link_copied">लिंक कॉपी हो गया</string>
     <string name="detail_not_found">यह ऐप अब मौजूद नहीं है।</string>
 
     <string name="comments_title">टिप्पणियां</string>

@@ -6,10 +6,10 @@ developers find each other to cover that: you list your app, other developers
 join your closed test, you join theirs.
 
 Android only, written with Kotlin Multiplatform and Compose Multiplatform so the
-UI and data layer live in `:shared`. The web version was dropped in 1.6:
-[testers.baltajmn.dev](https://testers.baltajmn.dev) is now a static page that
-explains how to join the closed test, opens shared app links in the app and
-hosts the privacy policy.
+UI and data layer live in `:shared`. The web version was dropped in 1.6 and
+everything happens in the app. The only thing left on the web is the privacy
+policy at [testers.baltajmn.dev/privacy](https://testers.baltajmn.dev/privacy),
+because Play and Google sign-in require a public URL for it.
 
 ## Setup
 
@@ -85,9 +85,9 @@ a policy, grant or view.
   - [commonMain](./shared/src/commonMain/kotlin) is platform-agnostic.
   - [androidMain](./shared/src/androidMain/kotlin) has billing, the install
     check and the system back handler.
-* [/androidApp](./androidApp) is the Android entry point: manifest, deep links
-  (`test4test://login`, `test4test://app/<id>`) and signing.
-* [/web](./web) is the static site: landing page and privacy policy.
+* [/androidApp](./androidApp) is the Android entry point: manifest, the
+  `test4test://login` deep link and signing.
+* [/web](./web) holds only the privacy policy pages.
 * [/branding](./branding) holds the Play Store listing copy.
 * [/docs](./docs) holds the runbook for the external services.
 

@@ -22,7 +22,7 @@
     <string name="login_email_submit">Masuk</string>
 
     <string name="feed_error">Tidak bisa memuat feed</string>
-    <string name="feed_empty">Belum ada aplikasi dari pengembang lain. Tambahkan aplikasi Anda di Aplikasi saya dan bagikan tautannya.</string>
+    <string name="feed_empty">Belum ada aplikasi dari pengembang lain. Tambahkan aplikasi Anda di Aplikasi saya.</string>
     <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi dengan penguji paling sedikit tampil lebih dulu.</string>
 
     <string name="detail_error">Tidak bisa memuat aplikasi</string>
@@ -36,8 +36,6 @@
     <string name="detail_delete_app">Hapus aplikasi</string>
     <string name="detail_action_error">Tidak bisa diselesaikan</string>
     <string name="detail_join_help">Buka grup dulu, lalu tautan opt-in. Jika terbalik, Play menampilkan halaman error. Setelah Anda ikut, Test4Test memeriksa di ponsel ini bahwa aplikasi dipasang dari Play, lalu menunjukkannya kepada pemiliknya.</string>
-    <string name="detail_copy_link">Salin tautan</string>
-    <string name="detail_link_copied">Tautan disalin</string>
     <string name="detail_not_found">Aplikasi ini sudah tidak ada.</string>
 
     <string name="comments_title">Komentar</string>

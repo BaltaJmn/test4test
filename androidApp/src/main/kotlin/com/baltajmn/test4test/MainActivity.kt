@@ -14,7 +14,6 @@ class MainActivity : ComponentActivity() {
 
         // test4test://login: la vuelta del OAuth trae la sesion en el intent.
         supabase.handleDeeplinks(intent)
-        openSharedApp(intent)
 
         setContent {
             App()
@@ -25,13 +24,5 @@ class MainActivity : ComponentActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         supabase.handleDeeplinks(intent)
-        openSharedApp(intent)
-    }
-
-    // test4test://app/<id>: Home la apila encima del feed en cuanto hay sesion.
-    private fun openSharedApp(intent: Intent) {
-        val data = intent.data ?: return
-        if (data.scheme != "test4test") return
-        appIdFromDeepLink(data.host, data.path)?.let { pendingAppId.value = it }
     }
 }

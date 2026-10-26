@@ -9,7 +9,6 @@ Limites de Play: titulo 30, descripcion breve 80, descripcion completa 4000.
 - Politica de privacidad (es): https://testers.baltajmn.dev/privacy-es
 - Eliminacion de cuenta: https://testers.baltajmn.dev/privacy#delete-account
 - Correo de contacto: baltax.75@gmail.com
-- Sitio web: https://testers.baltajmn.dev
 - Grupo de la prueba cerrada: https://groups.google.com/g/test4test-baltajmn
 - Enlace de acceso (opt-in): https://play.google.com/apps/testing/com.baltajmn.test4test
 

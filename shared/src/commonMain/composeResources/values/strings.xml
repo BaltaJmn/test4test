@@ -21,7 +21,7 @@
     <string name="login_email_submit">Sign in</string>
 
     <string name="feed_error">Could not load the feed</string>
-    <string name="feed_empty">No apps from other developers yet. Add yours from My apps and share its link so they can find it.</string>
+    <string name="feed_empty">No apps from other developers yet. Add yours from My apps.</string>
     <string name="feed_intro">Join tests from other developers and they join yours. Apps with the fewest testers show first.</string>
 
     <string name="detail_error">Could not load the app</string>
@@ -35,8 +35,6 @@
     <string name="detail_delete_app">Delete app</string>
     <string name="detail_action_error">Could not complete</string>
     <string name="detail_join_help">Open the group first, then the opt-in link: in the other order Play shows an error page. Once you join, Test4Test checks on this phone that the app was installed from Play and shows it to its owner.</string>
-    <string name="detail_copy_link">Copy link</string>
-    <string name="detail_link_copied">Link copied</string>
     <string name="detail_not_found">This app no longer exists.</string>
 
     <string name="comments_title">Comments</string>

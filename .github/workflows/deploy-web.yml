@@ -1,7 +1,7 @@
 name: Deploy Web
 
-# Only the static landing page and the privacy policy: the app itself is
-# Android-only, so there is nothing to build.
+# Only the privacy policy, which Play and Google sign-in require at a public
+# URL. The app is Android-only, so there is nothing to build.
 on:
   push:
     branches: [main]
