@@ -8,10 +8,13 @@ import io.github.jan.supabase.postgrest.Postgrest
 // (SharedPreferences) y refresca el token expirado el solo, asi que no hay
 // storage propio que escribir.
 val supabase = createSupabaseClient(SupabaseConfig.URL, SupabaseConfig.ANON_KEY) {
+    httpEngine = TestOverrides.engine
     install(Auth) {
         // Vuelta del OAuth de Google: test4test://login.
         scheme = "test4test"
         host = "login"
+        TestOverrides.sessionManager?.let { sessionManager = it }
+        TestOverrides.codeVerifierCache?.let { codeVerifierCache = it }
     }
     install(Postgrest)
 }

@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.roborazzi)
 }
 
 // Credenciales: variables de entorno en CI, local.properties en local.
@@ -129,9 +130,30 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+        // Capturas de la ficha de Play sin emulador ni backend:
+        // ./gradlew :shared:recordRoborazziAndroidHostTest
+        getByName("androidHostTest").dependencies {
+            implementation(libs.ktor.client.mock)
+            implementation(libs.junit)
+            implementation(libs.robolectric)
+            implementation(libs.roborazzi)
+            implementation(libs.roborazzi.compose)
+            implementation(libs.roborazzi.junit.rule)
+            implementation(project.dependencies.platform(libs.androidx.compose.bom))
+            implementation(libs.androidx.compose.ui.test)
+            implementation(libs.androidx.compose.ui.testManifest)
+        }
     }
 }
 
 dependencies {
     androidRuntimeClasspath(libs.compose.uiTooling)
+}
+
+// Las capturas solo con las tareas de Roborazzi: en ./gradlew test ni siquiera se arranca
+// Robolectric, que descargaria Android entero.
+tasks.withType<Test>().configureEach {
+    if (gradle.startParameter.taskNames.none { it.contains("Roborazzi") }) {
+        exclude("**/screenshots/**")
+    }
 }
