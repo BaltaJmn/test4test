@@ -63,7 +63,7 @@
     <string name="profile_error">Could not load the profile</string>
     <string name="profile_fallback_name">User</string>
     <string name="profile_premium">Unlimited plan active: unlimited apps, no ads</string>
-    <string name="profile_free">Free plan: 1 app at a time, with ads. See unlimited plans</string>
+    <string name="profile_free">Free plan: 1 app at a time, with ads. See the subscription</string>
     <string name="profile_my_apps">Published apps</string>
     <string name="profile_none_yet">None yet.</string>
     <string name="profile_testing">Testing</string>
@@ -71,14 +71,13 @@
     <string name="profile_ad_privacy">Ad privacy</string>
     <string name="profile_privacy">Privacy policy</string>
 
-    <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the monthly subscription, or a one-time payment that never expires, you list as many as you want, with no ads.</string>
+    <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the subscription you list as many as you want, with no ads, while it is active.</string>
     <string name="paywall_active">Your unlimited plan is active.</string>
     <string name="paywall_preparing">Subscriptions coming soon.</string>
     <string name="paywall_no_product">No product is available yet.</string>
     <string name="paywall_price_error">Could not load the price: %1$s</string>
     <string name="paywall_subscribe">Subscribe</string>
     <string name="paywall_subscribe_price">Subscribe for %1$s</string>
-    <string name="paywall_lifetime_price">Pay once: %1$s, never expires</string>
     <string name="paywall_restore">Restore purchases</string>
     <string name="paywall_no_purchase">We could not find an active purchase.</string>
     <string name="paywall_pending">Subscription registered, but access is not active yet. Come back in a minute.</string>

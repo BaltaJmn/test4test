@@ -64,7 +64,7 @@
     <string name="profile_error">Tidak bisa memuat profil</string>
     <string name="profile_fallback_name">Pengguna</string>
     <string name="profile_premium">Paket tanpa batas aktif: aplikasi tanpa batas, tanpa iklan</string>
-    <string name="profile_free">Paket gratis: 1 aplikasi sekaligus, dengan iklan. Lihat paket tanpa batas</string>
+    <string name="profile_free">Paket gratis: 1 aplikasi sekaligus, dengan iklan. Lihat langganan</string>
     <string name="profile_my_apps">Aplikasi yang dipublikasikan</string>
     <string name="profile_none_yet">Belum ada.</string>
     <string name="profile_testing">Menguji</string>
@@ -72,14 +72,13 @@
     <string name="profile_ad_privacy">Privasi iklan</string>
     <string name="profile_privacy">Kebijakan privasi</string>
 
-    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan bulanan, atau pembayaran sekali yang tidak pernah kedaluwarsa, Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan.</string>
+    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan, Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan, selama langganan aktif.</string>
     <string name="paywall_active">Paket tanpa batas Anda aktif.</string>
     <string name="paywall_preparing">Langganan segera hadir.</string>
     <string name="paywall_no_product">Belum ada produk yang tersedia.</string>
     <string name="paywall_price_error">Tidak bisa memuat harga: %1$s</string>
     <string name="paywall_subscribe">Berlangganan</string>
     <string name="paywall_subscribe_price">Berlangganan seharga %1$s</string>
-    <string name="paywall_lifetime_price">Bayar sekali: %1$s, tidak pernah kedaluwarsa</string>
     <string name="paywall_restore">Pulihkan pembelian</string>
     <string name="paywall_no_purchase">Kami tidak menemukan pembelian aktif.</string>
     <string name="paywall_pending">Langganan tercatat, tetapi akses belum aktif. Kembali lagi dalam semenit.</string>
