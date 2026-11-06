@@ -28,6 +28,7 @@ import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.confirm_delete_account
 import test4test.shared.generated.resources.delete_error
+import test4test.shared.generated.resources.profile_ad_privacy
 import test4test.shared.generated.resources.profile_delete_account
 import test4test.shared.generated.resources.profile_error
 import test4test.shared.generated.resources.profile_fallback_name
@@ -74,6 +75,7 @@ fun ProfileScreen(
     var pendingDelete by remember { mutableStateOf(false) }
     val loadErrorText = stringResource(Res.string.profile_error)
     val deleteErrorText = stringResource(Res.string.delete_error)
+    val adPrivacyOptions = rememberAdPrivacyOptions()
 
     LaunchedEffect(uid) {
         runCatching {
@@ -184,6 +186,15 @@ fun ProfileScreen(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Text(stringResource(Res.string.profile_delete_account))
+                }
+            }
+            // La UE pide poder cambiar el consentimiento de los anuncios en cualquier
+            // momento; fuera de ella no se pinta.
+            if (adPrivacyOptions != null) {
+                item {
+                    TextButton(onClick = adPrivacyOptions, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(Res.string.profile_ad_privacy), style = MaterialTheme.typography.bodySmall)
+                    }
                 }
             }
             item {

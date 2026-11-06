@@ -18,6 +18,9 @@ ktor = "3.5.1"  # la que arrastra supabase-kt 3.8.0
 kotlinx-coroutines = "1.11.0"
 material3 = "1.11.0-alpha07"
 revenuecat = "10.19.1"
+# Las mismas que Quilt, FlowTime y Chroma: una cuenta de AdMob para todas.
+play-services-ads = "25.5.0"
+user-messaging-platform = "4.0.0"
 supabase = "3.8.0"
 
 [libraries]
@@ -47,6 +50,8 @@ coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" 
 coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 # SDK de compras sobre Play Billing.
 revenuecat-purchases = { module = "com.revenuecat.purchases:purchases", version.ref = "revenuecat" }
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-services-ads" }
+user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "user-messaging-platform" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 
 [plugins]

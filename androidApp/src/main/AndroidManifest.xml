@@ -20,6 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <!-- AdMob: el id de la app (AdMob > Apps > Test4Test). La unidad del banner
+             esta en Ads.android.kt. El permiso AD_ID lo anade el SDK de AdMob. -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1605179202100483~7329690988" />
         <activity
             android:exported="true"
             android:name=".MainActivity"

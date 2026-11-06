@@ -63,15 +63,16 @@
 
     <string name="profile_error">Tidak bisa memuat profil</string>
     <string name="profile_fallback_name">Pengguna</string>
-    <string name="profile_premium">Langganan aktif: aplikasi tanpa batas</string>
-    <string name="profile_free">Paket gratis: 1 aplikasi sekaligus. Lihat langganan</string>
+    <string name="profile_premium">Langganan aktif: aplikasi tanpa batas, tanpa iklan</string>
+    <string name="profile_free">Paket gratis: 1 aplikasi sekaligus, dengan iklan. Lihat langganan</string>
     <string name="profile_my_apps">Aplikasi yang dipublikasikan</string>
     <string name="profile_none_yet">Belum ada.</string>
     <string name="profile_testing">Menguji</string>
     <string name="profile_sign_out">Keluar</string>
+    <string name="profile_ad_privacy">Privasi iklan</string>
     <string name="profile_privacy">Kebijakan privasi</string>
 
-    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus. Dengan langganan, Anda bisa mempublikasikan sebanyak yang Anda mau selama langganan aktif.</string>
+    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan, Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan, selama langganan aktif.</string>
     <string name="paywall_active">Langganan Anda aktif.</string>
     <string name="paywall_preparing">Langganan segera hadir.</string>
     <string name="paywall_no_product">Belum ada produk yang tersedia.</string>

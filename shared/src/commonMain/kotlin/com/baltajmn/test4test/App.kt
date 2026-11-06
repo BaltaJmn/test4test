@@ -147,8 +147,13 @@ private fun Home() {
             )
         },
         bottomBar = {
+            // Solo en las pestanas: en el paywall un anuncio estorbaria la compra que
+            // lo quita, y en formularios y fichas se toca demasiado cerca.
             if (current is Screen.Feed || current is Screen.MyApps || current is Screen.Profile) {
-                BottomTabs(current, ::goRoot)
+                Column {
+                    if (showsAds(me)) AdBanner()
+                    BottomTabs(current, ::goRoot)
+                }
             }
         },
     ) { padding ->

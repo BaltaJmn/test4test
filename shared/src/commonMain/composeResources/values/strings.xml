@@ -62,15 +62,16 @@
 
     <string name="profile_error">Could not load the profile</string>
     <string name="profile_fallback_name">User</string>
-    <string name="profile_premium">Subscription active: unlimited apps</string>
-    <string name="profile_free">Free plan: 1 app at a time. See the subscription</string>
+    <string name="profile_premium">Subscription active: unlimited apps, no ads</string>
+    <string name="profile_free">Free plan: 1 app at a time, with ads. See the subscription</string>
     <string name="profile_my_apps">Published apps</string>
     <string name="profile_none_yet">None yet.</string>
     <string name="profile_testing">Testing</string>
     <string name="profile_sign_out">Sign out</string>
+    <string name="profile_ad_privacy">Ad privacy</string>
     <string name="profile_privacy">Privacy policy</string>
 
-    <string name="paywall_body">The free plan lists 1 app at a time. With the subscription you list as many as you want while it is active.</string>
+    <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the subscription you list as many as you want, with no ads, while it is active.</string>
     <string name="paywall_active">Your subscription is active.</string>
     <string name="paywall_preparing">Subscriptions coming soon.</string>
     <string name="paywall_no_product">No product is available yet.</string>

@@ -59,15 +59,16 @@
 
     <string name="profile_error">No se pudo cargar el perfil</string>
     <string name="profile_fallback_name">Usuario</string>
-    <string name="profile_premium">Suscripcion activa: apps ilimitadas</string>
-    <string name="profile_free">Plan gratuito: 1 app a la vez. Ver la suscripcion</string>
+    <string name="profile_premium">Suscripcion activa: apps ilimitadas, sin anuncios</string>
+    <string name="profile_free">Plan gratuito: 1 app a la vez, con anuncios. Ver la suscripcion</string>
     <string name="profile_my_apps">Apps publicadas</string>
     <string name="profile_none_yet">Ninguna todavia.</string>
     <string name="profile_testing">Probando</string>
     <string name="profile_sign_out">Cerrar sesion</string>
+    <string name="profile_ad_privacy">Privacidad de los anuncios</string>
     <string name="profile_privacy">Politica de privacidad</string>
 
-    <string name="paywall_body">El plan gratuito permite 1 app a la vez. Con la suscripcion publicas todas las que quieras mientras este activa.</string>
+    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripcion publicas todas las que quieras, sin anuncios, mientras este activa.</string>
     <string name="paywall_active">Tu suscripcion esta activa.</string>
     <string name="paywall_preparing">Suscripcion en preparacion.</string>
     <string name="paywall_no_product">No hay ningun producto disponible todavia.</string>

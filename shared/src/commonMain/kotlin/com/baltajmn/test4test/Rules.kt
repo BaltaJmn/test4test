@@ -32,6 +32,12 @@ fun testerPhase(fullDays: Int): TesterPhase = when {
 // a un formulario que el backend va a rechazar.
 fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || ownedApps < 1
 
+// Anuncios solo en el plan free: la suscripcion los quita. Sin perfil todavia,
+// ninguno, para no ensenarle uno a quien paga mientras carga. Al admin tampoco:
+// tocar tus propios anuncios es trafico no valido y AdMob cierra la cuenta, que
+// es la misma de las demas apps.
+fun showsAds(me: Profile?): Boolean = me != null && !me.isPremium && !me.isAdmin
+
 // El movil del tester dice si la app esta instalada; la vista dice si eso se vio
 // en los ultimos tres dias. Visto alguna vez pero hace mas es lo que el dueno
 // tiene que perseguir: o la desinstalo o dejo de abrir Test4Test.

@@ -28,6 +28,14 @@ class RulesTest {
     }
 
     @Test
+    fun adsOnlyForFreeUsers() {
+        assertTrue(showsAds(Profile(id = "a")))
+        assertFalse(showsAds(Profile(id = "a", isPremium = true)))
+        assertFalse(showsAds(Profile(id = "a", isAdmin = true)))
+        assertFalse(showsAds(null))
+    }
+
+    @Test
     fun avatarInitialAlwaysRendersSomething() {
         assertEquals("B", avatarInitial("baltasar"))
         assertEquals("B", avatarInitial("  Baltasar Jimenez  "))

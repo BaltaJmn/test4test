@@ -19,6 +19,7 @@ ellos la pagina no sirve de nada.
 | Web | Solo `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Sin landing, la raiz da 404 |
 | Producto de compra | Suscripcion `unlimited_apps`, plan base `monthly`, 1,99 EUR al mes. `unlimited_slots_lifetime` queda como legado |
 | Grupo de la prueba cerrada | `https://groups.google.com/g/test4test-baltajmn` |
+| App de AdMob | `ca-app-pub-1605179202100483~7329690988` (cuenta compartida con FlowTime, Chroma y Quilt), banner "Banner principal" `ca-app-pub-1605179202100483/2077364302` |
 
 ## Google Cloud
 
@@ -198,6 +199,26 @@ supabase functions deploy revenuecat-webhook --project-ref tneuaccyzausvszpplms 
 
 La funcion responde 200 a los eventos que no cambian nada. Un 4xx haria a
 RevenueCat reintentar el mismo evento durante horas.
+
+## AdMob
+
+Desde la 1.7 (6-11-2026) el plan free lleva un banner encima de las pestanas
+(Feed, Mis apps, Perfil); la suscripcion lo quita (`showsAds` en `Rules.kt`).
+Codigo en `Ads.kt` y `Ads.android.kt`; en debug y en Test Lab, la unidad de
+prueba de Google.
+
+- **Cuenta compartida.** Es la misma de FlowTime, Chroma y Quilt: un aviso por
+  trafico no valido en Test4Test las tumba todas. Por eso el admin no ve
+  anuncios, y los moviles propios van en AdMob, Ajustes, Dispositivos de prueba.
+  Los emuladores ya cuentan como dispositivos de prueba.
+- **Consentimiento.** El mensaje RGPD de Privacidad y mensajes es el de las
+  demas apps, con Test4Test anadida y su URL de privacidad. Si una app no esta
+  en el mensaje, UMP no pregunta nada en Europa.
+- **app-ads.txt** vive en `web/` y AdMob lo lee del sitio web de contacto de la
+  ficha de Play, que tiene que ser `https://testers.baltajmn.dev`.
+- **Pi-hole de casa.** Bloquea `fundingchoicesmessages.google.com`: en la red de
+  casa UMP falla y no sale banner. Para probar, el emulador con
+  `-dns-server 1.1.1.1` o datos moviles.
 
 ## Supabase
 

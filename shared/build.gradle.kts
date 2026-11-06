@@ -104,6 +104,8 @@ kotlin {
             // dialogo de compra de Play Billing.
             implementation(libs.androidx.activity.compose)
             implementation(libs.revenuecat.purchases)
+            implementation(libs.play.services.ads)
+            implementation(libs.user.messaging.platform)
         }
         commonMain {
             kotlin.srcDir(generateAppConfig)
