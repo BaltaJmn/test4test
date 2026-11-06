@@ -1,6 +1,5 @@
 <resources>
-    <!-- Sin tildes, igual que el resto del repo. -->
-    <string name="nav_back">Atras</string>
+    <string name="nav_back">Atrás</string>
     <string name="tab_feed">Feed</string>
     <string name="tab_my_apps">Mis apps</string>
     <string name="tab_profile">Perfil</string>
@@ -11,19 +10,19 @@
 
     <string name="login_tagline">Consigue testers para tu app de Google Play ayudando a otros a conseguir los suyos.</string>
     <string name="login_google">Continuar con Google</string>
-    <string name="login_error">No se pudo iniciar sesion</string>
+    <string name="login_error">No se pudo iniciar sesión</string>
     <string name="login_email_toggle">Entrar con correo</string>
     <string name="login_email">Correo</string>
     <string name="login_password">Contraseña</string>
     <string name="login_email_submit">Entrar</string>
 
     <string name="feed_error">No se pudo cargar el feed</string>
-    <string name="feed_empty">Todavia no hay apps de otros desarrolladores. Anade la tuya desde Mis apps.</string>
+    <string name="feed_empty">Todavía no hay apps de otros desarrolladores. Añade la tuya desde Mis apps.</string>
     <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Primero salen las apps con menos testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>
-    <string name="detail_testers_title">Quien se ha unido</string>
-    <string name="detail_testers_empty">Nadie todavia. Entra en otras pruebas y la tuya sube en el feed.</string>
+    <string name="detail_testers_title">Quién se ha unido</string>
+    <string name="detail_testers_empty">Nadie todavía. Entra en otras pruebas y la tuya sube en el feed.</string>
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Enlace de opt-in</string>
@@ -31,19 +30,19 @@
     <string name="detail_leave">Salir de la prueba</string>
     <string name="detail_delete_app">Borrar app</string>
     <string name="detail_action_error">No se pudo completar</string>
-    <string name="detail_join_help">Abre antes el grupo y despues el enlace de opt-in: al reves, Play muestra una pagina de error. Cuando te unas, Test4Test comprobara en este movil que la app se instalo desde Play y se lo ensenara a su dueno.</string>
+    <string name="detail_join_help">Abre antes el grupo y después el enlace de opt-in: al revés, Play muestra una página de error. Cuando te unas, Test4Test comprobará en este móvil que la app se instaló desde Play y se lo enseñará a su dueño.</string>
     <string name="detail_not_found">Esta app ya no existe.</string>
 
     <string name="comments_title">Comentarios</string>
     <string name="comment_placeholder">Escribe un comentario</string>
-    <string name="comment_link_app">Vincular una app mia (opcional)</string>
+    <string name="comment_link_app">Vincular una app mía (opcional)</string>
     <string name="comment_send">Enviar</string>
     <string name="comment_send_error">No se pudo enviar</string>
-    <string name="comments_empty">Todavia no hay comentarios.</string>
+    <string name="comments_empty">Todavía no hay comentarios.</string>
 
     <string name="my_apps_error">No se pudieron cargar tus apps</string>
-    <string name="my_apps_add">Anadir app</string>
-    <string name="my_apps_empty">Anade tu app para empezar a recibir testers. Necesitas dos enlaces de Play Console: su grupo de Google y su enlace de opt-in.</string>
+    <string name="my_apps_add">Añadir app</string>
+    <string name="my_apps_empty">Añade tu app para empezar a recibir testers. Necesitas dos enlaces de Play Console: su grupo de Google y su enlace de opt-in.</string>
 
     <string name="form_name">Nombre de la app</string>
     <string name="form_groups_url">Enlace de Google Groups</string>
@@ -52,7 +51,7 @@
     <string name="form_save">Guardar cambios</string>
     <string name="form_save_error">No se pudo guardar</string>
 
-    <string name="error_name_empty">El nombre no puede estar vacio</string>
+    <string name="error_name_empty">El nombre no puede estar vacío</string>
     <string name="error_name_too_long">El nombre no puede pasar de 100 caracteres</string>
     <string name="error_groups_url">El enlace de Google Groups tiene que ser como https://groups.google.com/g/tu-grupo</string>
     <string name="error_opt_in_url">El enlace de opt-in tiene que ser como https://play.google.com/apps/testing/tu.paquete</string>
@@ -62,24 +61,24 @@
     <string name="profile_premium">Plan ilimitado activo: apps ilimitadas, sin anuncios</string>
     <string name="profile_free">Plan gratuito: 1 app a la vez, con anuncios. Ver planes ilimitados</string>
     <string name="profile_my_apps">Apps publicadas</string>
-    <string name="profile_none_yet">Ninguna todavia.</string>
+    <string name="profile_none_yet">Ninguna todavía.</string>
     <string name="profile_testing">Probando</string>
-    <string name="profile_sign_out">Cerrar sesion</string>
+    <string name="profile_sign_out">Cerrar sesión</string>
     <string name="profile_ad_privacy">Privacidad de los anuncios</string>
-    <string name="profile_privacy">Politica de privacidad</string>
+    <string name="profile_privacy">Política de privacidad</string>
 
-    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripcion mensual, o con un pago unico que no caduca, publicas todas las que quieras, sin anuncios.</string>
-    <string name="paywall_active">Tu plan ilimitado esta activo.</string>
-    <string name="paywall_preparing">Suscripcion en preparacion.</string>
-    <string name="paywall_no_product">No hay ningun producto disponible todavia.</string>
+    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripción mensual, o con un pago único que no caduca, publicas todas las que quieras, sin anuncios.</string>
+    <string name="paywall_active">Tu plan ilimitado está activo.</string>
+    <string name="paywall_preparing">Suscripción en preparación.</string>
+    <string name="paywall_no_product">No hay ningún producto disponible todavía.</string>
     <string name="paywall_price_error">No se pudo cargar el precio: %1$s</string>
     <string name="paywall_subscribe">Suscribirse</string>
     <string name="paywall_subscribe_price">Suscribirse por %1$s</string>
-    <string name="paywall_lifetime_price">Pago unico: %1$s, no caduca</string>
+    <string name="paywall_lifetime_price">Pago único: %1$s, no caduca</string>
     <string name="paywall_restore">Restaurar compras</string>
     <string name="paywall_no_purchase">No hemos encontrado ninguna compra activa.</string>
-    <string name="paywall_pending">Suscripcion registrada, pero el acceso aun no se ha activado. Vuelve a entrar en un minuto.</string>
-    <string name="paywall_purchase_error">No se pudo completar la suscripcion</string>
+    <string name="paywall_pending">Suscripción registrada, pero el acceso aún no se ha activado. Vuelve a entrar en un minuto.</string>
+    <string name="paywall_purchase_error">No se pudo completar la suscripción</string>
 
     <string name="confirm_title">Confirmar</string>
     <string name="action_delete">Borrar</string>
@@ -87,36 +86,36 @@
     <string name="action_edit">Editar</string>
     <string name="action_report">Denunciar</string>
     <string name="action_reported">Denunciada</string>
-    <string name="confirm_delete_app_comments">Borrar \"%1$s\" y todos sus comentarios?</string>
-    <string name="confirm_delete_app_content">Borrar \"%1$s\" y todo su contenido?</string>
-    <string name="confirm_delete_my_app">Borrar \"%1$s\"? Se iran tambien sus testers y comentarios.</string>
-    <string name="confirm_delete_comment">Borrar este comentario?</string>
+    <string name="confirm_delete_app_comments">¿Borrar \"%1$s\" y todos sus comentarios?</string>
+    <string name="confirm_delete_app_content">¿Borrar \"%1$s\" y todo su contenido?</string>
+    <string name="confirm_delete_my_app">¿Borrar \"%1$s\"? Se irán también sus testers y comentarios.</string>
+    <string name="confirm_delete_comment">¿Borrar este comentario?</string>
     <string name="delete_error">No se pudo borrar</string>
 
     <string name="follower_help">Personas que se han unido como tester desde Test4Test.</string>
     <string name="linked_app">%1$s - %2$d testers</string>
-    <string name="testers_days">Dia %1$d de %2$d seguidos</string>
-    <string name="testers_days_done">%1$d dias seguidos completados. Ya puedes pedir produccion.</string>
+    <string name="testers_days">Día %1$d de %2$d seguidos</string>
+    <string name="testers_days_done">%1$d días seguidos completados. Ya puedes pedir producción.</string>
 
     <string name="testers_of">%1$d de %2$d testers</string>
-    <string name="my_apps_rank">Tus apps salen por debajo de quien testea las de otros. Estas probando %1$d de %2$d.</string>
+    <string name="my_apps_rank">Tus apps salen por debajo de quien testea las de otros. Estás probando %1$d de %2$d.</string>
 
     <string name="detail_install">Instalar desde Google Play</string>
-    <string name="detail_installed">Instalada desde Google Play. Su dueno ve que la tienes de verdad. Mantenla 14 dias.</string>
-    <string name="detail_not_installed">Todavia no esta instalada en este movil. Play solo cuenta a los testers que instalan la app.</string>
+    <string name="detail_installed">Instalada desde Google Play. Su dueño ve que la tienes de verdad. Mantenla 14 días.</string>
+    <string name="detail_not_installed">Todavía no está instalada en este móvil. Play solo cuenta a los testers que instalan la app.</string>
     <string name="detail_verified">%1$d con la app instalada</string>
     <string name="tester_installed">Tiene la app instalada</string>
-    <string name="tester_stale">Hace dias que no se ve instalada</string>
-    <string name="tester_unverified">Instalacion sin confirmar</string>
-    <string name="confirm_leave">Salir de la prueba de \"%1$s\"? Si eras uno de sus 12 testers, su racha de 14 dias vuelve a empezar.</string>
+    <string name="tester_stale">Hace días que no se ve instalada</string>
+    <string name="tester_unverified">Instalación sin confirmar</string>
+    <string name="confirm_leave">¿Salir de la prueba de \"%1$s\"? Si eras uno de sus 12 testers, su racha de 14 días vuelve a empezar.</string>
     <string name="feed_testing">Ya la pruebas</string>
-    <string name="my_apps_add_locked">Anadir otra app (suscripcion)</string>
-    <string name="form_groups_hint">Play Console, Prueba cerrada, Testers: el grupo de Google que anadiste ahi.</string>
-    <string name="form_opt_in_hint">En la misma pagina, Unirse en la Web: https://play.google.com/apps/testing/tu.paquete</string>
-    <string name="profile_manage_subscription">Gestionar la suscripcion en Google Play</string>
+    <string name="my_apps_add_locked">Añadir otra app (suscripción)</string>
+    <string name="form_groups_hint">Play Console, Prueba cerrada, Testers: el grupo de Google que añadiste ahí.</string>
+    <string name="form_opt_in_hint">En la misma página, Unirse en la Web: https://play.google.com/apps/testing/tu.paquete</string>
+    <string name="profile_manage_subscription">Gestionar la suscripción en Google Play</string>
     <string name="profile_delete_account">Borrar cuenta</string>
-    <string name="confirm_delete_account">Borrar tu cuenta, tus apps, tus pruebas y tus comentarios? No se puede deshacer. Una suscripcion activa no se cancela aqui: cancelala en Google Play.</string>
-    <string name="paywall_terms">Se renueva sola hasta que la cancelas. Cancela cuando quieras en Google Play, Pagos y suscripciones. Si cancelas, tus apps siguen publicadas; solo dejas de poder anadir mas de una.</string>
+    <string name="confirm_delete_account">¿Borrar tu cuenta, tus apps, tus pruebas y tus comentarios? No se puede deshacer. Una suscripción activa no se cancela aquí: cancélala en Google Play.</string>
+    <string name="paywall_terms">Se renueva sola hasta que la cancelas. Cancela cuando quieras en Google Play, Pagos y suscripciones. Si cancelas, tus apps siguen publicadas; solo dejas de poder añadir más de una.</string>
     <string name="price_per_week">%1$s/semana</string>
     <string name="price_per_month">%1$s/mes</string>
     <string name="price_per_year">%1$s/año</string>
@@ -126,9 +125,9 @@
         <item quantity="other">Probando %1$d apps</item>
     </plurals>
     <string name="round_title">Ronda de hoy</string>
-    <string name="round_help">Google rechaza las apps cuyos testers no las usan. Abre cada app que pruebas una vez al dia: su dueno lo ve.</string>
+    <string name="round_help">Google rechaza las apps cuyos testers no las usan. Abre cada app que pruebas una vez al día: su dueño lo ve.</string>
     <string name="round_progress">%1$d de %2$d abiertas hoy</string>
-    <string name="round_done">Ronda hecha. Hasta manana.</string>
+    <string name="round_done">Ronda hecha. Hasta mañana.</string>
     <string name="round_open">Abrir</string>
     <string name="round_opened">Abierta hoy</string>
     <string name="round_install">Instalar</string>
@@ -136,11 +135,11 @@
     <string name="reminder_off">Aviso diario activado. Desactivar</string>
     <string name="tester_never_opened">Nunca abierta desde Test4Test</string>
     <plurals name="tester_open_days">
-        <item quantity="one">Abierta %1$d de los ultimos 14 dias</item>
-        <item quantity="other">Abierta %1$d de los ultimos 14 dias</item>
+        <item quantity="one">Abierta %1$d de los últimos 14 días</item>
+        <item quantity="other">Abierta %1$d de los últimos 14 días</item>
     </plurals>
     <plurals name="reminder_text">
-        <item quantity="one">Abre la app que pruebas para que cuenten los 14 dias de su dueno.</item>
-        <item quantity="other">Abre las %1$d apps que pruebas para que cuenten los 14 dias de sus duenos.</item>
+        <item quantity="one">Abre la app que pruebas para que cuenten los 14 días de su dueño.</item>
+        <item quantity="other">Abre las %1$d apps que pruebas para que cuenten los 14 días de sus dueños.</item>
     </plurals>
 </resources>
