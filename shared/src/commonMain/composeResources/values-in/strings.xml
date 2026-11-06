@@ -115,8 +115,8 @@
     <string name="confirm_leave">Keluar dari tes \"%1$s\"? Jika Anda salah satu dari 12 tester-nya, hitungan 14 hari berturut-turutnya mulai lagi dari awal.</string>
     <string name="feed_testing">Menguji</string>
     <string name="my_apps_add_locked">Tambah aplikasi lain (langganan)</string>
-    <string name="form_groups_hint">Play Console, Closed testing, Testers: Google Group yang Anda tambahkan di sana.</string>
-    <string name="form_opt_in_hint">Di halaman yang sama, Join on the web: https://play.google.com/apps/testing/paket.anda</string>
+    <string name="form_groups_hint">Play Console, Uji coba tertutup, Tester: Google Group yang Anda tambahkan di sana.</string>
+    <string name="form_opt_in_hint">Di halaman yang sama, Gabung lewat web: https://play.google.com/apps/testing/paket.anda</string>
     <string name="profile_manage_subscription">Kelola langganan di Google Play</string>
     <string name="profile_delete_account">Hapus akun</string>
     <string name="confirm_delete_account">Hapus akun, aplikasi, tes, dan komentar Anda? Tindakan ini tidak bisa dibatalkan. Langganan aktif tidak dibatalkan di sini: batalkan di Google Play.</string>

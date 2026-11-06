@@ -76,8 +76,10 @@ object Demo {
         installed: Long,
         ownerTesting: Int,
         created: String,
+        // El paquete es de mentira. El de Trail Journal es el que se ve en el formulario, donde el campo del enlace es
+        // mas corto que su texto: con "ru" el recorte cae justo despues de una letra entera (con "com" o "eu" parte una).
+        pkg: String = "com.example.$slug",
     ): AppRow {
-        val pkg = "com.example.$slug"
         return AppRow(
             id = id,
             ownerId = owner.id,
@@ -107,7 +109,7 @@ object Demo {
     val sky = app("a-sky", carla, "Sky Tonight", "skytonight", 12, fullDays = 4, installed = 11, ownerTesting = 6, created = "2026-10-12")
 
     // Las del que mira (plan ilimitado): Trail Journal con los 12 y el dia 9 de 14.
-    val trail = app(TRAIL, me, "Trail Journal", "trailjournal", 12, fullDays = 9, installed = 10, ownerTesting = 4, created = "2026-10-29")
+    val trail = app(TRAIL, me, "Trail Journal", "trailjournal", 12, fullDays = 9, installed = 10, ownerTesting = 4, created = "2026-10-29", pkg = "ru.tj.trail")
     val dune = app("a-dune", me, "Dune Dash", "dunedash", 6, installed = 5, ownerTesting = 4, created = "2026-10-22")
     val pup = app("a-pup", me, "Pixel Pup", "pixelpup", 2, installed = 2, ownerTesting = 4, created = "2026-10-15")
 

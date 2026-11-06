@@ -40,16 +40,20 @@ a la fuente del sistema. Las pastillas, en Roboto 700 como en toda la plantilla.
 
 | # | Captura cruda | Idea | Que se ve |
 |---|---|---|---|
-| 1 | `01-feed` | el gancho: 12 testers en 14 dias | el feed de quien llega, con el medidor de 12 marcas de cada app |
-| 2 | `02-round` | la ronda de hoy | 2 de 4 abiertas hoy y el aviso de cada tarde |
-| 3 | `03-owner` | quien de verdad la abre | Trail Journal: 12 de 12, dia 9 de 14, instalada y dias de uso por tester |
-| 4 | `04-comments` | opiniones de otros desarrolladores | comentarios de Bird Log con la app de cada autor enlazada |
-| 5 | `05-publish` | publicar una app | el formulario con nombre y dos enlaces de Play Console |
-| 6 | `06-profile` | gratis o ilimitado | perfil con plan ilimitado: tres apps publicadas, sin anuncios |
+| 1 | `01-feed` | el gancho: 12 testers en 14 dias | el feed de quien llega, con el medidor de 12 marcas de cada app (recorte desde 440: sin el parrafo de la entrada) |
+| 2 | `02-publish` | publicar una app en un minuto | el formulario con nombre y dos enlaces de Play Console, sin cursor y con el enlace de alta entero |
+| 3 | `03-round` | la ronda de hoy | 2 de 4 abiertas hoy y el aviso de cada tarde (recorte desde 392) |
+| 4 | `04-owner` | quien de verdad la abre | Trail Journal: 12 de 12, dia 9 de 14, instalada y dias de uso por tester |
+| 5 | `05-comments` | comentar y que te prueben | comentarios de Bird Log con la app de cada autor enlazada |
+| 6 | `06-profile` | gratis o ilimitado sin anuncios | perfil con plan ilimitado: tres apps publicadas, sin anuncios |
 
 Las cifras son las mismas en todas (`DemoBackend.kt`): Trail Journal 12 de 12 y dia 9 de 14, Sky Tonight 12 de 12 y dia 4, Pantry Pal 3,
 Bird Log 5, Daily Dumbbell 6, Moss Habits 7, Tidy Budget 8, Pocket Chess Clock 10. Todo es inventado: ni las apps, ni los paquetes
-(`com.example.*`), ni las personas existen. `DemoDataTest` comprueba que las cuentas cuadran.
+(`com.example.*`; el de Trail Journal es `ru.tj.trail`, ver abajo), ni las personas existen. `DemoDataTest` comprueba que las cuentas cuadran.
+
+Sin zoom en ningun frame: con 1,06 o 1,08 la barra de arriba quedaba a 8 px del borde de la tarjeta. El enlace de alta del formulario
+(`play.google.com/apps/testing/<paquete>`) se corta en el borde del campo, que no cabe entero con ningun paquete; con el prefijo `ru`
+el corte cae justo entre letras, y con `com.example` partia una letra por la mitad. Por eso el paquete de la demo es `ru.tj.trail`.
 
 ## Crudas
 
@@ -71,11 +75,6 @@ comentarios y la app, la suya en las pantallas. Con `./gradlew test` las captura
 - Cuentas, datos o nombres reales, o una captura del backend de produccion.
 - Ensenar el banner de anuncios: el perfil de la demo es de plan ilimitado, que no lo lleva, y en una prueba no carga ninguno.
 - Ensenar una cifra que no cuadre con otra captura.
-
-## Pendiente
-
-- Las cadenas de la app en es, pt e id no llevan tildes ("ultimos dias", "Instalacion sin confirmar", "Comentarios"): se ven en las
-  capturas. Arreglarlo es cambiar `values-es`, `values-pt-rBR` y `values-id`, y rehacer las crudas.
 
 ## Anadir una captura
 

@@ -111,8 +111,8 @@
     <string name="confirm_leave">\"%1$s\" का टेस्ट छोड़ें? अगर आप इसके 12 टेस्टर में से एक थे, तो इसकी 14 दिन की लगातार अवधि फिर से शुरू होगी।</string>
     <string name="feed_testing">टेस्ट कर रहे हैं</string>
     <string name="my_apps_add_locked">एक और ऐप जोड़ें (सदस्यता)</string>
-    <string name="form_groups_hint">Play Console में Closed testing, Testers: वहाँ जोड़ा गया Google Group।</string>
-    <string name="form_opt_in_hint">उसी पेज पर, Join on the web: https://play.google.com/apps/testing/your.package</string>
+    <string name="form_groups_hint">Play Console में क्लोज़्ड टेस्टिंग, टेस्टर: वहाँ जोड़ा गया Google Group।</string>
+    <string name="form_opt_in_hint">उसी पेज पर, वेब पर शामिल हों: https://play.google.com/apps/testing/your.package</string>
     <string name="profile_manage_subscription">Google Play में सदस्यता प्रबंधित करें</string>
     <string name="profile_delete_account">खाता हटाएं</string>
     <string name="confirm_delete_account">आपका खाता, आपके ऐप, आपके टेस्ट और आपकी टिप्पणियां हटाएं? इसे वापस नहीं लिया जा सकता। सक्रिय सदस्यता यहां रद्द नहीं होती: उसे Google Play में रद्द करें।</string>

@@ -4,7 +4,9 @@ import android.app.Application
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import androidx.compose.ui.test.ComposeTimeoutException
+import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.v2.createComposeRule
@@ -121,7 +123,7 @@ abstract class StoreScreenshots(private val language: String) {
     fun round() {
         start(Demo.inRound)
         waitForText(string(Res.string.round_progress, 2, 4))
-        shot("02-round")
+        shot("03-round")
     }
 
     // La ficha de su propia app: los 12, el dia 9 de 14 y que hace cada tester con ella.
@@ -133,7 +135,7 @@ abstract class StoreScreenshots(private val language: String) {
         click(Demo.trail.name)
         waitForText(string(Res.string.detail_testers_title))
         waitForText("Tom Becker")
-        shot("03-owner")
+        shot("04-owner")
     }
 
     // La ficha de una app ajena, bajada hasta sus comentarios.
@@ -151,7 +153,7 @@ abstract class StoreScreenshots(private val language: String) {
         // Hasta su titulo y no mas: sin tocar al lado de esas tarjetas de arriba (grupo, enlace, desinstalar).
         scrollList().performScrollToIndex(COMMENTS_INDEX)
         compose.waitForIdle()
-        shot("04-comments")
+        shot("05-comments")
     }
 
     // El alta de una app: nombre y dos enlaces de Play Console.
@@ -161,7 +163,7 @@ abstract class StoreScreenshots(private val language: String) {
         click(string(Res.string.tab_my_apps))
         click(string(Res.string.my_apps_add))
         waitForText(string(Res.string.form_name))
-        // El nombre el ultimo: se queda con el foco, y los enlaces se leen desde el principio.
+        // Los enlaces se leen desde el principio.
         for ((label, url) in listOf(
             string(Res.string.form_groups_url) to Demo.trail.googleGroupsUrl,
             string(Res.string.form_opt_in_url) to Demo.trail.optInUrl,
@@ -171,7 +173,10 @@ abstract class StoreScreenshots(private val language: String) {
             compose.onNodeWithText(label).performKeyInput { pressKey(Key.MoveHome) }
         }
         compose.onNodeWithText(string(Res.string.form_name)).performTextReplacement(Demo.trail.name)
-        shot("05-publish")
+        // Sin foco ni cursor: es el formulario ya rellenado, no a medio escribir.
+        compose.runOnUiThread { focus?.clearFocus() }
+        compose.waitForIdle()
+        shot("02-publish")
     }
 
     // El plan ilimitado, sin anuncios: tres apps publicadas y las que prueba.
@@ -184,10 +189,16 @@ abstract class StoreScreenshots(private val language: String) {
         shot("06-profile")
     }
 
+    // Para quitar el foco del formulario antes de la captura.
+    private var focus: FocusManager? = null
+
     private fun start(scenario: Scenario) {
         DemoBackend.scenario = scenario
         installTested(scenario)
-        compose.setContent { App() }
+        compose.setContent {
+            focus = LocalFocusManager.current
+            App()
+        }
     }
 
     // Lo que prueba quien mira esta instalado desde Play en su movil: "Abrir" y no "Instalar".
