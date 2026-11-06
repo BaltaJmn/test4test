@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icono pequeno del aviso de la ronda: el glifo de ic_launcher_monochrome de
+     androidApp, centrado en un lienzo de 64 en vez del de 108 del icono adaptable. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <group android:translateX="-21" android:translateY="-22">
+        <path
+            android:pathData="M46,59 L56,67 L79,41"
+            android:strokeColor="#FFFFFF"
+            android:strokeAlpha="0.55"
+            android:strokeWidth="8.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M27,55 L39,67 L62,41"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="8.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+</vector>

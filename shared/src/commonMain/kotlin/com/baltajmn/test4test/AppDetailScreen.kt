@@ -61,6 +61,8 @@ import test4test.shared.generated.resources.detail_play
 import test4test.shared.generated.resources.detail_testers_empty
 import test4test.shared.generated.resources.detail_testers_title
 import test4test.shared.generated.resources.detail_verified
+import test4test.shared.generated.resources.tester_never_opened
+import test4test.shared.generated.resources.tester_open_days
 import test4test.shared.generated.resources.tester_installed
 import test4test.shared.generated.resources.tester_stale
 import test4test.shared.generated.resources.tester_unverified
@@ -269,13 +271,15 @@ fun AppDetailScreen(
                 item(key = "tester-" + tester.profile.id) {
                     PersonRow(
                         profile = tester.profile,
+                        // Instalada y usada son dos cosas: Google mira lo segundo.
                         subtitle = stringResource(
                             when (tester.install) {
                                 InstallState.INSTALLED -> Res.string.tester_installed
                                 InstallState.STALE -> Res.string.tester_stale
                                 InstallState.UNVERIFIED -> Res.string.tester_unverified
                             }
-                        ),
+                        ) + ". " + if (tester.openDays == 0) stringResource(Res.string.tester_never_opened)
+                        else pluralStringResource(Res.plurals.tester_open_days, tester.openDays, tester.openDays),
                         onClick = { onOpenProfile(tester.profile.id) },
                     )
                 }

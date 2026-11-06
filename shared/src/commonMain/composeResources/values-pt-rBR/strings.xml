@@ -124,4 +124,22 @@
         <item quantity="one">Testando %1$d app</item>
         <item quantity="other">Testando %1$d apps</item>
     </plurals>
+    <string name="round_title">Rodada de hoje</string>
+    <string name="round_help">O Google recusa apps cujos testers nao os usam. Abra cada app que voce testa uma vez por dia: o dono ve isso.</string>
+    <string name="round_progress">%1$d de %2$d abertos hoje</string>
+    <string name="round_done">Rodada feita. Ate amanha.</string>
+    <string name="round_open">Abrir</string>
+    <string name="round_opened">Aberto hoje</string>
+    <string name="round_install">Instalar</string>
+    <string name="reminder_on">Me lembrar toda tarde</string>
+    <string name="reminder_off">Lembrete diario ativado. Desativar</string>
+    <string name="tester_never_opened">Nunca aberto pelo Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Aberto em %1$d dos ultimos 14 dias</item>
+        <item quantity="other">Aberto em %1$d dos ultimos 14 dias</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Abra o app que voce testa para que os 14 dias do dono contem.</item>
+        <item quantity="other">Abra os %1$d apps que voce testa para que os 14 dias dos donos contem.</item>
+    </plurals>
 </resources>

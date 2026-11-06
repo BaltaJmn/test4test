@@ -1,5 +1,6 @@
 package com.baltajmn.test4test
 
+import android.content.Intent
 import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
@@ -26,6 +27,20 @@ actual fun rememberInstalledFromPlay(): (String) -> Boolean {
                 installer == PLAY_STORE
                 // NameNotFoundException: no esta instalada, o no es visible.
             }.getOrDefault(false)
+        }
+    }
+}
+
+// La ve gracias al <queries> de launcher del manifest, el mismo que usa la
+// comprobacion de instalacion.
+@Composable
+actual fun rememberAppLauncher(): (String) -> Boolean {
+    val context = LocalContext.current
+    return remember(context) {
+        { packageName ->
+            context.packageManager.getLaunchIntentForPackage(packageName)
+                ?.let { context.startActivity(it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); true }
+                ?: false
         }
     }
 }

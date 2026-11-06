@@ -11,6 +11,11 @@ import androidx.compose.runtime.Composable
 @Composable
 expect fun rememberInstalledFromPlay(): (String) -> Boolean
 
+// Abre la app de ese paquete. False si no esta instalada (o no tiene pantalla de
+// inicio), para que la ronda mande a instalarla.
+@Composable
+expect fun rememberAppLauncher(): (String) -> Boolean
+
 // Boton y gesto de atras del sistema. Sin esto, atras cerraba la app desde
 // cualquier pantalla en vez de volver a la anterior.
 @Composable

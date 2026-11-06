@@ -9,6 +9,7 @@ YANG BISA ANDA LAKUKAN
 - Ikut uji dalam empat langkah, berurutan: buka grup, buka link opt-in, tandai diri Anda, lalu instal aplikasi dari Google Play.
 - Berkomentar di sebuah aplikasi untuk memberi tahu Anda sudah ikut, bertanya, atau menautkan aplikasi Anda agar developer menguji balik.
 - Melihat siapa yang ikut uji Anda dan apakah aplikasi Anda benar-benar terpasang di perangkatnya.
+- Menjalankan putaran harian: buka aplikasi yang Anda uji sekali sehari dari Test4Test. Google ingin tester yang memakai aplikasi, bukan sekadar memasangnya, dan pemilik melihat berapa hari dari 14 hari terakhir setiap tester membukanya. Pengingat sore opsional membantu Anda tetap konsisten.
 - Memantau rangkaian 14 hari: dimulai saat Anda mencapai 12 tester, dan aplikasi memberi tahu saat selesai.
 
 BUKTI, BUKAN JANJI

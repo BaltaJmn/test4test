@@ -91,6 +91,7 @@ fun FeedScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
+                item { RoundCard(uid, testing) }
                 item { ErrorText(error) }
                 if (list.isEmpty()) {
                     item {

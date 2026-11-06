@@ -84,18 +84,26 @@ data class TesterRow(
     @SerialName("user_id") val userId: String,
 )
 
-// Fila de app_tester_status: quien entro y si su movil confirmo la instalacion.
+// Fila de app_tester_status: quien entro, si su movil confirmo la instalacion y
+// los dias que abrio la app desde la ronda.
 @Serializable
 data class TesterStatusRow(
+    @SerialName("app_id") val appId: String = "",
     @SerialName("user_id") val userId: String,
     @SerialName("verified_at") val verifiedAt: String? = null,
     @SerialName("installed_recently") val installedRecently: Boolean? = null,
+    @SerialName("opened_today") val openedToday: Boolean = false,
+    @SerialName("open_days") val openDays: Int = 0,
 )
 
 enum class InstallState { INSTALLED, STALE, UNVERIFIED }
 
 // Lo que ve el dueno de cada tester: la persona y si de verdad tiene la app.
-data class TesterView(val profile: Profile, val install: InstallState)
+// Y cuantos de los ultimos 14 dias la abrio: Google mide uso, no instalaciones.
+data class TesterView(val profile: Profile, val install: InstallState, val openDays: Int)
+
+// Una app de la ronda de hoy de quien la prueba.
+data class RoundItem(val app: AppRow, val openedToday: Boolean)
 
 // Comentario ya resuelto para pintar: autor y app vinculada en el mismo objeto.
 // El autor va entero y no solo su nombre: la ficha tambien pinta su foto y lleva

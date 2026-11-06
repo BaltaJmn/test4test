@@ -133,6 +133,30 @@ insert into results
 select '26g tester status says installed', installed_recently::text, 'true'
 from public.app_tester_status where user_id = '00000000-0000-4000-8000-00000000b0b0';
 
+-- Daily round: opens only through record_open, only in tests you joined, one
+-- per day, with the server date.
+insert into results values
+  ('36 bob writes an open by hand', pg_temp.as_user('00000000-0000-4000-8000-00000000b0b0',
+     $q$insert into public.app_opens (app_id, user_id, day) values ('00000000-0000-4000-8000-0000000000a1','00000000-0000-4000-8000-00000000b0b0', current_date - 3)$q$), 'BLOCKED'),
+  ('36b alice opens an app she does not test', pg_temp.as_user('00000000-0000-4000-8000-00000000a11c',
+     $q$select public.record_open('00000000-0000-4000-8000-0000000000a1')$q$), 'ALLOWED (1 rows)'),
+  ('36c anon records an open', pg_temp.as_role(null, 'anon',
+     $q$select public.record_open('00000000-0000-4000-8000-0000000000a1')$q$), 'BLOCKED'),
+  ('36d bob opens alice app', pg_temp.as_user('00000000-0000-4000-8000-00000000b0b0',
+     $q$select public.record_open('00000000-0000-4000-8000-0000000000a1')$q$), 'ALLOWED (1 rows)'),
+  ('36e bob opens it again the same day', pg_temp.as_user('00000000-0000-4000-8000-00000000b0b0',
+     $q$select public.record_open('00000000-0000-4000-8000-0000000000a1')$q$), 'ALLOWED (1 rows)'),
+  ('36f bob backdates his open', pg_temp.as_user('00000000-0000-4000-8000-00000000b0b0',
+     $q$update public.app_opens set day = current_date - 5 where user_id = '00000000-0000-4000-8000-00000000b0b0'$q$), 'BLOCKED');
+insert into results
+select '36g one open per day, none for alice',
+       (select count(*) from public.app_opens where user_id = '00000000-0000-4000-8000-00000000b0b0')::text || '/' ||
+       (select count(*) from public.app_opens where user_id = '00000000-0000-4000-8000-00000000a11c')::text,
+       '1/0';
+insert into results
+select '36h the owner sees bob opened today, 1 of 14 days', opened_today::text || '/' || open_days::text, 'true/1'
+from public.app_tester_status where user_id = '00000000-0000-4000-8000-00000000b0b0';
+
 -- Reports: anyone flags, once, as themselves; only admins read them.
 insert into results values
   ('27 bob reports alice app', pg_temp.as_user('00000000-0000-4000-8000-00000000b0b0',

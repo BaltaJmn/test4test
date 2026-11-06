@@ -9,6 +9,7 @@ WHAT YOU CAN DO
 - Join a test in four steps, in order: open the group, open the opt-in link, mark yourself in, install the app from Google Play.
 - Leave a comment under an app to say you are in, ask a question, or link your own app so the developer can test you back.
 - See who joined your test and whether they really have your app installed.
+- Do your daily round: open the apps you test once a day from Test4Test. Google wants testers who use the app, not just install it, and the owner sees on how many of the last 14 days each tester opened it. An optional evening reminder keeps you on track.
 - Follow the 14-day streak: it starts the day you reach 12 testers, and the app tells you when it is done.
 
 PROOF, NOT PROMISES

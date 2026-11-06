@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Aviso diario de la ronda, solo si el usuario lo activa (Android 13+ lo pide). -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!-- Para comprobar que el tester tiene instalada la app en la que entro. Las
          apps con icono en el launcher, no QUERY_ALL_PACKAGES, que Play restringe:

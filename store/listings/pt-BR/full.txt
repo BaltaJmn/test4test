@@ -9,6 +9,7 @@ O QUE VOCÊ PODE FAZER
 - Entrar num teste em quatro passos, nesta ordem: abrir o grupo, abrir o link de participação, marcar que entrou e instalar o app pelo Google Play.
 - Comentar num app para avisar que já entrou, fazer uma pergunta ou indicar o seu para que o desenvolvedor teste de volta.
 - Ver quem entrou no seu teste e se a pessoa realmente tem o seu app instalado.
+- Fazer sua rodada diária: abra uma vez por dia pelo Test4Test os apps que você testa. O Google quer testers que usem o app, não só que instalem, e o dono vê em quantos dos últimos 14 dias cada tester o abriu. Um lembrete opcional à tarde ajuda a não esquecer.
 - Acompanhar a sequência de 14 dias: ela começa no dia em que você chega a 12 testers, e o app avisa quando terminar.
 
 PROVA, NÃO PROMESSA

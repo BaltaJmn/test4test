@@ -106,6 +106,8 @@ kotlin {
             implementation(libs.revenuecat.purchases)
             implementation(libs.play.services.ads)
             implementation(libs.user.messaging.platform)
+            // El aviso diario de la ronda: sobrevive a reinicios sin receptor propio.
+            implementation(libs.work.runtime)
         }
         commonMain {
             kotlin.srcDir(generateAppConfig)

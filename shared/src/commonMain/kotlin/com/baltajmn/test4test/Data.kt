@@ -83,7 +83,7 @@ suspend fun testersOf(appId: String): List<TesterView> {
         .associateBy { it.id }
     // El orden lo manda app_testers: la consulta de perfiles vuelve como quiera.
     return rows.mapNotNull { row ->
-        byId[row.userId]?.let { TesterView(it, installState(row.installedRecently, row.verifiedAt)) }
+        byId[row.userId]?.let { TesterView(it, installState(row.installedRecently, row.verifiedAt), row.openDays) }
     }
 }
 
@@ -99,6 +99,20 @@ suspend fun confirmInstalls(uid: String, installedFromPlay: (String) -> Boolean)
         "confirm_installed",
         buildJsonObject { put("app_ids", JsonArray(seen.map(::JsonPrimitive))) },
     )
+}
+
+// La ronda de hoy: las apps que pruebas y si ya las abriste hoy. "Hoy" es el dia
+// del servidor, el mismo con el que record_open apunta la apertura.
+suspend fun myRound(uid: String): List<RoundItem> {
+    val rows = supabase.from(TESTER_STATUS).select { filter { eq("user_id", uid) } }.decodeList<TesterStatusRow>()
+    val opened = rows.filter { it.openedToday }.map { it.appId }.toSet()
+    return appsByIds(rows.map { it.appId }).map { RoundItem(it, it.id in opened) }.sortedBy { it.app.name }
+}
+
+// Apunta que hoy abriste esta app. Solo cuenta si estas en su prueba, y una vez
+// al dia: lo decide record_open en el servidor.
+suspend fun recordOpen(appId: String) {
+    supabase.postgrest.rpc("record_open", buildJsonObject { put("app", JsonPrimitive(appId)) })
 }
 
 // Borra auth.users y, en cascada, perfil, apps, pruebas y comentarios. Despues

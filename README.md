@@ -70,6 +70,13 @@ Proof of install: `app_testers.verified_at` is only written by
 on every resume for the apps it sees installed from Google Play. Owners see the
 result per tester through `app_tester_status`.
 
+Daily round (1.8): Google rejects production requests when testers do not use
+the app, so the feed opens with today's round, where each app you test is
+launched from Test4Test and `record_open()` stores the day with the server
+date in `app_opens`. `app_tester_status` adds `opened_today` and `open_days`
+(last 14 days) for the owner. An optional evening reminder runs on WorkManager
+from local state, with no network or session.
+
 The feed reads `apps_with_followers`, a view that adds the tester count, how
 many of them were seen with the app installed, the streak day and whether the
 owner reciprocates. It carries `security_invoker=true` so RLS still applies to

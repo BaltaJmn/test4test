@@ -124,4 +124,22 @@
         <item quantity="one">%1$d ऐप टेस्ट कर रहे हैं</item>
         <item quantity="other">%1$d ऐप टेस्ट कर रहे हैं</item>
     </plurals>
+    <string name="round_title">आज का राउंड</string>
+    <string name="round_help">जिन ऐप के टेस्टर उन्हें इस्तेमाल नहीं करते, Google उन्हें मना कर देता है। जिन ऐप को आप टेस्ट करते हैं, उन्हें दिन में एक बार खोलें: उनके मालिक को यह दिखता है।</string>
+    <string name="round_progress">आज %2$d में से %1$d खोले गए</string>
+    <string name="round_done">राउंड पूरा। कल मिलते हैं।</string>
+    <string name="round_open">खोलें</string>
+    <string name="round_opened">आज खोला</string>
+    <string name="round_install">इंस्टॉल करें</string>
+    <string name="reminder_on">मुझे हर शाम याद दिलाएं</string>
+    <string name="reminder_off">रोज़ का रिमाइंडर चालू है। बंद करें</string>
+    <string name="tester_never_opened">Test4Test से कभी नहीं खोला</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">पिछले 14 में से %1$d दिन खोला</item>
+        <item quantity="other">पिछले 14 में से %1$d दिन खोला</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">आप जिस ऐप को टेस्ट करते हैं उसे खोलें ताकि उसके मालिक के 14 दिन गिने जाएं।</item>
+        <item quantity="other">आप जिन %1$d ऐप को टेस्ट करते हैं उन्हें खोलें ताकि उनके मालिकों के 14 दिन गिने जाएं।</item>
+    </plurals>
 </resources>
