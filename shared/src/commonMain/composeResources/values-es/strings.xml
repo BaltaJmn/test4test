@@ -59,8 +59,8 @@
 
     <string name="profile_error">No se pudo cargar el perfil</string>
     <string name="profile_fallback_name">Usuario</string>
-    <string name="profile_premium">Suscripcion activa: apps ilimitadas, sin anuncios</string>
-    <string name="profile_free">Plan gratuito: 1 app a la vez, con anuncios. Ver la suscripcion</string>
+    <string name="profile_premium">Plan ilimitado activo: apps ilimitadas, sin anuncios</string>
+    <string name="profile_free">Plan gratuito: 1 app a la vez, con anuncios. Ver planes ilimitados</string>
     <string name="profile_my_apps">Apps publicadas</string>
     <string name="profile_none_yet">Ninguna todavia.</string>
     <string name="profile_testing">Probando</string>
@@ -68,15 +68,16 @@
     <string name="profile_ad_privacy">Privacidad de los anuncios</string>
     <string name="profile_privacy">Politica de privacidad</string>
 
-    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripcion publicas todas las que quieras, sin anuncios, mientras este activa.</string>
-    <string name="paywall_active">Tu suscripcion esta activa.</string>
+    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripcion mensual, o con un pago unico que no caduca, publicas todas las que quieras, sin anuncios.</string>
+    <string name="paywall_active">Tu plan ilimitado esta activo.</string>
     <string name="paywall_preparing">Suscripcion en preparacion.</string>
     <string name="paywall_no_product">No hay ningun producto disponible todavia.</string>
     <string name="paywall_price_error">No se pudo cargar el precio: %1$s</string>
     <string name="paywall_subscribe">Suscribirse</string>
     <string name="paywall_subscribe_price">Suscribirse por %1$s</string>
-    <string name="paywall_restore">Restaurar suscripcion</string>
-    <string name="paywall_no_purchase">No hemos encontrado ninguna suscripcion activa.</string>
+    <string name="paywall_lifetime_price">Pago unico: %1$s, no caduca</string>
+    <string name="paywall_restore">Restaurar compras</string>
+    <string name="paywall_no_purchase">No hemos encontrado ninguna compra activa.</string>
     <string name="paywall_pending">Suscripcion registrada, pero el acceso aun no se ha activado. Vuelve a entrar en un minuto.</string>
     <string name="paywall_purchase_error">No se pudo completar la suscripcion</string>
 

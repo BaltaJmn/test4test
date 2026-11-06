@@ -32,6 +32,7 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.paywall_no_product
+import test4test.shared.generated.resources.paywall_lifetime_price
 import test4test.shared.generated.resources.paywall_no_purchase
 import test4test.shared.generated.resources.paywall_pending
 import test4test.shared.generated.resources.paywall_preparing
@@ -59,29 +60,29 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
     val context = LocalContext.current
     val activity = LocalActivity.current
     val scope = rememberCoroutineScope()
-    var offer by remember { mutableStateOf<Package?>(null) }
+    var offers by remember { mutableStateOf<List<Package>>(emptyList()) }
     var busy by remember { mutableStateOf(true) }
     var message by remember { mutableStateOf<String?>(null) }
 
     LaunchedEffect(uid) {
         message = runCatching {
             signIn(context, uid)
-            // Primer paquete del offering actual: la suscripcion es el unico
-            // producto que se vende, no hay nada que elegir.
-            offer = Purchases.sharedInstance.awaitOfferings()
-                .current?.availablePackages?.firstOrNull()
+            // Todos los paquetes del offering actual, en su orden: la suscripcion
+            // mensual y el pago unico de por vida. Quien solo necesita sus 14 dias
+            // y no quiere suscribirse tiene la segunda puerta.
+            offers = Purchases.sharedInstance.awaitOfferings()
+                .current?.availablePackages.orEmpty()
         }.fold(
             // getString y no stringResource: esto no es un composable, es una
             // corrutina. Misma tabla de traducciones, misma clave.
-            onSuccess = { if (offer == null) getString(Res.string.paywall_no_product) else null },
+            onSuccess = { if (offers.isEmpty()) getString(Res.string.paywall_no_product) else null },
             onFailure = { getString(Res.string.paywall_price_error, it.message.orEmpty()) },
         )
         busy = false
     }
 
-    Button(
+    for (pack in offers) Button(
         onClick = {
-            val pack = offer ?: return@Button
             val host = activity ?: return@Button
             busy = true
             message = null
@@ -97,15 +98,19 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
                 busy = false
             }
         },
-        enabled = !busy && offer != null && activity != null,
+        enabled = !busy && activity != null,
         modifier = Modifier.fillMaxWidth(),
     ) {
-        val product = offer?.product
-        val price = product?.price?.formatted
+        val product = pack.product
+        val price = product.price.formatted
         Text(
-            if (price == null) stringResource(Res.string.paywall_subscribe)
+            // Sin periodo es el pago unico: "suscribirse" ahi seria mentir.
+            if (product.period == null) stringResource(Res.string.paywall_lifetime_price, price)
             else stringResource(Res.string.paywall_subscribe_price, pricePerPeriod(price, product.period))
         )
+    }
+    if (offers.isEmpty()) Button(onClick = {}, enabled = false, modifier = Modifier.fillMaxWidth()) {
+        Text(stringResource(Res.string.paywall_subscribe))
     }
 
     // Reinstalar en otro movil no genera evento nuevo en RevenueCat, asi que sin
