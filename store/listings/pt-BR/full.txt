@@ -1,0 +1,30 @@
+O Google Play exige 12 testers durante 14 dias seguidos antes que uma conta pessoal de desenvolvedor possa publicar um app. Encontrar essas pessoas é a parte que ninguém conta, e o Google recusa o pedido quando os testers não usam o app de verdade.
+
+O Test4Test é onde desenvolvedores Android se encontram para resolver isso. Você publica seu app, outros desenvolvedores entram no seu teste fechado e você testa os deles. Pessoas reais em aparelhos reais, não uma fazenda de bots nem uma planilha num grupo de chat.
+
+O QUE VOCÊ PODE FAZER
+
+- Publicar seu app com o Grupo do Google e o link de participação. Só isso.
+- Ver os apps que ainda precisam de testers. Primeiro aparecem os de quem testa os apps dos outros e, dentro disso, os que têm menos testers.
+- Entrar num teste em quatro passos, nesta ordem: abrir o grupo, abrir o link de participação, marcar que entrou e instalar o app pelo Google Play.
+- Comentar num app para avisar que já entrou, fazer uma pergunta ou indicar o seu para que o desenvolvedor teste de volta.
+- Ver quem entrou no seu teste e se a pessoa realmente tem o seu app instalado.
+- Acompanhar a sequência de 14 dias: ela começa no dia em que você chega a 12 testers, e o app avisa quando terminar.
+
+PROVA, NÃO PROMESSA
+
+Tocar em "entrei" não prova nada, e por isso a maioria das trocas de testers falha. O Test4Test verifica no celular do tester que o seu app está instalado e que foi o Google Play que o instalou, e mostra isso ao lado do nome dele. Ele só olha os apps em que a pessoa entrou dentro do Test4Test, nunca o resto do celular.
+
+POR QUE É JUSTO
+
+Quem testa os apps dos outros aparece acima de quem só publica. Dentro de cada grupo, os apps com menos testers vêm primeiro, para que os novos não afundem. Não há como comprar uma posição melhor.
+
+GRÁTIS E ASSINATURA
+
+O plano gratuito permite um app por vez, o que basta para a maioria, e mostra um pequeno banner de anúncios. A assinatura permite quantos apps você quiser e remove os anúncios; cancele quando quiser no Google Play. Entrar em testes, comentar e navegar são sempre grátis.
+
+PRIVACIDADE
+
+Seu e-mail nunca é mostrado a ninguém. Seu nome e sua foto ficam visíveis para outros usuários conectados, porque é assim que os desenvolvedores sabem quem entrou no teste. Os anúncios vêm do Google AdMob, e na Europa você escolhe se eles podem ser personalizados. Você pode excluir sua conta pelo app quando quiser.
+
+Feito por um desenvolvedor Android cansado de pedir testers em fóruns.

@@ -1,5 +1,8 @@
 # Ficha de Play Store
 
+> Desde la 1.7 (6-11-2026) la ficha vigente vive en `store/listings/<idioma>` (en-US, es-ES, es-419, pt-BR,
+> hi-IN, id) y la sube `ci/tienda/play.py` con la version. Lo de abajo es la ficha anterior, sin anuncios.
+
 Ingles como idioma principal, espanol como idioma adicional.
 Limites de Play: titulo 30, descripcion breve 80, descripcion completa 4000.
 

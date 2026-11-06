@@ -1,0 +1,30 @@
+Google Play mewajibkan 12 tester selama 14 hari berturut-turut sebelum akun developer pribadi bisa memublikasikan aplikasi. Mencari orang-orang itu adalah bagian yang jarang dibahas, dan Google menolak permintaan jika tester tidak benar-benar memakai aplikasinya.
+
+Test4Test adalah tempat developer Android saling bertemu untuk menyelesaikannya. Anda memasang aplikasi Anda, developer lain ikut uji tertutup Anda, dan Anda menguji aplikasi mereka. Orang nyata di perangkat nyata, bukan peternakan bot atau spreadsheet di grup chat.
+
+YANG BISA ANDA LAKUKAN
+
+- Memasang aplikasi Anda dengan Google Group dan link opt-in-nya. Hanya itu.
+- Melihat aplikasi yang masih butuh tester. Developer yang menguji aplikasi orang lain tampil lebih dulu, dan di antaranya, aplikasi dengan tester paling sedikit.
+- Ikut uji dalam empat langkah, berurutan: buka grup, buka link opt-in, tandai diri Anda, lalu instal aplikasi dari Google Play.
+- Berkomentar di sebuah aplikasi untuk memberi tahu Anda sudah ikut, bertanya, atau menautkan aplikasi Anda agar developer menguji balik.
+- Melihat siapa yang ikut uji Anda dan apakah aplikasi Anda benar-benar terpasang di perangkatnya.
+- Memantau rangkaian 14 hari: dimulai saat Anda mencapai 12 tester, dan aplikasi memberi tahu saat selesai.
+
+BUKTI, BUKAN JANJI
+
+Menekan "saya sudah ikut" tidak membuktikan apa pun, dan karena itu kebanyakan tukar tester gagal. Test4Test memeriksa di ponsel tester bahwa aplikasi Anda terpasang dan dipasang oleh Google Play, lalu menampilkannya di samping namanya. Hanya aplikasi yang diikuti di dalam Test4Test yang diperiksa, tidak pernah isi ponsel lainnya.
+
+KENAPA ADIL
+
+Developer yang menguji aplikasi orang lain tampil di atas yang hanya memasang. Di setiap kelompok, aplikasi dengan tester paling sedikit tampil lebih dulu agar yang baru tidak tenggelam. Posisi tidak bisa dibeli.
+
+GRATIS DAN LANGGANAN
+
+Paket gratis memuat satu aplikasi sekaligus, cukup untuk kebanyakan developer, dan menampilkan banner iklan kecil. Langganan memuat aplikasi sebanyak yang Anda mau dan menghapus iklan; batalkan kapan saja dari Google Play. Ikut uji, berkomentar, dan menjelajah selalu gratis.
+
+PRIVASI
+
+Alamat email Anda tidak pernah ditampilkan kepada siapa pun. Nama dan foto profil Anda terlihat oleh pengguna lain yang masuk, karena dari situlah developer tahu siapa yang ikut uji mereka. Iklan berasal dari Google AdMob, dan di Eropa Anda memilih apakah iklan boleh dipersonalisasi. Anda bisa menghapus akun dari aplikasi kapan saja.
+
+Dibuat oleh developer Android yang lelah meminta tester di forum.
