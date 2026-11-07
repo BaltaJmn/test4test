@@ -3,63 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Test4Test: 12 testers for 14 days</title>
-<meta name="description" content="Test4Test is a free exchange for Google Play closed testing: post your app, join other developers' tests, and they join yours.">
+<title>Test4Test: 12 Testers for 14 Days on Google Play</title>
+<meta name="description" content="Free Android app where developers test each other&#x27;s apps for Google Play&#x27;s closed testing rule: 12 testers, 14 days. Post your app and join tests.">
+<link rel="canonical" href="https://testers.baltajmn.dev/">
+<link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/">
+<link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/">
+<link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
-<!-- Portada minima: la ficha de Play enlaza aqui como sitio web y AdMob lee
-     app-ads.txt de este dominio. Mismo estilo que privacy.html. -->
-<style>
-  :root { --bg: #ffffff; --fg: #1f1f1f; --muted: #5f6368; --rule: #e0e0e0; --accent: #1a73e8; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #131314; --fg: #e3e3e3; --muted: #9aa0a6; --rule: #35363a; --accent: #8ab4f8; }
+<link rel="stylesheet" href="/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Test4Test">
+<meta property="og:title" content="Test4Test: 12 Testers for 14 Days on Google Play">
+<meta property="og:description" content="Free Android app where developers test each other&#x27;s apps for Google Play&#x27;s closed testing rule: 12 testers, 14 days. Post your app and join tests.">
+<meta property="og:url" content="https://testers.baltajmn.dev/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://testers.baltajmn.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Test4Test: 12 Testers for 14 Days on Google Play">
+<meta name="twitter:description" content="Free Android app where developers test each other&#x27;s apps for Google Play&#x27;s closed testing rule: 12 testers, 14 days. Post your app and join tests.">
+<meta name="twitter:image" content="https://testers.baltajmn.dev/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Test4Test",
+  "operatingSystem": "Android",
+  "applicationCategory": "DeveloperApplication",
+  "description": "Free Android app where developers test each other's apps for Google Play closed testing.",
+  "url": "https://testers.baltajmn.dev/",
+  "inLanguage": "en",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.baltajmn.test4test",
+  "installUrl": "https://play.google.com/store/apps/details?id=com.baltajmn.test4test",
+  "image": "https://testers.baltajmn.dev/og.png",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0 auto;
-    padding: 3rem 1.25rem 4rem;
-    max-width: 40rem;
-    background: var(--bg);
-    color: var(--fg);
-    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  img { width: 72px; height: 72px; border-radius: 18px; }
-  h1 { font-size: 1.9rem; line-height: 1.2; margin: 1rem 0 .25rem; }
-  .lead { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.75rem; }
-  .play {
-    display: inline-block; padding: .7rem 1.2rem; border-radius: 999px;
-    background: var(--accent); color: var(--bg); text-decoration: none; font-weight: 600;
-  }
-  ul { padding-left: 1.25rem; margin: 2rem 0; }
-  li { margin: .6rem 0; }
-  a { color: var(--accent); }
-  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
-</style>
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the 12 testers for 14 days rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New personal Google Play developer accounts must run a closed test with at least 12 testers, opted in continuously for at least 14 days, before they can apply for production access. Read the full guide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Test4Test guarantee that Google will approve my app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Nobody can promise that. Test4Test helps you find testers and shows you whether they really opened your app. Google makes the decision."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Test4Test free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free plan lists one app at a time and shows a small ad banner. The monthly subscription lists as many apps as you want, with no ads. Joining tests, commenting and browsing are always free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do testers have to write reviews?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. No reviews or ratings are exchanged in Test4Test. Testers join your closed test and open your app. That is all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My production access request was rejected. What now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check how many testers stayed opted in and whether they used the app, then fix what the app needs. The rejection guide has a checklist."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-
-<img src="/icon.svg" alt="">
-<h1>Test4Test</h1>
-<p class="lead">Get your 12 testers for 14 days. Google Play asks new personal developer accounts for a closed test
-before production; Test4Test is the exchange where developers test each other's apps.</p>
-
+<header class="site">
+<a class="brand" href="/"><img src="/icon.svg" alt="" width="32" height="32">Test4Test</a>
+<nav class="main" aria-label="Main">
+<a href="/" aria-current="page">Home</a>
+<a href="/12-testers-14-days/">The 12 testers rule</a>
+<a href="/production-access-rejected/">Access rejected</a>
+<a href="/find-testers/">Find testers</a>
+<a href="/es/" hreflang="es" lang="es">Español</a>
+</nav>
+</header>
+<main>
+<h1>Test4Test: 12 testers for 14 days on Google Play</h1>
+<p class="lead">Google Play asks new personal developer accounts for a closed test before production. Test4Test is a free Android app where developers test each other's apps, so you can find your 12 testers.</p>
+<div class="cta">
+<p>Free on Google Play. Android only.</p>
 <a class="play" href="https://play.google.com/store/apps/details?id=com.baltajmn.test4test">Get it on Google Play</a>
+</div>
 
+<h2>How it works</h2>
+<ol>
+<li><strong>Set up your closed test.</strong> Create a Google Group, add it as the tester list of a closed test in Play Console and copy the opt-in link.</li>
+<li><strong>List your app.</strong> In Test4Test, paste the Google Group link and the opt-in link. It takes about a minute.</li>
+<li><strong>Join other tests.</strong> Open the group, open the opt-in link, opt in and install the app from Google Play. Four steps, in order.</li>
+<li><strong>They join yours.</strong> The feed shows the apps with the fewest testers first, and developers who test others go ahead of those who only post.</li>
+</ol>
+<div class="shots"><img src="/img/app-en-01.jpg" width="540" height="1080" alt="Test4Test feed with apps that still need testers" loading="lazy"></div>
+<h2>What "your round today" does</h2>
+<p>A tester who installs an app and never opens it is not much of a test. Google's help page says a request can be held back for insufficient tester engagement, so Test4Test adds a daily habit.</p>
+<p>Once a day, open the apps you test from your round. Each app owner sees on how many of the last 14 days every tester opened their app. An optional evening reminder keeps you on track. You can also comment on each test, to say you are in or to link your own app so the owner tests you back.</p>
+<div class="shots"><img src="/img/app-en-03.jpg" width="540" height="1080" alt="Your round today in Test4Test, the apps you test with the ones opened today" loading="lazy"><img src="/img/app-en-04.jpg" width="540" height="1080" alt="Test4Test app details showing who joined and on how many of the last 14 days they opened it" loading="lazy"></div>
+<h2>Free and subscription</h2>
 <ul>
-  <li><strong>Post your app</strong> with its Google Group and opt-in link, and other developers join your test.</li>
-  <li><strong>Your round today:</strong> open the apps you test once a day from Test4Test. Owners see on how many of the
-    last 14 days each tester opened their app, which is what Google looks at.</li>
-  <li><strong>Comments</strong> on each test, to say you are in, ask, or link your own app so they test you back.</li>
+<li><strong>Free:</strong> one app listed at a time, with a small ad banner.</li>
+<li><strong>Monthly subscription:</strong> unlimited apps and no ads. Cancel it anytime from Google Play.</li>
+<li><strong>Always free:</strong> joining tests, commenting and browsing.</li>
 </ul>
+<h2>What Test4Test does not do</h2>
+<p>It does not exchange reviews or ratings, and you should never offer rewards for installs or reviews. It does not promise approval. Google decides that, and the guides below link to Google's own help pages.</p>
+<h2>Questions</h2>
+<h3>What is the 12 testers for 14 days rule?</h3>
+<p>New personal Google Play developer accounts must run a closed test with at least 12 testers, opted in continuously for at least 14 days, before they can apply for production access. Read the <a href="/12-testers-14-days/">full guide</a>.</p>
+<h3>Does Test4Test guarantee that Google will approve my app?</h3>
+<p>No. Nobody can promise that. Test4Test helps you find testers and shows you whether they really opened your app. Google makes the decision.</p>
+<h3>Is Test4Test free?</h3>
+<p>Yes. The free plan lists one app at a time and shows a small ad banner. The monthly subscription lists as many apps as you want, with no ads. Joining tests, commenting and browsing are always free.</p>
+<h3>Do testers have to write reviews?</h3>
+<p>No. No reviews or ratings are exchanged in Test4Test. Testers join your closed test and open your app. That is all.</p>
+<h3>My production access request was rejected. What now?</h3>
+<p>Check how many testers stayed opted in and whether they used the app, then fix what the app needs. The <a href="/production-access-rejected/">rejection guide</a> has a checklist.</p>
+<div class="related">
+<h2>Related guides</h2>
+<ul>
+<li><a href="/12-testers-14-days/">The 12 testers for 14 days rule</a>: who it applies to, what counts and how to opt testers in</li>
+<li><a href="/production-access-rejected/">Production access rejected</a>: what to change before you apply again</li>
+<li><a href="/find-testers/">How to find testers</a>: honest ways to reach 12, with the effort each one takes</li>
+</ul>
+</div>
 
-<p>The free plan lists one app at a time and shows a small ad banner. The monthly subscription lists as many apps as
-you want, with no ads. Joining tests, commenting and browsing are always free. No reviews or ratings are exchanged.</p>
-
-<footer>
-  <a href="/privacy">Privacy policy</a> &middot; <a href="/privacy-es">Politica de privacidad</a> &middot;
-  <a href="/privacy#delete-account">Delete your account</a> &middot;
-  <a href="mailto:baltax.75@gmail.com">baltax.75@gmail.com</a>
+</main>
+<footer class="site">
+<a href="/privacy">Privacy policy</a> &middot; <a href="/privacy-es">Política de privacidad</a> &middot;
+<a href="/privacy#delete-account">Delete your account</a> &middot;
+<a href="mailto:baltax.75@gmail.com">baltax.75@gmail.com</a>
 </footer>
-
 </body>
 </html>

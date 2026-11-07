@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://testers.baltajmn.dev/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/es/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/12-testers-14-days/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/12-testers-14-days/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/12-testers-14-dias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/12-testers-14-days/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/es/12-testers-14-dias/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/12-testers-14-days/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/12-testers-14-dias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/12-testers-14-days/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/production-access-rejected/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/production-access-rejected/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/acceso-produccion-rechazado/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/production-access-rejected/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/es/acceso-produccion-rechazado/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/production-access-rejected/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/acceso-produccion-rechazado/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/production-access-rejected/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/find-testers/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/find-testers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/conseguir-testers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/find-testers/"/>
+  </url>
+  <url>
+    <loc>https://testers.baltajmn.dev/es/conseguir-testers/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/find-testers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/conseguir-testers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/find-testers/"/>
+  </url>
+</urlset>

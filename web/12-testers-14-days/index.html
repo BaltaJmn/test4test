@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Play 12 Testers for 14 Days: Full Guide</title>
+<meta name="description" content="Google Play&#x27;s closed testing rule explained: who needs 12 testers for 14 days, what counts as a tester, how to opt them in, and the access form.">
+<link rel="canonical" href="https://testers.baltajmn.dev/12-testers-14-days/">
+<link rel="alternate" hreflang="en" href="https://testers.baltajmn.dev/12-testers-14-days/">
+<link rel="alternate" hreflang="es" href="https://testers.baltajmn.dev/es/12-testers-14-dias/">
+<link rel="alternate" hreflang="x-default" href="https://testers.baltajmn.dev/12-testers-14-days/">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Test4Test">
+<meta property="og:title" content="Google Play 12 Testers for 14 Days: Full Guide">
+<meta property="og:description" content="Google Play&#x27;s closed testing rule explained: who needs 12 testers for 14 days, what counts as a tester, how to opt them in, and the access form.">
+<meta property="og:url" content="https://testers.baltajmn.dev/12-testers-14-days/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://testers.baltajmn.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Play 12 Testers for 14 Days: Full Guide">
+<meta name="twitter:description" content="Google Play&#x27;s closed testing rule explained: who needs 12 testers for 14 days, what counts as a tester, how to opt them in, and the access form.">
+<meta name="twitter:image" content="https://testers.baltajmn.dev/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://testers.baltajmn.dev/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "12 testers for 14 days",
+      "item": "https://testers.baltajmn.dev/12-testers-14-days/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+<a class="brand" href="/"><img src="/icon.svg" alt="" width="32" height="32">Test4Test</a>
+<nav class="main" aria-label="Main">
+<a href="/">Home</a>
+<a href="/12-testers-14-days/" aria-current="page">The 12 testers rule</a>
+<a href="/production-access-rejected/">Access rejected</a>
+<a href="/find-testers/">Find testers</a>
+<a href="/es/12-testers-14-dias/" hreflang="es" lang="es">Español</a>
+</nav>
+</header>
+<main>
+<p class="crumbs"><a href="/">Home</a> / 12 testers for 14 days</p>
+<h1>Google Play: 12 testers for 14 days, explained</h1>
+<p class="lead">You finished your app and Production is greyed out in Play Console. This guide explains the rule behind it, step by step, using Google's own help pages.</p>
+<h2>Who the requirement applies to</h2>
+<p>Google's help page says it applies to personal Play Console accounts created after November 13, 2023. Until you meet it, the Production and Pre-registration features stay disabled. Check the <a href="https://support.google.com/googleplay/android-developer/answer/14151465" rel="noopener">official article</a> for your own account type, because rules can change.</p>
+<h2>What the rule says</h2>
+<p>You must run a closed test with at least 12 testers. Each tester must stay opted in continuously for at least 14 days. Only then can you apply for production access from the Dashboard.</p>
+<p>When you apply, the 12 testers must have been opted in for the preceding 14 days. A test with 12 testers that started yesterday does not qualify yet.</p>
+<h2>What counts as a tester</h2>
+<ul>
+<li>Someone with a Google Account who opted in to your closed test.</li>
+<li>Someone who stays opted in. A tester who opts in, tests for fewer than 14 days and opts out does not count.</li>
+<li>If a tester opts out and later opts back in, the 14 days must be consecutive to count.</li>
+</ul>
+<p>Our advice, not Google's: recruit a few more than 12. People forget, change phones or leave, and every one who drops out can leave you below 12.</p>
+<h2>Which track you need</h2>
+<p>The requirement is about a closed test. Internal testing is optional and has no access requirements, so it is a good place to try builds quickly, but it is not the track the rule describes. Open testing needs production access first.</p>
+<h2>How to opt testers in</h2>
+<p>In Play Console, go to Test and release, then Testing, then Closed testing. Choose Manage track and open the Testers tab. You have two common options:</p>
+<ul>
+<li><strong>Email list.</strong> Create an email list and add the testers' addresses, or upload a CSV file. Lists can be reused across tests and apps.</li>
+<li><strong>Google Group.</strong> Enter the group's address. Personal groups look like yourgroupname@googlegroups.com. Only members of the group can join.</li>
+</ul>
+<p>Then add a feedback URL or email address, copy the opt-in link and save. Each tester must open the link and opt in on their own. For a Google Group test, the tester must join the group first and opt in after. Details are in <a href="https://support.google.com/googleplay/android-developer/answer/9845334" rel="noopener">Google's setup article</a>.</p>
+<div class="note"><p>Testers cannot leave public Play reviews for a test version, and feedback from test users does not affect your public rating. They can send private feedback through Google Play, so also give them a direct channel.</p></div>
+<h2>What the production access application asks</h2>
+<p>You apply with the Apply for production button on the Dashboard. The form has three sections.</p>
+<h3>About your closed test</h3>
+<p>How easy it was to recruit testers, whether testers used all the features, whether their usage matched what you expect in production, and a summary of the feedback you collected and how you collected it. Testing feedback is in Monitor and improve, Ratings and reviews, Testing feedback. Keep notes as you go.</p>
+<h3>About your app or game</h3>
+<p>Your target audience, how the app provides value, and an estimated install range for the first year. Google says these answers are not shown publicly and do not affect visibility or eligibility.</p>
+<h3>About your production readiness</h3>
+<p>The changes you made after the test, and how you decided the app was ready.</p>
+<h2>After you apply</h2>
+<p>Review usually takes seven days or less, but it can take longer. The account owner gets an email when it is done. If Google thinks the app needs more testing, you may have to keep the closed test running. The article names fewer than 12 opted-in testers and insufficient tester engagement as reasons. If you are approved, the Production page and Open testing become available.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Applying with fewer than 12 testers opted in, or before 14 days have passed.</li>
+<li>Testers who opt out early, so the continuous 14 days is broken.</li>
+<li>Testers who install the app and never open it again. See <a href="/production-access-rejected/">rejected production access</a>.</li>
+<li>Testers who open the opt-in link without joining the Google Group first. In a group test they must join the group before they opt in.</li>
+<li>Crashes, broken screens, or no test login for reviewers when the app needs an account.</li>
+<li>Keeping no record of feedback, then having nothing to summarize in the form.</li>
+</ul>
+<div class="cta">
+<p>Need the testers? Test4Test is a free exchange: you test other developers' apps and they test yours. Each owner sees on how many of the last 14 days every tester opened the app.</p>
+<a class="play" href="https://play.google.com/store/apps/details?id=com.baltajmn.test4test">Get it on Google Play</a>
+</div>
+
+<div class="related">
+<h2>Related guides</h2>
+<ul>
+<li><a href="/production-access-rejected/">Production access rejected</a>: what to change before you apply again</li>
+<li><a href="/find-testers/">How to find testers</a>: honest ways to reach 12, with the effort each one takes</li>
+<li><a href="/">Test4Test</a>: the free exchange where developers test each other's apps</li>
+</ul>
+</div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/14151465" rel="noopener">Google Play Console Help: App testing requirements for new personal developer accounts</a></li>
+<li><a href="https://support.google.com/googleplay/android-developer/answer/9845334" rel="noopener">Google Play Console Help: Set up an open, closed, or internal test</a></li>
+</ul>
+
+</main>
+<footer class="site">
+<a href="/privacy">Privacy policy</a> &middot; <a href="/privacy-es">Política de privacidad</a> &middot;
+<a href="/privacy#delete-account">Delete your account</a> &middot;
+<a href="mailto:baltax.75@gmail.com">baltax.75@gmail.com</a>
+</footer>
+</body>
+</html>
