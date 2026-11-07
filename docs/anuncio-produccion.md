@@ -1,4 +1,7 @@
-# Anuncio de produccion (borrador, 6-11-2026)
+# Anuncio de produccion (enviado el 7-11-2026)
+
+**Enviado el 7-11-2026** con el si del usuario a los 29 grupos de la lista de abajo (generales y de una app),
+un correo por grupo con este texto. No reenviar a los mismos grupos.
 
 Se envia cuando la ficha publica responda (aviso ntfy "Test4Test ya esta en Play" de
 `com.baltajmn.t4t-publicada`), y solo con el si del usuario sobre texto y lista. Un correo por grupo,
@@ -41,7 +44,7 @@ reforest-balloon-testers-2026, quotepay, quick-pdf-scanner-testers, ninebests-te
 nfl-playoffs-path-testers, mahjong-s-closed-test, kardeler-kuyumculuk-tester, ecogongtestergroup,
 darumarium-wunderbox, cuddles-android-testers.
 
-## Tras la aprobacion, ademas
+## Tras la aprobacion, ademas (hecho el 7-11 salvo la verificacion de AdMob, que la hace AdMob sola)
 
 - AdMob > Apps > Test4Test > Anadir tienda (Google Play, com.baltajmn.test4test), y despues
   "Verify app" con app-ads.txt de testers.baltajmn.dev.
