@@ -22,6 +22,8 @@ revenuecat = "10.19.1"
 play-services-ads = "25.5.0"
 user-messaging-platform = "4.0.0"
 work = "2.11.2"
+# AdMob arrastra fragment 1.1.0, que Play marca como obsoleto: se fuerza una actual.
+androidx-fragment = "1.9.0"
 # Solo para las capturas de la ficha de Play (pruebas del host, sin emulador).
 robolectric = "4.16"
 roborazzi = "1.60.0"
@@ -58,6 +60,7 @@ revenuecat-purchases = { module = "com.revenuecat.purchases:purchases", version.
 play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-services-ads" }
 user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "user-messaging-platform" }
 work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
