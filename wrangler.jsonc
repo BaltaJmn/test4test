@@ -14,8 +14,9 @@
 
   // The app is Android-only and everything happens inside it. All that is left
   // here is the privacy policy, because Play and Google sign-in require a public
-  // URL for it (/privacy resolves to privacy.html), and app-ads.txt, which AdMob
-  // reads from the developer website of the Play listing. "/" is a 404 on purpose.
+  // URL for it (/privacy resolves to privacy.html), app-ads.txt, which AdMob
+  // reads from the developer website of the Play listing, and a one-page index,
+  // because that website is the Play listing's link and a 404 there looked broken.
   "assets": {
     "directory": "./web"
   }

@@ -16,7 +16,7 @@ ellos la pagina no sirve de nada.
 | Proyecto de Supabase | `tneuaccyzausvszpplms` (eu-central-1), desde el 26-10-2026 |
 | Callback de Supabase | `https://tneuaccyzausvszpplms.supabase.co/auth/v1/callback` |
 | Deep link | `test4test://login` (vuelta del login). No hay enlaces a fichas: todo pasa dentro de la app |
-| Web | Solo `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Sin landing, la raiz da 404 |
+| Web | Solo `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Desde la 1.9.1, portada de una pagina en la raiz (`web/index.html`): es el sitio web de la ficha de Play |
 | Producto de compra | Suscripcion `unlimited_apps`, plan base `monthly`, 1,99 EUR al mes. `unlimited_slots_lifetime` queda como legado |
 | Grupo de la prueba cerrada | `https://groups.google.com/g/test4test-baltajmn` |
 | App de AdMob | `ca-app-pub-1605179202100483~7329690988` (cuenta compartida con FlowTime, Chroma y Quilt), banner "Banner principal" `ca-app-pub-1605179202100483/2077364302` |
@@ -256,7 +256,7 @@ restaura desde el dashboard si hace falta, pausando otro.
 ## Cloudflare
 
 Worker `test4test` con Workers Static Assets, sin script, sirviendo la carpeta
-[`web/`](../web) tal cual: solo `/privacy` y `/privacy-es`. Configuracion en
+[`web/`](../web) tal cual: la portada, `/privacy`, `/privacy-es` y `app-ads.txt`. Configuracion en
 [`wrangler.jsonc`](../wrangler.jsonc), despliegue en `deploy-web.yml`.
 
 Tres cosas que rompieron el sitio en produccion:
