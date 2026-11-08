@@ -23,6 +23,9 @@ contestar los comentarios en las 2-3 primeras horas: o el usuario desde el movil
 
 ### 1a. Mensaje a los mods
 
+**ENVIADO el 8-11-2026** con el si del usuario, como u/BaltaJmn, por `reddit.mjs mensaje` en el GK35.
+La respuesta llega a los mensajes de Reddit de esa cuenta; no reenviar.
+
 Asunto: Can I post once about a test-for-test app?
 
     Hi mods,
