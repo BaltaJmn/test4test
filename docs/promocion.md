@@ -74,6 +74,12 @@ Titulo: I made an app for test-for-test swaps that checks testers really install
 
 ## 2. AlternativeTo
 
+**ENVIADA el 8-11-2026** con el si del usuario, a la cola gratis, como "Test4Test 12 Testers" ("Test4Test" ya
+existe alli y no es nuestra; su pagina da 404). Pagina: https://alternativeto.net/software/test4test-12-testers/
+(solo la vemos nosotros hasta que la aprueben). Alternativa enlazada: TestFi. Tester Bee sale como
+discontinuada y no se anadio. Capturas subidas desde raw.githubusercontent (las nuevas de la cola).
+Cola prioritaria ese dia: 9 $ (o 29 $ con la ficha pulida por ellos); no se pago.
+
 Receta en la memoria del kit de lanzamiento: el usuario inicia sesion en el navegador integrado y yo
 relleno `alternativeto.net/manage-item/` con `form_input`; icono y capturas con "Upload by URL" desde la
 ficha publicada de Play. Cola gratis (la prioritaria, 5 $, la decide el usuario).
