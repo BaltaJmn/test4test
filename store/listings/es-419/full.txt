@@ -5,7 +5,7 @@ Test4Test es donde los desarrolladores de Android se encuentran para resolverlo.
 QUÉ PUEDES HACER
 
 - Publicar tu app con su grupo de Google y su enlace de acceso. No hace falta más.
-- Ver las apps que todavía necesitan testers. Salen primero las de quien prueba las de otros y, dentro de eso, las que menos testers tienen.
+- Ver la cola de apps que todavía necesitan testers, por orden de llegada. Todos empujan a las primeras, así cada app llega antes a 12.
 - Entrar en una prueba en cuatro pasos y en ese orden: abres el grupo, abres el enlace de acceso, te marcas dentro e instalas la app desde Google Play.
 - Dejar un comentario bajo una app para avisar de que ya estás dentro, preguntar algo o enlazar la tuya para que te devuelvan el favor.
 - Ver quién ha entrado en tu prueba y si de verdad tiene tu app instalada.
@@ -16,13 +16,13 @@ PRUEBAS, NO PROMESAS
 
 Pulsar "ya he entrado" no demuestra nada, y por eso fallan casi todos los intercambios de testers. Test4Test comprueba en el móvil del tester que tu app está instalada y que la instaló Google Play, y te lo enseña junto a su nombre. Solo mira las apps a las que se unió dentro de Test4Test, nunca el resto del móvil.
 
-POR QUÉ ES JUSTO
+CÓMO FUNCIONA LA COLA
 
-Quien prueba las apps de otros sale por encima de quien solo publica. Dentro de cada grupo salen primero las que menos testers tienen, para que las nuevas no se hundan. No hay forma de comprar una posición mejor.
+Las apps esperan en cola por orden de llegada y las primeras se llevan los testers hasta llegar a 12; entonces dejan su lugar y sube la siguiente. Quien prueba las apps de otros va por delante de quien solo publica. Las apps de los suscriptores van primero y se marcan como destacadas.
 
 GRATIS Y CON SUSCRIPCIÓN
 
-El plan gratuito permite una app a la vez, que es lo que necesita la mayoría, y muestra un pequeño banner de anuncios. La suscripción permite todas las apps que quieras y quita los anuncios; la cancelas cuando quieras desde Google Play. Entrar en pruebas, comentar y navegar son gratis siempre.
+El plan gratuito permite una app a la vez, que es lo que necesita la mayoría, y muestra un pequeño banner de anuncios. La suscripción pone tus apps primero en la cola, permite todas las que quieras y quita los anuncios; la cancelas cuando quieras desde Google Play. Entrar en pruebas, comentar y navegar son gratis siempre.
 
 PRIVACIDAD
 

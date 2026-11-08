@@ -5,7 +5,7 @@ Test4Test is where Android developers find each other and get it done. You list 
 WHAT YOU CAN DO
 
 - List your app with its Google Group and its opt-in link. That is all it takes.
-- Browse the apps that still need testers. Developers who test others go first, and within that, the apps with the fewest testers.
+- Browse the line of apps that still need testers, in order of arrival. Everyone pushes the first ones, so each app reaches 12 sooner.
 - Join a test in four steps, in order: open the group, open the opt-in link, mark yourself in, install the app from Google Play.
 - Leave a comment under an app to say you are in, ask a question, or link your own app so the developer can test you back.
 - See who joined your test and whether they really have your app installed.
@@ -16,13 +16,13 @@ PROOF, NOT PROMISES
 
 Pressing "I joined" proves nothing, and that is why most tester swaps fail. Test4Test checks on the tester's phone that your app is installed and that Google Play installed it, and shows it to you next to their name. It only looks at the apps they joined inside Test4Test, never at the rest of their phone.
 
-WHY IT IS FAIR
+HOW THE LINE WORKS
 
-Developers who test other apps rank above those who only post. Within each group, the apps with the fewest testers go first, so new ones do not sink. There is no way to buy a better position.
+Apps wait in line in order of arrival, and the ones at the front get the testers until they reach 12; then they step aside and the next one moves up. Developers who test other apps go ahead of those who only post. Apps from subscribers go first and are marked as featured.
 
 FREE AND SUBSCRIPTION
 
-The free plan lists one app at a time, which is what most developers need, and shows a small ad banner. The subscription lists as many apps as you want and removes the ads; cancel it anytime from Google Play. Joining tests, commenting and browsing are always free.
+The free plan lists one app at a time, which is what most developers need, and shows a small ad banner. The subscription puts your apps first in line, lists as many as you want and removes the ads; cancel it anytime from Google Play. Joining tests, commenting and browsing are always free.
 
 PRIVACY
 

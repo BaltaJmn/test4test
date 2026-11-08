@@ -23,7 +23,7 @@
 
     <string name="feed_error">Tidak bisa memuat feed</string>
     <string name="feed_empty">Belum ada aplikasi dari pengembang lain. Tambahkan aplikasi Anda di Aplikasi saya.</string>
-    <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi dengan penguji paling sedikit tampil lebih dulu.</string>
+    <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi mengantre sesuai urutan datang: bantu yang paling depan mencapai 12 penguji.</string>
 
     <string name="detail_error">Tidak bisa memuat aplikasi</string>
     <string name="detail_testers_title">Siapa yang bergabung</string>
@@ -63,7 +63,7 @@
 
     <string name="profile_error">Tidak bisa memuat profil</string>
     <string name="profile_fallback_name">Pengguna</string>
-    <string name="profile_premium">Paket tanpa batas aktif: aplikasi tanpa batas, tanpa iklan</string>
+    <string name="profile_premium">Langganan aktif: aplikasi Anda paling depan di antrean, tanpa batas, tanpa iklan</string>
     <string name="profile_free">Paket gratis: 1 aplikasi sekaligus, dengan iklan. Lihat langganan</string>
     <string name="profile_my_apps">Aplikasi yang dipublikasikan</string>
     <string name="profile_none_yet">Belum ada.</string>
@@ -72,8 +72,8 @@
     <string name="profile_ad_privacy">Privasi iklan</string>
     <string name="profile_privacy">Kebijakan privasi</string>
 
-    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan, Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan, selama langganan aktif.</string>
-    <string name="paywall_active">Paket tanpa batas Anda aktif.</string>
+    <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan, aplikasi Anda berada paling depan dalam antrean, ditandai sebagai unggulan, dan Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan, selama langganan aktif.</string>
+    <string name="paywall_active">Langganan Anda aktif: aplikasi Anda berada paling depan dalam antrean.</string>
     <string name="paywall_preparing">Langganan segera hadir.</string>
     <string name="paywall_no_product">Belum ada produk yang tersedia.</string>
     <string name="paywall_price_error">Tidak bisa memuat harga: %1$s</string>
@@ -119,7 +119,7 @@
     <string name="profile_manage_subscription">Kelola langganan di Google Play</string>
     <string name="profile_delete_account">Hapus akun</string>
     <string name="confirm_delete_account">Hapus akun, aplikasi, tes, dan komentar Anda? Tindakan ini tidak bisa dibatalkan. Langganan aktif tidak dibatalkan di sini: batalkan di Google Play.</string>
-    <string name="paywall_terms">Diperpanjang otomatis sampai Anda membatalkannya. Batalkan kapan saja di Google Play, Payments and subscriptions. Jika dibatalkan, aplikasi Anda tetap tercantum; hanya saja Anda tidak bisa menambah lebih dari satu.</string>
+    <string name="paywall_terms">Diperpanjang otomatis sampai Anda membatalkannya. Batalkan kapan saja di Google Play, Payments and subscriptions. Jika dibatalkan, aplikasi Anda tetap tercantum dan kembali ke tempatnya dalam antrean; hanya saja Anda tidak bisa menambah lebih dari satu.</string>
     <string name="price_per_week">%1$s/minggu</string>
     <string name="price_per_month">%1$s/bulan</string>
     <string name="price_per_year">%1$s/tahun</string>
@@ -145,4 +145,8 @@
         <item quantity="one">Buka %1$d aplikasi yang Anda uji agar 14 hari pemiliknya terhitung.</item>
         <item quantity="other">Buka %1$d aplikasi yang Anda uji agar 14 hari pemiliknya terhitung.</item>
     </plurals>
+    <string name="queue_featured">Unggulan</string>
+    <string name="queue_position">Antrean ke-%1$d</string>
+    <string name="my_apps_jump">Aplikasi pelanggan berada paling depan dalam antrean.</string>
+    <string name="my_apps_jump_action">Maju ke depan</string>
 </resources>

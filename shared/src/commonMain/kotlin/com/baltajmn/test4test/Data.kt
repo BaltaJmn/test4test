@@ -25,14 +25,11 @@ val currentUserId: String? get() = supabase.auth.currentUserOrNull()?.id
 suspend fun feedApps(uid: String): List<AppRow> =
     supabase.from(FEED).select {
         filter { neq("owner_id", uid) }
-        // Dos niveles. Primero quien testea apps ajenas: sin esto el intercambio
-        // se convierte en un tablon donde todos publican y nadie se une, que es
-        // de lo que se mueren los grupos de testers. No se oculta a nadie, solo
-        // se cobra el sitio de arriba.
-        order("owner_reciprocates", Order.DESCENDING)
-        // Y dentro de cada nivel, menos testers primero: reparte el esfuerzo.
-        order("follower_count", Order.ASCENDING)
-        order("created_at", Order.DESCENDING)
+        // La cola la decide la vista (suscriptores, luego quien testea apps
+        // ajenas, luego llegada; las que ya tienen 12, detras). Antes salian
+        // primero las de menos testers, y con poca gente eso repartia el
+        // esfuerzo tan fino que ninguna llegaba a 12.
+        order("queue_rank", Order.ASCENDING)
     }.decodeList()
 
 suspend fun myApps(uid: String): List<AppRow> =

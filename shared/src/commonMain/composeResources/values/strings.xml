@@ -22,7 +22,7 @@
 
     <string name="feed_error">Could not load the feed</string>
     <string name="feed_empty">No apps from other developers yet. Add yours from My apps.</string>
-    <string name="feed_intro">Join tests from other developers and they join yours. Apps with the fewest testers show first.</string>
+    <string name="feed_intro">Join tests from other developers and they join yours. Apps wait in line by arrival: help the first ones reach 12 testers.</string>
 
     <string name="detail_error">Could not load the app</string>
     <string name="detail_testers_title">Who joined</string>
@@ -62,7 +62,7 @@
 
     <string name="profile_error">Could not load the profile</string>
     <string name="profile_fallback_name">User</string>
-    <string name="profile_premium">Unlimited plan active: unlimited apps, no ads</string>
+    <string name="profile_premium">Subscription active: your apps first in line, unlimited apps, no ads</string>
     <string name="profile_free">Free plan: 1 app at a time, with ads. See the subscription</string>
     <string name="profile_my_apps">Published apps</string>
     <string name="profile_none_yet">None yet.</string>
@@ -71,8 +71,8 @@
     <string name="profile_ad_privacy">Ad privacy</string>
     <string name="profile_privacy">Privacy policy</string>
 
-    <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the subscription you list as many as you want, with no ads, while it is active.</string>
-    <string name="paywall_active">Your unlimited plan is active.</string>
+    <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the subscription your apps go first in line, marked as featured, and you list as many as you want, with no ads, while it is active.</string>
+    <string name="paywall_active">Your subscription is active: your apps go first in line.</string>
     <string name="paywall_preparing">Subscriptions coming soon.</string>
     <string name="paywall_no_product">No product is available yet.</string>
     <string name="paywall_price_error">Could not load the price: %1$s</string>
@@ -118,7 +118,7 @@
     <string name="profile_manage_subscription">Manage subscription in Google Play</string>
     <string name="profile_delete_account">Delete account</string>
     <string name="confirm_delete_account">Delete your account, your apps, your tests and your comments? This cannot be undone. An active subscription is not cancelled here: cancel it in Google Play.</string>
-    <string name="paywall_terms">Renews automatically until you cancel. Cancel anytime in Google Play, Payments and subscriptions. If you cancel, your apps stay listed; you just cannot add more than one.</string>
+    <string name="paywall_terms">Renews automatically until you cancel. Cancel anytime in Google Play, Payments and subscriptions. If you cancel, your apps stay listed and go back to their place in line; you just cannot add more than one.</string>
     <string name="price_per_week">%1$s/week</string>
     <string name="price_per_month">%1$s/month</string>
     <string name="price_per_year">%1$s/year</string>
@@ -145,4 +145,8 @@
         <item quantity="one">Open the app you test: its owner needs 14 days of real use.</item>
         <item quantity="other">Open the %1$d apps you test: their owners need 14 days of real use.</item>
     </plurals>
+    <string name="queue_featured">Featured</string>
+    <string name="queue_position">#%1$d in line</string>
+    <string name="my_apps_jump">Apps from subscribers go first in line.</string>
+    <string name="my_apps_jump_action">Move up</string>
 </resources>

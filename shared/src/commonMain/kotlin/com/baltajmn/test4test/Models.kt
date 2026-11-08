@@ -29,7 +29,15 @@ data class AppRow(
     @SerialName("package_name") val packageName: String? = null,
     // Testers vistos con la app instalada en los ultimos tres dias.
     @SerialName("verified_count") val verifiedCount: Long = 0,
+    // Cola de llegada (1.10): el dueno suscrito va delante y se marca como
+    // destacada. queue_rank ordena todas las filas y, si la app no tiene aun 12
+    // testers, es tambien su puesto en la cola.
+    @SerialName("owner_premium") val ownerPremium: Boolean = false,
+    @SerialName("queue_rank") val queueRank: Int = 0,
 )
+
+// Puesto en la cola, o null si ya tiene sus 12 y no espera a nadie.
+val AppRow.queuePosition: Int? get() = queueRank.takeIf { it > 0 && followerCount < TESTERS_REQUIRED }
 
 // Insert/update: sin id, created_at ni owner_id, que los pone Postgres. owner_id
 // no puede viajar ni en la edicion: el GRANT de UPDATE es por columnas y lo deja

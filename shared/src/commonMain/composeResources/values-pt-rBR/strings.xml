@@ -19,7 +19,7 @@
 
     <string name="feed_error">Não foi possível carregar o feed</string>
     <string name="feed_empty">Ainda não há apps de outros desenvolvedores. Adicione o seu em Meus apps.</string>
-    <string name="feed_intro">Entre nos testes de outros desenvolvedores e eles entram no seu. Os apps com menos testadores aparecem primeiro.</string>
+    <string name="feed_intro">Entre nos testes de outros desenvolvedores e eles entram no seu. Os apps esperam na fila por ordem de chegada: ajude os primeiros a chegar a 12 testadores.</string>
 
     <string name="detail_error">Não foi possível carregar o app</string>
     <string name="detail_testers_title">Quem entrou</string>
@@ -59,7 +59,7 @@
 
     <string name="profile_error">Não foi possível carregar o perfil</string>
     <string name="profile_fallback_name">Usuário</string>
-    <string name="profile_premium">Plano ilimitado ativo: apps ilimitados, sem anúncios</string>
+    <string name="profile_premium">Assinatura ativa: seus apps primeiro na fila, ilimitados e sem anúncios</string>
     <string name="profile_free">Plano gratuito: 1 app por vez, com anúncios. Ver a assinatura</string>
     <string name="profile_my_apps">Apps publicados</string>
     <string name="profile_none_yet">Nenhum ainda.</string>
@@ -68,8 +68,8 @@
     <string name="profile_ad_privacy">Privacidade dos anúncios</string>
     <string name="profile_privacy">Política de privacidade</string>
 
-    <string name="paywall_body">O plano gratuito permite 1 app por vez e mostra anúncios. Com a assinatura, você publica quantos quiser, sem anúncios, enquanto ela estiver ativa.</string>
-    <string name="paywall_active">Seu plano ilimitado está ativo.</string>
+    <string name="paywall_body">O plano gratuito permite 1 app por vez e mostra anúncios. Com a assinatura, seus apps vão primeiro na fila, marcados como destaque, e você publica quantos quiser, sem anúncios, enquanto ela estiver ativa.</string>
+    <string name="paywall_active">Sua assinatura está ativa: seus apps vão primeiro na fila.</string>
     <string name="paywall_preparing">Assinaturas em breve.</string>
     <string name="paywall_no_product">Ainda não há nenhum produto disponível.</string>
     <string name="paywall_price_error">Não foi possível carregar o preço: %1$s</string>
@@ -115,7 +115,7 @@
     <string name="profile_manage_subscription">Gerenciar assinatura na Google Play</string>
     <string name="profile_delete_account">Excluir conta</string>
     <string name="confirm_delete_account">Excluir sua conta, seus apps, seus testes e seus comentários? Isso não pode ser desfeito. Uma assinatura ativa não é cancelada aqui: cancele no Google Play.</string>
-    <string name="paywall_terms">Renova automaticamente até você cancelar. Cancele quando quiser no Google Play, em Pagamentos e assinaturas. Se cancelar, seus apps continuam publicados; só não vai dar para adicionar mais de um.</string>
+    <string name="paywall_terms">Renova automaticamente até você cancelar. Cancele quando quiser no Google Play, em Pagamentos e assinaturas. Se cancelar, seus apps continuam publicados e voltam ao seu lugar na fila; só não vai dar para adicionar mais de um.</string>
     <string name="price_per_week">%1$s/semana</string>
     <string name="price_per_month">%1$s/mês</string>
     <string name="price_per_year">%1$s/ano</string>
@@ -142,4 +142,8 @@
         <item quantity="one">Abra o app que você testa para que os 14 dias do dono contêm.</item>
         <item quantity="other">Abra os %1$d apps que você testa para que os 14 dias dos donos contêm.</item>
     </plurals>
+    <string name="queue_featured">Destaque</string>
+    <string name="queue_position">Posição %1$d na fila</string>
+    <string name="my_apps_jump">Os apps de assinantes vão primeiro na fila.</string>
+    <string name="my_apps_jump_action">Passar na frente</string>
 </resources>

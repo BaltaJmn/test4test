@@ -5,7 +5,7 @@ O Test4Test é onde desenvolvedores Android se encontram para resolver isso. Voc
 O QUE VOCÊ PODE FAZER
 
 - Publicar seu app com o Grupo do Google e o link de participação. Só isso.
-- Ver os apps que ainda precisam de testers. Primeiro aparecem os de quem testa os apps dos outros e, dentro disso, os que têm menos testers.
+- Ver a fila de apps que ainda precisam de testers, por ordem de chegada. Todo mundo empurra os primeiros, e assim cada app chega mais rápido a 12.
 - Entrar num teste em quatro passos, nesta ordem: abrir o grupo, abrir o link de participação, marcar que entrou e instalar o app pelo Google Play.
 - Comentar num app para avisar que já entrou, fazer uma pergunta ou indicar o seu para que o desenvolvedor teste de volta.
 - Ver quem entrou no seu teste e se a pessoa realmente tem o seu app instalado.
@@ -16,13 +16,13 @@ PROVA, NÃO PROMESSA
 
 Tocar em "entrei" não prova nada, e por isso a maioria das trocas de testers falha. O Test4Test verifica no celular do tester que o seu app está instalado e que foi o Google Play que o instalou, e mostra isso ao lado do nome dele. Ele só olha os apps em que a pessoa entrou dentro do Test4Test, nunca o resto do celular.
 
-POR QUE É JUSTO
+COMO A FILA FUNCIONA
 
-Quem testa os apps dos outros aparece acima de quem só publica. Dentro de cada grupo, os apps com menos testers vêm primeiro, para que os novos não afundem. Não há como comprar uma posição melhor.
+Os apps esperam na fila por ordem de chegada, e os primeiros ficam com os testers até chegar a 12; aí eles saem da frente e o próximo avança. Quem testa os apps dos outros vai na frente de quem só publica. Os apps de assinantes vão primeiro e aparecem marcados como destaque.
 
 GRÁTIS E ASSINATURA
 
-O plano gratuito permite um app por vez, o que basta para a maioria, e mostra um pequeno banner de anúncios. A assinatura permite quantos apps você quiser e remove os anúncios; cancele quando quiser no Google Play. Entrar em testes, comentar e navegar são sempre grátis.
+O plano gratuito permite um app por vez, o que basta para a maioria, e mostra um pequeno banner de anúncios. A assinatura coloca seus apps na frente da fila, permite quantos apps você quiser e remove os anúncios; cancele quando quiser no Google Play. Entrar em testes, comentar e navegar são sempre grátis.
 
 PRIVACIDADE
 

@@ -5,7 +5,7 @@ Test4Test adalah tempat developer Android saling bertemu untuk menyelesaikannya.
 YANG BISA ANDA LAKUKAN
 
 - Memasang aplikasi Anda dengan Google Group dan link opt-in-nya. Hanya itu.
-- Melihat aplikasi yang masih butuh tester. Developer yang menguji aplikasi orang lain tampil lebih dulu, dan di antaranya, aplikasi dengan tester paling sedikit.
+- Melihat antrean aplikasi yang masih butuh tester, berdasarkan urutan masuk. Semua orang mendorong yang di depan, jadi setiap aplikasi lebih cepat mencapai 12.
 - Ikut uji dalam empat langkah, berurutan: buka grup, buka link opt-in, tandai diri Anda, lalu instal aplikasi dari Google Play.
 - Berkomentar di sebuah aplikasi untuk memberi tahu Anda sudah ikut, bertanya, atau menautkan aplikasi Anda agar developer menguji balik.
 - Melihat siapa yang ikut uji Anda dan apakah aplikasi Anda benar-benar terpasang di perangkatnya.
@@ -16,13 +16,13 @@ BUKTI, BUKAN JANJI
 
 Menekan "saya sudah ikut" tidak membuktikan apa pun, dan karena itu kebanyakan tukar tester gagal. Test4Test memeriksa di ponsel tester bahwa aplikasi Anda terpasang dan dipasang oleh Google Play, lalu menampilkannya di samping namanya. Hanya aplikasi yang diikuti di dalam Test4Test yang diperiksa, tidak pernah isi ponsel lainnya.
 
-KENAPA ADIL
+CARA KERJA ANTREAN
 
-Developer yang menguji aplikasi orang lain tampil di atas yang hanya memasang. Di setiap kelompok, aplikasi dengan tester paling sedikit tampil lebih dulu agar yang baru tidak tenggelam. Posisi tidak bisa dibeli.
+Aplikasi menunggu dalam antrean sesuai urutan masuk, dan yang di depan mendapat tester sampai mencapai 12; setelah itu ia minggir dan aplikasi berikutnya maju. Developer yang menguji aplikasi orang lain berada di depan yang hanya memasang. Aplikasi dari pelanggan berlangganan tampil paling depan dan ditandai sebagai unggulan.
 
 GRATIS DAN LANGGANAN
 
-Paket gratis memuat satu aplikasi sekaligus, cukup untuk kebanyakan developer, dan menampilkan banner iklan kecil. Langganan memuat aplikasi sebanyak yang Anda mau dan menghapus iklan; batalkan kapan saja dari Google Play. Ikut uji, berkomentar, dan menjelajah selalu gratis.
+Paket gratis memuat satu aplikasi sekaligus, cukup untuk kebanyakan developer, dan menampilkan banner iklan kecil. Langganan menaruh aplikasi Anda paling depan dalam antrean, memuat aplikasi sebanyak yang Anda mau dan menghapus iklan; batalkan kapan saja dari Google Play. Ikut uji, berkomentar, dan menjelajah selalu gratis.
 
 PRIVASI
 

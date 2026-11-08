@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -25,6 +26,8 @@ import test4test.shared.generated.resources.my_apps_add
 import test4test.shared.generated.resources.my_apps_add_locked
 import test4test.shared.generated.resources.my_apps_empty
 import test4test.shared.generated.resources.my_apps_error
+import test4test.shared.generated.resources.my_apps_jump
+import test4test.shared.generated.resources.my_apps_jump_action
 import test4test.shared.generated.resources.my_apps_rank
 
 @Composable
@@ -102,6 +105,22 @@ fun MyAppsScreen(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+            }
+        }
+        // Lo que se vende es llegar antes a 12, no mas huecos: casi nadie
+        // necesita mas de una app a la vez. Se ofrece solo a quien tiene algo
+        // esperando en la cola y no va ya delante.
+        if (me?.isPremium != true && list.any { (it.queuePosition ?: 0) > 1 }) {
+            item {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        stringResource(Res.string.my_apps_jump),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextButton(onClick = onPaywall) { Text(stringResource(Res.string.my_apps_jump_action)) }
+                }
             }
         }
         for (app in list) {

@@ -103,4 +103,14 @@ class RulesTest {
         assertEquals(InstallState.STALE, installState(false, "2026-10-01T10:00:00Z"))
         assertEquals(InstallState.UNVERIFIED, installState(null, null))
     }
+
+    @Test
+    fun queuePositionOnlyWhileWaiting() {
+        fun row(testers: Long, rank: Int) = AppRow("a", "o", "n", "g", "p", "i", followerCount = testers, queueRank = rank)
+        assertEquals(3, row(11, 3).queuePosition)
+        // Con sus 12 ya no espera: sin puesto aunque la vista le de rango.
+        assertNull(row(TESTERS_REQUIRED.toLong(), 9).queuePosition)
+        // Fila que no viene de la vista (sin rango): sin puesto.
+        assertNull(row(0, 0).queuePosition)
+    }
 }

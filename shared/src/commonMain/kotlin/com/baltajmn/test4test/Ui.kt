@@ -49,6 +49,8 @@ import test4test.shared.generated.resources.confirm_title
 import test4test.shared.generated.resources.follower_help
 import test4test.shared.generated.resources.linked_app
 import test4test.shared.generated.resources.profile_fallback_name
+import test4test.shared.generated.resources.queue_featured
+import test4test.shared.generated.resources.queue_position
 import test4test.shared.generated.resources.testers_days
 import test4test.shared.generated.resources.testers_days_done
 import test4test.shared.generated.resources.testers_of
@@ -292,8 +294,31 @@ fun AppListItem(
                 )
                 trailing()
             }
+            QueueLine(app)
             TesterMeter(app.followerCount, app.fullDays)
         }
+    }
+}
+
+// Puesto en la cola y, si el dueno esta suscrito, la marca de destacada: el
+// orden pagado tiene que decirse donde se ve (lo exige la UE). Las que ya tienen
+// sus 12 no esperan a nadie y no pintan linea.
+@Composable
+fun QueueLine(app: AppRow) {
+    val position = app.queuePosition ?: return
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+        if (app.ownerPremium) {
+            Text(
+                stringResource(Res.string.queue_featured),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+        }
+        Text(
+            stringResource(Res.string.queue_position, position),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 

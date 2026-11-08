@@ -1,6 +1,7 @@
 package com.baltajmn.test4test.screenshots
 
 import com.baltajmn.test4test.AppRow
+import com.baltajmn.test4test.TESTERS_REQUIRED
 import com.baltajmn.test4test.CommentRow
 import com.baltajmn.test4test.Profile
 import com.baltajmn.test4test.TesterRow
@@ -79,6 +80,7 @@ object Demo {
         // El paquete es de mentira. El de Trail Journal es el que se ve en el formulario, donde el campo del enlace es
         // mas corto que su texto: con "ru" el recorte cae justo despues de una letra entera (con "com" o "eu" parte una).
         pkg: String = "com.example.$slug",
+        premium: Boolean = false,
     ): AppRow {
         return AppRow(
             id = id,
@@ -95,12 +97,12 @@ object Demo {
             ownerReciprocates = true,
             packageName = pkg,
             verifiedCount = installed,
+            ownerPremium = premium,
         )
     }
 
-    // De otros desarrolladores, en el orden del feed: quien prueba a otros primero (todos
-    // lo hacen) y dentro, los que menos testers tienen.
-    val pantry = app("a-pantry", rafa, "Pantry Pal", "pantrypal", 3, installed = 2, ownerTesting = 3, created = "2026-11-04")
+    // De otros desarrolladores. Rafa esta suscrito: Pantry Pal sale destacada delante de la cola.
+    val pantry = app("a-pantry", rafa, "Pantry Pal", "pantrypal", 3, installed = 2, ownerTesting = 3, created = "2026-11-04", premium = true)
     val bird = app(BIRD, priya, "Bird Log", "birdlog", 5, installed = 4, ownerTesting = 4, created = "2026-11-02")
     val dumbbell = app("a-dumbbell", aarav, "Daily Dumbbell", "dailydumbbell", 6, installed = 5, ownerTesting = 2, created = "2026-10-30")
     val moss = app("a-moss", lena, "Moss Habits", "mosshabits", 7, installed = 6, ownerTesting = 5, created = "2026-10-27")
@@ -108,12 +110,23 @@ object Demo {
     val chess = app("a-chess", ivan, "Pocket Chess Clock", "pocketchessclock", 10, installed = 9, ownerTesting = 4, created = "2026-10-20")
     val sky = app("a-sky", carla, "Sky Tonight", "skytonight", 12, fullDays = 4, installed = 11, ownerTesting = 6, created = "2026-10-12")
 
-    // Las del que mira (plan ilimitado): Trail Journal con los 12 y el dia 9 de 14.
-    val trail = app(TRAIL, me, "Trail Journal", "trailjournal", 12, fullDays = 9, installed = 10, ownerTesting = 4, created = "2026-10-29", pkg = "ru.tj.trail")
-    val dune = app("a-dune", me, "Dune Dash", "dunedash", 6, installed = 5, ownerTesting = 4, created = "2026-10-22")
-    val pup = app("a-pup", me, "Pixel Pup", "pixelpup", 2, installed = 2, ownerTesting = 4, created = "2026-10-15")
+    // Las del que mira (suscrito): Trail Journal con los 12 y el dia 9 de 14, Dune Dash recien llegada a 12 y
+    // Pixel Pup con los 14 dias cumplidos. Las tres llenas a proposito: una suya esperando iria delante de la cola
+    // por ser suscriptor, y el feed de la captura empezaria en el puesto 3, con los dos primeros fuera de la vista.
+    val trail = app(TRAIL, me, "Trail Journal", "trailjournal", 12, fullDays = 9, installed = 10, ownerTesting = 4, created = "2026-10-29", pkg = "ru.tj.trail", premium = true)
+    val dune = app("a-dune", me, "Dune Dash", "dunedash", 12, fullDays = 2, installed = 11, ownerTesting = 4, created = "2026-10-22", premium = true)
+    val pup = app("a-pup", me, "Pixel Pup", "pixelpup", 12, fullDays = 16, installed = 11, ownerTesting = 4, created = "2026-10-15", premium = true)
 
+    // queue_rank como lo calcula la vista: las de menos de 12 primero; dentro, suscriptores,
+    // luego quien prueba a otros, luego llegada.
     val apps: List<AppRow> = listOf(pantry, bird, dumbbell, moss, budget, chess, sky, trail, dune, pup)
+        .sortedWith(
+            compareBy<AppRow> { it.followerCount >= TESTERS_REQUIRED }
+                .thenByDescending { it.ownerPremium }
+                .thenByDescending { it.ownerReciprocates }
+                .thenBy { it.createdAt },
+        )
+        .mapIndexed { i, app -> app.copy(queueRank = i + 1) }
 
     // Las cuatro que prueba el que mira, en el orden de su ronda de hoy.
     val tested: List<AppRow> = listOf(bird, moss, budget, chess)
@@ -230,10 +243,9 @@ object DemoBackend {
         val table = path.removePrefix("/rest/v1/")
         val all: List<JsonObject> = when (table) {
             "apps_with_followers" -> {
-                // Feed: lo que no es mio, quien prueba a otros primero y los de menos testers antes.
-                // Mis apps: las mas nuevas primero.
+                // Feed: lo que no es mio, en el orden de la cola. Mis apps: las mas nuevas primero.
                 val sorted = if (params["owner_id"]?.startsWith("neq.") == true) {
-                    Demo.apps.sortedWith(compareByDescending<AppRow> { it.ownerReciprocates }.thenBy { it.followerCount })
+                    Demo.apps.sortedBy { it.queueRank }
                 } else {
                     Demo.apps.sortedByDescending { it.createdAt }
                 }

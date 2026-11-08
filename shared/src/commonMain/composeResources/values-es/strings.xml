@@ -18,7 +18,7 @@
 
     <string name="feed_error">No se pudo cargar el feed</string>
     <string name="feed_empty">Todavía no hay apps de otros desarrolladores. Añade la tuya desde Mis apps.</string>
-    <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Primero salen las apps con menos testers.</string>
+    <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Las apps esperan en cola por orden de llegada: ayuda a las primeras a llegar a 12 testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>
     <string name="detail_testers_title">Quién se ha unido</string>
@@ -58,7 +58,7 @@
 
     <string name="profile_error">No se pudo cargar el perfil</string>
     <string name="profile_fallback_name">Usuario</string>
-    <string name="profile_premium">Plan ilimitado activo: apps ilimitadas, sin anuncios</string>
+    <string name="profile_premium">Suscripción activa: tus apps primero en la cola, ilimitadas y sin anuncios</string>
     <string name="profile_free">Plan gratuito: 1 app a la vez, con anuncios. Ver la suscripción</string>
     <string name="profile_my_apps">Apps publicadas</string>
     <string name="profile_none_yet">Ninguna todavía.</string>
@@ -67,8 +67,8 @@
     <string name="profile_ad_privacy">Privacidad de los anuncios</string>
     <string name="profile_privacy">Política de privacidad</string>
 
-    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripción publicas todas las que quieras, sin anuncios, mientras esté activa.</string>
-    <string name="paywall_active">Tu plan ilimitado está activo.</string>
+    <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripción tus apps van primero en la cola, marcadas como destacadas, y publicas todas las que quieras, sin anuncios, mientras esté activa.</string>
+    <string name="paywall_active">Tu suscripción está activa: tus apps van primero en la cola.</string>
     <string name="paywall_preparing">Suscripción en preparación.</string>
     <string name="paywall_no_product">No hay ningún producto disponible todavía.</string>
     <string name="paywall_price_error">No se pudo cargar el precio: %1$s</string>
@@ -114,7 +114,7 @@
     <string name="profile_manage_subscription">Gestionar la suscripción en Google Play</string>
     <string name="profile_delete_account">Borrar cuenta</string>
     <string name="confirm_delete_account">¿Borrar tu cuenta, tus apps, tus pruebas y tus comentarios? No se puede deshacer. Una suscripción activa no se cancela aquí: cancélala en Google Play.</string>
-    <string name="paywall_terms">Se renueva sola hasta que la cancelas. Cancela cuando quieras en Google Play, Pagos y suscripciones. Si cancelas, tus apps siguen publicadas; solo dejas de poder añadir más de una.</string>
+    <string name="paywall_terms">Se renueva sola hasta que la cancelas. Cancela cuando quieras en Google Play, Pagos y suscripciones. Si cancelas, tus apps siguen publicadas y vuelven a su puesto en la cola; solo dejas de poder añadir más de una.</string>
     <string name="price_per_week">%1$s/semana</string>
     <string name="price_per_month">%1$s/mes</string>
     <string name="price_per_year">%1$s/año</string>
@@ -141,4 +141,8 @@
         <item quantity="one">Abre la app que pruebas para que cuenten los 14 días de su dueño.</item>
         <item quantity="other">Abre las %1$d apps que pruebas para que cuenten los 14 días de sus dueños.</item>
     </plurals>
+    <string name="queue_featured">Destacada</string>
+    <string name="queue_position">Puesto %1$d en la cola</string>
+    <string name="my_apps_jump">Las apps de los suscriptores van primero en la cola.</string>
+    <string name="my_apps_jump_action">Pasar delante</string>
 </resources>
