@@ -1,1 +1,1 @@
-La lista es ahora una cola por orden de llegada: todos empujan a las primeras apps hasta que llegan a 12 testers, así cada una llega antes. Cada app muestra su puesto en la cola. Con la suscripción, tus apps van primero, marcadas como destacadas.
+Si aún no has añadido tu app, el feed muestra ahora una tarjeta para añadirla en un toque, y así los desarrolladores a los que ayudas también pueden probarla. Arreglado: el enlace de opt-in (paso 2) podía quedarse desactivado al volver de Google Groups.
