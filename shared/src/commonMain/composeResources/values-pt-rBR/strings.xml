@@ -19,6 +19,7 @@
 
     <string name="feed_error">Não foi possível carregar o feed</string>
     <string name="feed_empty">Ainda não há apps de outros desenvolvedores. Adicione o seu em Meus apps.</string>
+    <string name="feed_add_own">Seu app ainda não está na fila. Adicione-o para que os desenvolvedores que você ajuda possam testá-lo também.</string>
     <string name="feed_intro">Entre nos testes de outros desenvolvedores e eles entram no seu. Os apps esperam na fila por ordem de chegada: ajude os primeiros a chegar a 12 testadores.</string>
 
     <string name="detail_error">Não foi possível carregar o app</string>

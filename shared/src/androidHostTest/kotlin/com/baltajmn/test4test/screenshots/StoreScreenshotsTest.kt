@@ -57,6 +57,7 @@ import org.robolectric.annotation.GraphicsMode
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.detail_testers_title
 import test4test.shared.generated.resources.detail_verified
+import test4test.shared.generated.resources.feed_add_own
 import test4test.shared.generated.resources.form_groups_url
 import test4test.shared.generated.resources.form_name
 import test4test.shared.generated.resources.form_opt_in_url
@@ -116,6 +117,17 @@ abstract class StoreScreenshots(private val language: String) {
         start(Demo.newcomer)
         waitForText(Demo.pantry.name)
         shot("01-feed")
+        // Con apps propias el aviso de publicar no sale, y la captura de tienda no cambia.
+        assertTrue(compose.onAllNodesWithText(string(Res.string.feed_add_own)).fetchSemanticsNodes().isEmpty())
+    }
+
+    // Sin app propia: aviso arriba del feed, y su boton lleva directo al alta.
+    @Test
+    fun addOwn() {
+        start(Demo.newcomer.copy(ownsApps = false))
+        waitForText(string(Res.string.feed_add_own))
+        click(string(Res.string.my_apps_add))
+        waitForText(string(Res.string.form_name))
     }
 
     // La ronda de hoy, arriba del feed: 2 de 4 abiertas.

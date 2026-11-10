@@ -36,8 +36,12 @@ import kotlinx.serialization.json.jsonPrimitive
 // Las cifras se reparten una sola vez, aqui, para que la misma app diga lo mismo en
 // todas las capturas: Trail Journal lleva 12 de 12 y el dia 9 de 14, Pantry Pal 3 de 12...
 
-/** Que prueba quien mira la app y que abrio ya hoy. */
-data class Scenario(val testing: List<String> = emptyList(), val openedToday: Set<String> = emptySet())
+/** Que prueba quien mira la app, que abrio ya hoy y si tiene apps propias. */
+data class Scenario(
+    val testing: List<String> = emptyList(),
+    val openedToday: Set<String> = emptySet(),
+    val ownsApps: Boolean = true,
+)
 
 object Demo {
     const val ME = "u-me"
@@ -249,7 +253,7 @@ object DemoBackend {
                 } else {
                     Demo.apps.sortedByDescending { it.createdAt }
                 }
-                rows(AppRow.serializer(), sorted)
+                rows(AppRow.serializer(), sorted.filter { scenario.ownsApps || it.ownerId != Demo.ME })
             }
             "app_testers" -> rows(TesterRow.serializer(), scenario.testing.map { TesterRow(it, Demo.ME) })
             "app_tester_status" ->

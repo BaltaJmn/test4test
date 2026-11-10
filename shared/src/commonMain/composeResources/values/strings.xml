@@ -22,6 +22,7 @@
 
     <string name="feed_error">Could not load the feed</string>
     <string name="feed_empty">No apps from other developers yet. Add yours from My apps.</string>
+    <string name="feed_add_own">Your app is not in line yet. Add it so the developers you help can test it back.</string>
     <string name="feed_intro">Join tests from other developers and they join yours. Apps wait in line by arrival: help the first ones reach 12 testers.</string>
 
     <string name="detail_error">Could not load the app</string>

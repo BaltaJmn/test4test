@@ -163,7 +163,13 @@ private fun Home() {
         // anterior, porque la llamada es la misma y Compose reutiliza su estado.
         key(stack.size, current) {
             when (val screen = current) {
-                is Screen.Feed -> FeedScreen(uid, me, modifier) { push(Screen.Detail(it)) }
+                is Screen.Feed -> FeedScreen(
+                    uid = uid,
+                    me = me,
+                    modifier = modifier,
+                    onOpen = { push(Screen.Detail(it)) },
+                    onCreate = { push(Screen.EditApp(null)) },
+                )
                 is Screen.MyApps -> MyAppsScreen(
                     uid = uid,
                     me = me,

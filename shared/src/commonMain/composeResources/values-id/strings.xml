@@ -23,6 +23,7 @@
 
     <string name="feed_error">Tidak bisa memuat feed</string>
     <string name="feed_empty">Belum ada aplikasi dari pengembang lain. Tambahkan aplikasi Anda di Aplikasi saya.</string>
+    <string name="feed_add_own">Aplikasi Anda belum masuk antrean. Tambahkan agar pengembang yang Anda bantu bisa balas mengujinya.</string>
     <string name="feed_intro">Ikut pengujian pengembang lain dan mereka ikut pengujian Anda. Aplikasi mengantre sesuai urutan datang: bantu yang paling depan mencapai 12 penguji.</string>
 
     <string name="detail_error">Tidak bisa memuat aplikasi</string>

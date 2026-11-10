@@ -101,8 +101,6 @@ fun AppDetailScreen(
     // Ids ya denunciados en esta sesion, de la app y de los comentarios. Solo
     // apaga el boton: la fila la protege el UNIQUE app_reports_once.
     var reported by remember(appId) { mutableStateOf(emptySet<String>()) }
-    // Cuantos pasos del alta como tester lleva abiertos: 1 el grupo, 2 el opt-in.
-    var opened by remember(appId) { mutableStateOf(0) }
     // Se vuelve aqui desde Play despues de instalar: cada vuelta recalcula si la
     // app esta en el movil, sin esperar a ninguna consulta.
     val installedFromPlay = rememberInstalledFromPlay()
@@ -292,7 +290,11 @@ fun AppDetailScreen(
                 // Los pasos van numerados porque el orden importa: Play devuelve
                 // una pagina de error a quien abre el opt-in sin estar antes en
                 // el grupo, y esa es la queja mas repetida de todo el intercambio
-                // de testers. Por eso el 2 no se enciende hasta abrir el 1.
+                // de testers. El orden lo cuentan los numeros y el texto, no un
+                // boton apagado: el 2 estuvo bloqueado hasta tocar el 1, pero ese
+                // estado vivia en memoria, igual que el del paso 3 (1b3f431). Si
+                // Android mataba el proceso al ir al grupo, o el grupo se abria
+                // fuera de la app, volvias con el 2 apagado y sin saber por que.
                 if (!stepsDone) {
                     Text(
                         stringResource(Res.string.detail_join_help),
@@ -301,14 +303,9 @@ fun AppDetailScreen(
                     )
                 }
                 LinkButton("1. " + stringResource(Res.string.detail_groups)) {
-                    opened = maxOf(opened, 1)
                     uriHandler.openUri(current.googleGroupsUrl)
                 }
-                LinkButton(
-                    text = "2. " + stringResource(Res.string.detail_opt_in),
-                    enabled = stepsDone || opened >= 1,
-                ) {
-                    opened = 2
+                LinkButton("2. " + stringResource(Res.string.detail_opt_in)) {
                     uriHandler.openUri(current.optInUrl)
                 }
                 // El paso 3 declara, no comprueba: nadie puede saber desde aqui si

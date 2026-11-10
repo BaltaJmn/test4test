@@ -18,6 +18,7 @@
 
     <string name="feed_error">No se pudo cargar el feed</string>
     <string name="feed_empty">Todavía no hay apps de otros desarrolladores. Añade la tuya desde Mis apps.</string>
+    <string name="feed_add_own">Tu app todavía no está en la cola. Añádela para que los desarrolladores a los que ayudas puedan probarla.</string>
     <string name="feed_intro">Entra en las pruebas de otros y ellos entran en la tuya. Las apps esperan en cola por orden de llegada: ayuda a las primeras a llegar a 12 testers.</string>
 
     <string name="detail_error">No se pudo cargar la app</string>

@@ -1,5 +1,13 @@
 package com.baltajmn.test4test
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -13,16 +21,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.action_delete
 import test4test.shared.generated.resources.confirm_delete_app_comments
 import test4test.shared.generated.resources.delete_error
+import test4test.shared.generated.resources.feed_add_own
 import test4test.shared.generated.resources.feed_empty
 import test4test.shared.generated.resources.feed_error
 import test4test.shared.generated.resources.feed_intro
 import test4test.shared.generated.resources.feed_testing
+import test4test.shared.generated.resources.my_apps_add
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,9 +42,11 @@ fun FeedScreen(
     me: Profile?,
     modifier: Modifier = Modifier,
     onOpen: (String) -> Unit,
+    onCreate: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
     var apps by remember { mutableStateOf<List<AppRow>?>(null) }
+    var ownApps by remember { mutableStateOf<Int?>(null) }
     var testing by remember { mutableStateOf(emptySet<String>()) }
     var error by remember { mutableStateOf<String?>(null) }
     var refreshing by remember { mutableStateOf(false) }
@@ -53,6 +66,8 @@ fun FeedScreen(
         }
             .onSuccess { apps = it; error = null }
             .onFailure { error = loadErrorText }
+        // Aparte: si falla, el feed sale igual y el aviso no (null).
+        ownApps = runCatching { myApps(uid).size }.getOrNull()
         refreshing = false
     }
 
@@ -91,6 +106,10 @@ fun FeedScreen(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
+                // Quien entra a probar sin haber subido su app no recibe nada a
+                // cambio, y el alta vive en otra pestana que casi nadie abre. Con
+                // la lista llena el aviso de feed_empty ya no sale, asi que va aqui.
+                if (ownApps == 0) item { AddOwnCard(onCreate) }
                 item { RoundCard(uid, testing) }
                 item { ErrorText(error) }
                 if (list.isEmpty()) {
@@ -117,6 +136,28 @@ fun FeedScreen(
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+// Mismo marco que la ronda: las dos tarjetas del feed son las que piden algo.
+// Con 0 apps propias siempre hay hueco libre, asi que va directa al formulario.
+@Composable
+private fun AddOwnCard(onCreate: () -> Unit) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.4f)),
+    ) {
+        Column(
+            Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(stringResource(Res.string.feed_add_own), style = MaterialTheme.typography.bodyMedium)
+            Button(onClick = onCreate, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(Res.string.my_apps_add))
             }
         }
     }
