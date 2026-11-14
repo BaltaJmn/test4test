@@ -1,1 +1,1 @@
-If you have not added your app yet, the feed now shows a card to add it in one tap, so the developers you help can test it back. Fixed: the opt-in link (step 2) could stay disabled when you came back from Google Groups.
+The daily reminder now turns on by itself: one notification in the evening while you have apps left to open, and another when a new tester joins your app. You can switch it off in Profile. It checks your tests live, so it no longer asks for apps that already left the line.

@@ -106,6 +106,18 @@ suspend fun myRound(uid: String): List<RoundItem> {
     return appsByIds(rows.map { it.appId }).map { RoundItem(it, it.id in opened) }.sortedBy { it.app.name }
 }
 
+// Lo que el aviso diario necesita, leido en vivo y no de lo que la app dejo
+// apuntado: asi no pide abrir una app que ya salio de la cola, y se entera de
+// los testers nuevos aunque el dueno lleve dias sin entrar.
+class DailyNews(val testing: Int, val pending: Int, val waiting: Int, val mine: List<AppRow>)
+
+suspend fun dailyNews(uid: String): DailyNews {
+    val round = myRound(uid)
+    // Las que esperan solo importan a quien no prueba ninguna: un viaje menos.
+    val waiting = if (round.isEmpty()) feedApps(uid).count { it.followerCount < TESTERS_REQUIRED } else 0
+    return DailyNews(round.size, round.count { !it.openedToday }, waiting, myApps(uid))
+}
+
 // Apunta que hoy abriste esta app. Solo cuenta si estas en su prueba, y una vez
 // al dia: lo decide record_open en el servidor.
 suspend fun recordOpen(appId: String) {

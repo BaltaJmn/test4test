@@ -1,31 +1,38 @@
-Google Play mewajibkan 12 tester selama 14 hari berturut-turut sebelum akun developer pribadi bisa memublikasikan aplikasi. Mencari orang-orang itu adalah bagian yang jarang dibahas, dan Google menolak permintaan jika tester tidak benar-benar memakai aplikasinya.
+Butuh 12 tester selama 14 hari untuk lolos pengujian tertutup (closed testing) Google Play? Test4Test adalah komunitas tester tempat developer Android saling menguji aplikasi dan mendapatkan akses produksi.
 
-Test4Test adalah tempat developer Android saling bertemu untuk menyelesaikannya. Anda memasang aplikasi Anda, developer lain ikut uji tertutup Anda, dan Anda menguji aplikasi mereka. Orang nyata di perangkat nyata, bukan peternakan bot atau spreadsheet di grup chat.
+Google Play meminta setiap akun developer pribadi baru menjalankan pengujian tertutup dengan minimal 12 tester yang ikut selama 14 hari berturut-turut sebelum bisa memublikasikan aplikasi. Mencari tester aplikasi itu adalah bagian yang jarang dibahas, dan Google menolak permintaan akses produksi jika tester tidak benar-benar memakai aplikasinya.
+
+Test4Test adalah "test for test" yang dilakukan dengan benar: Anda mendaftarkan aplikasi Anda, developer lain ikut pengujian tertutup Anda, dan Anda menguji aplikasi mereka. Orang nyata di perangkat nyata, bukan peternakan bot atau spreadsheet di grup chat.
 
 YANG BISA ANDA LAKUKAN
 
-- Memasang aplikasi Anda dengan Google Group dan link opt-in-nya. Hanya itu.
-- Melihat antrean aplikasi yang masih butuh tester, berdasarkan urutan masuk. Semua orang mendorong yang di depan, jadi setiap aplikasi lebih cepat mencapai 12.
-- Ikut uji dalam empat langkah, berurutan: buka grup, buka link opt-in, tandai diri Anda, lalu instal aplikasi dari Google Play.
+- Mendaftarkan aplikasi Anda dengan Google Group dan link opt-in dari Play Console. Hanya itu.
+- Melihat antrean aplikasi yang masih butuh tester, berdasarkan urutan masuk. Semua orang mendorong yang di depan, jadi setiap aplikasi lebih cepat mencapai 12 tester.
+- Ikut pengujian tertutup dalam empat langkah, berurutan: buka grup, buka link opt-in, tandai diri Anda, lalu instal aplikasi dari Google Play.
 - Berkomentar di sebuah aplikasi untuk memberi tahu Anda sudah ikut, bertanya, atau menautkan aplikasi Anda agar developer menguji balik.
-- Melihat siapa yang ikut uji Anda dan apakah aplikasi Anda benar-benar terpasang di perangkatnya.
-- Menjalankan putaran harian: buka aplikasi yang Anda uji sekali sehari dari Test4Test. Google ingin tester yang memakai aplikasi, bukan sekadar memasangnya, dan pemilik melihat berapa hari dari 14 hari terakhir setiap tester membukanya. Pengingat sore opsional membantu Anda tetap konsisten.
+- Melihat siapa yang ikut pengujian Anda dan apakah aplikasi Anda benar-benar terpasang di perangkatnya.
+- Menjalankan putaran harian: buka aplikasi yang Anda uji sekali sehari dari Test4Test. Google ingin tester yang memakai aplikasi, bukan sekadar memasangnya, dan pemilik melihat berapa hari dari 14 hari terakhir setiap tester membukanya.
+- Menerima pengingat harian selama masih ada aplikasi yang belum dibuka, dan notifikasi saat tester baru bergabung di aplikasi Anda. Keduanya bisa dimatikan.
 - Memantau rangkaian 14 hari: dimulai saat Anda mencapai 12 tester, dan aplikasi memberi tahu saat selesai.
 
 BUKTI, BUKAN JANJI
 
-Menekan "saya sudah ikut" tidak membuktikan apa pun, dan karena itu kebanyakan tukar tester gagal. Test4Test memeriksa di ponsel tester bahwa aplikasi Anda terpasang dan dipasang oleh Google Play, lalu menampilkannya di samping namanya. Hanya aplikasi yang diikuti di dalam Test4Test yang diperiksa, tidak pernah isi ponsel lainnya.
+Menekan "saya sudah ikut" tidak membuktikan apa pun, dan karena itu kebanyakan pertukaran tester gagal. Test4Test memeriksa di ponsel tester bahwa aplikasi Anda terpasang dan dipasang oleh Google Play, lalu menampilkannya di samping namanya. Hanya aplikasi yang diikuti di dalam Test4Test yang diperiksa, tidak pernah isi ponsel lainnya.
 
 CARA KERJA ANTREAN
 
-Aplikasi menunggu dalam antrean sesuai urutan masuk, dan yang di depan mendapat tester sampai mencapai 12; setelah itu ia minggir dan aplikasi berikutnya maju. Developer yang menguji aplikasi orang lain berada di depan yang hanya memasang. Aplikasi dari pelanggan berlangganan tampil paling depan dan ditandai sebagai unggulan.
+Aplikasi menunggu dalam antrean sesuai urutan masuk, dan yang di depan mendapat tester sampai mencapai 12; setelah itu ia minggir dan aplikasi berikutnya maju. Developer yang menguji aplikasi orang lain berada di depan yang hanya mendaftarkan aplikasi. Aplikasi milik pelanggan tampil paling depan dan ditandai sebagai unggulan.
+
+UNTUK SIAPA
+
+Developer indie dan studio kecil dengan akun Play Console baru yang butuh tester untuk pengujian tertutup, beta tester untuk rilis pertama, atau cara menjaga 12 tester tetap aktif selama 14 hari penuh. Cocok juga jika Anda sudah menjalankan pengujian tertutup dan Google menolak akses produksi Anda: mulai lagi dengan tester yang membuka aplikasi setiap hari.
 
 GRATIS DAN LANGGANAN
 
-Paket gratis memuat satu aplikasi sekaligus, cukup untuk kebanyakan developer, dan menampilkan banner iklan kecil. Langganan menaruh aplikasi Anda paling depan dalam antrean, memuat aplikasi sebanyak yang Anda mau dan menghapus iklan; batalkan kapan saja dari Google Play. Ikut uji, berkomentar, dan menjelajah selalu gratis.
+Paket gratis memuat satu aplikasi sekaligus, cukup untuk kebanyakan developer, dan menampilkan banner iklan kecil. Langganan menaruh aplikasi Anda paling depan dalam antrean, memuat aplikasi sebanyak yang Anda mau dan menghapus iklan; batalkan kapan saja dari Google Play. Ikut pengujian, berkomentar, dan menjelajah selalu gratis.
 
 PRIVASI
 
-Alamat email Anda tidak pernah ditampilkan kepada siapa pun. Nama dan foto profil Anda terlihat oleh pengguna lain yang masuk, karena dari situlah developer tahu siapa yang ikut uji mereka. Iklan berasal dari Google AdMob, dan di Eropa Anda memilih apakah iklan boleh dipersonalisasi. Anda bisa menghapus akun dari aplikasi kapan saja.
+Alamat email Anda tidak pernah ditampilkan kepada siapa pun. Nama dan foto profil Anda terlihat oleh pengguna lain yang masuk, karena dari situlah developer tahu siapa yang ikut pengujian mereka. Iklan berasal dari Google AdMob, dan di Eropa Anda memilih apakah iklan boleh dipersonalisasi. Anda bisa menghapus akun dari aplikasi kapan saja.
 
 Dibuat oleh developer Android yang lelah meminta tester di forum.

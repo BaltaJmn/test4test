@@ -131,8 +131,8 @@
     <string name="round_open">Abrir</string>
     <string name="round_opened">Abierta hoy</string>
     <string name="round_install">Instalar</string>
-    <string name="reminder_on">Avisarme cada tarde</string>
-    <string name="reminder_off">Aviso diario activado. Desactivar</string>
+    <string name="reminder_on">Avisos diarios: activar</string>
+    <string name="reminder_off">Avisos diarios activados. Desactivar</string>
     <string name="tester_never_opened">Nunca abierta desde Test4Test</string>
     <plurals name="tester_open_days">
         <item quantity="one">Abierta %1$d de los últimos 14 días</item>
@@ -146,4 +146,11 @@
     <string name="queue_position">Puesto %1$d en la cola</string>
     <string name="my_apps_jump">Las apps de los suscriptores van primero en la cola.</string>
     <string name="my_apps_jump_action">Pasar delante</string>
+    <string name="nudge_title">Hay apps esperando testers</string>
+    <plurals name="nudge_text">
+        <item quantity="one">1 app necesita testers. Únete: quien prueba a otros va delante en la cola.</item>
+        <item quantity="other">%1$d apps necesitan testers. Únete a una: quien prueba a otros va delante en la cola.</item>
+    </plurals>
+    <string name="joined_title">Tester nuevo en %1$s</string>
+    <string name="joined_text">%1$d de 12 testers. Prueba otras apps para seguir delante en la cola.</string>
 </resources>

@@ -27,8 +27,6 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
-import test4test.shared.generated.resources.reminder_off
-import test4test.shared.generated.resources.reminder_on
 import test4test.shared.generated.resources.round_done
 import test4test.shared.generated.resources.round_help
 import test4test.shared.generated.resources.round_install
@@ -48,13 +46,18 @@ fun RoundCard(uid: String, testing: Set<String>, modifier: Modifier = Modifier) 
     val uriHandler = LocalUriHandler.current
     val launch = rememberAppLauncher()
     val installedFromPlay = rememberInstalledFromPlay()
-    val reminder = rememberDailyReminder()
+    val askReview = rememberAskReview()
     var items by remember(testing) { mutableStateOf<List<RoundItem>?>(null) }
-    LaunchedEffect(uid, testing) { items = runCatching { myRound(uid) }.getOrNull() }
+    LaunchedEffect(uid, testing) {
+        items = runCatching { myRound(uid) }.getOrNull()
+        // Quien vuelve con la ronda ya hecha es quien usa la app de verdad: el
+        // momento de pedirle la valoracion. Solo al cargar, no al abrir la ultima
+        // app, que entonces la que esta delante es la otra.
+        if (items?.isNotEmpty() == true && items?.all { it.openedToday } == true) askReview()
+    }
     val list = items ?: return
     if (list.isEmpty()) return
     val opened = list.count { it.openedToday }
-    LaunchedEffect(opened, list.size) { reminder.saveRound(list.size, opened) }
 
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -118,12 +121,6 @@ fun RoundCard(uid: String, testing: Set<String>, modifier: Modifier = Modifier) 
                         }
                     }
                 }
-            }
-            TextButton(onClick = reminder.toggle) {
-                Text(
-                    stringResource(if (reminder.on) Res.string.reminder_off else Res.string.reminder_on),
-                    style = MaterialTheme.typography.bodySmall,
-                )
             }
         }
     }

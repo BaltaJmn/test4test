@@ -1,1 +1,1 @@
-Jika Anda belum menambahkan aplikasi, feed kini menampilkan kartu untuk menambahkannya dengan sekali ketuk, agar pengembang yang Anda bantu bisa balas mengujinya. Diperbaiki: tautan opt-in (langkah 2) bisa tetap nonaktif saat kembali dari Google Groups.
+Pengingat harian kini aktif otomatis: satu notifikasi di sore hari selama masih ada aplikasi yang belum Anda buka, dan satu lagi saat tester baru bergabung di aplikasi Anda. Anda bisa mematikannya di Profil. Pengingat memeriksa pengujian Anda secara langsung, jadi tidak lagi meminta aplikasi yang sudah keluar dari antrean.

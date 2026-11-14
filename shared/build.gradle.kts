@@ -109,6 +109,8 @@ kotlin {
             implementation(libs.user.messaging.platform)
             // El aviso diario de la ronda: sobrevive a reinicios sin receptor propio.
             implementation(libs.work.runtime)
+            // Valoracion dentro de la app: las estrellas son lo que mas pesa en la busqueda de Play.
+            implementation(libs.play.review.ktx)
         }
         commonMain {
             kotlin.srcDir(generateAppConfig)

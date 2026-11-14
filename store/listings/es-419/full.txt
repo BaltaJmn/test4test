@@ -1,15 +1,18 @@
-Google Play pide 12 testers durante 14 días seguidos antes de que una cuenta de desarrollador personal pueda publicar una app. Encontrar a esas personas es la parte que nadie te cuenta, y Google rechaza la solicitud si los testers no usan la app de verdad.
+¿Necesitas 12 testers durante 14 días para pasar la prueba cerrada (closed testing) de Google Play? Test4Test es la comunidad de testers donde los desarrolladores de Android prueban las apps de los demás y consiguen el acceso a producción.
 
-Test4Test es donde los desarrolladores de Android se encuentran para resolverlo. Publicas tu app, otros desarrolladores entran en tu prueba cerrada y tú pruebas las suyas. Personas reales en dispositivos reales, no una granja de bots ni una hoja de cálculo en un grupo de chat.
+Google Play pide a toda cuenta de desarrollador personal nueva una prueba cerrada con al menos 12 testers inscritos durante 14 días seguidos antes de poder publicar. Encontrar a esos testers de apps es la parte que nadie te cuenta, y Google rechaza la solicitud de acceso a producción cuando los testers no usan la app de verdad.
+
+Test4Test es "test for test" hecho bien: publicas tu app, otros desarrolladores entran en tu prueba cerrada y tú pruebas las suyas. Personas reales en dispositivos reales, no una granja de bots ni una hoja de cálculo en un grupo de chat.
 
 QUÉ PUEDES HACER
 
-- Publicar tu app con su grupo de Google y su enlace de acceso. No hace falta más.
-- Ver la cola de apps que todavía necesitan testers, por orden de llegada. Todos empujan a las primeras, así cada app llega antes a 12.
-- Entrar en una prueba en cuatro pasos y en ese orden: abres el grupo, abres el enlace de acceso, te marcas dentro e instalas la app desde Google Play.
+- Publicar tu app con su grupo de Google (Google Group) y su enlace de acceso de Play Console. No hace falta más.
+- Ver la cola de apps que todavía necesitan testers, por orden de llegada. Todos empujan a las primeras, así cada app llega antes a 12 testers.
+- Entrar en una prueba cerrada en cuatro pasos y en ese orden: abres el grupo, abres el enlace de acceso, te marcas dentro e instalas la app desde Google Play.
 - Dejar un comentario bajo una app para avisar de que ya estás dentro, preguntar algo o enlazar la tuya para que te devuelvan el favor.
 - Ver quién ha entrado en tu prueba y si de verdad tiene tu app instalada.
-- Hacer tu ronda diaria: abre una vez al día desde Test4Test las apps que pruebas. Google quiere testers que usen la app, no solo que la instalen, y el dueño ve cuántos de los últimos 14 días la abrió cada tester. Un aviso opcional por la tarde te lo recuerda.
+- Hacer tu ronda diaria: abre una vez al día desde Test4Test las apps que pruebas. Google quiere testers que usen la app, no solo que la instalen, y el dueño ve en cuántos de los últimos 14 días la abrió cada tester.
+- Recibir un recordatorio diario mientras te queden apps por abrir y un aviso cuando un tester nuevo entra en tu app. Puedes desactivarlos.
 - Seguir la racha de 14 días: empieza el día que llegas a 12 testers y la app te avisa cuando está cumplida.
 
 PRUEBAS, NO PROMESAS
@@ -20,12 +23,16 @@ CÓMO FUNCIONA LA COLA
 
 Las apps esperan en cola por orden de llegada y las primeras se llevan los testers hasta llegar a 12; entonces dejan su lugar y sube la siguiente. Quien prueba las apps de otros va por delante de quien solo publica. Las apps de los suscriptores van primero y se marcan como destacadas.
 
+PARA QUIÉN ES
+
+Para desarrolladores independientes y estudios pequeños con una cuenta nueva de Play Console que necesitan testers para la prueba cerrada, beta testers para un primer lanzamiento o una forma de mantener a 12 testers activos durante los 14 días completos. También sirve si ya hiciste una prueba cerrada y Google te rechazó el acceso a producción: empieza de nuevo con testers que abren la app todos los días.
+
 GRATIS Y CON SUSCRIPCIÓN
 
 El plan gratuito permite una app a la vez, que es lo que necesita la mayoría, y muestra un pequeño banner de anuncios. La suscripción pone tus apps primero en la cola, permite todas las que quieras y quita los anuncios; la cancelas cuando quieras desde Google Play. Entrar en pruebas, comentar y navegar son gratis siempre.
 
 PRIVACIDAD
 
-Tu correo no se le enseña a nadie. Tu nombre y tu foto los ven los demás usuarios con sesión, porque es así como saben quién ha entrado en su prueba. Los anuncios son de Google AdMob y en Europa eliges si pueden ser personalizados. Puedes borrar tu cuenta desde la app cuando quieras.
+Tu correo nunca se muestra a nadie. Tu nombre y tu foto los ven los demás usuarios con sesión, porque es así como saben quién ha entrado en su prueba. Los anuncios son de Google AdMob y en Europa eliges si pueden ser personalizados. Puedes borrar tu cuenta desde la app cuando quieras.
 
 Hecha por un desarrollador de Android cansado de pedir testers en foros.

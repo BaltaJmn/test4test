@@ -16,6 +16,17 @@ private const val OPT_IN = "https://play.google.com/apps/testing/com.baltajmn.te
 class RulesTest {
 
     @Test
+    fun dailyNudgeAsksForTheRoundFirstAndSpacesTheRest() {
+        assertEquals(DailyNudge.ROUND, dailyNudge(testing = 2, pending = 1, waiting = 0, daysSinceNudge = 0))
+        // Ronda hecha: silencio, aunque haya mas apps esperando.
+        assertEquals(DailyNudge.NONE, dailyNudge(testing = 2, pending = 0, waiting = 5, daysSinceNudge = 99))
+        // Quien no prueba nada: un empujon cada tres dias, y solo si hay algo que probar.
+        assertEquals(DailyNudge.JOIN, dailyNudge(testing = 0, pending = 0, waiting = 3, daysSinceNudge = 3))
+        assertEquals(DailyNudge.NONE, dailyNudge(testing = 0, pending = 0, waiting = 3, daysSinceNudge = 2))
+        assertEquals(DailyNudge.NONE, dailyNudge(testing = 0, pending = 0, waiting = 0, daysSinceNudge = 99))
+    }
+
+    @Test
     fun freeUserGetsOneSlot() {
         assertTrue(canCreateApp(isPremium = false, ownedApps = 0))
         assertFalse(canCreateApp(isPremium = false, ownedApps = 1))

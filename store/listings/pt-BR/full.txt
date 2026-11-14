@@ -1,15 +1,18 @@
-O Google Play exige 12 testers durante 14 dias seguidos antes que uma conta pessoal de desenvolvedor possa publicar um app. Encontrar essas pessoas é a parte que ninguém conta, e o Google recusa o pedido quando os testers não usam o app de verdade.
+Precisa de 12 testers por 14 dias para passar no teste fechado (closed testing) do Google Play? O Test4Test é a comunidade de testers onde desenvolvedores Android testam os apps uns dos outros e conseguem o acesso à produção.
 
-O Test4Test é onde desenvolvedores Android se encontram para resolver isso. Você publica seu app, outros desenvolvedores entram no seu teste fechado e você testa os deles. Pessoas reais em aparelhos reais, não uma fazenda de bots nem uma planilha num grupo de chat.
+O Google Play exige de toda conta pessoal de desenvolvedor nova um teste fechado com pelo menos 12 testers participando por 14 dias seguidos antes de poder publicar. Encontrar esses testers de app é a parte que ninguém conta, e o Google recusa o pedido de acesso à produção quando os testers não usam o app de verdade.
+
+O Test4Test é "test for test" feito direito: você publica seu app, outros desenvolvedores entram no seu teste fechado e você testa os deles. Pessoas reais em aparelhos reais, não uma fazenda de bots nem uma planilha num grupo de chat.
 
 O QUE VOCÊ PODE FAZER
 
-- Publicar seu app com o Grupo do Google e o link de participação. Só isso.
-- Ver a fila de apps que ainda precisam de testers, por ordem de chegada. Todo mundo empurra os primeiros, e assim cada app chega mais rápido a 12.
-- Entrar num teste em quatro passos, nesta ordem: abrir o grupo, abrir o link de participação, marcar que entrou e instalar o app pelo Google Play.
+- Publicar seu app com o Grupo do Google (Google Group) e o link de participação do Play Console. Só isso.
+- Ver a fila de apps que ainda precisam de testers, por ordem de chegada. Todo mundo empurra os primeiros, e assim cada app chega mais rápido a 12 testers.
+- Entrar num teste fechado em quatro passos, nesta ordem: abrir o grupo, abrir o link de participação, marcar que entrou e instalar o app pelo Google Play.
 - Comentar num app para avisar que já entrou, fazer uma pergunta ou indicar o seu para que o desenvolvedor teste de volta.
 - Ver quem entrou no seu teste e se a pessoa realmente tem o seu app instalado.
-- Fazer sua rodada diária: abra uma vez por dia pelo Test4Test os apps que você testa. O Google quer testers que usem o app, não só que instalem, e o dono vê em quantos dos últimos 14 dias cada tester o abriu. Um lembrete opcional à tarde ajuda a não esquecer.
+- Fazer sua rodada diária: abra uma vez por dia pelo Test4Test os apps que você testa. O Google quer testers que usem o app, não só que instalem, e o dono vê em quantos dos últimos 14 dias cada tester o abriu.
+- Receber um lembrete diário enquanto ainda houver apps para abrir e um aviso quando um novo tester entrar no seu app. Você pode desativar os dois.
 - Acompanhar a sequência de 14 dias: ela começa no dia em que você chega a 12 testers, e o app avisa quando terminar.
 
 PROVA, NÃO PROMESSA
@@ -19,6 +22,10 @@ Tocar em "entrei" não prova nada, e por isso a maioria das trocas de testers fa
 COMO A FILA FUNCIONA
 
 Os apps esperam na fila por ordem de chegada, e os primeiros ficam com os testers até chegar a 12; aí eles saem da frente e o próximo avança. Quem testa os apps dos outros vai na frente de quem só publica. Os apps de assinantes vão primeiro e aparecem marcados como destaque.
+
+PARA QUEM É
+
+Para desenvolvedores independentes e estúdios pequenos com uma conta nova do Play Console que precisam de testers para o teste fechado, beta testers para um primeiro lançamento ou um jeito de manter 12 testers ativos pelos 14 dias completos. Também ajuda se você já fez um teste fechado e o Google recusou seu acesso à produção: recomece com testers que abrem o app todos os dias.
 
 GRÁTIS E ASSINATURA
 

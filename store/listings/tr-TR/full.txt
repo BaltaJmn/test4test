@@ -1,0 +1,38 @@
+Google Play kapalı testini (closed testing) geçmek için 14 gün boyunca 12 tester mı lazım? Test4Test, Android geliştiricilerinin birbirinin uygulamasını test ettiği ve üretim erişimini aldığı tester topluluğudur.
+
+Google Play, her yeni kişisel geliştirici hesabından yayın yapmadan önce, en az 12 test kullanıcısının 14 gün art arda katıldığı bir kapalı test ister. Bu test kullanıcılarını bulmak kimsenin anlatmadığı kısımdır ve test kullanıcıları uygulamayı gerçekten kullanmazsa Google üretim erişimi talebini reddeder.
+
+Test4Test, doğru yapılmış "test for test" demektir: uygulamanı eklersin, diğer geliştiriciler kapalı testine katılır, sen de onlarınkini test edersin. Gerçek cihazlarda gerçek insanlar; bot çiftliği ya da bir sohbet grubundaki tablo değil.
+
+NELER YAPABİLİRSİN
+
+- Uygulamanı Google Group'u ve Play Console'daki katılım (opt-in) bağlantısıyla ekle. Gerekenin hepsi bu.
+- Hâlâ tester arayan uygulamaların sırasına geliş sırasına göre göz at. Herkes öndekileri destekler, böylece her uygulama 12 tester sayısına daha çabuk ulaşır.
+- Bir kapalı teste dört adımda, bu sırayla katıl: grubu aç, katılım bağlantısını aç, kendini katıldı olarak işaretle, uygulamayı Google Play'den yükle.
+- Bir uygulamanın altına yorum yazıp katıldığını söyle, soru sor ya da kendi uygulamanın bağlantısını bırak; geliştirici de seni test etsin.
+- Testine kimlerin katıldığını ve uygulamanın cihazlarında gerçekten yüklü olup olmadığını gör.
+- Günlük turunu at: test ettiğin uygulamaları günde bir kez Test4Test üzerinden aç. Google uygulamayı sadece yükleyen değil kullanan test kullanıcıları ister ve sahibi, her test kullanıcısının son 14 günün kaçında uygulamayı açtığını görür.
+- Açacak uygulaman kaldığı sürece günlük hatırlatma, uygulamana yeni bir tester katıldığında da bildirim al. İkisini de kapatabilirsin.
+- 14 günlük seriyi takip et: 12 tester sayısına ulaştığın gün başlar ve tamamlandığında uygulama sana haber verir.
+
+SÖZ DEĞİL, KANIT
+
+"Katıldım" düğmesine basmak hiçbir şeyi kanıtlamaz ve tester takaslarının çoğu bu yüzden başarısız olur. Test4Test, test kullanıcısının telefonunda uygulamanın yüklü olduğunu ve onu Google Play'in yüklediğini kontrol eder ve bunu adının yanında sana gösterir. Yalnızca Test4Test içinde katıldığı uygulamalara bakar, telefonun geri kalanına asla bakmaz.
+
+SIRA NASIL ÇALIŞIR
+
+Uygulamalar geliş sırasına göre sırada bekler; öndekiler 12 tester sayısına ulaşana kadar test kullanıcılarını alır, sonra kenara çekilir ve sıradaki ilerler. Başkalarının uygulamalarını test eden geliştiriciler, yalnızca uygulama ekleyenlerin önüne geçer. Abone olanların uygulamaları en başa geçer ve öne çıkan olarak işaretlenir.
+
+KİMLER İÇİN
+
+Kapalı test için tester, ilk sürüm için beta test kullanıcısı ya da 12 test kullanıcısını 14 günün tamamında aktif tutacak bir yol arayan, yeni Play Console hesabına sahip bağımsız geliştiriciler ve küçük stüdyolar için. Kapalı testi zaten yaptıysan ve Google üretim erişimini reddettiyse de işe yarar: uygulamayı her gün açan test kullanıcılarıyla baştan başla.
+
+ÜCRETSİZ VE ABONELİK
+
+Ücretsiz plan aynı anda bir uygulamaya izin verir, bu da çoğu geliştiriciye yeter, ve küçük bir reklam banner'ı gösterir. Abonelik uygulamalarını sırada en öne alır, istediğin kadar uygulama eklemene izin verir ve reklamları kaldırır; istediğin zaman Google Play'den iptal edebilirsin. Testlere katılmak, yorum yapmak ve göz atmak her zaman ücretsizdir.
+
+GİZLİLİK
+
+E-posta adresin kimseye gösterilmez. Adın ve profil fotoğrafın, geliştiriciler testlerine kimin katıldığını bu sayede bildiği için, oturum açmış diğer kullanıcılara görünür. Reklamlar Google AdMob'dan gelir ve Avrupa'da kişiselleştirilip kişiselleştirilemeyeceğini sen seçersin. Hesabını istediğin zaman uygulamadan silebilirsin.
+
+Forumlarda tester istemekten yorulmuş bir Android geliştiricisi tarafından yapıldı.

@@ -38,6 +38,8 @@ import test4test.shared.generated.resources.profile_my_apps
 import test4test.shared.generated.resources.profile_none_yet
 import test4test.shared.generated.resources.profile_premium
 import test4test.shared.generated.resources.profile_privacy
+import test4test.shared.generated.resources.reminder_off
+import test4test.shared.generated.resources.reminder_on
 import test4test.shared.generated.resources.profile_sign_out
 import test4test.shared.generated.resources.profile_testing
 import test4test.shared.generated.resources.testing_count
@@ -76,6 +78,7 @@ fun ProfileScreen(
     val loadErrorText = stringResource(Res.string.profile_error)
     val deleteErrorText = stringResource(Res.string.delete_error)
     val adPrivacyOptions = rememberAdPrivacyOptions()
+    val reminder = rememberDailyReminder()
 
     LaunchedEffect(uid) {
         runCatching {
@@ -186,6 +189,14 @@ fun ProfileScreen(
                     modifier = Modifier.fillMaxWidth(),
                 ) {
                     Text(stringResource(Res.string.profile_delete_account))
+                }
+            }
+            item {
+                TextButton(onClick = reminder.toggle, modifier = Modifier.fillMaxWidth()) {
+                    Text(
+                        stringResource(if (reminder.on) Res.string.reminder_off else Res.string.reminder_on),
+                        style = MaterialTheme.typography.bodySmall,
+                    )
                 }
             }
             // La UE pide poder cambiar el consentimiento de los anuncios en cualquier

@@ -27,6 +27,19 @@ fun testerPhase(fullDays: Int): TesterPhase = when {
     else -> TesterPhase.FILLING
 }
 
+// El aviso diario, uno como mucho. La ronda pendiente manda y sale cada dia; a
+// quien no prueba nada se le recuerda que hay apps esperando, pero cada tres
+// dias: a diario es la forma mas rapida de que desinstale.
+const val NUDGE_EVERY_DAYS = 3
+
+enum class DailyNudge { ROUND, JOIN, NONE }
+
+fun dailyNudge(testing: Int, pending: Int, waiting: Int, daysSinceNudge: Long): DailyNudge = when {
+    pending > 0 -> DailyNudge.ROUND
+    testing == 0 && waiting > 0 && daysSinceNudge >= NUDGE_EVERY_DAYS -> DailyNudge.JOIN
+    else -> DailyNudge.NONE
+}
+
 // Plan free: 1 app a la vez. La misma condicion vive en la policy
 // apps_insert_own_within_slots; aqui solo se replica para no llevar al usuario
 // a un formulario que el backend va a rechazar.

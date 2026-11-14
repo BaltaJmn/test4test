@@ -45,6 +45,8 @@ fun FeedScreen(
     onCreate: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
+    // El feed es lo primero que ve todo el que entra: aqui se enciende el aviso diario.
+    rememberDailyReminder(auto = true)
     var apps by remember { mutableStateOf<List<AppRow>?>(null) }
     var ownApps by remember { mutableStateOf<Int?>(null) }
     var testing by remember { mutableStateOf(emptySet<String>()) }

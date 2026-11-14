@@ -132,8 +132,8 @@
     <string name="round_open">खोलें</string>
     <string name="round_opened">आज खोला</string>
     <string name="round_install">इंस्टॉल करें</string>
-    <string name="reminder_on">मुझे हर शाम याद दिलाएं</string>
-    <string name="reminder_off">रोज़ का रिमाइंडर चालू है। बंद करें</string>
+    <string name="reminder_on">रोज़ के रिमाइंडर: चालू करें</string>
+    <string name="reminder_off">रोज़ के रिमाइंडर चालू हैं। बंद करें</string>
     <string name="tester_never_opened">Test4Test से कभी नहीं खोला</string>
     <plurals name="tester_open_days">
         <item quantity="one">पिछले 14 में से %1$d दिन खोला</item>
@@ -147,4 +147,11 @@
     <string name="queue_position">कतार में नंबर %1$d</string>
     <string name="my_apps_jump">सदस्यों के ऐप कतार में सबसे आगे रहते हैं।</string>
     <string name="my_apps_jump_action">आगे बढ़ें</string>
+    <string name="nudge_title">ऐप टेस्टर का इंतज़ार कर रहे हैं</string>
+    <plurals name="nudge_text">
+        <item quantity="one">1 ऐप को टेस्टर चाहिए। जुड़ें: जो दूसरों के ऐप टेस्ट करते हैं, वे कतार में आगे रहते हैं।</item>
+        <item quantity="other">%1$d ऐप को टेस्टर चाहिए। किसी एक से जुड़ें: जो दूसरों के ऐप टेस्ट करते हैं, वे कतार में आगे रहते हैं।</item>
+    </plurals>
+    <string name="joined_title">%1$s में नया टेस्टर</string>
+    <string name="joined_text">12 में से %1$d टेस्टर। कतार में आगे बने रहने के लिए दूसरे ऐप टेस्ट करें।</string>
 </resources>

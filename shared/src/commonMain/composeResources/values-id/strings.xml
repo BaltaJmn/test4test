@@ -135,7 +135,7 @@
     <string name="round_open">Buka</string>
     <string name="round_opened">Dibuka hari ini</string>
     <string name="round_install">Instal</string>
-    <string name="reminder_on">Ingatkan saya setiap sore</string>
+    <string name="reminder_on">Pengingat harian: aktifkan</string>
     <string name="reminder_off">Pengingat harian aktif. Matikan</string>
     <string name="tester_never_opened">Belum pernah dibuka dari Test4Test</string>
     <plurals name="tester_open_days">
@@ -150,4 +150,11 @@
     <string name="queue_position">Antrean ke-%1$d</string>
     <string name="my_apps_jump">Aplikasi pelanggan berada paling depan dalam antrean.</string>
     <string name="my_apps_jump_action">Maju ke depan</string>
+    <string name="nudge_title">Ada aplikasi yang menunggu tester</string>
+    <plurals name="nudge_text">
+        <item quantity="one">%1$d aplikasi butuh tester. Bergabunglah: developer yang menguji aplikasi lain berada di depan antrean.</item>
+        <item quantity="other">%1$d aplikasi butuh tester. Bergabunglah dengan salah satunya: developer yang menguji aplikasi lain berada di depan antrean.</item>
+    </plurals>
+    <string name="joined_title">Tester baru di %1$s</string>
+    <string name="joined_text">%1$d dari 12 tester. Uji aplikasi lain agar tetap di depan antrean.</string>
 </resources>

@@ -1,0 +1,38 @@
+Cần 12 tester trong 14 ngày để vượt qua thử nghiệm kín (closed testing) của Google Play? Test4Test là cộng đồng tester nơi các nhà phát triển Android thử ứng dụng của nhau và có được quyền truy cập bản chính thức.
+
+Google Play yêu cầu mọi tài khoản nhà phát triển cá nhân mới chạy một thử nghiệm kín với ít nhất 12 tester tham gia 14 ngày liên tục trước khi được phát hành. Tìm những tester này là phần chẳng ai nói tới, và Google từ chối yêu cầu quyền truy cập bản chính thức khi tester không thực sự dùng ứng dụng.
+
+Test4Test là "test for test" được làm cho đúng: bạn đăng ứng dụng của mình, các nhà phát triển khác tham gia thử nghiệm kín của bạn, và bạn thử ứng dụng của họ. Người thật trên thiết bị thật, không phải trang trại bot hay một bảng tính trong nhóm chat.
+
+BẠN CÓ THỂ LÀM GÌ
+
+- Đăng ứng dụng của bạn cùng Google Group và liên kết tham gia (opt-in) từ Play Console. Chỉ cần vậy.
+- Xem hàng chờ các ứng dụng vẫn cần tester, theo thứ tự đến trước. Mọi người cùng đẩy những ứng dụng đầu hàng, nên mỗi ứng dụng đạt 12 tester nhanh hơn.
+- Tham gia một thử nghiệm kín qua bốn bước, theo đúng thứ tự: mở nhóm, mở liên kết tham gia, đánh dấu bạn đã tham gia, cài ứng dụng từ Google Play.
+- Bình luận dưới một ứng dụng để báo bạn đã tham gia, đặt câu hỏi, hoặc gắn liên kết ứng dụng của bạn để nhà phát triển thử lại cho bạn.
+- Xem ai đã tham gia thử nghiệm của bạn và họ có thật sự cài ứng dụng của bạn hay không.
+- Làm vòng thử hằng ngày: mỗi ngày mở một lần các ứng dụng bạn đang thử từ Test4Test. Google muốn tester dùng ứng dụng chứ không chỉ cài, và chủ ứng dụng thấy mỗi tester đã mở nó trong bao nhiêu ngày của 14 ngày gần nhất.
+- Nhận nhắc nhở hằng ngày khi bạn còn ứng dụng chưa mở, và thông báo khi có tester mới tham gia ứng dụng của bạn. Bạn có thể tắt cả hai.
+- Theo dõi chuỗi 14 ngày: nó bắt đầu từ ngày bạn đạt 12 tester, và ứng dụng sẽ báo khi hoàn thành.
+
+BẰNG CHỨNG, KHÔNG PHẢI LỜI HỨA
+
+Bấm "tôi đã tham gia" chẳng chứng minh được gì, và đó là lý do phần lớn các vụ trao đổi tester thất bại. Test4Test kiểm tra trên điện thoại của tester rằng ứng dụng của bạn đã được cài và do Google Play cài, rồi hiển thị điều đó bên cạnh tên họ. Nó chỉ xem những ứng dụng mà họ tham gia bên trong Test4Test, không bao giờ xem phần còn lại của điện thoại.
+
+HÀNG CHỜ HOẠT ĐỘNG THẾ NÀO
+
+Các ứng dụng chờ trong hàng theo thứ tự đến, và những ứng dụng ở đầu hàng nhận tester cho tới khi đủ 12; sau đó chúng nhường chỗ và ứng dụng kế tiếp tiến lên. Nhà phát triển thử ứng dụng của người khác được xếp trước người chỉ đăng. Ứng dụng của người đăng ký được xếp đầu tiên và gắn nhãn nổi bật.
+
+DÀNH CHO AI
+
+Dành cho nhà phát triển độc lập và studio nhỏ có tài khoản Play Console mới, cần tester cho thử nghiệm kín, người thử bản beta cho lần phát hành đầu tiên, hoặc cách giữ 12 tester hoạt động đủ 14 ngày. Cũng hữu ích nếu bạn đã chạy thử nghiệm kín và Google từ chối quyền truy cập bản chính thức: hãy bắt đầu lại với các tester mở ứng dụng mỗi ngày.
+
+MIỄN PHÍ VÀ ĐĂNG KÝ
+
+Gói miễn phí cho đăng một ứng dụng mỗi lần, đủ với đa số nhà phát triển, và hiển thị một biểu ngữ quảng cáo nhỏ. Gói đăng ký đưa ứng dụng của bạn lên đầu hàng, cho đăng bao nhiêu ứng dụng tùy ý và bỏ quảng cáo; bạn hủy bất cứ lúc nào từ Google Play. Tham gia thử nghiệm, bình luận và duyệt xem luôn miễn phí.
+
+QUYỀN RIÊNG TƯ
+
+Địa chỉ email của bạn không bao giờ được hiển thị cho ai. Tên và ảnh hồ sơ của bạn hiển thị với những người dùng khác đã đăng nhập, vì đó là cách nhà phát triển biết ai đã tham gia thử nghiệm của họ. Quảng cáo đến từ Google AdMob, và ở châu Âu bạn chọn có cho phép cá nhân hóa hay không. Bạn có thể xóa tài khoản ngay trong ứng dụng bất cứ lúc nào.
+
+Do một nhà phát triển Android làm ra, vì đã chán cảnh đi xin tester trên diễn đàn.
