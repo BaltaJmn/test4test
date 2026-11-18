@@ -1,0 +1,38 @@
+Kailangan mo ng 12 testers nang 14 na araw para makapasa sa closed testing ng Google Play? Test4Test ang tester community kung saan nagte-test ng app ng isa't isa ang mga Android developer at nakakakuha ng production access.
+
+Hinihingi ng Google Play sa bawat bagong personal developer account ang closed test na may minimum na 12 testers na tuloy-tuloy na naka-opt in nang 14 na araw bago makapag-publish. Ang paghahanap ng app testers ang bahaging walang nagsasabi sa iyo, at nire-reject ng Google ang production access request kapag hindi talaga ginagamit ng tester ang app.
+
+Test4Test ang "test for test" na ginawa nang tama: ililista mo ang app mo, sasali ang ibang developer sa closed testing mo, at ite-test mo ang sa kanila. Totoong tao sa totoong device, hindi bot farm o spreadsheet sa chat group.
+
+ANG MAGAGAWA MO
+
+- I-list ang app mo kasama ang Google Group at opt-in link nito mula sa Play Console. Iyon lang.
+- I-browse ang pila ng app na kailangan pa ng tester, ayon sa pagdating nila. Inuuna ng lahat ang mga nasa unahan, kaya mas mabilis umabot sa 12 testers ang bawat app.
+- Sumali sa closed test sa apat na hakbang, nang sunud-sunod: buksan ang group, buksan ang opt-in link, markahan ang sarili mo bilang nakasali, at i-install ang app mula sa Google Play.
+- Mag-comment sa isang app para sabihing sumali ka na, magtanong, o i-link ang app mo para ma-test din ito ng developer bilang ganti.
+- Tingnan kung sino ang sumali sa test mo at kung talagang naka-install sa kanila ang app mo.
+- Gawin ang daily round mo: buksan isang beses kada araw mula sa Test4Test ang mga app na tine-test mo. Gusto ng Google ng tester na gumagamit ng app, hindi lang nag-i-install, at nakikita ng owner kung ilan sa huling 14 na araw binuksan ito ng bawat tester.
+- Makatanggap ng daily reminder habang may app ka pang bubuksan, at notification kapag may bagong tester na sumali sa app mo. Puwede mong i-off pareho.
+- Sundan ang 14-day streak: nagsisimula ito sa araw na umabot ka sa 12 testers, at sasabihan ka ng app kapag tapos na.
+
+PATUNAY, HINDI PANGAKO
+
+Walang napapatunayan ang pagpindot sa "Sumali na ako", kaya pumapalpak ang karamihan ng mga tester swap. Sinusuri ng Test4Test sa phone ng tester kung naka-install ang app mo at kung Google Play ang nag-install, at ipinapakita ito sa iyo katabi ng pangalan niya. Tinitingnan lang nito ang mga app na sinalihan niya sa Test4Test, hindi kailanman ang natitira sa phone niya.
+
+PAANO GUMAGANA ANG PILA
+
+Naghihintay sa pila ang mga app ayon sa pagdating, at ang nasa unahan ang kumukuha ng tester hanggang umabot sa 12; saka tatabi at uusad ang susunod. Nauuna ang mga developer na nagte-test ng ibang app kaysa sa nagpo-post lang. Una sa pila ang mga app ng mga subscriber, na may markang featured.
+
+PARA KANINO ITO
+
+Para sa indie developer at maliliit na studio na may bagong Google Play Console account at kailangan ng tester para sa closed testing, beta tester para sa unang release, o paraan para manatiling aktibo ang 12 testers sa buong 14 na araw. Makakatulong din ito kung nagpatakbo ka na ng closed test at ni-reject ng Google ang production access mo: magsimula ulit sa mga tester na nagbubukas ng app araw-araw.
+
+LIBRE AT SUBSCRIPTION
+
+Isang app lang sa isang pagkakataon ang puwedeng ilista sa free plan, na sapat na sa karamihan ng mga developer, at may maliit itong ad banner. Inuuna ng subscription ang mga app mo sa pila, walang limit sa listahan, at inaalis nito ang ad; puwede itong i-cancel anumang oras sa Google Play. Laging libre ang pagsali sa test, pag-comment, at pag-browse.
+
+PRIVACY
+
+Hindi ipinapakita kaninuman ang email address mo. Nakikita ng ibang naka-sign in na user ang pangalan at profile picture mo, dahil doon nalalaman ng mga developer kung sino ang sumali sa test nila. Galing sa Google AdMob ang mga ad, at sa Europe ikaw ang pipili kung puwede silang i-personalize. Puwede mong i-delete ang account mo sa app anumang oras.
+
+Gawa ng Android developer na nagsawa nang manghingi ng testers sa mga forum.

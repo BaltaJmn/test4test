@@ -1,0 +1,38 @@
+Potrzebujesz 12 testerów na 14 dni, żeby przejść test zamknięty (closed testing) w Google Play? Test4Test to społeczność testerów, w której deweloperzy Androida testują nawzajem swoje aplikacje i zdobywają dostęp do wersji produkcyjnej (production access).
+
+Google Play wymaga, żeby każdy deweloper z nowym osobistym kontem przeprowadził test zamknięty z co najmniej 12 testerami zapisanymi (opt-in) nieprzerwanie przez 14 dni, zanim będzie można opublikować aplikację. Znalezienie tych testerów to ta część, o której nikt ci nie mówi, a Google odrzuca prośbę o dostęp do wersji produkcyjnej, gdy testerzy tak naprawdę nie korzystają z aplikacji.
+
+Test4Test to "test for test" zrobiony jak należy: dodajesz aplikację, inni deweloperzy dołączają do twojego testu zamkniętego, a ty testujesz ich aplikacje. Prawdziwi ludzie na prawdziwych urządzeniach, a nie farma botów ani arkusz na czacie grupowym.
+
+CO MOŻESZ ZROBIĆ
+
+- Dodaj aplikację wraz z jej grupą Google (Google Group) i linkiem opt-in z Play Console. Tyle wystarczy.
+- Przeglądaj kolejkę aplikacji, które wciąż potrzebują testerów, w kolejności dodania. Wszyscy wspierają te z przodu, więc każda szybciej zbiera 12 testerów.
+- Dołącz do testu zamkniętego w czterech krokach, po kolei: otwórz grupę, otwórz link opt-in, zaznacz, że jesteś w teście, i zainstaluj aplikację z Google Play.
+- Napisz komentarz pod aplikacją: daj znać, że jesteś w teście, zadaj pytanie albo podlinkuj własną aplikację, żeby jej deweloper przetestował twoją w zamian.
+- Zobacz, kto dołączył do twojego testu i czy naprawdę ma zainstalowaną twoją aplikację.
+- Rób codzienny obchód: raz dziennie otwieraj przez Test4Test aplikacje, które testujesz. Google chce testerów, którzy używają aplikacji, nie tylko ją instalują, a właściciel widzi, w ilu z ostatnich 14 dni każdy tester ją otworzył.
+- Dostawaj codzienne przypomnienie, dopóki masz aplikacje do otwarcia, i powiadomienie, gdy do twojej aplikacji dołączy nowy tester. Możesz je wyłączyć.
+- Śledź 14-dniową serię: zaczyna się w dniu, gdy masz 12 testerów, a aplikacja da ci znać, kiedy jest zaliczona.
+
+DOWODY, NIE OBIETNICE
+
+Kliknięcie "jestem w teście" niczego nie dowodzi, dlatego większość wymian testerów się nie udaje. Test4Test sprawdza na telefonie testera, czy twoja aplikacja jest zainstalowana i czy zainstalował ją Google Play, i pokazuje ci to obok jego imienia. Patrzy tylko na aplikacje, do których tester dołączył w Test4Test, nigdy na resztę telefonu.
+
+JAK DZIAŁA KOLEJKA
+
+Aplikacje czekają w kolejności dodania, a te z przodu dostają testerów, aż uzbierają 12; wtedy ustępują miejsca i przesuwa się następna. Deweloperzy, którzy testują cudze aplikacje, wyprzedzają tych, którzy tylko dodają swoje. Aplikacje subskrybentów idą pierwsze i są oznaczone jako wyróżnione.
+
+DLA KOGO
+
+Dla niezależnych deweloperów i małych studiów z nowym kontem Google Play Console, którzy potrzebują testerów do testu zamkniętego, beta-testerów przed pierwszym wydaniem albo sposobu, by utrzymać 12 aktywnych testerów przez całe 14 dni. Przyda się też, gdy test zamknięty masz już za sobą, a Google odrzucił twoją prośbę o dostęp do wersji produkcyjnej: zacznij od nowa z testerami, którzy otwierają aplikację codziennie.
+
+ZA DARMO I SUBSKRYPCJA
+
+Plan bezpłatny pozwala dodać jedną aplikację naraz, co wystarcza większości deweloperów, i pokazuje mały baner reklamowy. Subskrypcja stawia twoje aplikacje na początku kolejki, pozwala dodać ich tyle, ile chcesz, i usuwa reklamy; możesz ją anulować w Google Play, kiedy chcesz. Dołączanie do testów, komentowanie i przeglądanie są zawsze bezpłatne.
+
+PRYWATNOŚĆ
+
+Twój adres e-mail nigdy nie jest nikomu pokazywany. Twoje imię i zdjęcie profilowe widzą inni zalogowani użytkownicy, bo po tym deweloperzy poznają, kto dołączył do ich testu. Reklamy pochodzą z Google AdMob, a w Europie sam wybierasz, czy mogą być spersonalizowane. Konto możesz usunąć w aplikacji, kiedy chcesz.
+
+Stworzone przez dewelopera Androida, który miał dość proszenia o testerów na forach.

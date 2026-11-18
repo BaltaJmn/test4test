@@ -1,0 +1,38 @@
+Heb je 12 testers nodig voor 14 dagen om de gesloten test (closed testing) van Google Play af te ronden? Test4Test is de community van testers waarin Android-ontwikkelaars elkaars apps testen en productietoegang (production access) krijgen.
+
+Google Play vraagt van elk nieuw persoonlijk ontwikkelaarsaccount een gesloten test met minimaal 12 testers die 14 dagen onafgebroken zijn aangemeld (opt-in), voordat je kunt publiceren. Die app-testers vinden is het deel waar niemand je iets over vertelt, en Google wijst de aanvraag voor productietoegang af als testers de app niet echt gebruiken.
+
+Test4Test is "test for test" zoals het hoort: je voegt je app toe, andere ontwikkelaars doen mee aan jouw gesloten test en jij test die van hen. Echte mensen op echte apparaten, geen botfarm en geen spreadsheet in een chatgroep.
+
+WAT JE KUNT DOEN
+
+- Voeg je app toe met de bijbehorende Google-groep (Google Group) en de opt-in-link uit de Play Console. Dat is alles.
+- Bekijk de wachtrij met apps die nog testers nodig hebben, op volgorde van binnenkomst. Iedereen helpt eerst de apps vooraan, zodat elke app sneller 12 testers heeft.
+- Doe in vier stappen mee aan een gesloten test, in deze volgorde: open de groep, open de opt-in-link, markeer jezelf als aangemeld en installeer de app via Google Play.
+- Reageer onder een app om te laten weten dat je erbij bent, een vraag te stellen of naar je eigen app te linken, zodat de ontwikkelaar jouw app ook kan testen.
+- Bekijk wie er aan jouw test meedoet en of ze je app echt hebben geïnstalleerd.
+- Doe je dagelijkse ronde: open de apps die je test eenmaal per dag via Test4Test. Google wil testers die de app gebruiken, niet alleen installeren, en de eigenaar ziet op hoeveel van de laatste 14 dagen elke tester de app heeft geopend.
+- Ontvang een dagelijkse herinnering zolang je nog apps hebt om te openen, en een melding als er een nieuwe tester meedoet aan jouw app. Je kunt ze uitzetten.
+- Volg de reeks van 14 dagen: die begint op de dag dat je 12 testers hebt, en de app meldt wanneer ze klaar is.
+
+BEWIJS, GEEN BELOFTES
+
+Op "Ik ben aangemeld" drukken bewijst niets, en daarom mislukken de meeste pogingen om testers te ruilen. Test4Test controleert op de telefoon van de tester of je app is geïnstalleerd en of Google Play die heeft geïnstalleerd, en laat dat naast hun naam zien. Het kijkt alleen naar de apps waarvoor ze zich in Test4Test hebben aangemeld, nooit naar de rest van hun telefoon.
+
+HOE DE WACHTRIJ WERKT
+
+Apps wachten op volgorde van binnenkomst; de apps vooraan krijgen testers tot ze er 12 hebben, dan gaan ze opzij en schuift de volgende op. Ontwikkelaars die andere apps testen, krijgen voorrang op ontwikkelaars die alleen apps plaatsen. Apps van abonnees staan vooraan en zijn gemarkeerd als uitgelicht.
+
+VOOR WIE
+
+Voor indie-ontwikkelaars en kleine studio's met een nieuw Google Play Console-account die testers nodig hebben voor een gesloten test, bètatesters voor een eerste release of een manier om 12 testers de volle 14 dagen actief te houden. Het helpt ook als je al een gesloten test hebt uitgevoerd en Google je productietoegang heeft afgewezen: begin opnieuw met testers die de app elke dag openen.
+
+GRATIS EN ABONNEMENT
+
+Het gratis plan laat je één app tegelijk toevoegen, genoeg voor de meeste ontwikkelaars, en toont een kleine advertentiebanner. Het abonnement zet je apps vooraan in de wachtrij, laat je zoveel apps toevoegen als je wilt en haalt de advertenties weg; je kunt het altijd opzeggen via Google Play. Meedoen aan tests, reageren en bladeren is altijd gratis.
+
+PRIVACY
+
+Je e-mailadres wordt aan niemand getoond. Je naam en profielfoto zijn zichtbaar voor andere ingelogde gebruikers, omdat ontwikkelaars zo weten wie er aan hun test meedoet. Advertenties komen van Google AdMob en in Europa kies je zelf of ze gepersonaliseerd mogen zijn. Je kunt je account altijd in de app verwijderen.
+
+Gemaakt door een Android-ontwikkelaar die het zat was om op forums om testers te vragen.
