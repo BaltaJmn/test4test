@@ -1,0 +1,152 @@
+<resources>
+    <string name="nav_back">返回</string>
+    <string name="tab_feed">动态</string>
+    <string name="tab_my_apps">我的应用</string>
+    <string name="tab_profile">我的</string>
+    <string name="title_detail">详情</string>
+    <string name="title_new_app">新应用</string>
+    <string name="title_edit_app">编辑应用</string>
+    <string name="title_paywall">应用数量不限</string>
+
+    <string name="login_tagline">帮别人找到测试者，也为你的 Google Play 应用找到测试者。</string>
+    <string name="login_google">使用 Google 继续</string>
+    <string name="login_error">无法登录</string>
+    <string name="login_email_toggle">使用邮箱登录</string>
+    <string name="login_email">邮箱</string>
+    <string name="login_password">密码</string>
+    <string name="login_email_submit">登录</string>
+
+    <string name="feed_error">无法加载动态</string>
+    <string name="feed_empty">还没有其他开发者的应用。请在“我的应用”中添加你的应用。</string>
+    <string name="feed_add_own">你的应用还没有进入队列。添加后，你帮助过的开发者就能回过头来测试它。</string>
+    <string name="feed_intro">加入别人的测试，别人也会加入你的测试。应用按提交先后排队：帮排在前面的应用凑够 12 名测试者。</string>
+
+    <string name="detail_error">无法加载应用</string>
+    <string name="detail_testers_title">已加入的人</string>
+    <string name="detail_testers_empty">还没有人加入。去加入其他测试，你的应用就会在动态中靠前。</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play 商店</string>
+    <string name="detail_opt_in">加入测试链接</string>
+    <string name="detail_join">我已在 Play 上加入</string>
+    <string name="detail_leave">退出测试</string>
+    <string name="detail_delete_app">删除应用</string>
+    <string name="detail_action_error">操作未完成</string>
+    <string name="detail_join_help">请先打开群组，再打开加入测试链接：顺序反了，Play 会显示错误页面。加入后，Test4Test 会在这台手机上检查应用是否从 Play 安装，并告知应用所有者。</string>
+    <string name="detail_not_found">这个应用已不存在。</string>
+
+    <string name="comments_title">评论</string>
+    <string name="comment_placeholder">写下评论</string>
+    <string name="comment_link_app">关联我的一个应用（可选）</string>
+    <string name="comment_send">发送</string>
+    <string name="comment_send_error">发送失败</string>
+    <string name="comments_empty">还没有评论。</string>
+
+    <string name="my_apps_error">无法加载你的应用</string>
+    <string name="my_apps_add">添加应用</string>
+    <string name="my_apps_empty">添加你的应用，开始获得测试者。你需要 Play Console 中的两个链接：它的 Google 群组和加入测试链接。</string>
+
+    <string name="form_name">应用名称</string>
+    <string name="form_groups_url">Google Groups 链接</string>
+    <string name="form_opt_in_url">加入测试链接</string>
+    <string name="form_create">创建应用</string>
+    <string name="form_save">保存更改</string>
+    <string name="form_save_error">保存失败</string>
+
+    <string name="error_name_empty">名称不能为空</string>
+    <string name="error_name_too_long">名称不能超过 100 个字符</string>
+    <string name="error_groups_url">Google Groups 链接的格式应为 https://groups.google.com/g/your-group</string>
+    <string name="error_opt_in_url">加入测试链接的格式应为 https://play.google.com/apps/testing/your.package</string>
+
+    <string name="profile_error">无法加载个人资料</string>
+    <string name="profile_fallback_name">用户</string>
+    <string name="profile_premium">订阅已生效：你的应用排在队列最前，数量不限，无广告</string>
+    <string name="profile_free">免费版：同时只能有 1 个应用，含广告。查看订阅</string>
+    <string name="profile_my_apps">已发布的应用</string>
+    <string name="profile_none_yet">暂无。</string>
+    <string name="profile_testing">正在测试</string>
+    <string name="profile_sign_out">退出登录</string>
+    <string name="profile_ad_privacy">广告隐私</string>
+    <string name="profile_privacy">隐私政策</string>
+
+    <string name="paywall_body">免费版同时只能发布 1 个应用，并显示广告。订阅后，你的应用排在队列最前并标为精选，订阅有效期间可发布任意数量的应用，且没有广告。</string>
+    <string name="paywall_active">你的订阅已生效：你的应用排在队列最前。</string>
+    <string name="paywall_preparing">订阅即将推出。</string>
+    <string name="paywall_no_product">暂时没有可用的商品。</string>
+    <string name="paywall_price_error">无法加载价格：%1$s</string>
+    <string name="paywall_subscribe">订阅</string>
+    <string name="paywall_subscribe_price">以 %1$s 订阅</string>
+    <string name="paywall_restore">恢复购买</string>
+    <string name="paywall_no_purchase">没有找到有效的购买记录。</string>
+    <string name="paywall_pending">订阅已登记，但权限尚未生效。请一分钟后再回来。</string>
+    <string name="paywall_purchase_error">订阅未完成</string>
+
+    <string name="confirm_title">确认</string>
+    <string name="action_delete">删除</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_edit">编辑</string>
+    <string name="action_report">举报</string>
+    <string name="action_reported">已举报</string>
+    <string name="confirm_delete_app_comments">删除“%1$s”及其所有评论？</string>
+    <string name="confirm_delete_app_content">删除“%1$s”及其所有内容？</string>
+    <string name="confirm_delete_my_app">删除“%1$s”？它的测试者和评论也会一并删除。</string>
+    <string name="confirm_delete_comment">删除这条评论？</string>
+    <string name="delete_error">删除失败</string>
+
+    <string name="follower_help">通过 Test4Test 加入的测试者。</string>
+    <string name="linked_app">%1$s - %2$d 名测试者</string>
+    <string name="testers_days">已连续 %1$d 天，共需 %2$d 天</string>
+    <string name="testers_days_done">已连续完成 %1$d 天。现在可以申请发布正式版了。</string>
+
+    <string name="testers_of">%1$d / %2$d 名测试者</string>
+    <string name="my_apps_rank">你的应用排在帮别人测试的开发者之后。你正在测试 %2$d 个中的 %1$d 个。</string>
+
+    <string name="detail_install">从 Google Play 安装</string>
+    <string name="detail_installed">已从 Google Play 安装。所有者能看到你确实装了它。请保留 14 天。</string>
+    <string name="detail_not_installed">这台手机还没有安装。Play 只统计安装了应用的测试者。</string>
+    <string name="detail_verified">%1$d 人已安装应用</string>
+    <string name="tester_installed">已安装应用</string>
+    <string name="tester_stale">已有几天没检测到安装</string>
+    <string name="tester_unverified">尚未确认安装</string>
+    <string name="confirm_leave">退出“%1$s”的测试？如果你是它的 12 名测试者之一，它的 14 天连续记录将重新开始。</string>
+    <string name="feed_testing">测试中</string>
+    <string name="my_apps_add_locked">再添加一个应用（订阅）</string>
+    <string name="form_groups_hint">Play Console，封闭式测试，测试者：你在那里添加的 Google 群组。</string>
+    <string name="form_opt_in_hint">同一页面，通过网页加入：https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">在 Google Play 中管理订阅</string>
+    <string name="profile_delete_account">删除账号</string>
+    <string name="confirm_delete_account">删除你的账号、应用、测试和评论？此操作无法撤销。有效订阅不会在这里取消：请到 Google Play 取消。</string>
+    <string name="paywall_terms">订阅会自动续订，直到你取消。可随时在 Google Play 的“付款和订阅”中取消。取消后，你的应用仍会保留并回到队列中原来的位置，只是不能再添加超过一个应用。</string>
+    <string name="price_per_week">%1$s/周</string>
+    <string name="price_per_month">%1$s/月</string>
+    <string name="price_per_year">%1$s/年</string>
+
+    <plurals name="testing_count">
+        <item quantity="other">正在测试 %1$d 个应用</item>
+    </plurals>
+    <string name="round_title">今日任务</string>
+    <string name="round_help">Google 会拒绝测试者不使用的应用。你测试的每个应用每天打开一次：所有者看得到。</string>
+    <string name="round_progress">今天已打开 %1$d / %2$d</string>
+    <string name="round_done">今日任务完成，明天见。</string>
+    <string name="round_open">打开</string>
+    <string name="round_opened">今天已打开</string>
+    <string name="round_install">安装</string>
+    <string name="reminder_on">每日提醒：开启</string>
+    <string name="reminder_off">每日提醒已开启。关闭</string>
+    <string name="tester_never_opened">从未通过 Test4Test 打开</string>
+    <plurals name="tester_open_days">
+        <item quantity="other">最近 14 天中有 %1$d 天打开过</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="other">打开你正在测试的 %1$d 个应用：它们的所有者需要 14 天的真实使用。</item>
+    </plurals>
+    <string name="queue_featured">精选</string>
+    <string name="queue_position">队列第 %1$d 位</string>
+    <string name="my_apps_jump">订阅用户的应用排在队列最前。</string>
+    <string name="my_apps_jump_action">插队到前面</string>
+    <string name="nudge_title">有应用在等测试者</string>
+    <plurals name="nudge_text">
+        <item quantity="other">有 %1$d 个应用需要测试者。加入一个吧：帮别人测试的开发者排在队列前面。</item>
+    </plurals>
+    <string name="joined_title">%1$s 有新测试者了</string>
+    <string name="joined_text">已有 %1$d / 12 名测试者。多测试其他应用，保持领先排位。</string>
+</resources>

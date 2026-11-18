@@ -1,0 +1,172 @@
+<resources>
+    <string name="nav_back">رجوع</string>
+    <string name="tab_feed">الخلاصة</string>
+    <string name="tab_my_apps">تطبيقاتي</string>
+    <string name="tab_profile">حسابي</string>
+    <string name="title_detail">التفاصيل</string>
+    <string name="title_new_app">تطبيق جديد</string>
+    <string name="title_edit_app">تعديل التطبيق</string>
+    <string name="title_paywall">تطبيقات بلا حدود</string>
+
+    <string name="login_tagline">احصل على مختبرين لتطبيقك على Google Play بمساعدة غيرك في الحصول على مختبريه.</string>
+    <string name="login_google">المتابعة عبر Google</string>
+    <string name="login_error">تعذّر تسجيل الدخول</string>
+    <string name="login_email_toggle">الدخول بالبريد الإلكتروني</string>
+    <string name="login_email">البريد الإلكتروني</string>
+    <string name="login_password">كلمة المرور</string>
+    <string name="login_email_submit">دخول</string>
+
+    <string name="feed_error">تعذّر تحميل الخلاصة</string>
+    <string name="feed_empty">لا توجد تطبيقات من مطورين آخرين بعد. أضف تطبيقك من تطبيقاتي.</string>
+    <string name="feed_add_own">تطبيقك ليس في الطابور بعد. أضفه ليتمكن المطورون الذين ساعدتهم من تجربته.</string>
+    <string name="feed_intro">انضم إلى اختبارات المطورين الآخرين وسينضمون إلى اختبارك. التطبيقات تنتظر في الطابور حسب وقت الإضافة: ساعد الأوائل على بلوغ 12 مختبرًا.</string>
+
+    <string name="detail_error">تعذّر تحميل التطبيق</string>
+    <string name="detail_testers_title">من انضم</string>
+    <string name="detail_testers_empty">لا أحد بعد. انضم إلى اختبارات أخرى ليرتفع اختبارك في الخلاصة.</string>
+    <string name="detail_groups">مجموعات Google</string>
+    <string name="detail_play">متجر Play</string>
+    <string name="detail_opt_in">رابط الانضمام</string>
+    <string name="detail_join">انضممت في Play</string>
+    <string name="detail_leave">مغادرة الاختبار</string>
+    <string name="detail_delete_app">حذف التطبيق</string>
+    <string name="detail_action_error">تعذّر الإكمال</string>
+    <string name="detail_join_help">افتح المجموعة أولًا ثم رابط الانضمام: إن فعلت العكس تعرض Play صفحة خطأ. بعد انضمامك يتحقق Test4Test على هذا الهاتف من أن التطبيق مثبّت من Play ويعرض ذلك لصاحبه.</string>
+    <string name="detail_not_found">هذا التطبيق لم يعد موجودًا.</string>
+
+    <string name="comments_title">التعليقات</string>
+    <string name="comment_placeholder">اكتب تعليقًا</string>
+    <string name="comment_link_app">اربط أحد تطبيقاتي (اختياري)</string>
+    <string name="comment_send">إرسال</string>
+    <string name="comment_send_error">تعذّر الإرسال</string>
+    <string name="comments_empty">لا توجد تعليقات بعد.</string>
+
+    <string name="my_apps_error">تعذّر تحميل تطبيقاتك</string>
+    <string name="my_apps_add">إضافة تطبيق</string>
+    <string name="my_apps_empty">أضف تطبيقك لتبدأ باستقبال المختبرين. تحتاج إلى رابطين من Play Console: مجموعة Google الخاصة به ورابط الانضمام.</string>
+
+    <string name="form_name">اسم التطبيق</string>
+    <string name="form_groups_url">رابط مجموعات Google</string>
+    <string name="form_opt_in_url">رابط الانضمام</string>
+    <string name="form_create">إنشاء التطبيق</string>
+    <string name="form_save">حفظ التغييرات</string>
+    <string name="form_save_error">تعذّر الحفظ</string>
+
+    <string name="error_name_empty">لا يمكن ترك الاسم فارغًا</string>
+    <string name="error_name_too_long">لا يمكن أن يتجاوز الاسم 100 حرف</string>
+    <string name="error_groups_url">يجب أن يشبه رابط مجموعات Google الصيغة https://groups.google.com/g/your-group</string>
+    <string name="error_opt_in_url">يجب أن يشبه رابط الانضمام الصيغة https://play.google.com/apps/testing/your.package</string>
+
+    <string name="profile_error">تعذّر تحميل الحساب</string>
+    <string name="profile_fallback_name">مستخدم</string>
+    <string name="profile_premium">الاشتراك مفعّل: تطبيقاتك أولًا في الطابور، بلا حد وبلا إعلانات</string>
+    <string name="profile_free">الخطة المجانية: تطبيق واحد في كل مرة، مع إعلانات. عرض الاشتراك</string>
+    <string name="profile_my_apps">التطبيقات المنشورة</string>
+    <string name="profile_none_yet">لا شيء بعد.</string>
+    <string name="profile_testing">قيد الاختبار</string>
+    <string name="profile_sign_out">تسجيل الخروج</string>
+    <string name="profile_ad_privacy">خصوصية الإعلانات</string>
+    <string name="profile_privacy">سياسة الخصوصية</string>
+
+    <string name="paywall_body">الخطة المجانية تتيح تطبيقًا واحدًا في كل مرة وتعرض إعلانات. مع الاشتراك تأتي تطبيقاتك أولًا في الطابور وبعلامة مميّزة، وتنشر منها ما تشاء بلا إعلانات ما دام الاشتراك مفعّلًا.</string>
+    <string name="paywall_active">اشتراكك مفعّل: تطبيقاتك أولًا في الطابور.</string>
+    <string name="paywall_preparing">الاشتراكات قريبًا.</string>
+    <string name="paywall_no_product">لا يوجد أي منتج متاح بعد.</string>
+    <string name="paywall_price_error">تعذّر تحميل السعر: %1$s</string>
+    <string name="paywall_subscribe">اشترك</string>
+    <string name="paywall_subscribe_price">اشترك بـ %1$s</string>
+    <string name="paywall_restore">استعادة المشتريات</string>
+    <string name="paywall_no_purchase">لم نعثر على أي عملية شراء فعّالة.</string>
+    <string name="paywall_pending">تم تسجيل الاشتراك لكن الوصول لم يُفعَّل بعد. عد بعد دقيقة.</string>
+    <string name="paywall_purchase_error">تعذّر إكمال الاشتراك</string>
+
+    <string name="confirm_title">تأكيد</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_edit">تعديل</string>
+    <string name="action_report">إبلاغ</string>
+    <string name="action_reported">تم الإبلاغ</string>
+    <string name="confirm_delete_app_comments">هل تريد حذف \"%1$s\" وجميع تعليقاته؟</string>
+    <string name="confirm_delete_app_content">هل تريد حذف \"%1$s\" وكل محتواه؟</string>
+    <string name="confirm_delete_my_app">هل تريد حذف \"%1$s\"؟ سيُحذف معه مختبروه وتعليقاته.</string>
+    <string name="confirm_delete_comment">هل تريد حذف هذا التعليق؟</string>
+    <string name="delete_error">تعذّر الحذف</string>
+
+    <string name="follower_help">أشخاص انضموا كمختبرين عبر Test4Test.</string>
+    <string name="linked_app">%1$s - المختبرون: %2$d</string>
+    <string name="testers_days">اليوم %1$d من %2$d على التوالي</string>
+    <string name="testers_days_done">أكملت %1$d من الأيام المتتالية. يمكنك الآن طلب الإنتاج.</string>
+
+    <string name="testers_of">المختبرون: %1$d من %2$d</string>
+    <string name="my_apps_rank">تأتي تطبيقاتك بعد المطورين الذين يختبرون تطبيقات غيرهم. أنت تختبر %1$d من %2$d.</string>
+
+    <string name="detail_install">التثبيت من Google Play</string>
+    <string name="detail_installed">مثبّت من Google Play. يرى صاحبه أنك تملكه فعلًا. أبقِه 14 يومًا.</string>
+    <string name="detail_not_installed">غير مثبّت على هذا الهاتف بعد. Play لا تحتسب إلا المختبرين الذين يثبّتون التطبيق.</string>
+    <string name="detail_verified">%1$d منهم ثبّتوا التطبيق</string>
+    <string name="tester_installed">التطبيق مثبّت لديه</string>
+    <string name="tester_stale">لم يظهر مثبّتًا منذ أيام</string>
+    <string name="tester_unverified">التثبيت غير مؤكد</string>
+    <string name="confirm_leave">هل تريد مغادرة اختبار \"%1$s\"؟ إن كنت أحد مختبريه الـ12 فستبدأ سلسلة الأيام الـ14 من جديد.</string>
+    <string name="feed_testing">تختبره الآن</string>
+    <string name="my_apps_add_locked">إضافة تطبيق آخر (اشتراك)</string>
+    <string name="form_groups_hint">Play Console، الاختبار المغلق، المختبرون: مجموعة Google التي أضفتها هناك.</string>
+    <string name="form_opt_in_hint">في الصفحة نفسها، الانضمام عبر الويب: https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">إدارة الاشتراك في Google Play</string>
+    <string name="profile_delete_account">حذف الحساب</string>
+    <string name="confirm_delete_account">هل تريد حذف حسابك وتطبيقاتك واختباراتك وتعليقاتك؟ لا يمكن التراجع عن ذلك. الاشتراك المفعّل لا يُلغى من هنا: ألغِه في Google Play.</string>
+    <string name="paywall_terms">يتجدد تلقائيًا حتى تلغيه. يمكنك الإلغاء في أي وقت من Google Play، المدفوعات والاشتراكات. إن ألغيت تبقى تطبيقاتك منشورة وتعود إلى مكانها في الطابور؛ ولا تستطيع إضافة أكثر من تطبيق واحد.</string>
+    <string name="price_per_week">%1$s/أسبوع</string>
+    <string name="price_per_month">%1$s/شهر</string>
+    <string name="price_per_year">%1$s/سنة</string>
+
+    <plurals name="testing_count">
+        <item quantity="zero">لا تختبر أي تطبيق</item>
+        <item quantity="one">تختبر تطبيقًا واحدًا</item>
+        <item quantity="two">تختبر تطبيقين</item>
+        <item quantity="few">تختبر %1$d تطبيقات</item>
+        <item quantity="many">تختبر %1$d تطبيقًا</item>
+        <item quantity="other">تختبر %1$d تطبيق</item>
+    </plurals>
+    <string name="round_title">جولتك اليوم</string>
+    <string name="round_help">ترفض Google التطبيقات التي لا يستخدمها مختبروها. افتح كل تطبيق تختبره مرة في اليوم: يراه صاحبه.</string>
+    <string name="round_progress">فُتح %1$d من %2$d اليوم</string>
+    <string name="round_done">انتهت الجولة. إلى اللقاء غدًا.</string>
+    <string name="round_open">فتح</string>
+    <string name="round_opened">فُتح اليوم</string>
+    <string name="round_install">تثبيت</string>
+    <string name="reminder_on">التذكير اليومي: تفعيل</string>
+    <string name="reminder_off">التذكير اليومي مفعّل. إيقاف</string>
+    <string name="tester_never_opened">لم يُفتح من Test4Test قط</string>
+    <plurals name="tester_open_days">
+        <item quantity="zero">لم يُفتح في أي يوم من آخر 14 يومًا</item>
+        <item quantity="one">فُتح في يوم واحد من آخر 14 يومًا</item>
+        <item quantity="two">فُتح في يومين من آخر 14 يومًا</item>
+        <item quantity="few">فُتح في %1$d أيام من آخر 14 يومًا</item>
+        <item quantity="many">فُتح في %1$d يومًا من آخر 14 يومًا</item>
+        <item quantity="other">فُتح في %1$d يوم من آخر 14 يومًا</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="zero">افتح التطبيقات التي تختبرها ليحتسب أصحابها 14 يومًا.</item>
+        <item quantity="one">افتح التطبيق الذي تختبره ليحتسب صاحبه 14 يومًا.</item>
+        <item quantity="two">افتح التطبيقين اللذين تختبرهما ليحتسب أصحابهما 14 يومًا.</item>
+        <item quantity="few">افتح التطبيقات الـ%1$d التي تختبرها ليحتسب أصحابها 14 يومًا.</item>
+        <item quantity="many">افتح التطبيقات الـ%1$d التي تختبرها ليحتسب أصحابها 14 يومًا.</item>
+        <item quantity="other">افتح التطبيقات الـ%1$d التي تختبرها ليحتسب أصحابها 14 يومًا.</item>
+    </plurals>
+    <string name="queue_featured">مميّز</string>
+    <string name="queue_position">رقم %1$d في الطابور</string>
+    <string name="my_apps_jump">تطبيقات المشتركين تأتي أولًا في الطابور.</string>
+    <string name="my_apps_jump_action">تقدّم</string>
+    <string name="nudge_title">تطبيقات تنتظر مختبرين</string>
+    <plurals name="nudge_text">
+        <item quantity="zero">لا توجد تطبيقات تحتاج إلى مختبرين.</item>
+        <item quantity="one">تطبيق واحد يحتاج إلى مختبرين. انضم إليه: من يختبر تطبيقات غيره يتقدم في الطابور.</item>
+        <item quantity="two">تطبيقان يحتاجان إلى مختبرين. انضم إلى أحدهما: من يختبر تطبيقات غيره يتقدم في الطابور.</item>
+        <item quantity="few">%1$d تطبيقات تحتاج إلى مختبرين. انضم إلى أحدها: من يختبر تطبيقات غيره يتقدم في الطابور.</item>
+        <item quantity="many">%1$d تطبيقًا تحتاج إلى مختبرين. انضم إلى أحدها: من يختبر تطبيقات غيره يتقدم في الطابور.</item>
+        <item quantity="other">%1$d تطبيق تحتاج إلى مختبرين. انضم إلى أحدها: من يختبر تطبيقات غيره يتقدم في الطابور.</item>
+    </plurals>
+    <string name="joined_title">مختبر جديد في %1$s</string>
+    <string name="joined_text">%1$d من 12 مختبرًا. اختبر تطبيقات أخرى لتبقى في المقدمة.</string>
+</resources>
