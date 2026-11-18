@@ -8,7 +8,7 @@
     <string name="title_edit_app">编辑应用</string>
     <string name="title_paywall">应用数量不限</string>
 
-    <string name="login_tagline">帮别人找到测试者，也为你的 Google Play 应用找到测试者。</string>
+    <string name="login_tagline">通过帮别人找到测试者，为你的 Google Play 应用也找到测试者。</string>
     <string name="login_google">使用 Google 继续</string>
     <string name="login_error">无法登录</string>
     <string name="login_email_toggle">使用邮箱登录</string>
@@ -94,7 +94,7 @@
 
     <string name="follower_help">通过 Test4Test 加入的测试者。</string>
     <string name="linked_app">%1$s - %2$d 名测试者</string>
-    <string name="testers_days">已连续 %1$d 天，共需 %2$d 天</string>
+    <string name="testers_days">连续第 %1$d 天，共 %2$d 天</string>
     <string name="testers_days_done">已连续完成 %1$d 天。现在可以申请发布正式版了。</string>
 
     <string name="testers_of">%1$d / %2$d 名测试者</string>
@@ -142,7 +142,7 @@
     <string name="queue_featured">精选</string>
     <string name="queue_position">队列第 %1$d 位</string>
     <string name="my_apps_jump">订阅用户的应用排在队列最前。</string>
-    <string name="my_apps_jump_action">插队到前面</string>
+    <string name="my_apps_jump_action">提升排名</string>
     <string name="nudge_title">有应用在等测试者</string>
     <plurals name="nudge_text">
         <item quantity="other">有 %1$d 个应用需要测试者。加入一个吧：帮别人测试的开发者排在队列前面。</item>

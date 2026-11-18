@@ -101,7 +101,7 @@
     <string name="my_apps_rank">Uygulamaların, başkalarını test eden geliştiricilerin gerisinde kalır. %2$d uygulamadan %1$d tanesini test ediyorsun.</string>
 
     <string name="detail_install">Google Play’den yükle</string>
-    <string name="detail_installed">Google Play’den yüklendi. Sahibi, uygulamaya gerçekten sahip olduğunu görür. 14 gün boyunca tut.</string>
+    <string name="detail_installed">Google Play’den yüklendi. Sahibi, uygulamaya gerçekten sahip olduğunu görür. 14 gün boyunca yüklü tut.</string>
     <string name="detail_not_installed">Bu telefonda henüz yüklü değil. Play yalnızca uygulamayı yükleyen test kullanıcılarını sayar.</string>
     <string name="detail_verified">%1$d kişide uygulama yüklü</string>
     <string name="tester_installed">Uygulama yüklü</string>

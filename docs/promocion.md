@@ -90,7 +90,7 @@ ficha publicada de Play. Cola gratis (la prioritaria, 5 $, la decide el usuario)
 - Plataformas: Android
 - Licencia y precio: Freemium; subscription $2/month (US$1.89, AlternativeTo solo admite dolares enteros)
 - Etiquetas: beta testing, app testing, android development, community
-- Idiomas de la app: English, Spanish, Portuguese, Hindi, Indonesian
+- Idiomas de la app: English, Spanish, Portuguese, Hindi, Indonesian, Arabic, French, Russian, Turkish, Chinese (Simplified)
 - Nota al revisor: I'm the developer.
 - Alternativas que sugerir tras enviar (sin ellas no sale en busquedas): TestFi, Tester Bee
 

@@ -27,7 +27,7 @@
     <string name="detail_groups">Google Groups</string>
     <string name="detail_play">Play Store</string>
     <string name="detail_opt_in">Lien d’inscription</string>
-    <string name="detail_join">Je me suis inscrit sur Play</string>
+    <string name="detail_join">J’ai rejoint le test sur Play</string>
     <string name="detail_leave">Quitter le test</string>
     <string name="detail_delete_app">Supprimer l’app</string>
     <string name="detail_action_error">Action impossible</string>

@@ -95,7 +95,7 @@
     <string name="follower_help">أشخاص انضموا كمختبرين عبر Test4Test.</string>
     <string name="linked_app">%1$s - المختبرون: %2$d</string>
     <string name="testers_days">اليوم %1$d من %2$d على التوالي</string>
-    <string name="testers_days_done">أكملت %1$d من الأيام المتتالية. يمكنك الآن طلب الإنتاج.</string>
+    <string name="testers_days_done">الأيام المتتالية المكتملة: %1$d. يمكنك الآن طلب الإنتاج.</string>
 
     <string name="testers_of">المختبرون: %1$d من %2$d</string>
     <string name="my_apps_rank">تأتي تطبيقاتك بعد المطورين الذين يختبرون تطبيقات غيرهم. أنت تختبر %1$d من %2$d.</string>
