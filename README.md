@@ -100,11 +100,13 @@ a policy, grant or view.
 
 ### Translations
 
-`shared/src/commonMain/composeResources` carries six locale folders: `values`
-(English, the default), `values-es`, `values-pt-rBR`, `values-hi`, `values-id`
-and `values-in`. The last two are byte-identical on purpose: `in` is the old
-ISO code for Indonesian and Android still resolves it on older devices. Any
-string added to one has to be added to all six or the build fails.
+`shared/src/commonMain/composeResources` carries eleven locale folders: `values`
+(English, the default), `values-es`, `values-pt-rBR`, `values-hi`, `values-id`,
+`values-in`, `values-ar`, `values-fr`, `values-ru`, `values-tr` and `values-zh`
+(Simplified Chinese). `values-id` and `values-in` are byte-identical on purpose:
+`in` is the old ISO code for Indonesian and Android still resolves it on older
+devices. Arabic is right to left and the app mirrors. Any string added to one
+folder has to be added to all of them or the build fails.
 
 ### Running the apps
 

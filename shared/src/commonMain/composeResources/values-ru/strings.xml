@@ -1,0 +1,164 @@
+<resources>
+    <string name="nav_back">Назад</string>
+    <string name="tab_feed">Лента</string>
+    <string name="tab_my_apps">Мои приложения</string>
+    <string name="tab_profile">Профиль</string>
+    <string name="title_detail">Подробности</string>
+    <string name="title_new_app">Новое приложение</string>
+    <string name="title_edit_app">Правка приложения</string>
+    <string name="title_paywall">Без лимита приложений</string>
+
+    <string name="login_tagline">Найди тестеров для своего приложения в Google Play, помогая другим найти своих.</string>
+    <string name="login_google">Продолжить через Google</string>
+    <string name="login_error">Не удалось войти</string>
+    <string name="login_email_toggle">Войти по почте</string>
+    <string name="login_email">Почта</string>
+    <string name="login_password">Пароль</string>
+    <string name="login_email_submit">Войти</string>
+
+    <string name="feed_error">Не удалось загрузить ленту</string>
+    <string name="feed_empty">Приложений других разработчиков пока нет. Добавь своё во вкладке «Мои приложения».</string>
+    <string name="feed_add_own">Твоего приложения ещё нет в очереди. Добавь его, чтобы разработчики, которым ты помог, могли протестировать его в ответ.</string>
+    <string name="feed_intro">Вступай в тесты других, и они вступят в твой. Приложения стоят в очереди по порядку добавления: помоги первым набрать 12 тестеров.</string>
+
+    <string name="detail_error">Не удалось загрузить приложение</string>
+    <string name="detail_testers_title">Кто вступил</string>
+    <string name="detail_testers_empty">Пока никого. Вступай в другие тесты, и твой поднимется в ленте.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Маркет</string>
+    <string name="detail_opt_in">Ссылка для участия</string>
+    <string name="detail_join">Участвую в тесте в Play</string>
+    <string name="detail_leave">Выйти из теста</string>
+    <string name="detail_delete_app">Удалить приложение</string>
+    <string name="detail_action_error">Не удалось выполнить</string>
+    <string name="detail_join_help">Сначала открой группу, потом ссылку для участия: в обратном порядке Play покажет страницу с ошибкой. После вступления Test4Test проверит на этом телефоне, что приложение установлено из Play, и покажет это владельцу.</string>
+    <string name="detail_not_found">Этого приложения больше нет.</string>
+
+    <string name="comments_title">Комментарии</string>
+    <string name="comment_placeholder">Напиши комментарий</string>
+    <string name="comment_link_app">Привязать моё приложение (необязательно)</string>
+    <string name="comment_send">Отправить</string>
+    <string name="comment_send_error">Не удалось отправить</string>
+    <string name="comments_empty">Комментариев пока нет.</string>
+
+    <string name="my_apps_error">Не удалось загрузить твои приложения</string>
+    <string name="my_apps_add">Добавить приложение</string>
+    <string name="my_apps_empty">Добавь приложение, чтобы получать тестеров. Нужны две ссылки из Play Console: Google-группа приложения и ссылка для участия.</string>
+
+    <string name="form_name">Название приложения</string>
+    <string name="form_groups_url">Ссылка на Google Groups</string>
+    <string name="form_opt_in_url">Ссылка для участия</string>
+    <string name="form_create">Создать приложение</string>
+    <string name="form_save">Сохранить</string>
+    <string name="form_save_error">Не удалось сохранить</string>
+
+    <string name="error_name_empty">Название не может быть пустым</string>
+    <string name="error_name_too_long">Название не может быть длиннее 100 символов</string>
+    <string name="error_groups_url">Ссылка на Google Groups должна выглядеть так: https://groups.google.com/g/your-group</string>
+    <string name="error_opt_in_url">Ссылка для участия должна выглядеть так: https://play.google.com/apps/testing/your.package</string>
+
+    <string name="profile_error">Не удалось загрузить профиль</string>
+    <string name="profile_fallback_name">Пользователь</string>
+    <string name="profile_premium">Подписка активна: твои приложения первыми в очереди, без лимита и без рекламы</string>
+    <string name="profile_free">Бесплатный план: 1 приложение за раз, с рекламой. Посмотреть подписку</string>
+    <string name="profile_my_apps">Опубликованные приложения</string>
+    <string name="profile_none_yet">Пока ни одного.</string>
+    <string name="profile_testing">Тестирую</string>
+    <string name="profile_sign_out">Выйти</string>
+    <string name="profile_ad_privacy">Конфиденциальность рекламы</string>
+    <string name="profile_privacy">Политика конфиденциальности</string>
+
+    <string name="paywall_body">Бесплатный план позволяет вести 1 приложение за раз и показывает рекламу. С подпиской твои приложения идут первыми в очереди и отмечены как рекомендуемые, а публиковать их можно сколько угодно и без рекламы, пока подписка активна.</string>
+    <string name="paywall_active">Подписка активна: твои приложения идут первыми в очереди.</string>
+    <string name="paywall_preparing">Подписка скоро появится.</string>
+    <string name="paywall_no_product">Пока нет доступных товаров.</string>
+    <string name="paywall_price_error">Не удалось загрузить цену: %1$s</string>
+    <string name="paywall_subscribe">Подписаться</string>
+    <string name="paywall_subscribe_price">Подписаться за %1$s</string>
+    <string name="paywall_restore">Восстановить покупки</string>
+    <string name="paywall_no_purchase">Активных покупок не найдено.</string>
+    <string name="paywall_pending">Подписка оформлена, но доступ ещё не включён. Загляни через минуту.</string>
+    <string name="paywall_purchase_error">Не удалось оформить подписку</string>
+
+    <string name="confirm_title">Подтверждение</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="action_edit">Изменить</string>
+    <string name="action_report">Пожаловаться</string>
+    <string name="action_reported">Жалоба отправлена</string>
+    <string name="confirm_delete_app_comments">Удалить «%1$s» и все комментарии к нему?</string>
+    <string name="confirm_delete_app_content">Удалить «%1$s» и всё его содержимое?</string>
+    <string name="confirm_delete_my_app">Удалить «%1$s»? Вместе с ним уйдут тестеры и комментарии.</string>
+    <string name="confirm_delete_comment">Удалить этот комментарий?</string>
+    <string name="delete_error">Не удалось удалить</string>
+
+    <string name="follower_help">Люди, которые вступили тестерами через Test4Test.</string>
+    <string name="linked_app">%1$s - тестеров: %2$d</string>
+    <string name="testers_days">День %1$d из %2$d подряд</string>
+    <string name="testers_days_done">Выполнено дней подряд: %1$d. Можно подавать заявку на публикацию.</string>
+
+    <string name="testers_of">Тестеров: %1$d из %2$d</string>
+    <string name="my_apps_rank">Твои приложения идут после приложений тех, кто тестирует чужие. Ты тестируешь %1$d из %2$d.</string>
+
+    <string name="detail_install">Установить из Google Play</string>
+    <string name="detail_installed">Установлено из Google Play. Владелец видит, что оно у тебя действительно есть. Держи его 14 дней.</string>
+    <string name="detail_not_installed">На этом телефоне ещё не установлено. Play учитывает только тестеров, которые установили приложение.</string>
+    <string name="detail_verified">С установленным приложением: %1$d</string>
+    <string name="tester_installed">Приложение установлено</string>
+    <string name="tester_stale">Уже несколько дней не видно установленным</string>
+    <string name="tester_unverified">Установка не подтверждена</string>
+    <string name="confirm_leave">Выйти из теста «%1$s»? Если ты был одним из его 12 тестеров, серия из 14 дней начнётся заново.</string>
+    <string name="feed_testing">Ты тестируешь</string>
+    <string name="my_apps_add_locked">Добавить ещё приложение (подписка)</string>
+    <string name="form_groups_hint">Play Console, Закрытое тестирование, Тестеры: добавленная там Google-группа.</string>
+    <string name="form_opt_in_hint">На той же странице, Участвовать через интернет: https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">Управлять подпиской в Google Play</string>
+    <string name="profile_delete_account">Удалить аккаунт</string>
+    <string name="confirm_delete_account">Удалить аккаунт, приложения, тесты и комментарии? Это нельзя отменить. Активная подписка здесь не отменяется: отмени её в Google Play.</string>
+    <string name="paywall_terms">Продлевается автоматически, пока ты не отменишь. Отменить можно в любой момент в Google Play, в разделе «Платежи и подписки». После отмены приложения остаются опубликованными и возвращаются на своё место в очереди; просто нельзя добавить больше одного.</string>
+    <string name="price_per_week">%1$s/нед.</string>
+    <string name="price_per_month">%1$s/мес.</string>
+    <string name="price_per_year">%1$s/год</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Тестируешь %1$d приложение</item>
+        <item quantity="few">Тестируешь %1$d приложения</item>
+        <item quantity="many">Тестируешь %1$d приложений</item>
+        <item quantity="other">Тестируешь %1$d приложения</item>
+    </plurals>
+    <string name="round_title">Твой обход на сегодня</string>
+    <string name="round_help">Google отклоняет приложения, которыми тестеры не пользуются. Открывай каждое тестируемое приложение раз в день: владелец это видит.</string>
+    <string name="round_progress">Открыто сегодня: %1$d из %2$d</string>
+    <string name="round_done">Обход завершён. До завтра.</string>
+    <string name="round_open">Открыть</string>
+    <string name="round_opened">Открыто сегодня</string>
+    <string name="round_install">Установить</string>
+    <string name="reminder_on">Ежедневные напоминания: включить</string>
+    <string name="reminder_off">Ежедневные напоминания включены. Выключить</string>
+    <string name="tester_never_opened">Ни разу не открыто из Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Открывалось за последние 14 дней: %1$d дн.</item>
+        <item quantity="few">Открывалось за последние 14 дней: %1$d дн.</item>
+        <item quantity="many">Открывалось за последние 14 дней: %1$d дн.</item>
+        <item quantity="other">Открывалось за последние 14 дней: %1$d дн.</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Открой %1$d приложение, которое тестируешь: владельцу нужны 14 дней настоящего использования.</item>
+        <item quantity="few">Открой %1$d приложения, которые тестируешь: владельцам нужны 14 дней настоящего использования.</item>
+        <item quantity="many">Открой %1$d приложений, которые тестируешь: владельцам нужны 14 дней настоящего использования.</item>
+        <item quantity="other">Открой %1$d приложения, которые тестируешь: владельцам нужны 14 дней настоящего использования.</item>
+    </plurals>
+    <string name="queue_featured">Рекомендуемое</string>
+    <string name="queue_position">№%1$d в очереди</string>
+    <string name="my_apps_jump">Приложения подписчиков идут первыми в очереди.</string>
+    <string name="my_apps_jump_action">Вперёд</string>
+    <string name="nudge_title">Приложения ждут тестеров</string>
+    <plurals name="nudge_text">
+        <item quantity="one">%1$d приложению нужны тестеры. Вступай: кто тестирует других, идёт впереди в очереди.</item>
+        <item quantity="few">%1$d приложениям нужны тестеры. Вступай в одно из них: кто тестирует других, идёт впереди в очереди.</item>
+        <item quantity="many">%1$d приложениям нужны тестеры. Вступай в одно из них: кто тестирует других, идёт впереди в очереди.</item>
+        <item quantity="other">%1$d приложениям нужны тестеры. Вступай в одно из них: кто тестирует других, идёт впереди в очереди.</item>
+    </plurals>
+    <string name="joined_title">Новый тестер в %1$s</string>
+    <string name="joined_text">Тестеров: %1$d из 12. Тестируй другие приложения, чтобы оставаться впереди в очереди.</string>
+</resources>

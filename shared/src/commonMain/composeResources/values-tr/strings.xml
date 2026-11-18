@@ -1,0 +1,156 @@
+<resources>
+    <string name="nav_back">Geri</string>
+    <string name="tab_feed">Akış</string>
+    <string name="tab_my_apps">Uygulamalarım</string>
+    <string name="tab_profile">Profil</string>
+    <string name="title_detail">Ayrıntılar</string>
+    <string name="title_new_app">Yeni uygulama</string>
+    <string name="title_edit_app">Uygulamayı düzenle</string>
+    <string name="title_paywall">Sınırsız uygulama</string>
+
+    <string name="login_tagline">Başkalarının test kullanıcısı bulmasına yardım ederek Google Play uygulamana test kullanıcıları bul.</string>
+    <string name="login_google">Google ile devam et</string>
+    <string name="login_error">Giriş yapılamadı</string>
+    <string name="login_email_toggle">E-posta ile giriş yap</string>
+    <string name="login_email">E-posta</string>
+    <string name="login_password">Parola</string>
+    <string name="login_email_submit">Giriş yap</string>
+
+    <string name="feed_error">Akış yüklenemedi</string>
+    <string name="feed_empty">Henüz başka geliştiricilerin uygulaması yok. Kendininkini Uygulamalarım bölümünden ekle.</string>
+    <string name="feed_add_own">Uygulaman henüz sırada değil. Yardım ettiğin geliştiriciler de onu test edebilsin diye ekle.</string>
+    <string name="feed_intro">Başkalarının testlerine katıl, onlar da seninkine katılsın. Uygulamalar geliş sırasına göre bekler: ilk sıradakilerin 12 test kullanıcısına ulaşmasına yardım et.</string>
+
+    <string name="detail_error">Uygulama yüklenemedi</string>
+    <string name="detail_testers_title">Katılanlar</string>
+    <string name="detail_testers_empty">Henüz kimse yok. Başka testlere katıl, seninki akışta yukarı çıksın.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Katılım bağlantısı</string>
+    <string name="detail_join">Play’de katıldım</string>
+    <string name="detail_leave">Testten ayrıl</string>
+    <string name="detail_delete_app">Uygulamayı sil</string>
+    <string name="detail_action_error">İşlem tamamlanamadı</string>
+    <string name="detail_join_help">Önce grubu, sonra katılım bağlantısını aç: ters sırada Play bir hata sayfası gösterir. Katıldığında Test4Test, uygulamanın bu telefona Play’den yüklendiğini kontrol eder ve sahibine gösterir.</string>
+    <string name="detail_not_found">Bu uygulama artık yok.</string>
+
+    <string name="comments_title">Yorumlar</string>
+    <string name="comment_placeholder">Yorum yaz</string>
+    <string name="comment_link_app">Uygulamalarımdan birini bağla (isteğe bağlı)</string>
+    <string name="comment_send">Gönder</string>
+    <string name="comment_send_error">Gönderilemedi</string>
+    <string name="comments_empty">Henüz yorum yok.</string>
+
+    <string name="my_apps_error">Uygulamaların yüklenemedi</string>
+    <string name="my_apps_add">Uygulama ekle</string>
+    <string name="my_apps_empty">Test kullanıcısı almaya başlamak için uygulamanı ekle. Play Console’dan iki bağlantı gerekir: Google grubu ve katılım bağlantısı.</string>
+
+    <string name="form_name">Uygulama adı</string>
+    <string name="form_groups_url">Google Groups bağlantısı</string>
+    <string name="form_opt_in_url">Katılım bağlantısı</string>
+    <string name="form_create">Uygulamayı oluştur</string>
+    <string name="form_save">Değişiklikleri kaydet</string>
+    <string name="form_save_error">Kaydedilemedi</string>
+
+    <string name="error_name_empty">Ad boş olamaz</string>
+    <string name="error_name_too_long">Ad 100 karakterden uzun olamaz</string>
+    <string name="error_groups_url">Google Groups bağlantısı şuna benzemeli: https://groups.google.com/g/your-group</string>
+    <string name="error_opt_in_url">Katılım bağlantısı şuna benzemeli: https://play.google.com/apps/testing/your.package</string>
+
+    <string name="profile_error">Profil yüklenemedi</string>
+    <string name="profile_fallback_name">Kullanıcı</string>
+    <string name="profile_premium">Abonelik etkin: uygulamaların sırada önde, sınırsız ve reklamsız</string>
+    <string name="profile_free">Ücretsiz plan: aynı anda 1 uygulama, reklamlı. Aboneliği gör</string>
+    <string name="profile_my_apps">Yayınlanan uygulamalar</string>
+    <string name="profile_none_yet">Henüz yok.</string>
+    <string name="profile_testing">Test ettiklerim</string>
+    <string name="profile_sign_out">Çıkış yap</string>
+    <string name="profile_ad_privacy">Reklam gizliliği</string>
+    <string name="profile_privacy">Gizlilik politikası</string>
+
+    <string name="paywall_body">Ücretsiz planda aynı anda 1 uygulama listelenir ve reklam gösterilir. Abonelikle uygulamaların sırada önce gelir, öne çıkarılır ve abonelik sürdükçe istediğin kadar uygulamayı reklamsız listelersin.</string>
+    <string name="paywall_active">Aboneliğin etkin: uygulamaların sırada önce geliyor.</string>
+    <string name="paywall_preparing">Abonelikler yakında.</string>
+    <string name="paywall_no_product">Henüz kullanılabilir ürün yok.</string>
+    <string name="paywall_price_error">Fiyat yüklenemedi: %1$s</string>
+    <string name="paywall_subscribe">Abone ol</string>
+    <string name="paywall_subscribe_price">%1$s karşılığında abone ol</string>
+    <string name="paywall_restore">Satın alımları geri yükle</string>
+    <string name="paywall_no_purchase">Etkin bir satın alım bulamadık.</string>
+    <string name="paywall_pending">Abonelik kaydedildi ama erişim henüz etkinleşmedi. Bir dakika sonra tekrar gel.</string>
+    <string name="paywall_purchase_error">Abonelik tamamlanamadı</string>
+
+    <string name="confirm_title">Onayla</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_cancel">İptal</string>
+    <string name="action_edit">Düzenle</string>
+    <string name="action_report">Bildir</string>
+    <string name="action_reported">Bildirildi</string>
+    <string name="confirm_delete_app_comments">\"%1$s\" ve tüm yorumları silinsin mi?</string>
+    <string name="confirm_delete_app_content">\"%1$s\" ve tüm içeriği silinsin mi?</string>
+    <string name="confirm_delete_my_app">\"%1$s\" silinsin mi? Test kullanıcıları ve yorumları da gider.</string>
+    <string name="confirm_delete_comment">Bu yorum silinsin mi?</string>
+    <string name="delete_error">Silinemedi</string>
+
+    <string name="follower_help">Test4Test üzerinden test kullanıcısı olarak katılanlar.</string>
+    <string name="linked_app">%1$s - %2$d test kullanıcısı</string>
+    <string name="testers_days">Üst üste %2$d günün %1$d. günü</string>
+    <string name="testers_days_done">Üst üste %1$d gün tamamlandı. Artık üretim için başvurabilirsin.</string>
+
+    <string name="testers_of">%2$d test kullanıcısından %1$d</string>
+    <string name="my_apps_rank">Uygulamaların, başkalarını test eden geliştiricilerin gerisinde kalır. %2$d uygulamadan %1$d tanesini test ediyorsun.</string>
+
+    <string name="detail_install">Google Play’den yükle</string>
+    <string name="detail_installed">Google Play’den yüklendi. Sahibi, uygulamaya gerçekten sahip olduğunu görür. 14 gün boyunca yüklü tut.</string>
+    <string name="detail_not_installed">Bu telefonda henüz yüklü değil. Play yalnızca uygulamayı yükleyen test kullanıcılarını sayar.</string>
+    <string name="detail_verified">%1$d kişide uygulama yüklü</string>
+    <string name="tester_installed">Uygulama yüklü</string>
+    <string name="tester_stale">Günlerdir yüklü görünmüyor</string>
+    <string name="tester_unverified">Yükleme henüz doğrulanmadı</string>
+    <string name="confirm_leave">\"%1$s\" testinden ayrılınsın mı? Test kullanıcılarından biriysen 14 günlük serisi baştan başlar.</string>
+    <string name="feed_testing">Test ediyorsun</string>
+    <string name="my_apps_add_locked">Başka uygulama ekle (abonelik)</string>
+    <string name="form_groups_hint">Play Console, Kapalı test, Test kullanıcıları: orada eklediğin Google grubu.</string>
+    <string name="form_opt_in_hint">Aynı sayfada, Web’de katıl: https://play.google.com/apps/testing/your.package</string>
+    <string name="profile_manage_subscription">Aboneliği Google Play’de yönet</string>
+    <string name="profile_delete_account">Hesabı sil</string>
+    <string name="confirm_delete_account">Hesabın, uygulamaların, testlerin ve yorumların silinsin mi? Bu geri alınamaz. Etkin abonelik burada iptal edilmez: Google Play’den iptal et.</string>
+    <string name="paywall_terms">İptal edene kadar otomatik yenilenir. Google Play, Ödemeler ve abonelikler bölümünden istediğin zaman iptal edebilirsin. İptal edersen uygulamaların listede kalır ve sıradaki yerine döner; yalnızca birden fazla uygulama ekleyemezsin.</string>
+    <string name="price_per_week">%1$s/hafta</string>
+    <string name="price_per_month">%1$s/ay</string>
+    <string name="price_per_year">%1$s/yıl</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">%1$d uygulamayı test ediyorsun</item>
+        <item quantity="other">%1$d uygulamayı test ediyorsun</item>
+    </plurals>
+    <string name="round_title">Bugünkü turun</string>
+    <string name="round_help">Google, test kullanıcılarının kullanmadığı uygulamaları reddeder. Test ettiğin her uygulamayı günde bir kez aç: sahibi bunu görür.</string>
+    <string name="round_progress">Bugün %2$d uygulamadan %1$d tanesi açıldı</string>
+    <string name="round_done">Tur tamam. Yarın görüşürüz.</string>
+    <string name="round_open">Aç</string>
+    <string name="round_opened">Bugün açıldı</string>
+    <string name="round_install">Yükle</string>
+    <string name="reminder_on">Günlük hatırlatma: aç</string>
+    <string name="reminder_off">Günlük hatırlatma açık. Kapat</string>
+    <string name="tester_never_opened">Test4Test üzerinden hiç açılmadı</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Son 14 günün %1$d gününde açıldı</item>
+        <item quantity="other">Son 14 günün %1$d gününde açıldı</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Test ettiğin uygulamayı aç: sahibinin 14 günlük gerçek kullanıma ihtiyacı var.</item>
+        <item quantity="other">Test ettiğin %1$d uygulamayı aç: sahiplerinin 14 günlük gerçek kullanıma ihtiyacı var.</item>
+    </plurals>
+    <string name="queue_featured">Öne çıkan</string>
+    <string name="queue_position">Sıra: %1$d</string>
+    <string name="my_apps_jump">Abone uygulamaları sırada önce gelir.</string>
+    <string name="my_apps_jump_action">Öne geç</string>
+    <string name="nudge_title">Uygulamalar test kullanıcısı bekliyor</string>
+    <plurals name="nudge_text">
+        <item quantity="one">1 uygulamanın test kullanıcısına ihtiyacı var. Katıl: başkalarını test edenler sırada önce gelir.</item>
+        <item quantity="other">%1$d uygulamanın test kullanıcısına ihtiyacı var. Birine katıl: başkalarını test edenler sırada önce gelir.</item>
+    </plurals>
+    <string name="joined_title">%1$s için yeni test kullanıcısı</string>
+    <string name="joined_text">12 test kullanıcısından %1$d. Sırada önde kalmak için başka uygulamaları test et.</string>
+</resources>
