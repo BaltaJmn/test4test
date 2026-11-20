@@ -2,9 +2,13 @@ package com.baltajmn.test4test
 
 import android.content.Context
 import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
-import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -17,6 +21,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import com.revenuecat.purchases.Package
 import com.revenuecat.purchases.models.Period
 import com.revenuecat.purchases.PurchaseParams
@@ -81,6 +86,9 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
 
     Button(
         onClick = {
+            // Esperar no es estar apagado: mientras cargan las ofertas o corre la compra el boton se ve vivo
+            // y un toque no hace nada.
+            if (busy) return@Button
             val pack = offer ?: return@Button
             val host = activity ?: return@Button
             busy = true
@@ -97,11 +105,18 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
                 busy = false
             }
         },
-        enabled = !busy && offer != null && activity != null,
+        // Apagado solo cuando no hay nada que esperar: las ofertas no llegaron y el mensaje dice por que.
+        enabled = (busy || offer != null) && activity != null,
         modifier = Modifier.fillMaxWidth(),
     ) {
         val product = offer?.product
         val price = product?.price?.formatted
+        // La rueda dice "espera" mientras llegan las ofertas o corre la compra; el precio sustituye a
+        // "Suscribirse" en cuanto las ofertas llegan.
+        if (busy) {
+            CircularProgressIndicator(Modifier.size(18.dp), color = LocalContentColor.current, strokeWidth = 2.dp)
+            Spacer(Modifier.width(8.dp))
+        }
         Text(
             if (price == null) stringResource(Res.string.paywall_subscribe)
             else stringResource(Res.string.paywall_subscribe_price, pricePerPeriod(price, product.period))
@@ -130,7 +145,6 @@ actual fun PurchaseSection(uid: String, onPurchased: () -> Unit) {
         Text(stringResource(Res.string.paywall_restore))
     }
 
-    if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())
     ErrorText(message)
 }
 

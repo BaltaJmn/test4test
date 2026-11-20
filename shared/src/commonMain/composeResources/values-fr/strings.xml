@@ -117,6 +117,7 @@
     <string name="profile_delete_account">Supprimer le compte</string>
     <string name="confirm_delete_account">Supprimer ton compte, tes apps, tes tests et tes commentaires ? Cette action est irréversible. Un abonnement actif n’est pas résilié ici : résilie-le dans Google Play.</string>
     <string name="paywall_terms">Se renouvelle automatiquement jusqu’à résiliation. Résiliation possible à tout moment dans Google Play, Paiements et abonnements. Si tu résilies, tes apps restent publiées et retrouvent leur place dans la file ; seule limite : une app à la fois.</string>
+    <string name="paywall_terms_link">Conditions d\'utilisation</string>
     <string name="price_per_week">%1$s/semaine</string>
     <string name="price_per_month">%1$s/mois</string>
     <string name="price_per_year">%1$s/an</string>

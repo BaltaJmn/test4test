@@ -117,6 +117,7 @@
     <string name="profile_delete_account">Удалить аккаунт</string>
     <string name="confirm_delete_account">Удалить аккаунт, приложения, тесты и комментарии? Это нельзя отменить. Активная подписка здесь не отменяется: отмени её в Google Play.</string>
     <string name="paywall_terms">Продлевается автоматически, пока ты не отменишь. Отменить можно в любой момент в Google Play, в разделе «Платежи и подписки». После отмены приложения остаются опубликованными и возвращаются на своё место в очереди; просто нельзя добавить больше одного.</string>
+    <string name="paywall_terms_link">Условия использования</string>
     <string name="price_per_week">%1$s/нед.</string>
     <string name="price_per_month">%1$s/мес.</string>
     <string name="price_per_year">%1$s/год</string>

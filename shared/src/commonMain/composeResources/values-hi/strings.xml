@@ -118,6 +118,7 @@
     <string name="profile_delete_account">खाता हटाएं</string>
     <string name="confirm_delete_account">आपका खाता, आपके ऐप, आपके टेस्ट और आपकी टिप्पणियां हटाएं? इसे वापस नहीं लिया जा सकता। सक्रिय सदस्यता यहां रद्द नहीं होती: उसे Google Play में रद्द करें।</string>
     <string name="paywall_terms">रद्द न करने तक यह अपने-आप नवीनीकृत होती रहती है। कभी भी Google Play में, Payments and subscriptions में जाकर रद्द करें। रद्द करने पर आपके ऐप सूची में बने रहेंगे और कतार में अपनी जगह पर लौट आएंगे; बस एक से ज़्यादा ऐप जोड़ नहीं पाएंगे।</string>
+    <string name="paywall_terms_link">उपयोग की शर्तें</string>
     <string name="price_per_week">%1$s/सप्ताह</string>
     <string name="price_per_month">%1$s/महीना</string>
     <string name="price_per_year">%1$s/वर्ष</string>

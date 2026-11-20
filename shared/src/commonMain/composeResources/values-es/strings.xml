@@ -117,6 +117,7 @@
     <string name="profile_delete_account">Borrar cuenta</string>
     <string name="confirm_delete_account">¿Borrar tu cuenta, tus apps, tus pruebas y tus comentarios? No se puede deshacer. Una suscripción activa no se cancela aquí: cancélala en Google Play.</string>
     <string name="paywall_terms">Se renueva sola hasta que la cancelas. Cancela cuando quieras en Google Play, Pagos y suscripciones. Si cancelas, tus apps siguen publicadas y vuelven a su puesto en la cola; solo dejas de poder añadir más de una.</string>
+    <string name="paywall_terms_link">Condiciones de uso</string>
     <string name="price_per_week">%1$s/semana</string>
     <string name="price_per_month">%1$s/mes</string>
     <string name="price_per_year">%1$s/año</string>

@@ -152,10 +152,12 @@ suspend fun profile(uid: String): Profile? =
 // Supabase (issue #25), asi que tras comprar el cambio tarda unos segundos en
 // aparecer. Se reintenta en vez de darlo por hecho, porque la policy
 // apps_insert_own_within_slots solo deja crear la segunda app cuando la fila ya
-// dice true. Devuelve null si no llega a activarse.
-suspend fun awaitPremium(uid: String, attempts: Int = 6): Profile? {
+// dice true. Se pregunta cada segundo, hasta 10 veces: quien acaba de pagar ve el
+// boton girando todo ese rato, asi que no se le hace esperar de mas. Devuelve null
+// si no llega a activarse.
+suspend fun awaitPremium(uid: String, attempts: Int = 10): Profile? {
     repeat(attempts) { attempt ->
-        if (attempt > 0) delay(2_000)
+        if (attempt > 0) delay(1_000)
         val me = runCatching { profile(uid) }.getOrNull()
         if (me?.isPremium == true) return me
     }

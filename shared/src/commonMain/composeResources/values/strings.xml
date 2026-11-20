@@ -121,6 +121,7 @@
     <string name="profile_delete_account">Delete account</string>
     <string name="confirm_delete_account">Delete your account, your apps, your tests and your comments? This cannot be undone. An active subscription is not cancelled here: cancel it in Google Play.</string>
     <string name="paywall_terms">Renews automatically until you cancel. Cancel anytime in Google Play, Payments and subscriptions. If you cancel, your apps stay listed and go back to their place in line; you just cannot add more than one.</string>
+    <string name="paywall_terms_link">Terms of use</string>
     <string name="price_per_week">%1$s/week</string>
     <string name="price_per_month">%1$s/month</string>
     <string name="price_per_year">%1$s/year</string>

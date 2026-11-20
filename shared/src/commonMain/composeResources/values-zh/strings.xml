@@ -117,6 +117,7 @@
     <string name="profile_delete_account">删除账号</string>
     <string name="confirm_delete_account">删除你的账号、应用、测试和评论？此操作无法撤销。有效订阅不会在这里取消：请到 Google Play 取消。</string>
     <string name="paywall_terms">订阅会自动续订，直到你取消。可随时在 Google Play 的“付款和订阅”中取消。取消后，你的应用仍会保留并回到队列中原来的位置，只是不能再添加超过一个应用。</string>
+    <string name="paywall_terms_link">使用条款</string>
     <string name="price_per_week">%1$s/周</string>
     <string name="price_per_month">%1$s/月</string>
     <string name="price_per_year">%1$s/年</string>

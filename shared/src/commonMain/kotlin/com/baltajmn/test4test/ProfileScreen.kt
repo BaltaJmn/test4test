@@ -48,7 +48,11 @@ import test4test.shared.generated.resources.testing_count
 
 // La misma URL que va en la ficha de Play Console. El ancla lleva a como pedir
 // la eliminacion de la cuenta, que Play exige tener accesible desde la app.
-private const val PRIVACY_URL = "https://testers.baltajmn.dev/privacy"
+internal const val PRIVACY_URL = "https://testers.baltajmn.dev/privacy"
+
+// No hay terminos de uso propios (una suscripcion, sin mas contrato): valen los de Google Play.
+// Los usa el muro de pago, junto a la politica de privacidad.
+internal const val TERMS_URL = "https://play.google.com/about/play-terms/"
 
 // Play gestiona la suscripcion: cancelar, cambiar de tarjeta o ver la renovacion
 // se hace ahi, y Play exige un camino directo desde la app.

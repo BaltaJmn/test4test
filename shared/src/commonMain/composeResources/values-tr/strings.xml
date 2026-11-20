@@ -117,6 +117,7 @@
     <string name="profile_delete_account">Hesabı sil</string>
     <string name="confirm_delete_account">Hesabın, uygulamaların, testlerin ve yorumların silinsin mi? Bu geri alınamaz. Etkin abonelik burada iptal edilmez: Google Play’den iptal et.</string>
     <string name="paywall_terms">İptal edene kadar otomatik yenilenir. Google Play, Ödemeler ve abonelikler bölümünden istediğin zaman iptal edebilirsin. İptal edersen uygulamaların listede kalır ve sıradaki yerine döner; yalnızca birden fazla uygulama ekleyemezsin.</string>
+    <string name="paywall_terms_link">Kullanım koşulları</string>
     <string name="price_per_week">%1$s/hafta</string>
     <string name="price_per_month">%1$s/ay</string>
     <string name="price_per_year">%1$s/yıl</string>

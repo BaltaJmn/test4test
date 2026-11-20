@@ -3,6 +3,8 @@ package com.baltajmn.test4test
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -68,6 +70,8 @@ private val TICK_HEIGHT = 12.dp
 private val TICK_GAP = 3.dp
 private val METER_WIDTH = TICK_WIDTH * TESTERS_REQUIRED + TICK_GAP * (TESTERS_REQUIRED - 1)
 
+// Con scroll: en horizontal o con la fuente grande el muro de pago pasa de la pantalla, y lo ultimo
+// que lleva son las condiciones y la privacidad, que no pueden quedar fuera de alcance.
 @Composable
 fun PageColumn(
     modifier: Modifier = Modifier,
@@ -75,7 +79,7 @@ fun PageColumn(
 ) {
     Box(modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
         Column(
-            modifier = Modifier.widthIn(max = CONTENT_MAX_WIDTH).fillMaxWidth().padding(PAGE_PADDING),
+            modifier = Modifier.widthIn(max = CONTENT_MAX_WIDTH).fillMaxWidth().verticalScroll(rememberScrollState()).padding(PAGE_PADDING),
             verticalArrangement = Arrangement.spacedBy(ITEM_GAP),
             content = content,
         )

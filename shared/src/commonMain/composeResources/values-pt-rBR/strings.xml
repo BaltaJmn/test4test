@@ -118,6 +118,7 @@
     <string name="profile_delete_account">Excluir conta</string>
     <string name="confirm_delete_account">Excluir sua conta, seus apps, seus testes e seus comentários? Isso não pode ser desfeito. Uma assinatura ativa não é cancelada aqui: cancele no Google Play.</string>
     <string name="paywall_terms">Renova automaticamente até você cancelar. Cancele quando quiser no Google Play, em Pagamentos e assinaturas. Se cancelar, seus apps continuam publicados e voltam ao seu lugar na fila; só não vai dar para adicionar mais de um.</string>
+    <string name="paywall_terms_link">Termos de uso</string>
     <string name="price_per_week">%1$s/semana</string>
     <string name="price_per_month">%1$s/mês</string>
     <string name="price_per_year">%1$s/ano</string>

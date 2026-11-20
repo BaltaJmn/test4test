@@ -122,6 +122,7 @@
     <string name="profile_delete_account">Hapus akun</string>
     <string name="confirm_delete_account">Hapus akun, aplikasi, tes, dan komentar Anda? Tindakan ini tidak bisa dibatalkan. Langganan aktif tidak dibatalkan di sini: batalkan di Google Play.</string>
     <string name="paywall_terms">Diperpanjang otomatis sampai Anda membatalkannya. Batalkan kapan saja di Google Play, Payments and subscriptions. Jika dibatalkan, aplikasi Anda tetap tercantum dan kembali ke tempatnya dalam antrean; hanya saja Anda tidak bisa menambah lebih dari satu.</string>
+    <string name="paywall_terms_link">Ketentuan penggunaan</string>
     <string name="price_per_week">%1$s/minggu</string>
     <string name="price_per_month">%1$s/bulan</string>
     <string name="price_per_year">%1$s/tahun</string>

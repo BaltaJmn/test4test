@@ -117,6 +117,7 @@
     <string name="profile_delete_account">حذف الحساب</string>
     <string name="confirm_delete_account">هل تريد حذف حسابك وتطبيقاتك واختباراتك وتعليقاتك؟ لا يمكن التراجع عن ذلك. الاشتراك المفعّل لا يُلغى من هنا: ألغِه في Google Play.</string>
     <string name="paywall_terms">يتجدد تلقائيًا حتى تلغيه. يمكنك الإلغاء في أي وقت من Google Play، المدفوعات والاشتراكات. إن ألغيت تبقى تطبيقاتك منشورة وتعود إلى مكانها في الطابور؛ ولا تستطيع إضافة أكثر من تطبيق واحد.</string>
+    <string name="paywall_terms_link">شروط الاستخدام</string>
     <string name="price_per_week">%1$s/أسبوع</string>
     <string name="price_per_month">%1$s/شهر</string>
     <string name="price_per_year">%1$s/سنة</string>
