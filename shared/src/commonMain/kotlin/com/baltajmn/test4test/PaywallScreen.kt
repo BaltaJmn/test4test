@@ -3,6 +3,7 @@ package com.baltajmn.test4test
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
@@ -19,6 +20,7 @@ fun PaywallScreen(
     modifier: Modifier = Modifier,
     onPurchased: () -> Unit,
 ) {
+    SideEffect { Session.busy = true }
     PageColumn(modifier) {
         Text(
             stringResource(Res.string.paywall_body),

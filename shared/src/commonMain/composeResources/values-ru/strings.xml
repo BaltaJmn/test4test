@@ -67,6 +67,7 @@
     <string name="profile_sign_out">Выйти</string>
     <string name="profile_ad_privacy">Конфиденциальность рекламы</string>
     <string name="profile_privacy">Политика конфиденциальности</string>
+    <string name="profile_rate">Оценить приложение</string>
 
     <string name="paywall_body">Бесплатный план позволяет вести 1 приложение за раз и показывает рекламу. С подпиской твои приложения идут первыми в очереди и отмечены как рекомендуемые, а публиковать их можно сколько угодно и без рекламы, пока подписка активна.</string>
     <string name="paywall_active">Подписка активна: твои приложения идут первыми в очереди.</string>

@@ -72,6 +72,7 @@
     <string name="profile_sign_out">Keluar</string>
     <string name="profile_ad_privacy">Privasi iklan</string>
     <string name="profile_privacy">Kebijakan privasi</string>
+    <string name="profile_rate">Beri nilai aplikasi</string>
 
     <string name="paywall_body">Paket gratis mencakup 1 aplikasi sekaligus dan menampilkan iklan. Dengan langganan, aplikasi Anda berada paling depan dalam antrean, ditandai sebagai unggulan, dan Anda bisa mempublikasikan sebanyak yang Anda mau, tanpa iklan, selama langganan aktif.</string>
     <string name="paywall_active">Langganan Anda aktif: aplikasi Anda berada paling depan dalam antrean.</string>

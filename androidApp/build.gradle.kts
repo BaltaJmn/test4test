@@ -48,8 +48,8 @@ android {
         applicationId = "com.baltajmn.test4test"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 16
-        versionName = "1.12.0"
+        versionCode = 17
+        versionName = "1.13.0"
     }
     packaging {
         resources {

@@ -67,6 +67,7 @@
     <string name="profile_sign_out">退出登录</string>
     <string name="profile_ad_privacy">广告隐私</string>
     <string name="profile_privacy">隐私政策</string>
+    <string name="profile_rate">给应用评分</string>
 
     <string name="paywall_body">免费版同时只能发布 1 个应用，并显示广告。订阅后，你的应用排在队列最前并标为精选，订阅有效期间可发布任意数量的应用，且没有广告。</string>
     <string name="paywall_active">你的订阅已生效：你的应用排在队列最前。</string>

@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -38,6 +39,7 @@ import test4test.shared.generated.resources.profile_my_apps
 import test4test.shared.generated.resources.profile_none_yet
 import test4test.shared.generated.resources.profile_premium
 import test4test.shared.generated.resources.profile_privacy
+import test4test.shared.generated.resources.profile_rate
 import test4test.shared.generated.resources.reminder_off
 import test4test.shared.generated.resources.reminder_on
 import test4test.shared.generated.resources.profile_sign_out
@@ -142,6 +144,7 @@ fun ProfileScreen(
                         }
                     }
                 } else {
+                    SideEffect { Session.busy = true }
                     OutlinedButton(
                         onClick = onPaywall,
                         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
@@ -206,6 +209,11 @@ fun ProfileScreen(
                     TextButton(onClick = adPrivacyOptions, modifier = Modifier.fillMaxWidth()) {
                         Text(stringResource(Res.string.profile_ad_privacy), style = MaterialTheme.typography.bodySmall)
                     }
+                }
+            }
+            item {
+                TextButton(onClick = { uriHandler.openUri(REVIEW_URL) }, modifier = Modifier.fillMaxWidth()) {
+                    Text(stringResource(Res.string.profile_rate), style = MaterialTheme.typography.bodySmall)
                 }
             }
             item {

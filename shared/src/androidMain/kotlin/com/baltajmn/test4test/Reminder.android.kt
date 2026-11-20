@@ -19,6 +19,7 @@ import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.pm.PackageInfoCompat
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -48,12 +49,13 @@ private const val PREFS = "round"
 private const val KEY_ON = "reminder"
 private const val KEY_NUDGED = "nudged"
 private const val KEY_REVIEW = "review"
+private const val KEY_REVIEW_VERSION = "review_version"
+private const val KEY_LAUNCHES = "launches"
 // Testers de cada app propia la ultima vez que se miro: "f_<id>".
 private const val KEY_FOLLOWERS = "f_"
 private const val WORK = "daily-round"
 private const val CHANNEL = "round"
 private const val DAY_MS = 86_400_000L
-private const val REVIEW_EVERY_DAYS = 30
 // ponytail: trabajo periodico de 24 h, deriva unos minutos al dia; si importa la
 // hora exacta, AlarmManager con reprogramacion diaria.
 private const val HOUR = 18
@@ -119,18 +121,41 @@ actual fun rememberAskReview(): () -> Unit {
     val activity = LocalActivity.current
     return remember(activity) {
         {
+            // Nunca en las pruebas de capturas, que llevan datos de demo.
             val prefs = activity?.prefs()
-            val now = System.currentTimeMillis()
-            if (activity != null && prefs != null && now - prefs.getLong(KEY_REVIEW, 0) > REVIEW_EVERY_DAYS * DAY_MS) {
-                prefs.edit().putLong(KEY_REVIEW, now).apply()
-                val manager = ReviewManagerFactory.create(activity)
-                manager.requestReviewFlow().addOnCompleteListener { task ->
-                    // Play decide si la ensena y no dice si lo hizo: no hay resultado que mirar.
-                    if (task.isSuccessful) runCatching { manager.launchReviewFlow(activity, task.result) }
+            if (activity != null && prefs != null && TestOverrides.engine == null) {
+                val info = activity.packageManager.getPackageInfo(activity.packageName, 0)
+                val version = PackageInfoCompat.getLongVersionCode(info)
+                val now = System.currentTimeMillis()
+                val due = reviewDue(
+                    nowMs = now,
+                    installedMs = info.firstInstallTime,
+                    launches = prefs.getInt(KEY_LAUNCHES, 0),
+                    version = version,
+                    askedVersion = prefs.getLong(KEY_REVIEW_VERSION, 0),
+                    lastAskedMs = prefs.getLong(KEY_REVIEW, 0),
+                    busy = Session.busy,
+                )
+                if (due) {
+                    // Una vez por version y por sesion: se apunta antes de pedir.
+                    Session.busy = true
+                    prefs.edit().putLong(KEY_REVIEW, now).putLong(KEY_REVIEW_VERSION, version).apply()
+                    val manager = ReviewManagerFactory.create(activity)
+                    manager.requestReviewFlow().addOnCompleteListener { task ->
+                        // Play decide si la ensena y no dice si lo hizo: no hay resultado que mirar.
+                        if (task.isSuccessful) runCatching { manager.launchReviewFlow(activity, task.result) }
+                    }
                 }
             }
         }
     }
+}
+
+// Un arranque en frio de la app, para el "segundo arranque o posterior" de la
+// valoracion. Lo llama MainActivity una vez por proceso nuevo.
+fun noteLaunch(context: Context) {
+    val prefs = context.prefs()
+    prefs.edit().putInt(KEY_LAUNCHES, prefs.getInt(KEY_LAUNCHES, 0) + 1).apply()
 }
 
 class RoundWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {

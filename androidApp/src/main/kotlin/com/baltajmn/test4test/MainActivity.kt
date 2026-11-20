@@ -12,6 +12,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
+        // Solo arranques nuevos: girar la pantalla recrea la activity y no cuenta.
+        if (savedInstanceState == null) noteLaunch(this)
+
         // test4test://login: la vuelta del OAuth trae la sesion en el intent.
         supabase.handleDeeplinks(intent)
 

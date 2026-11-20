@@ -124,4 +124,25 @@ class RulesTest {
         // Fila que no viene de la vista (sin rango): sin puesto.
         assertNull(row(0, 0).queuePosition)
     }
+
+    @Test
+    fun reviewNeedsEveryConditionAtOnce() {
+        val day = 86_400_000L
+        val now = 100 * day
+        fun due(
+            installed: Long = now - 3 * day,
+            launches: Int = 2,
+            version: Long = 17,
+            askedVersion: Long = 16,
+            last: Long = 0,
+            busy: Boolean = false,
+        ) = reviewDue(now, installed, launches, version, askedVersion, last, busy)
+        assertTrue(due())
+        assertFalse(due(installed = now - day))
+        assertFalse(due(launches = 1))
+        assertFalse(due(askedVersion = 17))
+        assertFalse(due(last = now - 29 * day))
+        assertTrue(due(last = now - 30 * day))
+        assertFalse(due(busy = true))
+    }
 }

@@ -40,10 +40,34 @@ fun dailyNudge(testing: Int, pending: Int, waiting: Int, daysSinceNudge: Long): 
     else -> DailyNudge.NONE
 }
 
+// Valoracion (V3, V4): dialogo del sistema tras completar la ronda, que se
+// alcanza sin pagar. Todo a la vez: 2 dias o mas desde instalar, segundo
+// arranque o posterior, una vez por version, 30 dias o mas entre peticiones y
+// nada de Pro, consentimiento ni fallo en esta sesion (`busy`).
+const val REVIEW_MIN_INSTALL_DAYS = 2
+const val REVIEW_GAP_DAYS = 30
+private const val DAY_MS = 86_400_000L
+
+fun reviewDue(
+    nowMs: Long,
+    installedMs: Long,
+    launches: Int,
+    version: Long,
+    askedVersion: Long,
+    lastAskedMs: Long,
+    busy: Boolean,
+): Boolean = !busy &&
+    launches >= 2 &&
+    version != askedVersion &&
+    nowMs - installedMs >= REVIEW_MIN_INSTALL_DAYS * DAY_MS &&
+    nowMs - lastAskedMs >= REVIEW_GAP_DAYS * DAY_MS
+
 // Plan free: 1 app a la vez. La misma condicion vive en la policy
 // apps_insert_own_within_slots; aqui solo se replica para no llevar al usuario
 // a un formulario que el backend va a rechazar.
-fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || ownedApps < 1
+const val FREE_APP_LIMIT = 1
+
+fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || ownedApps < FREE_APP_LIMIT
 
 // Anuncios solo en el plan free: la suscripcion los quita. Sin perfil todavia,
 // ninguno, para no ensenarle uno a quien paga mientras carga. Al admin tampoco:

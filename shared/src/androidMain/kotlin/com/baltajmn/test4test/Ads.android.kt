@@ -67,7 +67,11 @@ private object AdMob {
         consent.requestConsentInfoUpdate(
             activity,
             ConsentRequestParameters.Builder().build(),
-            { UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { initialize(activity, consent) } },
+            {
+                // El formulario de consentimiento es una peticion del dia (M7): sin valoracion en esta sesion.
+                if (consent.consentStatus == ConsentInformation.ConsentStatus.REQUIRED) Session.busy = true
+                UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { initialize(activity, consent) }
+            },
             { initialize(activity, consent) },
         )
         initialize(activity, consent, settled = false)

@@ -11,6 +11,15 @@ class DailyReminder(val on: Boolean, val toggle: () -> Unit)
 @Composable
 expect fun rememberDailyReminder(auto: Boolean = false): DailyReminder
 
-// Pide la valoracion de Play, como mucho una vez al mes y solo si Play quiere.
+// Marca de la sesion: algo de Pro, el consentimiento de anuncios o un fallo ya se
+// ha visto en esta ejecucion y la valoracion no se pide (V3, M7). Solo sube.
+object Session {
+    var busy = false
+}
+
+// Pide la valoracion de Play con las condiciones de `reviewDue`, y solo si Play quiere.
 @Composable
 expect fun rememberAskReview(): () -> Unit
+
+// Abre la pagina de resena de Play desde la fila "Valorar" del perfil (V5).
+const val REVIEW_URL = "https://play.google.com/store/apps/details?id=com.baltajmn.test4test&showAllReviews=true"

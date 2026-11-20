@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -79,6 +80,8 @@ fun MyAppsScreen(
     // usuario a un formulario que el backend rechazaria. Y lo dice en el boton:
     // descubrir el muro despues de tocar es peor que verlo venir.
     val canCreate = canCreateApp(me?.isPremium == true, list.size)
+    val jumpOffer = me?.isPremium != true && list.any { (it.queuePosition ?: 0) > 1 }
+    if (!canCreate || jumpOffer) SideEffect { Session.busy = true }
     PageLazyColumn(modifier) {
         item {
             LinkButton(stringResource(if (canCreate) Res.string.my_apps_add else Res.string.my_apps_add_locked)) {
@@ -110,7 +113,7 @@ fun MyAppsScreen(
         // Lo que se vende es llegar antes a 12, no mas huecos: casi nadie
         // necesita mas de una app a la vez. Se ofrece solo a quien tiene algo
         // esperando en la cola y no va ya delante.
-        if (me?.isPremium != true && list.any { (it.queuePosition ?: 0) > 1 }) {
+        if (jumpOffer) {
             item {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(

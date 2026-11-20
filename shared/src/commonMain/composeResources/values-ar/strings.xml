@@ -67,6 +67,7 @@
     <string name="profile_sign_out">تسجيل الخروج</string>
     <string name="profile_ad_privacy">خصوصية الإعلانات</string>
     <string name="profile_privacy">سياسة الخصوصية</string>
+    <string name="profile_rate">قيّم التطبيق</string>
 
     <string name="paywall_body">الخطة المجانية تتيح تطبيقًا واحدًا في كل مرة وتعرض إعلانات. مع الاشتراك تأتي تطبيقاتك أولًا في الطابور وبعلامة مميّزة، وتنشر منها ما تشاء بلا إعلانات ما دام الاشتراك مفعّلًا.</string>
     <string name="paywall_active">اشتراكك مفعّل: تطبيقاتك أولًا في الطابور.</string>

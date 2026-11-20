@@ -67,6 +67,7 @@
     <string name="profile_sign_out">Çıkış yap</string>
     <string name="profile_ad_privacy">Reklam gizliliği</string>
     <string name="profile_privacy">Gizlilik politikası</string>
+    <string name="profile_rate">Uygulamayı değerlendir</string>
 
     <string name="paywall_body">Ücretsiz planda aynı anda 1 uygulama listelenir ve reklam gösterilir. Abonelikle uygulamaların sırada önce gelir, öne çıkarılır ve abonelik sürdükçe istediğin kadar uygulamayı reklamsız listelersin.</string>
     <string name="paywall_active">Aboneliğin etkin: uygulamaların sırada önce geliyor.</string>

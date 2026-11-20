@@ -67,6 +67,7 @@
     <string name="profile_sign_out">Cerrar sesión</string>
     <string name="profile_ad_privacy">Privacidad de los anuncios</string>
     <string name="profile_privacy">Política de privacidad</string>
+    <string name="profile_rate">Valorar la app</string>
 
     <string name="paywall_body">El plan gratuito permite 1 app a la vez y lleva anuncios. Con la suscripción tus apps van primero en la cola, marcadas como destacadas, y publicas todas las que quieras, sin anuncios, mientras esté activa.</string>
     <string name="paywall_active">Tu suscripción está activa: tus apps van primero en la cola.</string>

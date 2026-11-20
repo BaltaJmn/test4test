@@ -68,6 +68,7 @@
     <string name="profile_sign_out">साइन आउट</string>
     <string name="profile_ad_privacy">विज्ञापन गोपनीयता</string>
     <string name="profile_privacy">गोपनीयता नीति</string>
+    <string name="profile_rate">ऐप को रेट करें</string>
 
     <string name="paywall_body">मुफ़्त प्लान में एक बार में 1 ऐप शामिल है और विज्ञापन दिखते हैं। सदस्यता के साथ, जब तक वह सक्रिय है, आपके ऐप कतार में सबसे आगे फ़ीचर्ड के रूप में दिखते हैं और आप बिना विज्ञापन के जितने चाहें उतने ऐप प्रकाशित कर सकते हैं।</string>
     <string name="paywall_active">आपकी सदस्यता सक्रिय है: आपके ऐप कतार में सबसे आगे हैं।</string>

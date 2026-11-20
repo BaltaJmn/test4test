@@ -67,6 +67,7 @@
     <string name="profile_sign_out">Se déconnecter</string>
     <string name="profile_ad_privacy">Confidentialité des publicités</string>
     <string name="profile_privacy">Politique de confidentialité</string>
+    <string name="profile_rate">Noter l\'application</string>
 
     <string name="paywall_body">La formule gratuite permet 1 app à la fois et affiche des publicités. Avec l’abonnement, tes apps passent en tête de file, mises en avant, et tu publies autant d’apps que tu veux, sans publicité, tant qu’il est actif.</string>
     <string name="paywall_active">Ton abonnement est actif : tes apps passent en tête de file.</string>

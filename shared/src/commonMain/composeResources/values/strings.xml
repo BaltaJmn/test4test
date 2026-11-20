@@ -71,6 +71,7 @@
     <string name="profile_sign_out">Sign out</string>
     <string name="profile_ad_privacy">Ad privacy</string>
     <string name="profile_privacy">Privacy policy</string>
+    <string name="profile_rate">Rate the app</string>
 
     <string name="paywall_body">The free plan lists 1 app at a time and shows ads. With the subscription your apps go first in line, marked as featured, and you list as many as you want, with no ads, while it is active.</string>
     <string name="paywall_active">Your subscription is active: your apps go first in line.</string>
