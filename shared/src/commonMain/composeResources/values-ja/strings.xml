@@ -1,0 +1,155 @@
+<resources>
+    <string name="nav_back">戻る</string>
+    <string name="tab_feed">フィード</string>
+    <string name="tab_my_apps">マイアプリ</string>
+    <string name="tab_profile">プロフィール</string>
+    <string name="title_detail">詳細</string>
+    <string name="title_new_app">新しいアプリ</string>
+    <string name="title_edit_app">アプリを編集</string>
+    <string name="title_paywall">アプリ数無制限</string>
+
+    <string name="login_tagline">他の開発者のテスター集めを手伝えば、あなたの Google Play アプリにもテスターが集まります。</string>
+    <string name="login_google">Google で続行</string>
+    <string name="login_error">ログインできませんでした</string>
+    <string name="login_email_toggle">メールでログイン</string>
+    <string name="login_email">メールアドレス</string>
+    <string name="login_password">パスワード</string>
+    <string name="login_email_submit">ログイン</string>
+
+    <string name="feed_error">フィードを読み込めませんでした</string>
+    <string name="feed_empty">他の開発者のアプリはまだありません。マイアプリからあなたのアプリを追加しましょう。</string>
+    <string name="feed_add_own">あなたのアプリはまだ順番待ちに入っていません。追加すると、あなたが手伝った開発者がお返しにテストできるようになります。</string>
+    <string name="feed_intro">他の開発者のテストに参加すれば、その人もあなたのテストに参加してくれます。アプリは先着順に並んで待っています。先頭のアプリに 12 人のテスターが集まるよう手伝いましょう。</string>
+
+    <string name="detail_error">アプリを読み込めませんでした</string>
+    <string name="detail_testers_title">参加者</string>
+    <string name="detail_testers_empty">テスターはまだいません。他のテストに参加すると、あなたのアプリがフィードの上のほうに表示されます。</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">オプトイン リンク</string>
+    <string name="detail_join">Play で参加しました</string>
+    <string name="detail_leave">テストから抜ける</string>
+    <string name="detail_delete_app">アプリを削除</string>
+    <string name="detail_action_error">完了できませんでした</string>
+    <string name="detail_join_help">先にグループを開き、そのあとでオプトイン リンクを開いてください。順番が逆だと、Play にエラーページが表示されます。参加すると、Test4Test がこのスマートフォンで、アプリが Play からインストールされたことを確認し、開発者に表示します。</string>
+    <string name="detail_not_found">このアプリはもう存在しません。</string>
+
+    <string name="comments_title">コメント</string>
+    <string name="comment_placeholder">コメントを書く</string>
+    <string name="comment_link_app">自分のアプリを 1 つ紐づける (任意)</string>
+    <string name="comment_send">送信</string>
+    <string name="comment_send_error">送信できませんでした</string>
+    <string name="comments_empty">コメントはまだありません。</string>
+
+    <string name="my_apps_error">あなたのアプリを読み込めませんでした</string>
+    <string name="my_apps_add">アプリを追加</string>
+    <string name="my_apps_empty">アプリを追加して、テスターを集めましょう。Play Console にある 2 つのリンクが必要です：Google Groups のリンクと、オプトイン リンクです。</string>
+
+    <string name="form_name">アプリ名</string>
+    <string name="form_groups_url">Google Groups のリンク</string>
+    <string name="form_opt_in_url">オプトイン リンク</string>
+    <string name="form_create">アプリを作成</string>
+    <string name="form_save">変更を保存</string>
+    <string name="form_save_error">保存できませんでした</string>
+
+    <string name="error_name_empty">名前を入力してください</string>
+    <string name="error_name_too_long">名前は 100 文字以内にしてください</string>
+    <string name="error_groups_url">Google Groups のリンクは https://groups.google.com/g/グループ名 の形式にしてください</string>
+    <string name="error_opt_in_url">オプトイン リンクは https://play.google.com/apps/testing/パッケージ名 の形式にしてください</string>
+
+    <string name="profile_error">プロフィールを読み込めませんでした</string>
+    <string name="profile_fallback_name">ユーザー</string>
+    <string name="profile_premium">定期購入は有効です：アプリは順番待ちの先頭、アプリ数は無制限、広告なし</string>
+    <string name="profile_free">無料プラン：同時に掲載できるアプリは 1 つ、広告あり。定期購入を見る</string>
+    <string name="profile_my_apps">公開中のアプリ</string>
+    <string name="profile_none_yet">まだありません。</string>
+    <string name="profile_testing">テスト中</string>
+    <string name="profile_sign_out">ログアウト</string>
+    <string name="profile_ad_privacy">広告のプライバシー</string>
+    <string name="profile_privacy">プライバシーポリシー</string>
+    <string name="profile_rate">アプリを評価する</string>
+
+    <string name="paywall_body">無料プランでは、同時に掲載できるアプリは 1 つで、広告が表示されます。定期購入すると、あなたのアプリは順番待ちの先頭に並び、注目マークが付きます。有効な間は、好きなだけアプリを掲載でき、広告も表示されません。</string>
+    <string name="paywall_active">定期購入は有効です：あなたのアプリは順番待ちの先頭に並びます。</string>
+    <string name="paywall_preparing">定期購入は準備中です。</string>
+    <string name="paywall_no_product">利用できる商品はまだありません。</string>
+    <string name="paywall_price_error">価格を読み込めませんでした：%1$s</string>
+    <string name="paywall_subscribe">定期購入する</string>
+    <string name="paywall_subscribe_price">%1$s で定期購入する</string>
+    <string name="paywall_restore">購入を復元</string>
+    <string name="paywall_no_purchase">有効な購入が見つかりませんでした。</string>
+    <string name="paywall_pending">定期購入は登録されましたが、まだ利用できる状態になっていません。1 分ほど待ってから、もう一度開いてください。</string>
+    <string name="paywall_purchase_error">定期購入を完了できませんでした</string>
+
+    <string name="confirm_title">確認</string>
+    <string name="action_delete">削除</string>
+    <string name="action_cancel">キャンセル</string>
+    <string name="action_close">閉じる</string>
+    <string name="action_edit">編集</string>
+    <string name="action_report">報告</string>
+    <string name="action_reported">報告済み</string>
+    <string name="confirm_delete_app_comments">\"%1$s\"とそのコメントをすべて削除しますか?</string>
+    <string name="confirm_delete_app_content">\"%1$s\"とその内容をすべて削除しますか?</string>
+    <string name="confirm_delete_my_app">\"%1$s\"を削除しますか? テスターとコメントも一緒に削除されます。</string>
+    <string name="confirm_delete_comment">このコメントを削除しますか?</string>
+    <string name="delete_error">削除できませんでした</string>
+
+    <string name="follower_help">Test4Test からテスターとして参加した人たちです。</string>
+    <string name="linked_app">%1$s - テスター %2$d 人</string>
+    <string name="testers_days">%2$d 日連続のうち %1$d 日目</string>
+    <string name="testers_days_done">%1$d 日連続を達成しました。本番環境へのアクセスを申請できます。</string>
+
+    <string name="testers_of">テスター %1$d / %2$d 人</string>
+    <string name="my_apps_rank">他のアプリをテストしている開発者より、あなたのアプリは後ろに並びます。現在 %2$d 個中 %1$d 個をテストしています。</string>
+
+    <string name="detail_install">Google Play からインストール</string>
+    <string name="detail_installed">Google Play からインストール済みです。開発者には、あなたが実際にインストールしていることが見えます。14 日間はそのままインストールしておいてください。</string>
+    <string name="detail_not_installed">このスマートフォンにはまだインストールされていません。Play は、アプリをインストールしたテスターだけをカウントします。</string>
+    <string name="detail_verified">%1$d 人がアプリをインストール済み</string>
+    <string name="tester_installed">アプリをインストール済み</string>
+    <string name="tester_stale">数日間インストールが確認されていません</string>
+    <string name="tester_unverified">インストールは未確認です</string>
+    <string name="confirm_leave">\"%1$s\"のテストから抜けますか? 12 人のテスターの 1 人だった場合、14 日連続の記録は最初からやり直しになります。</string>
+    <string name="feed_testing">テスト中</string>
+    <string name="my_apps_add_locked">別のアプリを追加 (定期購入)</string>
+    <string name="form_groups_hint">Play Console、クローズド テスト、テスター：そこで追加した Google グループです。</string>
+    <string name="form_opt_in_hint">同じページ、ウェブで参加：https://play.google.com/apps/testing/パッケージ名</string>
+    <string name="profile_manage_subscription">Google Play で定期購入を管理</string>
+    <string name="profile_delete_account">アカウントを削除</string>
+    <string name="confirm_delete_account">アカウント、アプリ、テスト、コメントを削除しますか? この操作は元に戻せません。有効な定期購入はここでは解約されません。Google Play で解約してください。</string>
+    <string name="paywall_terms">解約するまで自動的に更新されます。いつでも Google Play の\"お支払いと定期購入\"から解約できます。解約しても、アプリは掲載されたまま、順番待ちの元の位置に戻ります。ただし、追加できるアプリは 1 つまでになります。</string>
+    <string name="paywall_terms_link">利用規約</string>
+    <string name="price_per_week">%1$s/週</string>
+    <string name="price_per_month">%1$s/月</string>
+    <string name="price_per_year">%1$s/年</string>
+
+    <plurals name="testing_count">
+        <item quantity="other">%1$d 個のアプリをテスト中</item>
+    </plurals>
+    <string name="round_title">今日のタスク</string>
+    <string name="round_help">Google は、テスターが使っていないアプリを不承認にします。テスト中のアプリは 1 日 1 回ずつ開いてください。開いたことは開発者に表示されます。</string>
+    <string name="round_progress">今日は %2$d 個中 %1$d 個を開きました</string>
+    <string name="round_done">今日のタスクは完了です。また明日お会いしましょう。</string>
+    <string name="round_open">開く</string>
+    <string name="round_opened">今日開きました</string>
+    <string name="round_install">インストール</string>
+    <string name="reminder_on">毎日のリマインダー：オンにする</string>
+    <string name="reminder_off">毎日のリマインダーはオンです。オフにする</string>
+    <string name="tester_never_opened">Test4Test から一度も開かれていません</string>
+    <plurals name="tester_open_days">
+        <item quantity="other">直近 14 日のうち %1$d 日開かれています</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="other">テスト中の %1$d 個のアプリを開きましょう。開発者には 14 日間の実際の利用が必要です。</item>
+    </plurals>
+    <string name="queue_featured">注目</string>
+    <string name="queue_position">順番待ち %1$d 番目</string>
+    <string name="my_apps_jump">定期購入しているユーザーのアプリは、順番待ちの先頭に並びます。</string>
+    <string name="my_apps_jump_action">順位を上げる</string>
+    <string name="nudge_title">テスターを待っているアプリがあります</string>
+    <plurals name="nudge_text">
+        <item quantity="other">%1$d 個のアプリがテスターを探しています。参加しましょう。他のアプリをテストする開発者は、順番待ちで優先されます。</item>
+    </plurals>
+    <string name="joined_title">%1$s に新しいテスターが参加しました</string>
+    <string name="joined_text">テスター %1$d / 12 人。ほかのアプリをテストして、順番待ちで前のほうをキープしましょう。</string>
+</resources>

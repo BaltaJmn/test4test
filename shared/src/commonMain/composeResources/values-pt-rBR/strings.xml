@@ -85,6 +85,7 @@
     <string name="confirm_title">Confirmar</string>
     <string name="action_delete">Excluir</string>
     <string name="action_cancel">Cancelar</string>
+    <string name="action_close">Fechar</string>
     <string name="action_edit">Editar</string>
     <string name="action_report">Denunciar</string>
     <string name="action_reported">Denunciado</string>

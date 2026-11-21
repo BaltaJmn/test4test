@@ -1,5 +1,7 @@
 package com.baltajmn.test4test
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import org.jetbrains.compose.resources.StringResource
 import test4test.shared.generated.resources.Res
 import test4test.shared.generated.resources.error_groups_url
@@ -42,8 +44,9 @@ fun dailyNudge(testing: Int, pending: Int, waiting: Int, daysSinceNudge: Long): 
 
 // Valoracion (V3, V4): dialogo del sistema tras completar la ronda, que se
 // alcanza sin pagar. Todo a la vez: 2 dias o mas desde instalar, segundo
-// arranque o posterior, una vez por version, 30 dias o mas entre peticiones y
-// nada de Pro, consentimiento ni fallo en esta sesion (`busy`).
+// arranque o posterior, una vez por version, 30 dias o mas entre peticiones,
+// nada de Pro, consentimiento ni fallo en esta sesion (`busy`) y el presupuesto
+// del dia sin gastar (`budgetOpen`, M7).
 const val REVIEW_MIN_INSTALL_DAYS = 2
 const val REVIEW_GAP_DAYS = 30
 private const val DAY_MS = 86_400_000L
@@ -56,11 +59,42 @@ fun reviewDue(
     askedVersion: Long,
     lastAskedMs: Long,
     busy: Boolean,
+    budgetOpen: Boolean,
 ): Boolean = !busy &&
+    budgetOpen &&
     launches >= 2 &&
     version != askedVersion &&
     nowMs - installedMs >= REVIEW_MIN_INSTALL_DAYS * DAY_MS &&
     nowMs - lastAskedMs >= REVIEW_GAP_DAYS * DAY_MS
+
+// Presupuesto del dia (M7): como mucho una peticion cada 24 h entre el toque de Pro,
+// la valoracion y el formulario de consentimiento de los anuncios. `lastAskMs` es el
+// instante de la ultima peticion, 0 si nunca hubo una; con el reloj atrasado (la
+// ultima cae en el futuro) el presupuesto se da por abierto.
+fun askBudgetOpen(lastAskMs: Long, nowMs: Long): Boolean =
+    lastAskMs == 0L || nowMs - lastAskMs >= DAY_MS || lastAskMs > nowMs
+
+// Toque suave de Pro en Mis apps (M2, M3): la linea de "saltar la cola" sale la
+// primera vez que hay una app esperando, se cierra y dura una sola sesion; vuelve
+// una sola vez mas, 7 dias despues de la primera vez que se enseno (no de cuando se
+// cerro). `offer` es que haya algo que ofrecer (app en la cola sin ir delante, y
+// sin suscripcion).
+enum class ProTouch { NONE, FIRST, REMINDER }
+
+const val PRO_REMINDER_DAYS = 7
+
+fun proTouchDue(
+    offer: Boolean,
+    nowMs: Long,
+    firstShownMs: Long,
+    reminded: Boolean,
+    budgetOpen: Boolean,
+): ProTouch = when {
+    !offer || !budgetOpen -> ProTouch.NONE
+    firstShownMs == 0L -> ProTouch.FIRST
+    !reminded && nowMs - firstShownMs >= PRO_REMINDER_DAYS * DAY_MS -> ProTouch.REMINDER
+    else -> ProTouch.NONE
+}
 
 // Plan free: 1 app a la vez. La misma condicion vive en la policy
 // apps_insert_own_within_slots; aqui solo se replica para no llevar al usuario
@@ -73,7 +107,36 @@ fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || own
 // ninguno, para no ensenarle uno a quien paga mientras carga. Al admin tampoco:
 // tocar tus propios anuncios es trafico no valido y AdMob cierra la cuenta, que
 // es la misma de las demas apps.
-fun showsAds(me: Profile?): Boolean = me != null && !me.isPremium && !me.isAdmin
+//
+// D1: tampoco la primera semana desde instalar, ni nunca a quien ya usaba la app
+// antes de que los anuncios esperaran (instalada antes de ADS_EXEMPT_BEFORE_MS), y
+// el interruptor "ads" de config.json de la web los apaga sin version. `remoteOn`
+// es null hasta la primera respuesta de esta ejecucion: sin banner ni formulario
+// de consentimiento mientras tanto.
+const val ADS_AFTER_DAYS = 7
+
+// El dia en que sale la 1.15.0, la primera con la semana sin anuncios: 2026-11-23 UTC.
+const val ADS_EXEMPT_BEFORE_MS = 1_795_392_000_000L
+
+// Si a esta persona le puede salir un anuncio alguna vez: sin perfil todavia, con
+// suscripcion, admin o instalada antes de ADS_EXEMPT_BEFORE_MS, nunca; y entonces ni
+// se lee config.json, para no pedirselo a quien no lo necesita.
+fun mayEverShowAds(me: Profile?, installedMs: Long): Boolean =
+    me != null && !me.isPremium && !me.isAdmin && installedMs >= ADS_EXEMPT_BEFORE_MS
+
+fun showsAds(me: Profile?, installedMs: Long, nowMs: Long, remoteOn: Boolean?): Boolean =
+    mayEverShowAds(me, installedMs) && remoteOn == true && nowMs - installedMs >= ADS_AFTER_DAYS * DAY_MS
+
+@Serializable
+private class RemoteConfig(val ads: Boolean = true)
+
+private val remoteJson = Json { ignoreUnknownKeys = true }
+
+// Lo que dice el interruptor tras leer config.json: el archivo si se entiende; si no
+// (sin red, 404, JSON roto), lo que esta ejecucion ya sabia; y si no sabia nada,
+// encendido: el interruptor existe para apagar los anuncios, no para depender de el.
+fun nextAdsOn(previous: Boolean?, json: String?): Boolean =
+    json?.let { runCatching { remoteJson.decodeFromString<RemoteConfig>(it).ads }.getOrNull() } ?: previous ?: true
 
 // El movil del tester dice si la app esta instalada; la vista dice si eso se vio
 // en los ultimos tres dias. Visto alguna vez pero hace mas es lo que el dueno

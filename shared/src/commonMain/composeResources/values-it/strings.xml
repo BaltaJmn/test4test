@@ -1,0 +1,159 @@
+<resources>
+    <string name="nav_back">Indietro</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Le mie app</string>
+    <string name="tab_profile">Profilo</string>
+    <string name="title_detail">Dettagli</string>
+    <string name="title_new_app">Nuova app</string>
+    <string name="title_edit_app">Modifica app</string>
+    <string name="title_paywall">App illimitate</string>
+
+    <string name="login_tagline">Trova tester per la tua app su Google Play aiutando gli altri a trovare i loro.</string>
+    <string name="login_google">Continua con Google</string>
+    <string name="login_error">Impossibile accedere</string>
+    <string name="login_email_toggle">Accedi con l\'email</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_email_submit">Accedi</string>
+
+    <string name="feed_error">Impossibile caricare il feed</string>
+    <string name="feed_empty">Ancora nessuna app di altri sviluppatori. Aggiungi la tua da \"Le mie app\".</string>
+    <string name="feed_add_own">La tua app non è ancora in coda. Aggiungila così gli sviluppatori che aiuti potranno testarla a loro volta.</string>
+    <string name="feed_intro">Partecipa ai test degli altri sviluppatori e loro parteciperanno al tuo. Le app restano in coda in ordine di arrivo: aiuta le prime a raggiungere i 12 tester.</string>
+
+    <string name="detail_error">Impossibile caricare l\'app</string>
+    <string name="detail_testers_title">Chi si è unito</string>
+    <string name="detail_testers_empty">Ancora nessun tester. Partecipa ad altri test e la tua app salirà di posizione nel feed.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Link di attivazione</string>
+    <string name="detail_join">Ho aderito su Play</string>
+    <string name="detail_leave">Esci dal test</string>
+    <string name="detail_delete_app">Elimina app</string>
+    <string name="detail_action_error">Impossibile completare l\'azione</string>
+    <string name="detail_join_help">Apri prima il gruppo e poi il link di attivazione: nell\'ordine inverso Play mostra una pagina di errore. Una volta aderito, Test4Test controlla su questo telefono che l\'app sia stata installata da Play e lo mostra al suo proprietario.</string>
+    <string name="detail_not_found">Questa app non esiste più.</string>
+
+    <string name="comments_title">Commenti</string>
+    <string name="comment_placeholder">Scrivi un commento</string>
+    <string name="comment_link_app">Collega una delle mie app (facoltativo)</string>
+    <string name="comment_send">Invia</string>
+    <string name="comment_send_error">Impossibile inviare</string>
+    <string name="comments_empty">Ancora nessun commento.</string>
+
+    <string name="my_apps_error">Impossibile caricare le tue app</string>
+    <string name="my_apps_add">Aggiungi app</string>
+    <string name="my_apps_empty">Aggiungi la tua app per iniziare a ricevere tester. Ti servono due link di Play Console: quello del suo gruppo Google e il suo link di attivazione.</string>
+
+    <string name="form_name">Nome dell\'app</string>
+    <string name="form_groups_url">Link di Google Groups</string>
+    <string name="form_opt_in_url">Link di attivazione</string>
+    <string name="form_create">Crea app</string>
+    <string name="form_save">Salva modifiche</string>
+    <string name="form_save_error">Impossibile salvare</string>
+
+    <string name="error_name_empty">Il nome non può essere vuoto</string>
+    <string name="error_name_too_long">Il nome non può superare i 100 caratteri</string>
+    <string name="error_groups_url">Il link di Google Groups deve avere questa forma: https://groups.google.com/g/tuo-gruppo</string>
+    <string name="error_opt_in_url">Il link di attivazione deve avere questa forma: https://play.google.com/apps/testing/tuo.pacchetto</string>
+
+    <string name="profile_error">Impossibile caricare il profilo</string>
+    <string name="profile_fallback_name">Utente</string>
+    <string name="profile_premium">Abbonamento attivo: le tue app in testa alla coda, app illimitate, nessuna pubblicità</string>
+    <string name="profile_free">Piano gratuito: 1 app alla volta, con pubblicità. Vedi l\'abbonamento</string>
+    <string name="profile_my_apps">App pubblicate</string>
+    <string name="profile_none_yet">Ancora nessuna.</string>
+    <string name="profile_testing">App in test</string>
+    <string name="profile_sign_out">Esci</string>
+    <string name="profile_ad_privacy">Privacy della pubblicità</string>
+    <string name="profile_privacy">Informativa sulla privacy</string>
+    <string name="profile_rate">Valuta l\'app</string>
+
+    <string name="paywall_body">Il piano gratuito consente di pubblicare 1 app alla volta e mostra pubblicità. Con l\'abbonamento le tue app vanno in testa alla coda, contrassegnate come in evidenza, e ne puoi pubblicare quante vuoi, senza pubblicità, finché l\'abbonamento è attivo.</string>
+    <string name="paywall_active">Il tuo abbonamento è attivo: le tue app vanno in testa alla coda.</string>
+    <string name="paywall_preparing">Gli abbonamenti arriveranno presto.</string>
+    <string name="paywall_no_product">Ancora nessun prodotto disponibile.</string>
+    <string name="paywall_price_error">Impossibile caricare il prezzo: %1$s</string>
+    <string name="paywall_subscribe">Abbonati</string>
+    <string name="paywall_subscribe_price">Abbonati a %1$s</string>
+    <string name="paywall_restore">Ripristina acquisti</string>
+    <string name="paywall_no_purchase">Non abbiamo trovato nessun acquisto attivo.</string>
+    <string name="paywall_pending">Abbonamento registrato, ma l\'accesso non è ancora attivo. Riprova tra un minuto.</string>
+    <string name="paywall_purchase_error">Impossibile completare l\'abbonamento</string>
+
+    <string name="confirm_title">Conferma</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_cancel">Annulla</string>
+    <string name="action_close">Chiudi</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_report">Segnala</string>
+    <string name="action_reported">Segnalazione inviata</string>
+    <string name="confirm_delete_app_comments">Eliminare \"%1$s\" e tutti i suoi commenti?</string>
+    <string name="confirm_delete_app_content">Eliminare \"%1$s\" e tutti i suoi contenuti?</string>
+    <string name="confirm_delete_my_app">Eliminare \"%1$s\"? Verranno eliminati anche i suoi tester e commenti.</string>
+    <string name="confirm_delete_comment">Eliminare questo commento?</string>
+    <string name="delete_error">Impossibile eliminare</string>
+
+    <string name="follower_help">Persone che sono diventate tester tramite Test4Test.</string>
+    <string name="linked_app">%1$s - %2$d tester</string>
+    <string name="testers_days">Giorno %1$d di %2$d consecutivi</string>
+    <string name="testers_days_done">%1$d giorni consecutivi completati. Ora puoi richiedere l\'accesso in produzione.</string>
+
+    <string name="testers_of">%1$d di %2$d tester</string>
+    <string name="my_apps_rank">Le tue app vengono dopo quelle degli sviluppatori che testano le app degli altri. Stai testando %1$d di %2$d.</string>
+
+    <string name="detail_install">Installa da Google Play</string>
+    <string name="detail_installed">Installata da Google Play. Il proprietario vede che ce l\'hai davvero. Tienila installata per 14 giorni.</string>
+    <string name="detail_not_installed">Non ancora installata su questo telefono. Play conta solo i tester che installano l\'app.</string>
+    <string name="detail_verified">%1$d con l\'app installata</string>
+    <string name="tester_installed">Ha l\'app installata</string>
+    <string name="tester_stale">Da giorni non risulta installata</string>
+    <string name="tester_unverified">Installazione non ancora confermata</string>
+    <string name="confirm_leave">Uscire dal test di \"%1$s\"? Se eri uno dei suoi 12 tester, la serie di 14 giorni ricomincia da capo.</string>
+    <string name="feed_testing">La stai testando</string>
+    <string name="my_apps_add_locked">Aggiungi un\'altra app (abbonamento)</string>
+    <string name="form_groups_hint">Play Console, Test chiusi, Tester: il gruppo Google che hai aggiunto lì.</string>
+    <string name="form_opt_in_hint">Nella stessa pagina, Partecipa sul web: https://play.google.com/apps/testing/tuo.pacchetto</string>
+    <string name="profile_manage_subscription">Gestisci l\'abbonamento su Google Play</string>
+    <string name="profile_delete_account">Elimina account</string>
+    <string name="confirm_delete_account">Eliminare il tuo account, le tue app, i tuoi test e i tuoi commenti? L\'operazione non si può annullare. Un abbonamento attivo non viene annullato da qui: annullalo su Google Play.</string>
+    <string name="paywall_terms">Si rinnova automaticamente finché non lo annulli. Puoi annullarlo quando vuoi su Google Play, in Pagamenti e abbonamenti. Se annulli, le tue app restano pubblicate e tornano al loro posto in coda; semplicemente non potrai aggiungerne più di una.</string>
+    <string name="paywall_terms_link">Condizioni d\'uso</string>
+    <string name="price_per_week">%1$s/settimana</string>
+    <string name="price_per_month">%1$s/mese</string>
+    <string name="price_per_year">%1$s/anno</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Sta testando %1$d app</item>
+        <item quantity="other">Sta testando %1$d app</item>
+    </plurals>
+    <string name="round_title">Il tuo giro di oggi</string>
+    <string name="round_help">Google rifiuta le app i cui tester non le usano. Apri ogni app che testi una volta al giorno: il proprietario lo vede.</string>
+    <string name="round_progress">%1$d di %2$d aperte oggi</string>
+    <string name="round_done">Giro completato. A domani.</string>
+    <string name="round_open">Apri</string>
+    <string name="round_opened">Aperta oggi</string>
+    <string name="round_install">Installa</string>
+    <string name="reminder_on">Promemoria giornalieri: attiva</string>
+    <string name="reminder_off">Promemoria giornalieri attivi. Disattiva</string>
+    <string name="tester_never_opened">Non l\'ha mai aperta da Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Ha aperto l\'app in uno degli ultimi 14 giorni</item>
+        <item quantity="other">Ha aperto l\'app in %1$d degli ultimi 14 giorni</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Apri l\'app che stai testando: il suo proprietario ha bisogno di 14 giorni di uso reale.</item>
+        <item quantity="other">Apri le %1$d app che stai testando: i loro proprietari hanno bisogno di 14 giorni di uso reale.</item>
+    </plurals>
+    <string name="queue_featured">In evidenza</string>
+    <string name="queue_position">Posizione %1$d in coda</string>
+    <string name="my_apps_jump">Le app degli abbonati vanno in testa alla coda.</string>
+    <string name="my_apps_jump_action">Passa avanti</string>
+    <string name="nudge_title">Ci sono app in attesa di tester</string>
+    <plurals name="nudge_text">
+        <item quantity="one">1 app ha bisogno di tester. Partecipa: chi testa gli altri passa avanti in coda.</item>
+        <item quantity="other">%1$d app hanno bisogno di tester. Partecipa a una: chi testa gli altri passa avanti in coda.</item>
+    </plurals>
+    <string name="joined_title">Nuovo tester per %1$s</string>
+    <string name="joined_text">%1$d di 12 tester. Testa altre app per restare avanti in coda.</string>
+</resources>

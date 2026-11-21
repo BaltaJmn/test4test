@@ -89,6 +89,7 @@
     <string name="confirm_title">Konfirmasi</string>
     <string name="action_delete">Hapus</string>
     <string name="action_cancel">Batal</string>
+    <string name="action_close">Tutup</string>
     <string name="action_edit">Edit</string>
     <string name="action_report">Laporkan</string>
     <string name="action_reported">Dilaporkan</string>

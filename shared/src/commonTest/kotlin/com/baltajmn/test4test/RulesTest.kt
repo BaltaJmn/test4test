@@ -38,12 +38,78 @@ class RulesTest {
         assertTrue(canCreateApp(isPremium = true, ownedApps = 7))
     }
 
+    // D1: la app instalada el dia 100 despues de ADS_EXEMPT_BEFORE_MS, y el reloj en dias desde entonces.
+    private val adsDay = 86_400_000L
+    private val installedAfter = ADS_EXEMPT_BEFORE_MS + 100 * adsDay
+    private fun ads(me: Profile?, daysSinceInstall: Int = ADS_AFTER_DAYS, remote: Boolean? = true, installed: Long = installedAfter) =
+        showsAds(me, installed, installed + daysSinceInstall * adsDay, remote)
+
     @Test
     fun adsOnlyForFreeUsers() {
-        assertTrue(showsAds(Profile(id = "a")))
-        assertFalse(showsAds(Profile(id = "a", isPremium = true)))
-        assertFalse(showsAds(Profile(id = "a", isAdmin = true)))
-        assertFalse(showsAds(null))
+        assertTrue(ads(Profile(id = "a")))
+        assertFalse(ads(Profile(id = "a", isPremium = true)))
+        assertFalse(ads(Profile(id = "a", isAdmin = true)))
+        assertFalse(ads(null))
+    }
+
+    @Test
+    fun noAdsTheFirstWeek() {
+        // Siete dias cumplidos, escritos a mano para que cambiar la constante rompa el test.
+        assertEquals(7, ADS_AFTER_DAYS)
+        val installed = installedAfter
+        val me = Profile(id = "a")
+        assertFalse(showsAds(me, installed, installed + 6 * adsDay, remoteOn = true))
+        assertFalse(showsAds(me, installed, installed + 7 * adsDay - 1, remoteOn = true))
+        assertTrue(showsAds(me, installed, installed + 7 * adsDay, remoteOn = true))
+        // Con el reloj atrasado respecto a la instalacion tampoco hay banner.
+        assertFalse(ads(me, daysSinceInstall = -1))
+    }
+
+    @Test
+    fun whoUsedTheAppBeforeNeverSeesAds() {
+        // 2026-11-23T00:00:00Z: el dia 20 780 desde 1970, a medianoche en punto.
+        assertEquals(20_780L, ADS_EXEMPT_BEFORE_MS / adsDay)
+        assertEquals(0L, ADS_EXEMPT_BEFORE_MS % adsDay)
+        val before = ADS_EXEMPT_BEFORE_MS - 1
+        assertFalse(ads(Profile(id = "a"), daysSinceInstall = 400, installed = before))
+        assertTrue(ads(Profile(id = "a"), daysSinceInstall = 400, installed = ADS_EXEMPT_BEFORE_MS))
+    }
+
+    @Test
+    fun configJsonIsOnlyReadForWhoCouldEverSeeAnAd() {
+        assertTrue(mayEverShowAds(Profile(id = "a"), installedAfter))
+        assertFalse(mayEverShowAds(null, installedAfter))
+        assertFalse(mayEverShowAds(Profile(id = "a", isPremium = true), installedAfter))
+        assertFalse(mayEverShowAds(Profile(id = "a", isAdmin = true), installedAfter))
+        assertFalse(mayEverShowAds(Profile(id = "a"), ADS_EXEMPT_BEFORE_MS - 1))
+    }
+
+    @Test
+    fun theRemoteSwitchTurnsAdsOffAndWaitsForItsFirstAnswer() {
+        assertFalse(ads(Profile(id = "a"), remote = false))
+        // Sin respuesta todavia: ni banner ni formulario de consentimiento.
+        assertFalse(ads(Profile(id = "a"), remote = null))
+    }
+
+    @Test
+    fun theSwitchReadsConfigJsonAndFallsBackToOn() {
+        assertFalse(nextAdsOn(null, """{"ads": false}"""))
+        assertTrue(nextAdsOn(null, """{"ads": true}"""))
+        // Se puede volver a encender, y el fichero que se publica se entiende tal cual.
+        assertTrue(nextAdsOn(false, """{"ads": true}"""))
+        assertTrue(nextAdsOn(false, "{ \"ads\": true }\n"))
+        assertFalse(nextAdsOn(true, "{ \"ads\": false }\n"))
+        // Claves que no conoce, no importan; sin la clave, encendido.
+        assertFalse(nextAdsOn(true, """{"ads": false, "later": 1}"""))
+        assertTrue(nextAdsOn(false, "{}"))
+        // Sin red, 404, cuerpo vacio o JSON roto: lo que ya sabia esta ejecucion, y si no, encendido.
+        assertFalse(nextAdsOn(false, null))
+        assertFalse(nextAdsOn(false, ""))
+        assertFalse(nextAdsOn(false, "<html>404</html>"))
+        assertFalse(nextAdsOn(false, """{"ads": null}"""))
+        assertTrue(nextAdsOn(null, null))
+        assertTrue(nextAdsOn(null, "<html>404</html>"))
+        assertTrue(nextAdsOn(null, """{"ads": "no"}"""))
     }
 
     @Test
@@ -136,7 +202,8 @@ class RulesTest {
             askedVersion: Long = 16,
             last: Long = 0,
             busy: Boolean = false,
-        ) = reviewDue(now, installed, launches, version, askedVersion, last, busy)
+            budgetOpen: Boolean = true,
+        ) = reviewDue(now, installed, launches, version, askedVersion, last, busy, budgetOpen)
         assertTrue(due())
         assertFalse(due(installed = now - day))
         assertFalse(due(launches = 1))
@@ -144,5 +211,46 @@ class RulesTest {
         assertFalse(due(last = now - 29 * day))
         assertTrue(due(last = now - 30 * day))
         assertFalse(due(busy = true))
+        // M7: ni el dia en que ya hubo otra peticion.
+        assertFalse(due(budgetOpen = false))
+    }
+
+    @Test
+    fun oneAskEvery24Hours() {
+        val hour = 3_600_000L
+        val now = 100 * 24 * hour
+        assertTrue(askBudgetOpen(lastAskMs = 0, nowMs = now))
+        // Ventana de 24 h, no el dia del calendario: ni un milisegundo antes de cumplirse.
+        assertFalse(askBudgetOpen(lastAskMs = now - 1, nowMs = now))
+        assertFalse(askBudgetOpen(lastAskMs = now - 24 * hour + 1, nowMs = now))
+        assertTrue(askBudgetOpen(lastAskMs = now - 24 * hour, nowMs = now))
+        // Reloj atrasado: la ultima peticion cae en el futuro y no deja el presupuesto cerrado para siempre.
+        assertTrue(askBudgetOpen(lastAskMs = now + hour, nowMs = now))
+    }
+
+    @Test
+    fun theProTouchComesOnceAndAWeekLaterOnceMore() {
+        val day = 86_400_000L
+        val now = 100 * day
+        fun touch(
+            offer: Boolean = true,
+            first: Long = 0,
+            reminded: Boolean = false,
+            budget: Boolean = true,
+        ) = proTouchDue(offer, now, first, reminded, budget)
+        // La primera vez que hay algo que ofrecer.
+        assertEquals(ProTouch.FIRST, touch())
+        assertEquals(ProTouch.NONE, touch(offer = false))
+        assertEquals(ProTouch.NONE, touch(budget = false))
+        // Despues de ensenarla no vuelve en cada arranque...
+        assertEquals(ProTouch.NONE, touch(first = now - 6 * day))
+        assertEquals(ProTouch.NONE, touch(first = now - 7 * day + 1))
+        // ... sino 7 dias despues de la primera vez que se enseno, y solo esa vez.
+        assertEquals(ProTouch.REMINDER, touch(first = now - 7 * day))
+        assertEquals(ProTouch.NONE, touch(first = now - 30 * day, reminded = true))
+        // Y el presupuesto del dia manda tambien sobre el recordatorio.
+        assertEquals(ProTouch.NONE, touch(first = now - 30 * day, budget = false))
+        // Una primera vez apuntada en el futuro (reloj atrasado) no vuelve a salir.
+        assertEquals(ProTouch.NONE, touch(first = now + day))
     }
 }

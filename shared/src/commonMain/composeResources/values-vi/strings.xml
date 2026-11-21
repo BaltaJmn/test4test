@@ -1,0 +1,155 @@
+<resources>
+    <string name="nav_back">Quay lại</string>
+    <string name="tab_feed">Bảng tin</string>
+    <string name="tab_my_apps">Ứng dụng của tôi</string>
+    <string name="tab_profile">Hồ sơ</string>
+    <string name="title_detail">Chi tiết</string>
+    <string name="title_new_app">Ứng dụng mới</string>
+    <string name="title_edit_app">Sửa ứng dụng</string>
+    <string name="title_paywall">Ứng dụng không giới hạn</string>
+
+    <string name="login_tagline">Giúp người khác tìm người thử nghiệm, ứng dụng Google Play của bạn cũng sẽ có người thử nghiệm.</string>
+    <string name="login_google">Tiếp tục với Google</string>
+    <string name="login_error">Không đăng nhập được</string>
+    <string name="login_email_toggle">Đăng nhập bằng email</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Mật khẩu</string>
+    <string name="login_email_submit">Đăng nhập</string>
+
+    <string name="feed_error">Không tải được bảng tin</string>
+    <string name="feed_empty">Chưa có ứng dụng nào của nhà phát triển khác. Hãy thêm ứng dụng của bạn trong mục Ứng dụng của tôi.</string>
+    <string name="feed_add_own">Ứng dụng của bạn chưa vào hàng chờ. Hãy thêm ứng dụng để những nhà phát triển bạn đã giúp có thể giúp lại bạn bằng cách thử nghiệm nó.</string>
+    <string name="feed_intro">Hãy tham gia thử nghiệm của các nhà phát triển khác, họ cũng sẽ tham gia thử nghiệm của bạn. Ứng dụng xếp hàng chờ theo thứ tự đến trước: hãy giúp những ứng dụng đứng đầu đủ 12 người thử nghiệm.</string>
+
+    <string name="detail_error">Không tải được ứng dụng</string>
+    <string name="detail_testers_title">Ai đã tham gia</string>
+    <string name="detail_testers_empty">Chưa có người thử nghiệm nào. Hãy tham gia các thử nghiệm khác để ứng dụng của bạn được đẩy lên cao hơn trong bảng tin.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Liên kết chọn tham gia</string>
+    <string name="detail_join">Tôi đã chọn tham gia trên Play</string>
+    <string name="detail_leave">Rời khỏi thử nghiệm</string>
+    <string name="detail_delete_app">Xóa ứng dụng</string>
+    <string name="detail_action_error">Không hoàn tất được</string>
+    <string name="detail_join_help">Hãy mở nhóm trước, rồi mới mở liên kết chọn tham gia: làm ngược lại thì Play sẽ hiện trang báo lỗi. Sau khi bạn tham gia, Test4Test sẽ kiểm tra trên điện thoại này xem ứng dụng đã được cài từ Play chưa và cho nhà phát triển biết.</string>
+    <string name="detail_not_found">Ứng dụng này không còn tồn tại.</string>
+
+    <string name="comments_title">Bình luận</string>
+    <string name="comment_placeholder">Viết bình luận</string>
+    <string name="comment_link_app">Liên kết một ứng dụng của tôi (không bắt buộc)</string>
+    <string name="comment_send">Gửi</string>
+    <string name="comment_send_error">Không gửi được</string>
+    <string name="comments_empty">Chưa có bình luận nào.</string>
+
+    <string name="my_apps_error">Không tải được ứng dụng của bạn</string>
+    <string name="my_apps_add">Thêm ứng dụng</string>
+    <string name="my_apps_empty">Hãy thêm ứng dụng của bạn để bắt đầu có người thử nghiệm. Bạn cần hai liên kết từ Play Console: liên kết Google Groups và liên kết chọn tham gia của ứng dụng.</string>
+
+    <string name="form_name">Tên ứng dụng</string>
+    <string name="form_groups_url">Liên kết Google Groups</string>
+    <string name="form_opt_in_url">Liên kết chọn tham gia</string>
+    <string name="form_create">Tạo ứng dụng</string>
+    <string name="form_save">Lưu thay đổi</string>
+    <string name="form_save_error">Không lưu được</string>
+
+    <string name="error_name_empty">Tên không được để trống</string>
+    <string name="error_name_too_long">Tên không được dài quá 100 ký tự</string>
+    <string name="error_groups_url">Liên kết Google Groups phải có dạng https://groups.google.com/g/nhom-cua-ban</string>
+    <string name="error_opt_in_url">Liên kết chọn tham gia phải có dạng https://play.google.com/apps/testing/goi.cua.ban</string>
+
+    <string name="profile_error">Không tải được hồ sơ</string>
+    <string name="profile_fallback_name">Người dùng</string>
+    <string name="profile_premium">Gói đăng ký đang hoạt động: ứng dụng của bạn đứng đầu hàng chờ, không giới hạn số ứng dụng, không có quảng cáo</string>
+    <string name="profile_free">Gói miễn phí: chỉ 1 ứng dụng cùng lúc, có quảng cáo. Xem gói đăng ký</string>
+    <string name="profile_my_apps">Ứng dụng đã đăng</string>
+    <string name="profile_none_yet">Chưa có.</string>
+    <string name="profile_testing">Đang thử nghiệm</string>
+    <string name="profile_sign_out">Đăng xuất</string>
+    <string name="profile_ad_privacy">Quyền riêng tư về quảng cáo</string>
+    <string name="profile_privacy">Chính sách quyền riêng tư</string>
+    <string name="profile_rate">Đánh giá ứng dụng</string>
+
+    <string name="paywall_body">Gói miễn phí chỉ cho đăng 1 ứng dụng cùng lúc và có hiển thị quảng cáo. Khi đăng ký, ứng dụng của bạn đứng đầu hàng chờ và có nhãn nổi bật; bạn đăng được bao nhiêu ứng dụng tùy thích và không có quảng cáo, miễn là gói còn hiệu lực.</string>
+    <string name="paywall_active">Gói đăng ký của bạn đang hoạt động: ứng dụng của bạn đứng đầu hàng chờ.</string>
+    <string name="paywall_preparing">Gói đăng ký sắp ra mắt.</string>
+    <string name="paywall_no_product">Hiện chưa có sản phẩm nào.</string>
+    <string name="paywall_price_error">Không tải được giá: %1$s</string>
+    <string name="paywall_subscribe">Đăng ký</string>
+    <string name="paywall_subscribe_price">Đăng ký với giá %1$s</string>
+    <string name="paywall_restore">Khôi phục giao dịch mua</string>
+    <string name="paywall_no_purchase">Chúng tôi không tìm thấy giao dịch mua nào còn hiệu lực.</string>
+    <string name="paywall_pending">Gói đăng ký đã được ghi nhận nhưng quyền truy cập chưa được kích hoạt. Hãy quay lại sau khoảng một phút.</string>
+    <string name="paywall_purchase_error">Không hoàn tất được việc đăng ký</string>
+
+    <string name="confirm_title">Xác nhận</string>
+    <string name="action_delete">Xóa</string>
+    <string name="action_cancel">Hủy</string>
+    <string name="action_close">Đóng</string>
+    <string name="action_edit">Sửa</string>
+    <string name="action_report">Báo cáo</string>
+    <string name="action_reported">Đã báo cáo</string>
+    <string name="confirm_delete_app_comments">Xóa \"%1$s\" và tất cả bình luận của ứng dụng?</string>
+    <string name="confirm_delete_app_content">Xóa \"%1$s\" và toàn bộ nội dung của ứng dụng?</string>
+    <string name="confirm_delete_my_app">Xóa \"%1$s\"? Người thử nghiệm và bình luận của ứng dụng cũng sẽ bị xóa.</string>
+    <string name="confirm_delete_comment">Xóa bình luận này?</string>
+    <string name="delete_error">Không xóa được</string>
+
+    <string name="follower_help">Những người đã tham gia làm người thử nghiệm từ Test4Test.</string>
+    <string name="linked_app">%1$s - %2$d người thử nghiệm</string>
+    <string name="testers_days">Ngày thứ %1$d trong %2$d ngày liên tiếp</string>
+    <string name="testers_days_done">Đã hoàn thành %1$d ngày liên tiếp. Bạn có thể đăng ký phát hành công khai.</string>
+
+    <string name="testers_of">%1$d/%2$d người thử nghiệm</string>
+    <string name="my_apps_rank">Ứng dụng của bạn xếp sau ứng dụng của những nhà phát triển đang thử nghiệm cho người khác. Hiện bạn đang thử nghiệm %1$d trong số %2$d ứng dụng.</string>
+
+    <string name="detail_install">Cài đặt từ Google Play</string>
+    <string name="detail_installed">Đã cài từ Google Play. Nhà phát triển có thể thấy bạn thực sự có ứng dụng này. Hãy giữ ứng dụng trên máy trong 14 ngày.</string>
+    <string name="detail_not_installed">Chưa cài trên điện thoại này. Play chỉ tính những người thử nghiệm đã cài ứng dụng.</string>
+    <string name="detail_verified">%1$d người đã cài ứng dụng</string>
+    <string name="tester_installed">Đã cài ứng dụng</string>
+    <string name="tester_stale">Đã nhiều ngày không thấy ứng dụng được cài</string>
+    <string name="tester_unverified">Chưa xác nhận việc cài đặt</string>
+    <string name="confirm_leave">Rời khỏi thử nghiệm của \"%1$s\"? Nếu bạn là một trong 12 người thử nghiệm của ứng dụng, chuỗi 14 ngày của ứng dụng sẽ bắt đầu lại từ đầu.</string>
+    <string name="feed_testing">Đang thử nghiệm</string>
+    <string name="my_apps_add_locked">Thêm ứng dụng khác (gói đăng ký)</string>
+    <string name="form_groups_hint">Play Console, Thử nghiệm khép kín, Người thử nghiệm: nhóm Google Groups bạn đã thêm ở đó.</string>
+    <string name="form_opt_in_hint">Cùng trang đó, mục Tham gia trên web: https://play.google.com/apps/testing/goi.cua.ban</string>
+    <string name="profile_manage_subscription">Quản lý gói đăng ký trên Google Play</string>
+    <string name="profile_delete_account">Xóa tài khoản</string>
+    <string name="confirm_delete_account">Xóa tài khoản, ứng dụng, các thử nghiệm và bình luận của bạn? Không thể hoàn tác thao tác này. Gói đăng ký đang hoạt động sẽ không bị hủy ở đây: hãy hủy trên Google Play.</string>
+    <string name="paywall_terms">Tự động gia hạn cho đến khi bạn hủy. Bạn có thể hủy bất cứ lúc nào trong Google Play, mục \"Thanh toán và gói thuê bao\". Nếu hủy, các ứng dụng của bạn vẫn được đăng và quay về vị trí cũ trong hàng chờ; chỉ là bạn không thể thêm nhiều hơn một ứng dụng.</string>
+    <string name="paywall_terms_link">Điều khoản sử dụng</string>
+    <string name="price_per_week">%1$s/tuần</string>
+    <string name="price_per_month">%1$s/tháng</string>
+    <string name="price_per_year">%1$s/năm</string>
+
+    <plurals name="testing_count">
+        <item quantity="other">Đang thử nghiệm %1$d ứng dụng</item>
+    </plurals>
+    <string name="round_title">Nhiệm vụ hôm nay</string>
+    <string name="round_help">Google sẽ từ chối những ứng dụng mà người thử nghiệm không dùng. Hãy mở mỗi ứng dụng bạn thử nghiệm một lần mỗi ngày: nhà phát triển sẽ thấy điều đó.</string>
+    <string name="round_progress">Đã mở %1$d/%2$d hôm nay</string>
+    <string name="round_done">Đã xong nhiệm vụ hôm nay. Hẹn gặp lại ngày mai.</string>
+    <string name="round_open">Mở</string>
+    <string name="round_opened">Đã mở hôm nay</string>
+    <string name="round_install">Cài đặt</string>
+    <string name="reminder_on">Nhắc nhở hằng ngày: bật</string>
+    <string name="reminder_off">Nhắc nhở hằng ngày đang bật. Tắt</string>
+    <string name="tester_never_opened">Chưa từng mở từ Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="other">Đã mở %1$d ngày trong 14 ngày gần đây</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="other">Hãy mở %1$d ứng dụng bạn đang thử nghiệm: nhà phát triển của chúng cần 14 ngày sử dụng thực tế.</item>
+    </plurals>
+    <string name="queue_featured">Nổi bật</string>
+    <string name="queue_position">Vị trí %1$d trong hàng chờ</string>
+    <string name="my_apps_jump">Ứng dụng của người đăng ký gói được xếp đầu hàng chờ.</string>
+    <string name="my_apps_jump_action">Lên trước</string>
+    <string name="nudge_title">Có ứng dụng đang chờ người thử nghiệm</string>
+    <plurals name="nudge_text">
+        <item quantity="other">%1$d ứng dụng đang cần người thử nghiệm. Hãy tham gia thử nghiệm: nhà phát triển thử nghiệm cho người khác được xếp lên trước trong hàng chờ.</item>
+    </plurals>
+    <string name="joined_title">Có người thử nghiệm mới trong %1$s</string>
+    <string name="joined_text">%1$d/12 người thử nghiệm. Hãy thử nghiệm ứng dụng khác để luôn đứng trước trong hàng chờ.</string>
+</resources>

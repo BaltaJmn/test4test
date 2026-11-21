@@ -9,6 +9,12 @@ import androidx.compose.ui.Modifier
 @Composable
 expect fun AdBanner(modifier: Modifier = Modifier)
 
+// Si toca el banner para este perfil: showsAds con lo que solo sabe el sistema (cuando
+// se instalo la app) y lo que dice config.json de la web, que se vuelve a leer cada
+// vez que se vuelve a la app.
+@Composable
+expect fun rememberShowsAds(me: Profile?): Boolean
+
 // Abre el formulario para cambiar el consentimiento de los anuncios. Null donde
 // la ley no lo pide (fuera del EEE y Reino Unido): ahi no se pinta la opcion.
 @Composable

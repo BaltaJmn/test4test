@@ -1,0 +1,155 @@
+<resources>
+    <string name="nav_back">뒤로</string>
+    <string name="tab_feed">피드</string>
+    <string name="tab_my_apps">내 앱</string>
+    <string name="tab_profile">프로필</string>
+    <string name="title_detail">상세 정보</string>
+    <string name="title_new_app">새 앱</string>
+    <string name="title_edit_app">앱 수정</string>
+    <string name="title_paywall">앱 무제한</string>
+
+    <string name="login_tagline">다른 개발자의 테스터 모집을 도우면 내 Google Play 앱의 테스터도 모을 수 있어요.</string>
+    <string name="login_google">Google로 계속하기</string>
+    <string name="login_error">로그인하지 못했어요</string>
+    <string name="login_email_toggle">이메일로 로그인</string>
+    <string name="login_email">이메일</string>
+    <string name="login_password">비밀번호</string>
+    <string name="login_email_submit">로그인</string>
+
+    <string name="feed_error">피드를 불러오지 못했어요</string>
+    <string name="feed_empty">아직 다른 개발자의 앱이 없어요. 내 앱 탭에서 앱을 추가해 보세요.</string>
+    <string name="feed_add_own">내 앱이 아직 대기열에 없어요. 앱을 추가하면 내가 도와준 개발자들이 내 앱도 테스트해 줄 수 있어요.</string>
+    <string name="feed_intro">다른 개발자의 테스트에 참여하면 그 개발자도 내 테스트에 참여해요. 앱은 등록한 순서대로 대기열에서 기다려요. 맨 앞에 있는 앱부터 테스터 12명이 모이도록 도와주세요.</string>
+
+    <string name="detail_error">앱을 불러오지 못했어요</string>
+    <string name="detail_testers_title">참여자</string>
+    <string name="detail_testers_empty">아직 테스터가 없어요. 다른 테스트에 참여하면 내 앱이 피드에서 위로 올라가요.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">테스트 참여 링크</string>
+    <string name="detail_join">Play에서 참여했어요</string>
+    <string name="detail_leave">테스트에서 나가기</string>
+    <string name="detail_delete_app">앱 삭제</string>
+    <string name="detail_action_error">완료하지 못했어요</string>
+    <string name="detail_join_help">먼저 그룹을 열고, 그다음에 테스트 참여 링크를 열어 주세요. 순서가 바뀌면 Play에 오류 페이지가 표시돼요. 참여하고 나면 Test4Test가 이 휴대전화에서 앱이 Play에서 설치됐는지 확인해 앱 개발자에게 보여 줘요.</string>
+    <string name="detail_not_found">이 앱은 더 이상 없어요.</string>
+
+    <string name="comments_title">댓글</string>
+    <string name="comment_placeholder">댓글을 입력하세요</string>
+    <string name="comment_link_app">내 앱 하나 연결하기 (선택)</string>
+    <string name="comment_send">보내기</string>
+    <string name="comment_send_error">보내지 못했어요</string>
+    <string name="comments_empty">아직 댓글이 없어요.</string>
+
+    <string name="my_apps_error">내 앱을 불러오지 못했어요</string>
+    <string name="my_apps_add">앱 추가</string>
+    <string name="my_apps_empty">앱을 추가하고 테스터를 모아 보세요. Play Console에 있는 링크 두 개가 필요해요. 앱의 Google Groups 링크와 테스트 참여 링크예요.</string>
+
+    <string name="form_name">앱 이름</string>
+    <string name="form_groups_url">Google Groups 링크</string>
+    <string name="form_opt_in_url">테스트 참여 링크</string>
+    <string name="form_create">앱 만들기</string>
+    <string name="form_save">변경 사항 저장</string>
+    <string name="form_save_error">저장하지 못했어요</string>
+
+    <string name="error_name_empty">이름을 입력해 주세요</string>
+    <string name="error_name_too_long">이름은 100자를 넘을 수 없어요</string>
+    <string name="error_groups_url">Google Groups 링크는 https://groups.google.com/g/그룹이름 형식이어야 해요</string>
+    <string name="error_opt_in_url">테스트 참여 링크는 https://play.google.com/apps/testing/패키지이름 형식이어야 해요</string>
+
+    <string name="profile_error">프로필을 불러오지 못했어요</string>
+    <string name="profile_fallback_name">사용자</string>
+    <string name="profile_premium">구독 이용 중: 내 앱은 대기열 맨 앞, 앱 무제한, 광고 없음</string>
+    <string name="profile_free">무료 플랜: 한 번에 앱 1개, 광고 있음. 구독 보기</string>
+    <string name="profile_my_apps">등록한 앱</string>
+    <string name="profile_none_yet">아직 없어요.</string>
+    <string name="profile_testing">테스트 중</string>
+    <string name="profile_sign_out">로그아웃</string>
+    <string name="profile_ad_privacy">광고 개인정보 보호</string>
+    <string name="profile_privacy">개인정보 처리방침</string>
+    <string name="profile_rate">앱 평가하기</string>
+
+    <string name="paywall_body">무료 플랜에서는 한 번에 앱 1개만 등록할 수 있고 광고가 표시돼요. 구독하면 내 앱이 대기열 맨 앞에서 추천 앱으로 표시되고, 구독하는 동안 원하는 만큼 앱을 등록할 수 있으며 광고도 나오지 않아요.</string>
+    <string name="paywall_active">구독 중이에요. 내 앱이 대기열 맨 앞에 서요.</string>
+    <string name="paywall_preparing">구독 기능을 준비 중이에요.</string>
+    <string name="paywall_no_product">아직 이용할 수 있는 상품이 없어요.</string>
+    <string name="paywall_price_error">가격을 불러오지 못했어요: %1$s</string>
+    <string name="paywall_subscribe">구독하기</string>
+    <string name="paywall_subscribe_price">%1$s에 구독하기</string>
+    <string name="paywall_restore">구매 복원</string>
+    <string name="paywall_no_purchase">유효한 구매 내역을 찾지 못했어요.</string>
+    <string name="paywall_pending">구독은 등록됐지만 아직 이용 권한이 활성화되지 않았어요. 1분 뒤에 다시 확인해 주세요.</string>
+    <string name="paywall_purchase_error">구독을 완료하지 못했어요</string>
+
+    <string name="confirm_title">확인</string>
+    <string name="action_delete">삭제</string>
+    <string name="action_cancel">취소</string>
+    <string name="action_close">닫기</string>
+    <string name="action_edit">수정</string>
+    <string name="action_report">신고</string>
+    <string name="action_reported">신고 완료</string>
+    <string name="confirm_delete_app_comments">\"%1$s\" 앱과 모든 댓글을 삭제할까요?</string>
+    <string name="confirm_delete_app_content">\"%1$s\" 앱과 모든 내용을 삭제할까요?</string>
+    <string name="confirm_delete_my_app">\"%1$s\" 앱을 삭제할까요? 테스터와 댓글도 함께 삭제돼요.</string>
+    <string name="confirm_delete_comment">이 댓글을 삭제할까요?</string>
+    <string name="delete_error">삭제하지 못했어요</string>
+
+    <string name="follower_help">Test4Test에서 테스터로 참여한 사람들이에요.</string>
+    <string name="linked_app">%1$s - 테스터 %2$d명</string>
+    <string name="testers_days">연속 %2$d일 중 %1$d일째</string>
+    <string name="testers_days_done">%1$d일 연속을 채웠어요. 이제 프로덕션 신청을 할 수 있어요.</string>
+
+    <string name="testers_of">테스터 %1$d / %2$d명</string>
+    <string name="my_apps_rank">내 앱은 다른 앱을 테스트하는 개발자의 앱보다 뒤로 밀려요. 지금 %2$d개 중 %1$d개를 테스트하고 있어요.</string>
+
+    <string name="detail_install">Google Play에서 설치</string>
+    <string name="detail_installed">Google Play에서 설치했어요. 앱 개발자는 내가 실제로 설치한 것을 볼 수 있어요. 14일 동안은 그대로 설치해 두세요.</string>
+    <string name="detail_not_installed">이 휴대전화에는 아직 설치되지 않았어요. Play는 앱을 설치한 테스터만 집계해요.</string>
+    <string name="detail_verified">앱을 설치한 사람 %1$d명</string>
+    <string name="tester_installed">앱 설치됨</string>
+    <string name="tester_stale">며칠째 설치가 확인되지 않았어요</string>
+    <string name="tester_unverified">설치가 아직 확인되지 않았어요</string>
+    <string name="confirm_leave">\"%1$s\" 앱의 테스트에서 나갈까요? 12명의 테스터 중 한 명이었다면 14일 연속 기록이 처음부터 다시 시작돼요.</string>
+    <string name="feed_testing">테스트 중</string>
+    <string name="my_apps_add_locked">앱 하나 더 추가 (구독)</string>
+    <string name="form_groups_hint">Play Console, 비공개 테스트, 테스터: 거기에 추가한 Google 그룹스예요.</string>
+    <string name="form_opt_in_hint">같은 페이지, 웹에서 참여: https://play.google.com/apps/testing/패키지이름</string>
+    <string name="profile_manage_subscription">Google Play에서 구독 관리</string>
+    <string name="profile_delete_account">계정 삭제</string>
+    <string name="confirm_delete_account">계정, 앱, 테스트, 댓글을 모두 삭제할까요? 이 작업은 되돌릴 수 없어요. 이용 중인 구독은 여기서 취소되지 않아요. Google Play에서 취소해 주세요.</string>
+    <string name="paywall_terms">취소하기 전까지 자동으로 갱신돼요. Google Play의 \"결제 및 정기 결제\"에서 언제든지 취소할 수 있어요. 취소해도 내 앱은 그대로 등록되어 있고 대기열의 원래 자리로 돌아가요. 다만 앱은 한 개까지만 추가할 수 있어요.</string>
+    <string name="paywall_terms_link">이용약관</string>
+    <string name="price_per_week">%1$s/주</string>
+    <string name="price_per_month">%1$s/월</string>
+    <string name="price_per_year">%1$s/년</string>
+
+    <plurals name="testing_count">
+        <item quantity="other">앱 %1$d개 테스트 중</item>
+    </plurals>
+    <string name="round_title">오늘 할 일</string>
+    <string name="round_help">테스터가 사용하지 않는 앱은 Google이 승인하지 않아요. 테스트 중인 앱은 하루에 한 번씩 열어 주세요. 열어 본 기록이 앱 개발자에게 보여요.</string>
+    <string name="round_progress">오늘 %2$d개 중 %1$d개 열었어요</string>
+    <string name="round_done">오늘 할 일을 모두 마쳤어요. 내일 만나요.</string>
+    <string name="round_open">열기</string>
+    <string name="round_opened">오늘 열었어요</string>
+    <string name="round_install">설치</string>
+    <string name="reminder_on">매일 알림: 켜기</string>
+    <string name="reminder_off">매일 알림이 켜져 있어요. 끄기</string>
+    <string name="tester_never_opened">Test4Test에서 한 번도 열지 않았어요</string>
+    <plurals name="tester_open_days">
+        <item quantity="other">최근 14일 중 %1$d일 열었어요</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="other">테스트 중인 앱 %1$d개를 열어 주세요. 개발자에게는 14일 동안의 실제 사용이 필요해요.</item>
+    </plurals>
+    <string name="queue_featured">추천</string>
+    <string name="queue_position">대기열 %1$d번째</string>
+    <string name="my_apps_jump">구독자의 앱은 대기열 맨 앞에 서요.</string>
+    <string name="my_apps_jump_action">순서 올리기</string>
+    <string name="nudge_title">테스터를 기다리는 앱이 있어요</string>
+    <plurals name="nudge_text">
+        <item quantity="other">앱 %1$d개가 테스터를 찾고 있어요. 참여해 보세요. 다른 앱을 테스트하는 개발자는 대기열에서 먼저 가요.</item>
+    </plurals>
+    <string name="joined_title">%1$s에 새 테스터가 참여했어요</string>
+    <string name="joined_text">테스터 %1$d / 12명. 다른 앱을 테스트해서 대기열의 앞자리를 지키세요.</string>
+</resources>

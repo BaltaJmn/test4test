@@ -1,7 +1,9 @@
 package com.baltajmn.test4test
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -13,12 +15,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import test4test.shared.generated.resources.Res
+import test4test.shared.generated.resources.action_close
 import test4test.shared.generated.resources.action_delete
 import test4test.shared.generated.resources.action_edit
 import test4test.shared.generated.resources.confirm_delete_my_app
@@ -80,8 +82,10 @@ fun MyAppsScreen(
     // usuario a un formulario que el backend rechazaria. Y lo dice en el boton:
     // descubrir el muro despues de tocar es peor que verlo venir.
     val canCreate = canCreateApp(me?.isPremium == true, list.size)
-    val jumpOffer = me?.isPremium != true && list.any { (it.queuePosition ?: 0) > 1 }
-    if (!canCreate || jumpOffer) SideEffect { Session.busy = true }
+    // Solo con el perfil cargado: sin saber si hay suscripcion, decidir gastaria el "primero" y el dia en alguien que paga.
+    val jumpOffer = me != null && !me.isPremium && list.any { (it.queuePosition ?: 0) > 1 }
+    val touch = rememberProTouch(jumpOffer)
+    if (!canCreate || touch.visible) SideEffect { Session.busy = true }
     PageLazyColumn(modifier) {
         item {
             LinkButton(stringResource(if (canCreate) Res.string.my_apps_add else Res.string.my_apps_add_locked)) {
@@ -112,17 +116,21 @@ fun MyAppsScreen(
         }
         // Lo que se vende es llegar antes a 12, no mas huecos: casi nadie
         // necesita mas de una app a la vez. Se ofrece solo a quien tiene algo
-        // esperando en la cola y no va ya delante.
-        if (jumpOffer) {
+        // esperando en la cola y no va ya delante, como una linea que se cierra:
+        // sale la primera vez, dura una sesion y vuelve una vez a la semana
+        // siguiente (proTouchDue, M2 y M3).
+        if (touch.visible) {
             item {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Column {
                     Text(
                         stringResource(Res.string.my_apps_jump),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.weight(1f),
                     )
-                    TextButton(onClick = onPaywall) { Text(stringResource(Res.string.my_apps_jump_action)) }
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                        TextButton(onClick = touch.close) { Text(stringResource(Res.string.action_close)) }
+                        TextButton(onClick = onPaywall) { Text(stringResource(Res.string.my_apps_jump_action)) }
+                    }
                 }
             }
         }

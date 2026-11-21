@@ -106,6 +106,7 @@ private fun Home() {
     var me by remember { mutableStateOf<Profile?>(null) }
     var profileReload by remember { mutableStateOf(0) }
     LaunchedEffect(uid, profileReload) { me = runCatching { profile(uid) }.getOrNull() }
+    val ads = rememberShowsAds(me)
 
     fun push(screen: Screen) = stack.add(screen)
     fun back() {
@@ -151,7 +152,7 @@ private fun Home() {
             // lo quita, y en formularios y fichas se toca demasiado cerca.
             if (current is Screen.Feed || current is Screen.MyApps || current is Screen.Profile) {
                 Column {
-                    if (showsAds(me)) AdBanner()
+                    if (ads) AdBanner()
                     BottomTabs(current, ::goRoot)
                 }
             }

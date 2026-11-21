@@ -84,6 +84,7 @@
     <string name="confirm_title">Confirmar</string>
     <string name="action_delete">Borrar</string>
     <string name="action_cancel">Cancelar</string>
+    <string name="action_close">Cerrar</string>
     <string name="action_edit">Editar</string>
     <string name="action_report">Denunciar</string>
     <string name="action_reported">Denunciada</string>

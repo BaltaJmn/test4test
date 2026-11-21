@@ -15,8 +15,9 @@
   // The app is Android-only and everything happens inside it. All that is left
   // here is the privacy policy, because Play and Google sign-in require a public
   // URL for it (/privacy resolves to privacy.html), app-ads.txt, which AdMob
-  // reads from the developer website of the Play listing, and a one-page index,
-  // because that website is the Play listing's link and a 404 there looked broken.
+  // reads from the developer website of the Play listing, a one-page index,
+  // because that website is the Play listing's link and a 404 there looked broken,
+  // and config.json, the remote switch of the ads that the app reads.
   "assets": {
     "directory": "./web"
   }

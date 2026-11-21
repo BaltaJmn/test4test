@@ -15,7 +15,20 @@ expect fun rememberDailyReminder(auto: Boolean = false): DailyReminder
 // ha visto en esta ejecucion y la valoracion no se pide (V3, M7). Solo sube.
 object Session {
     var busy = false
+
+    // El toque de Pro de Mis apps (M2, M3): que tipo toco en esta ejecucion, null si aun
+    // no se ha decidido, y si ya se cerro. Dura una sola sesion: se decide una vez.
+    var proTouch: ProTouch? = null
+    var proTouchClosed = false
 }
+
+// La linea de "saltar la cola" de Mis apps, con las reglas de `proTouchDue` y lo que
+// se recuerda de una ejecucion a otra (cuando salio por primera vez, en que version
+// se recordo, y el dia de la ultima peticion). `offer`: hay algo que ofrecer.
+class ProTouchState(val visible: Boolean, val close: () -> Unit)
+
+@Composable
+expect fun rememberProTouch(offer: Boolean): ProTouchState
 
 // Pide la valoracion de Play con las condiciones de `reviewDue`, y solo si Play quiere.
 @Composable

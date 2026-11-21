@@ -85,6 +85,7 @@
     <string name="confirm_title">पुष्टि करें</string>
     <string name="action_delete">हटाएं</string>
     <string name="action_cancel">रद्द करें</string>
+    <string name="action_close">बंद करें</string>
     <string name="action_edit">संपादित करें</string>
     <string name="action_report">रिपोर्ट करें</string>
     <string name="action_reported">रिपोर्ट किया गया</string>

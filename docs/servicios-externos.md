@@ -16,7 +16,7 @@ ellos la pagina no sirve de nada.
 | Proyecto de Supabase | `tneuaccyzausvszpplms` (eu-central-1), desde el 26-10-2026 |
 | Callback de Supabase | `https://tneuaccyzausvszpplms.supabase.co/auth/v1/callback` |
 | Deep link | `test4test://login` (vuelta del login). No hay enlaces a fichas: todo pasa dentro de la app |
-| Web | Solo `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Desde la 1.9.1, portada de una pagina en la raiz (`web/index.html`): es el sitio web de la ficha de Play |
+| Web | `https://testers.baltajmn.dev/privacy` y `/privacy-es` (Cloudflare Worker `test4test`): Play y el login de Google exigen una URL publica de privacidad. Tambien `/config.json`, el interruptor remoto de los anuncios (D1), que la app lee al volver al primer plano solo si a esa persona le puede salir un anuncio. Desde la 1.9.1, portada de una pagina en la raiz (`web/index.html`): es el sitio web de la ficha de Play |
 | Producto de compra | Suscripcion `unlimited_apps`, plan base `monthly`, 1,99 EUR al mes. `unlimited_slots_lifetime` queda como legado |
 | Grupo de la prueba cerrada | `https://groups.google.com/g/test4test-baltajmn` |
 | App de AdMob | `ca-app-pub-1605179202100483~7329690988` (cuenta compartida con FlowTime, Chroma y Quilt), banner "Banner principal" `ca-app-pub-1605179202100483/2077364302` |
@@ -207,6 +207,21 @@ Desde la 1.7 (6-11-2026) el plan free lleva un banner encima de las pestanas
 Codigo en `Ads.kt` y `Ads.android.kt`; en debug y en Test Lab, la unidad de
 prueba de Google.
 
+Desde la 1.15 (D1 del estandar de apps) el banner no sale la primera semana
+desde instalar (`ADS_AFTER_DAYS`), ni nunca a quien ya tenia la app instalada
+antes del 23-11-2026 (`ADS_EXEMPT_BEFORE_MS`; tiene que ser el instante real en que
+la 1.15 llega a todos, asi que se corrige al publicarla si no es ese dia), y
+se apaga sin version con `"ads": false` en `web/config.json`, que se despliega con
+la web (`https://testers.baltajmn.dev/config.json`) y la app lee cada vez que
+vuelve al primer plano, sin enviar nada de la persona, y solo si a esa persona le
+puede salir un anuncio (premium, admin y quien ya usaba la app no piden el fichero).
+Hasta la primera respuesta de un arranque no hay ni banner ni formulario de
+consentimiento; sin red o con un archivo ilegible, encendido (o lo que ya se sabia
+en ese proceso). El formulario UMP cuenta como una peticion del dia: como mucho una
+cada 24 h entre el toque de Pro de Mis apps, la valoracion y ese formulario (M7). El
+toque de Pro (la linea de "saltar la cola" en Mis apps) sale la primera vez, una sola
+vez mas 7 dias despues y no vuelve; solo con el perfil ya cargado y sin suscripcion.
+
 - **Cuenta compartida.** Es la misma de FlowTime, Chroma y Quilt: un aviso por
   trafico no valido en Test4Test las tumba todas. Por eso el admin no ve
   anuncios, y los moviles propios van en AdMob, Ajustes, Dispositivos de prueba.
@@ -256,7 +271,7 @@ restaura desde el dashboard si hace falta, pausando otro.
 ## Cloudflare
 
 Worker `test4test` con Workers Static Assets, sin script, sirviendo la carpeta
-[`web/`](../web) tal cual: la portada, `/privacy`, `/privacy-es` y `app-ads.txt`. Configuracion en
+[`web/`](../web) tal cual: la portada, `/privacy`, `/privacy-es`, `app-ads.txt` y `config.json`. Configuracion en
 [`wrangler.jsonc`](../wrangler.jsonc), despliegue en `deploy-web.yml`.
 
 Tres cosas que rompieron el sitio en produccion:

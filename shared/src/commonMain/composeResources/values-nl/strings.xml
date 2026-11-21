@@ -1,0 +1,159 @@
+<resources>
+    <string name="nav_back">Terug</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Mijn apps</string>
+    <string name="tab_profile">Profiel</string>
+    <string name="title_detail">Details</string>
+    <string name="title_new_app">Nieuwe app</string>
+    <string name="title_edit_app">App bewerken</string>
+    <string name="title_paywall">Onbeperkt aantal apps</string>
+
+    <string name="login_tagline">Krijg testers voor je app in Google Play door anderen aan hun testers te helpen.</string>
+    <string name="login_google">Doorgaan met Google</string>
+    <string name="login_error">Inloggen mislukt</string>
+    <string name="login_email_toggle">Inloggen met e-mail</string>
+    <string name="login_email">E-mail</string>
+    <string name="login_password">Wachtwoord</string>
+    <string name="login_email_submit">Inloggen</string>
+
+    <string name="feed_error">Kan de feed niet laden</string>
+    <string name="feed_empty">Nog geen apps van andere ontwikkelaars. Voeg de jouwe toe via \"Mijn apps\".</string>
+    <string name="feed_add_own">Je app staat nog niet in de wachtrij. Voeg de app toe, dan kunnen de ontwikkelaars die je helpt jouw app ook testen.</string>
+    <string name="feed_intro">Doe mee met de tests van andere ontwikkelaars, dan doen zij mee met die van jou. Apps staan in de wachtrij in volgorde van binnenkomst: help de eerste apps aan hun 12 testers.</string>
+
+    <string name="detail_error">Kan de app niet laden</string>
+    <string name="detail_testers_title">Wie er meedoet</string>
+    <string name="detail_testers_empty">Nog geen testers. Doe mee met andere tests, dan schuift jouw app omhoog in de feed.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Aanmeldlink</string>
+    <string name="detail_join">Ik heb me aangemeld in Play</string>
+    <string name="detail_leave">Test verlaten</string>
+    <string name="detail_delete_app">App verwijderen</string>
+    <string name="detail_action_error">Actie mislukt</string>
+    <string name="detail_join_help">Open eerst de groep en daarna de aanmeldlink: in de andere volgorde toont Play een foutpagina. Zodra je bent aangemeld, controleert Test4Test op deze telefoon of de app via Play is geïnstalleerd en laat dat aan de eigenaar van de app zien.</string>
+    <string name="detail_not_found">Deze app bestaat niet meer.</string>
+
+    <string name="comments_title">Reacties</string>
+    <string name="comment_placeholder">Schrijf een reactie</string>
+    <string name="comment_link_app">Een van mijn apps koppelen (optioneel)</string>
+    <string name="comment_send">Verzenden</string>
+    <string name="comment_send_error">Verzenden mislukt</string>
+    <string name="comments_empty">Nog geen reacties.</string>
+
+    <string name="my_apps_error">Kan je apps niet laden</string>
+    <string name="my_apps_add">App toevoegen</string>
+    <string name="my_apps_empty">Voeg je app toe om testers te krijgen. Je hebt twee links uit de Play Console nodig: die van de Google-groep van je app en de aanmeldlink.</string>
+
+    <string name="form_name">Naam van de app</string>
+    <string name="form_groups_url">Link naar Google Groups</string>
+    <string name="form_opt_in_url">Aanmeldlink</string>
+    <string name="form_create">App aanmaken</string>
+    <string name="form_save">Wijzigingen opslaan</string>
+    <string name="form_save_error">Opslaan mislukt</string>
+
+    <string name="error_name_empty">De naam mag niet leeg zijn</string>
+    <string name="error_name_too_long">De naam mag niet langer zijn dan 100 tekens</string>
+    <string name="error_groups_url">De link naar Google Groups moet er zo uitzien: https://groups.google.com/g/jouw-groep</string>
+    <string name="error_opt_in_url">De aanmeldlink moet er zo uitzien: https://play.google.com/apps/testing/jouw.pakket</string>
+
+    <string name="profile_error">Kan het profiel niet laden</string>
+    <string name="profile_fallback_name">Gebruiker</string>
+    <string name="profile_premium">Abonnement actief: je apps vooraan in de wachtrij, onbeperkt aantal apps, geen advertenties</string>
+    <string name="profile_free">Gratis plan: 1 app tegelijk, met advertenties. Bekijk het abonnement</string>
+    <string name="profile_my_apps">Gepubliceerde apps</string>
+    <string name="profile_none_yet">Nog geen.</string>
+    <string name="profile_testing">Aan het testen</string>
+    <string name="profile_sign_out">Uitloggen</string>
+    <string name="profile_ad_privacy">Privacy van advertenties</string>
+    <string name="profile_privacy">Privacybeleid</string>
+    <string name="profile_rate">App beoordelen</string>
+
+    <string name="paywall_body">Met het gratis plan kun je 1 app tegelijk publiceren en zie je advertenties. Met het abonnement staan je apps vooraan in de wachtrij, gemarkeerd als uitgelicht, kun je zoveel apps publiceren als je wilt en zie je geen advertenties, zolang het abonnement actief is.</string>
+    <string name="paywall_active">Je abonnement is actief: je apps staan vooraan in de wachtrij.</string>
+    <string name="paywall_preparing">Abonnementen komen binnenkort.</string>
+    <string name="paywall_no_product">Er is nog geen product beschikbaar.</string>
+    <string name="paywall_price_error">Kan de prijs niet laden: %1$s</string>
+    <string name="paywall_subscribe">Abonneren</string>
+    <string name="paywall_subscribe_price">Abonneren voor %1$s</string>
+    <string name="paywall_restore">Aankopen herstellen</string>
+    <string name="paywall_no_purchase">We hebben geen actieve aankoop gevonden.</string>
+    <string name="paywall_pending">Abonnement geregistreerd, maar de toegang is nog niet actief. Kom over een minuut terug.</string>
+    <string name="paywall_purchase_error">Abonneren is niet gelukt</string>
+
+    <string name="confirm_title">Bevestigen</string>
+    <string name="action_delete">Verwijderen</string>
+    <string name="action_cancel">Annuleren</string>
+    <string name="action_close">Sluiten</string>
+    <string name="action_edit">Bewerken</string>
+    <string name="action_report">Melden</string>
+    <string name="action_reported">Gemeld</string>
+    <string name="confirm_delete_app_comments">\"%1$s\" en alle reacties erop verwijderen?</string>
+    <string name="confirm_delete_app_content">\"%1$s\" en alle inhoud verwijderen?</string>
+    <string name="confirm_delete_my_app">\"%1$s\" verwijderen? De testers en reacties gaan er ook mee weg.</string>
+    <string name="confirm_delete_comment">Deze reactie verwijderen?</string>
+    <string name="delete_error">Verwijderen mislukt</string>
+
+    <string name="follower_help">Mensen die via Test4Test als tester zijn gaan meedoen.</string>
+    <string name="linked_app">%1$s - %2$d testers</string>
+    <string name="testers_days">Dag %1$d van %2$d op rij</string>
+    <string name="testers_days_done">%1$d dagen op rij gehaald. Je kunt nu productietoegang aanvragen.</string>
+
+    <string name="testers_of">%1$d van %2$d testers</string>
+    <string name="my_apps_rank">Je apps staan achter die van ontwikkelaars die andere apps testen. Je test er %1$d van %2$d.</string>
+
+    <string name="detail_install">Installeren via Google Play</string>
+    <string name="detail_installed">Geïnstalleerd via Google Play. De eigenaar ziet dat je de app echt hebt. Laat de app 14 dagen geïnstalleerd staan.</string>
+    <string name="detail_not_installed">Nog niet geïnstalleerd op deze telefoon. Play telt alleen testers die de app installeren.</string>
+    <string name="detail_verified">%1$d met de app geïnstalleerd</string>
+    <string name="tester_installed">Heeft de app geïnstalleerd</string>
+    <string name="tester_stale">Al dagen niet als geïnstalleerd gezien</string>
+    <string name="tester_unverified">Installatie nog niet bevestigd</string>
+    <string name="confirm_leave">De test van \"%1$s\" verlaten? Als je een van de 12 testers was, begint de reeks van 14 dagen opnieuw.</string>
+    <string name="feed_testing">Je test deze app</string>
+    <string name="my_apps_add_locked">Nog een app toevoegen (abonnement)</string>
+    <string name="form_groups_hint">Play Console, Gesloten test, Testers: de Google-groep die je daar hebt toegevoegd.</string>
+    <string name="form_opt_in_hint">Op dezelfde pagina, Deelnemen op het web: https://play.google.com/apps/testing/jouw.pakket</string>
+    <string name="profile_manage_subscription">Abonnement beheren in Google Play</string>
+    <string name="profile_delete_account">Account verwijderen</string>
+    <string name="confirm_delete_account">Je account, je apps, je tests en je reacties verwijderen? Dit kan niet ongedaan worden gemaakt. Een actief abonnement wordt hier niet opgezegd: zeg het op in Google Play.</string>
+    <string name="paywall_terms">Wordt automatisch verlengd totdat je opzegt. Je kunt altijd opzeggen in Google Play, onder Betalingen en abonnementen. Als je opzegt, blijven je apps gepubliceerd en gaan ze terug naar hun plek in de wachtrij; je kunt dan alleen niet meer dan één app toevoegen.</string>
+    <string name="paywall_terms_link">Gebruiksvoorwaarden</string>
+    <string name="price_per_week">%1$s/week</string>
+    <string name="price_per_month">%1$s/maand</string>
+    <string name="price_per_year">%1$s/jaar</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Aan het testen: %1$d app</item>
+        <item quantity="other">Aan het testen: %1$d apps</item>
+    </plurals>
+    <string name="round_title">Je ronde van vandaag</string>
+    <string name="round_help">Google wijst apps af waarvan de testers ze niet gebruiken. Open elke app die je test één keer per dag: de eigenaar ziet het.</string>
+    <string name="round_progress">%1$d van %2$d vandaag geopend</string>
+    <string name="round_done">Ronde klaar. Tot morgen.</string>
+    <string name="round_open">Openen</string>
+    <string name="round_opened">Vandaag geopend</string>
+    <string name="round_install">Installeren</string>
+    <string name="reminder_on">Dagelijkse herinneringen: aanzetten</string>
+    <string name="reminder_off">Dagelijkse herinneringen staan aan. Uitzetten</string>
+    <string name="tester_never_opened">Nooit geopend via Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Op één van de laatste 14 dagen geopend</item>
+        <item quantity="other">Op %1$d van de laatste 14 dagen geopend</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Open de app die je test: de eigenaar heeft 14 dagen echt gebruik nodig.</item>
+        <item quantity="other">Open de %1$d apps die je test: de eigenaren hebben 14 dagen echt gebruik nodig.</item>
+    </plurals>
+    <string name="queue_featured">Uitgelicht</string>
+    <string name="queue_position">Plek %1$d in de wachtrij</string>
+    <string name="my_apps_jump">Apps van abonnees staan vooraan in de wachtrij.</string>
+    <string name="my_apps_jump_action">Naar voren</string>
+    <string name="nudge_title">Apps wachten op testers</string>
+    <plurals name="nudge_text">
+        <item quantity="one">1 app heeft testers nodig. Doe mee: wie anderen test, staat vooraan in de wachtrij.</item>
+        <item quantity="other">%1$d apps hebben testers nodig. Doe mee met een van de apps: wie anderen test, staat vooraan in de wachtrij.</item>
+    </plurals>
+    <string name="joined_title">Nieuwe tester voor %1$s</string>
+    <string name="joined_text">%1$d van 12 testers. Test andere apps om voorop te blijven in de wachtrij.</string>
+</resources>

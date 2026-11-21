@@ -1,0 +1,167 @@
+<resources>
+    <string name="nav_back">Wstecz</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Moje aplikacje</string>
+    <string name="tab_profile">Profil</string>
+    <string name="title_detail">Szczegóły</string>
+    <string name="title_new_app">Nowa aplikacja</string>
+    <string name="title_edit_app">Edycja aplikacji</string>
+    <string name="title_paywall">Bez limitu aplikacji</string>
+
+    <string name="login_tagline">Zdobądź testerów dla swojej aplikacji w Google Play, pomagając innym zdobyć własnych.</string>
+    <string name="login_google">Kontynuuj przez Google</string>
+    <string name="login_error">Nie udało się zalogować</string>
+    <string name="login_email_toggle">Zaloguj się przez e-mail</string>
+    <string name="login_email">E-mail</string>
+    <string name="login_password">Hasło</string>
+    <string name="login_email_submit">Zaloguj się</string>
+
+    <string name="feed_error">Nie udało się wczytać feedu</string>
+    <string name="feed_empty">Nie ma jeszcze aplikacji innych deweloperów. Dodaj swoją w zakładce \"Moje aplikacje\".</string>
+    <string name="feed_add_own">Twojej aplikacji nie ma jeszcze w kolejce. Dodaj ją, żeby deweloperzy, którym pomagasz, mogli przetestować ją w zamian.</string>
+    <string name="feed_intro">Dołączaj do testów innych deweloperów, a oni dołączą do Twojego. Aplikacje czekają w kolejce według daty dodania: pomóż pierwszym zebrać 12 testerów.</string>
+
+    <string name="detail_error">Nie udało się wczytać aplikacji</string>
+    <string name="detail_testers_title">Kto dołączył</string>
+    <string name="detail_testers_empty">Na razie brak testerów. Dołącz do innych testów, a Twoja aplikacja wskoczy wyżej w feedzie.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Link do dołączenia</string>
+    <string name="detail_join">Biorę udział w teście w Play</string>
+    <string name="detail_leave">Wyjdź z testu</string>
+    <string name="detail_delete_app">Usuń aplikację</string>
+    <string name="detail_action_error">Nie udało się wykonać operacji</string>
+    <string name="detail_join_help">Najpierw otwórz grupę, potem link do dołączenia: w odwrotnej kolejności Play pokaże stronę z błędem. Gdy dołączysz, Test4Test sprawdzi na tym telefonie, czy aplikację zainstalowano z Play, i pokaże to jej właścicielowi.</string>
+    <string name="detail_not_found">Tej aplikacji już nie ma.</string>
+
+    <string name="comments_title">Komentarze</string>
+    <string name="comment_placeholder">Napisz komentarz</string>
+    <string name="comment_link_app">Powiąż jedną z moich aplikacji (opcjonalnie)</string>
+    <string name="comment_send">Wyślij</string>
+    <string name="comment_send_error">Nie udało się wysłać</string>
+    <string name="comments_empty">Brak komentarzy.</string>
+
+    <string name="my_apps_error">Nie udało się wczytać Twoich aplikacji</string>
+    <string name="my_apps_add">Dodaj aplikację</string>
+    <string name="my_apps_empty">Dodaj aplikację, żeby zdobywać testerów. Potrzebujesz dwóch linków z Play Console: linku do grupy Google tej aplikacji i linku do dołączenia.</string>
+
+    <string name="form_name">Nazwa aplikacji</string>
+    <string name="form_groups_url">Link do Google Groups</string>
+    <string name="form_opt_in_url">Link do dołączenia</string>
+    <string name="form_create">Utwórz aplikację</string>
+    <string name="form_save">Zapisz zmiany</string>
+    <string name="form_save_error">Nie udało się zapisać</string>
+
+    <string name="error_name_empty">Nazwa nie może być pusta</string>
+    <string name="error_name_too_long">Nazwa nie może mieć więcej niż 100 znaków</string>
+    <string name="error_groups_url">Link do Google Groups musi wyglądać tak: https://groups.google.com/g/twoja-grupa</string>
+    <string name="error_opt_in_url">Link do dołączenia musi wyglądać tak: https://play.google.com/apps/testing/twoj.pakiet</string>
+
+    <string name="profile_error">Nie udało się wczytać profilu</string>
+    <string name="profile_fallback_name">Użytkownik</string>
+    <string name="profile_premium">Subskrypcja aktywna: Twoje aplikacje na początku kolejki, bez limitu i bez reklam</string>
+    <string name="profile_free">Plan bezpłatny: 1 aplikacja naraz, z reklamami. Zobacz subskrypcję</string>
+    <string name="profile_my_apps">Opublikowane aplikacje</string>
+    <string name="profile_none_yet">Na razie brak.</string>
+    <string name="profile_testing">Testowane aplikacje</string>
+    <string name="profile_sign_out">Wyloguj się</string>
+    <string name="profile_ad_privacy">Prywatność reklam</string>
+    <string name="profile_privacy">Polityka prywatności</string>
+    <string name="profile_rate">Oceń aplikację</string>
+
+    <string name="paywall_body">Plan bezpłatny pozwala publikować 1 aplikację naraz i wyświetla reklamy. Z subskrypcją Twoje aplikacje trafiają na początek kolejki jako wyróżnione, możesz publikować ich tyle, ile chcesz, i nie widzisz reklam, dopóki subskrypcja jest aktywna.</string>
+    <string name="paywall_active">Subskrypcja jest aktywna: Twoje aplikacje są na początku kolejki.</string>
+    <string name="paywall_preparing">Subskrypcje pojawią się wkrótce.</string>
+    <string name="paywall_no_product">Nie ma jeszcze żadnego dostępnego produktu.</string>
+    <string name="paywall_price_error">Nie udało się wczytać ceny: %1$s</string>
+    <string name="paywall_subscribe">Subskrybuj</string>
+    <string name="paywall_subscribe_price">Subskrybuj za %1$s</string>
+    <string name="paywall_restore">Przywróć zakupy</string>
+    <string name="paywall_no_purchase">Nie znaleźliśmy aktywnego zakupu.</string>
+    <string name="paywall_pending">Subskrypcja zarejestrowana, ale dostęp nie jest jeszcze aktywny. Wróć za minutę.</string>
+    <string name="paywall_purchase_error">Nie udało się wykupić subskrypcji</string>
+
+    <string name="confirm_title">Potwierdzenie</string>
+    <string name="action_delete">Usuń</string>
+    <string name="action_cancel">Anuluj</string>
+    <string name="action_close">Zamknij</string>
+    <string name="action_edit">Edytuj</string>
+    <string name="action_report">Zgłoś</string>
+    <string name="action_reported">Zgłoszono</string>
+    <string name="confirm_delete_app_comments">Usunąć \"%1$s\" razem ze wszystkimi komentarzami?</string>
+    <string name="confirm_delete_app_content">Usunąć \"%1$s\" i całą jej zawartość?</string>
+    <string name="confirm_delete_my_app">Usunąć \"%1$s\"? Razem z nią znikną testerzy i komentarze.</string>
+    <string name="confirm_delete_comment">Usunąć ten komentarz?</string>
+    <string name="delete_error">Nie udało się usunąć</string>
+
+    <string name="follower_help">Osoby, które dołączyły jako testerzy przez Test4Test.</string>
+    <string name="linked_app">%1$s - testerów: %2$d</string>
+    <string name="testers_days">Dzień %1$d z %2$d z rzędu</string>
+    <string name="testers_days_done">Zaliczono %1$d dni z rzędu. Możesz poprosić o opublikowanie wersji produkcyjnej.</string>
+
+    <string name="testers_of">Testerów: %1$d z %2$d</string>
+    <string name="my_apps_rank">Twoje aplikacje są za aplikacjami deweloperów, którzy testują cudze. Testujesz %1$d z %2$d.</string>
+
+    <string name="detail_install">Zainstaluj z Google Play</string>
+    <string name="detail_installed">Zainstalowano z Google Play. Właściciel widzi, że naprawdę ją masz. Nie usuwaj jej przez 14 dni.</string>
+    <string name="detail_not_installed">Jeszcze nie zainstalowano na tym telefonie. Play liczy tylko testerów, którzy zainstalowali aplikację.</string>
+    <string name="detail_verified">Z zainstalowaną aplikacją: %1$d</string>
+    <string name="tester_installed">Ma zainstalowaną aplikację</string>
+    <string name="tester_stale">Od kilku dni nie widać instalacji</string>
+    <string name="tester_unverified">Instalacja jeszcze niepotwierdzona</string>
+    <string name="confirm_leave">Wyjść z testu \"%1$s\"? Jeśli jesteś jednym z 12 testerów tej aplikacji, jej 14-dniowa seria zacznie się od nowa.</string>
+    <string name="feed_testing">Testujesz</string>
+    <string name="my_apps_add_locked">Dodaj kolejną aplikację (subskrypcja)</string>
+    <string name="form_groups_hint">Play Console, Test zamknięty, Testerzy: dodana tam grupa Google.</string>
+    <string name="form_opt_in_hint">Na tej samej stronie, Dołącz w internecie: https://play.google.com/apps/testing/twoj.pakiet</string>
+    <string name="profile_manage_subscription">Zarządzaj subskrypcją w Google Play</string>
+    <string name="profile_delete_account">Usuń konto</string>
+    <string name="confirm_delete_account">Usunąć Twoje konto, aplikacje, testy i komentarze? Tego nie da się cofnąć. Aktywna subskrypcja nie jest tu anulowana: anuluj ją w Google Play.</string>
+    <string name="paywall_terms">Odnawia się automatycznie, dopóki jej nie anulujesz. Możesz anulować w dowolnej chwili w Google Play, w sekcji Płatności i subskrypcje. Po anulowaniu Twoje aplikacje pozostają opublikowane i wracają na swoje miejsce w kolejce; po prostu nie możesz dodać więcej niż jednej.</string>
+    <string name="paywall_terms_link">Warunki korzystania</string>
+    <string name="price_per_week">%1$s/tydzień</string>
+    <string name="price_per_month">%1$s/miesiąc</string>
+    <string name="price_per_year">%1$s/rok</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Testuje %1$d aplikację</item>
+        <item quantity="few">Testuje %1$d aplikacje</item>
+        <item quantity="many">Testuje %1$d aplikacji</item>
+        <item quantity="other">Testuje %1$d aplikacji</item>
+    </plurals>
+    <string name="round_title">Twoja dzisiejsza runda</string>
+    <string name="round_help">Google odrzuca aplikacje, z których testerzy nie korzystają. Otwieraj raz dziennie każdą testowaną aplikację: właściciel to widzi.</string>
+    <string name="round_progress">Otwarte dziś: %1$d z %2$d</string>
+    <string name="round_done">Runda zakończona. Do jutra.</string>
+    <string name="round_open">Otwórz</string>
+    <string name="round_opened">Otwarta dziś</string>
+    <string name="round_install">Zainstaluj</string>
+    <string name="reminder_on">Codzienne przypomnienia: włącz</string>
+    <string name="reminder_off">Codzienne przypomnienia włączone. Wyłącz</string>
+    <string name="tester_never_opened">Nigdy nie otwarta z Test4Test</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">Otwarta w jednym dniu z ostatnich 14</item>
+        <item quantity="few">Otwarta w %1$d dniach z ostatnich 14</item>
+        <item quantity="many">Otwarta w %1$d dniach z ostatnich 14</item>
+        <item quantity="other">Otwarta w %1$d dnia z ostatnich 14</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Otwórz aplikację, którą testujesz: jej właściciel potrzebuje 14 dni prawdziwego użytkowania.</item>
+        <item quantity="few">Otwórz %1$d aplikacje, które testujesz: ich właściciele potrzebują 14 dni prawdziwego użytkowania.</item>
+        <item quantity="many">Otwórz %1$d aplikacji, które testujesz: ich właściciele potrzebują 14 dni prawdziwego użytkowania.</item>
+        <item quantity="other">Otwórz %1$d aplikacji, które testujesz: ich właściciele potrzebują 14 dni prawdziwego użytkowania.</item>
+    </plurals>
+    <string name="queue_featured">Wyróżniona</string>
+    <string name="queue_position">Miejsce %1$d w kolejce</string>
+    <string name="my_apps_jump">Aplikacje subskrybentów są na początku kolejki.</string>
+    <string name="my_apps_jump_action">Wyprzedź</string>
+    <string name="nudge_title">Aplikacje czekają na testerów</string>
+    <plurals name="nudge_text">
+        <item quantity="one">Jedna aplikacja potrzebuje testerów. Dołącz do niej: kto testuje cudze aplikacje, jest w kolejce wyżej.</item>
+        <item quantity="few">%1$d aplikacje potrzebują testerów. Dołącz do jednej z nich: kto testuje cudze aplikacje, jest w kolejce wyżej.</item>
+        <item quantity="many">%1$d aplikacji potrzebuje testerów. Dołącz do jednej z nich: kto testuje cudze aplikacje, jest w kolejce wyżej.</item>
+        <item quantity="other">%1$d aplikacji potrzebuje testerów. Dołącz do jednej z nich: kto testuje cudze aplikacje, jest w kolejce wyżej.</item>
+    </plurals>
+    <string name="joined_title">Nowy tester aplikacji %1$s</string>
+    <string name="joined_text">Testerów: %1$d z 12. Testuj inne aplikacje, żeby zostać z przodu kolejki.</string>
+</resources>

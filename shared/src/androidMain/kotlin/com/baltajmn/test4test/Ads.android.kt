@@ -16,7 +16,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -33,9 +36,14 @@ import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentInformation.PrivacyOptionsRequirementStatus
 import com.google.android.ump.ConsentRequestParameters
 import com.google.android.ump.UserMessagingPlatform
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.concurrent.thread
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // El id de la app de AdMob va en el AndroidManifest de androidApp. En debug y en
 // Test Lab (los robots del informe previo al lanzamiento de Play, que lo tocan
@@ -68,9 +76,18 @@ private object AdMob {
             activity,
             ConsentRequestParameters.Builder().build(),
             {
-                // El formulario de consentimiento es una peticion del dia (M7): sin valoracion en esta sesion.
-                if (consent.consentStatus == ConsentInformation.ConsentStatus.REQUIRED) Session.busy = true
-                UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { initialize(activity, consent) }
+                // El formulario de consentimiento es una peticion del dia (M7): sin valoracion en esta sesion, y si el
+                // dia ya tuvo otra (Pro o valoracion) espera a otro arranque, sin banner mientras tanto.
+                val required = consent.consentStatus == ConsentInformation.ConsentStatus.REQUIRED
+                if (required && !activity.askBudgetOpen()) {
+                    initialize(activity, consent)
+                } else {
+                    if (required) {
+                        activity.spendAsk()
+                        Session.busy = true
+                    }
+                    UserMessagingPlatform.loadAndShowConsentFormIfRequired(activity) { initialize(activity, consent) }
+                }
             },
             { initialize(activity, consent) },
         )
@@ -152,6 +169,49 @@ actual fun AdBanner(modifier: Modifier) {
             onRelease = AdView::destroy,
         )
     }
+}
+
+private const val CONFIG_URL = "https://testers.baltajmn.dev/config.json"
+
+// El interruptor remoto de los anuncios es el "ads" de config.json, en la web de la app. Plazo corto: si no
+// llega, la app sigue con lo que ya sabia (nextAdsOn).
+private fun readRemoteConfig(): String? = runCatching {
+    val connection = URL(CONFIG_URL).openConnection() as HttpURLConnection
+    try {
+        connection.connectTimeout = 5_000
+        connection.readTimeout = 5_000
+        if (connection.responseCode == 200) connection.inputStream.bufferedReader().use { it.readText() } else null
+    } finally {
+        connection.disconnect()
+    }
+}.getOrNull()
+
+// Lo ultimo que dijo el interruptor en este proceso: girar el movil o cambiar de tema recrea la Activity y no
+// tiene que quitar el banner hasta la siguiente lectura.
+private object RemoteAdsState {
+    @Volatile
+    var on: Boolean? = null
+}
+
+@Composable
+actual fun rememberShowsAds(me: Profile?): Boolean {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val installedMs = remember { context.packageManager.getPackageInfo(context.packageName, 0).firstInstallTime }
+    var remoteOn by remember { mutableStateOf(RemoteAdsState.on) }
+    // Solo a quien puede llegar a ver un anuncio: premium, admin y quien ya usaba la app no piden config.json.
+    val mayRead = mayEverShowAds(me, installedMs) && TestOverrides.engine == null
+    // Cada vez que se vuelve a la app, para que apagar los anuncios no espere a una version.
+    LifecycleResumeEffect(mayRead) {
+        val job = if (!mayRead) null else scope.launch {
+            val json = withContext(Dispatchers.IO) { readRemoteConfig() }
+            val next = nextAdsOn(RemoteAdsState.on, json)
+            RemoteAdsState.on = next
+            remoteOn = next
+        }
+        onPauseOrDispose { job?.cancel() }
+    }
+    return showsAds(me, installedMs, System.currentTimeMillis(), remoteOn)
 }
 
 @Composable

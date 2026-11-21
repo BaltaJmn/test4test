@@ -57,7 +57,7 @@
 <body>
 
 <h1>Test4Test Privacy Policy</h1>
-<p class="updated">Last updated: 8 November 2026 &middot; <a href="/privacy-es">Espanol</a></p>
+<p class="updated">Last updated: 21 November 2026 &middot; <a href="/privacy-es">Espanol</a></p>
 
 <p>
   Test4Test is a service that puts Android developers in touch with each other so
@@ -142,8 +142,9 @@
 
 <h3>2.6 Advertising</h3>
 <p>
-  The free plan shows a banner from Google AdMob at the bottom of the main screens;
-  the subscription removes it. To show and measure ads, AdMob collects the device
+  The free plan shows a banner from Google AdMob at the bottom of the main screens
+  once the app has been installed for a week; the subscription removes it. To show
+  and measure ads, AdMob collects the device
   advertising ID, the IP address, approximate location derived from it, and
   information about the device and how ads are viewed and tapped. Test4Test sends
   AdMob nothing from your account: not your name, your email or your apps.
@@ -154,6 +155,14 @@
   change that answer at any time in Profile, "Ad privacy". Elsewhere you can reset
   or delete the advertising ID in your Android settings. How Google uses this data:
   <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>.
+</p>
+
+<p>
+  Whether the banner is shown at all is decided by a small public configuration
+  file, <a href="https://testers.baltajmn.dev/config.json">testers.baltajmn.dev/config.json</a>,
+  which the app downloads when it is opened if you are on the free plan and the
+  banner could appear. It is an ordinary web request: it carries your IP address,
+  like any other, and nothing else about you, and it is served by Cloudflare.
 </p>
 
 <h3>2.7 What is not done</h3>
@@ -203,7 +212,7 @@
 <table>
   <tr><th>Provider</th><th>What for</th><th>Location</th></tr>
   <tr><td>Supabase</td><td>Database and authentication. Your account and all content live here.</td><td>Frankfurt, Germany (European Union)</td></tr>
-  <tr><td>Cloudflare</td><td>Serving this policy.</td><td>Global network; may process your IP address outside the EU</td></tr>
+  <tr><td>Cloudflare</td><td>Serving this policy and the small configuration file the app reads to know whether the banner is on.</td><td>Global network; may process your IP address outside the EU</td></tr>
   <tr><td>Google</td><td>Sign-in and, on Android, payment through Google Play.</td><td>Global</td></tr>
   <tr><td>RevenueCat</td><td>Purchase management. Only involved if you subscribe.</td><td>United States</td></tr>
   <tr><td>Google AdMob</td><td>Ads in the free plan. Not involved with the subscription.</td><td>Global</td></tr>

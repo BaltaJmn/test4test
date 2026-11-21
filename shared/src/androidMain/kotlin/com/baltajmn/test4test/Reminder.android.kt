@@ -51,6 +51,10 @@ private const val KEY_NUDGED = "nudged"
 private const val KEY_REVIEW = "review"
 private const val KEY_REVIEW_VERSION = "review_version"
 private const val KEY_LAUNCHES = "launches"
+// Toque de Pro de Mis apps (M2, M3) y presupuesto del dia (M7).
+private const val KEY_TOUCH = "pro_touch"
+private const val KEY_TOUCH_REMINDED = "pro_touch_reminded"
+private const val KEY_ASK_AT = "ask_at"
 // Testers de cada app propia la ultima vez que se miro: "f_<id>".
 private const val KEY_FOLLOWERS = "f_"
 private const val WORK = "daily-round"
@@ -61,6 +65,13 @@ private const val DAY_MS = 86_400_000L
 private const val HOUR = 18
 
 private fun Context.prefs() = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+
+// M7: una peticion cada 24 h entre el toque de Pro, la valoracion y el consentimiento de anuncios. Se gasta al
+// decidir pedir, no al ver el resultado: si el formulario o la valoracion no llegan a salir, ese dia queda sin mas
+// peticiones, que es lo prudente.
+internal fun Context.askBudgetOpen() = askBudgetOpen(prefs().getLong(KEY_ASK_AT, 0), System.currentTimeMillis())
+
+internal fun Context.spendAsk() = prefs().edit().putLong(KEY_ASK_AT, System.currentTimeMillis()).apply()
 
 private fun schedule(context: Context) {
     val now = Calendar.getInstance()
@@ -135,10 +146,12 @@ actual fun rememberAskReview(): () -> Unit {
                     askedVersion = prefs.getLong(KEY_REVIEW_VERSION, 0),
                     lastAskedMs = prefs.getLong(KEY_REVIEW, 0),
                     busy = Session.busy,
+                    budgetOpen = activity.askBudgetOpen(),
                 )
                 if (due) {
                     // Una vez por version y por sesion: se apunta antes de pedir.
                     Session.busy = true
+                    activity.spendAsk()
                     prefs.edit().putLong(KEY_REVIEW, now).putLong(KEY_REVIEW_VERSION, version).apply()
                     val manager = ReviewManagerFactory.create(activity)
                     manager.requestReviewFlow().addOnCompleteListener { task ->
@@ -149,6 +162,42 @@ actual fun rememberAskReview(): () -> Unit {
             }
         }
     }
+}
+
+@Composable
+actual fun rememberProTouch(offer: Boolean): ProTouchState {
+    val context = LocalContext.current.applicationContext
+    var kind by remember { mutableStateOf(Session.proTouch ?: ProTouch.NONE) }
+    var closed by remember { mutableStateOf(Session.proTouchClosed) }
+    // Se decide una vez por ejecucion, la primera vez que hay algo que ofrecer: si toca, se apunta ya (la primera
+    // vez, o que ya volvio) y se gasta el presupuesto del dia. Despues la sesion sigue con lo decidido aunque se
+    // salga de Mis apps y se vuelva; no en las pruebas de capturas, que llevan datos de demo.
+    LaunchedEffect(offer) {
+        if (Session.proTouch != null || !offer || TestOverrides.engine != null) return@LaunchedEffect
+        val prefs = context.prefs()
+        val now = System.currentTimeMillis()
+        val due = proTouchDue(
+            offer = true,
+            nowMs = now,
+            firstShownMs = prefs.getLong(KEY_TOUCH, 0),
+            reminded = prefs.getBoolean(KEY_TOUCH_REMINDED, false),
+            budgetOpen = context.askBudgetOpen(),
+        )
+        if (due == ProTouch.NONE) return@LaunchedEffect
+        val edit = prefs.edit()
+        if (due == ProTouch.FIRST) edit.putLong(KEY_TOUCH, now) else edit.putBoolean(KEY_TOUCH_REMINDED, true)
+        edit.apply()
+        context.spendAsk()
+        Session.proTouch = due
+        kind = due
+    }
+    return ProTouchState(
+        visible = offer && kind != ProTouch.NONE && !closed,
+        close = {
+            Session.proTouchClosed = true
+            closed = true
+        },
+    )
 }
 
 // Un arranque en frio de la app, para el "segundo arranque o posterior" de la

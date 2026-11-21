@@ -84,6 +84,7 @@
     <string name="confirm_title">Onayla</string>
     <string name="action_delete">Sil</string>
     <string name="action_cancel">İptal</string>
+    <string name="action_close">Kapat</string>
     <string name="action_edit">Düzenle</string>
     <string name="action_report">Bildir</string>
     <string name="action_reported">Bildirildi</string>

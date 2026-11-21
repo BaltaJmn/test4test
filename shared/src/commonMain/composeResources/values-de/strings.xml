@@ -1,0 +1,159 @@
+<resources>
+    <string name="nav_back">Zurück</string>
+    <string name="tab_feed">Feed</string>
+    <string name="tab_my_apps">Meine Apps</string>
+    <string name="tab_profile">Profil</string>
+    <string name="title_detail">Details</string>
+    <string name="title_new_app">Neue App</string>
+    <string name="title_edit_app">App bearbeiten</string>
+    <string name="title_paywall">Unbegrenzt viele Apps</string>
+
+    <string name="login_tagline">Finde Tester für deine App in Google Play, indem du anderen hilfst, ihre zu finden.</string>
+    <string name="login_google">Weiter mit Google</string>
+    <string name="login_error">Anmeldung fehlgeschlagen</string>
+    <string name="login_email_toggle">Mit E-Mail anmelden</string>
+    <string name="login_email">E-Mail</string>
+    <string name="login_password">Passwort</string>
+    <string name="login_email_submit">Anmelden</string>
+
+    <string name="feed_error">Feed konnte nicht geladen werden</string>
+    <string name="feed_empty">Noch keine Apps anderer Entwickler. Füge deine unter \"Meine Apps\" hinzu.</string>
+    <string name="feed_add_own">Deine App steht noch nicht in der Warteschlange. Füge sie hinzu, damit die Entwickler, denen du hilfst, sie im Gegenzug testen können.</string>
+    <string name="feed_intro">Nimm an den Tests anderer Entwickler teil, dann nehmen sie an deinem teil. Wer zuerst kommt, steht in der Warteschlange vorn: Hilf den ersten Apps, 12 Tester zu erreichen.</string>
+
+    <string name="detail_error">App konnte nicht geladen werden</string>
+    <string name="detail_testers_title">Wer dabei ist</string>
+    <string name="detail_testers_empty">Noch keine Tester. Nimm an anderen Tests teil, dann rückt deine App im Feed nach oben.</string>
+    <string name="detail_groups">Google Groups</string>
+    <string name="detail_play">Play Store</string>
+    <string name="detail_opt_in">Teilnahmelink</string>
+    <string name="detail_join">Ich bin in Play beigetreten</string>
+    <string name="detail_leave">Test verlassen</string>
+    <string name="detail_delete_app">App löschen</string>
+    <string name="detail_action_error">Aktion fehlgeschlagen</string>
+    <string name="detail_join_help">Öffne zuerst die Gruppe, dann den Teilnahmelink: In der umgekehrten Reihenfolge zeigt Play eine Fehlerseite. Sobald du beigetreten bist, prüft Test4Test auf diesem Handy, ob die App aus Play installiert wurde, und zeigt es dem Entwickler der App.</string>
+    <string name="detail_not_found">Diese App gibt es nicht mehr.</string>
+
+    <string name="comments_title">Kommentare</string>
+    <string name="comment_placeholder">Kommentar schreiben</string>
+    <string name="comment_link_app">Eine meiner Apps verknüpfen (optional)</string>
+    <string name="comment_send">Senden</string>
+    <string name="comment_send_error">Senden fehlgeschlagen</string>
+    <string name="comments_empty">Noch keine Kommentare.</string>
+
+    <string name="my_apps_error">Deine Apps konnten nicht geladen werden</string>
+    <string name="my_apps_add">App hinzufügen</string>
+    <string name="my_apps_empty">Füge deine App hinzu, um Tester zu bekommen. Du brauchst zwei Links aus der Play Console: den Link zur Google-Gruppe der App und den Teilnahmelink.</string>
+
+    <string name="form_name">App-Name</string>
+    <string name="form_groups_url">Link zu Google Groups</string>
+    <string name="form_opt_in_url">Teilnahmelink</string>
+    <string name="form_create">App erstellen</string>
+    <string name="form_save">Änderungen speichern</string>
+    <string name="form_save_error">Speichern fehlgeschlagen</string>
+
+    <string name="error_name_empty">Der Name darf nicht leer sein</string>
+    <string name="error_name_too_long">Der Name darf höchstens 100 Zeichen lang sein</string>
+    <string name="error_groups_url">Der Link zu Google Groups muss so aussehen: https://groups.google.com/g/deine-gruppe</string>
+    <string name="error_opt_in_url">Der Teilnahmelink muss so aussehen: https://play.google.com/apps/testing/dein.paket</string>
+
+    <string name="profile_error">Profil konnte nicht geladen werden</string>
+    <string name="profile_fallback_name">Nutzer</string>
+    <string name="profile_premium">Abo aktiv: deine Apps ganz vorn in der Warteschlange, unbegrenzt viele Apps, keine Werbung</string>
+    <string name="profile_free">Kostenloser Tarif: 1 App gleichzeitig, mit Werbung. Abo ansehen</string>
+    <string name="profile_my_apps">Veröffentlichte Apps</string>
+    <string name="profile_none_yet">Noch keine.</string>
+    <string name="profile_testing">Apps im Test</string>
+    <string name="profile_sign_out">Abmelden</string>
+    <string name="profile_ad_privacy">Datenschutz bei Werbung</string>
+    <string name="profile_privacy">Datenschutzerklärung</string>
+    <string name="profile_rate">App bewerten</string>
+
+    <string name="paywall_body">Im kostenlosen Tarif kannst du 1 App gleichzeitig veröffentlichen, und es gibt Werbung. Mit dem Abo stehen deine Apps ganz vorn in der Warteschlange und sind als hervorgehoben markiert. Außerdem kannst du so viele Apps veröffentlichen, wie du willst, und es gibt keine Werbung, solange das Abo aktiv ist.</string>
+    <string name="paywall_active">Dein Abo ist aktiv: Deine Apps stehen ganz vorn in der Warteschlange.</string>
+    <string name="paywall_preparing">Abos sind bald verfügbar.</string>
+    <string name="paywall_no_product">Noch kein Produkt verfügbar.</string>
+    <string name="paywall_price_error">Preis konnte nicht geladen werden: %1$s</string>
+    <string name="paywall_subscribe">Abonnieren</string>
+    <string name="paywall_subscribe_price">Für %1$s abonnieren</string>
+    <string name="paywall_restore">Käufe wiederherstellen</string>
+    <string name="paywall_no_purchase">Wir haben keinen aktiven Kauf gefunden.</string>
+    <string name="paywall_pending">Abo registriert, aber der Zugang ist noch nicht aktiv. Schau in einer Minute noch einmal vorbei.</string>
+    <string name="paywall_purchase_error">Abo konnte nicht abgeschlossen werden</string>
+
+    <string name="confirm_title">Bestätigen</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_close">Schließen</string>
+    <string name="action_edit">Bearbeiten</string>
+    <string name="action_report">Melden</string>
+    <string name="action_reported">Gemeldet</string>
+    <string name="confirm_delete_app_comments">\"%1$s\" und alle Kommentare dazu löschen?</string>
+    <string name="confirm_delete_app_content">\"%1$s\" und den gesamten Inhalt löschen?</string>
+    <string name="confirm_delete_my_app">\"%1$s\" löschen? Die Tester und Kommentare werden mitgelöscht.</string>
+    <string name="confirm_delete_comment">Diesen Kommentar löschen?</string>
+    <string name="delete_error">Löschen fehlgeschlagen</string>
+
+    <string name="follower_help">Personen, die über Test4Test als Tester beigetreten sind.</string>
+    <string name="linked_app">%1$s - %2$d Tester</string>
+    <string name="testers_days">Tag %1$d von %2$d in Folge</string>
+    <string name="testers_days_done">%1$d Tage in Folge geschafft. Du kannst jetzt den Produktionszugriff beantragen.</string>
+
+    <string name="testers_of">%1$d von %2$d Testern</string>
+    <string name="my_apps_rank">Deine Apps stehen hinter denen von Entwicklern, die andere Apps testen. Du testest %1$d von %2$d.</string>
+
+    <string name="detail_install">Aus Google Play installieren</string>
+    <string name="detail_installed">Aus Google Play installiert. Der Entwickler sieht, dass du die App wirklich hast. Lass sie 14 Tage lang installiert.</string>
+    <string name="detail_not_installed">Auf diesem Handy noch nicht installiert. Play zählt nur Tester, die die App installieren.</string>
+    <string name="detail_verified">%1$d mit installierter App</string>
+    <string name="tester_installed">Hat die App installiert</string>
+    <string name="tester_stale">Seit Tagen nicht mehr als installiert erkannt</string>
+    <string name="tester_unverified">Installation noch nicht bestätigt</string>
+    <string name="confirm_leave">Den Test von \"%1$s\" verlassen? Falls du einer der 12 Tester warst, beginnt die 14-Tage-Serie wieder von vorn.</string>
+    <string name="feed_testing">Du testest</string>
+    <string name="my_apps_add_locked">Weitere App hinzufügen (Abo)</string>
+    <string name="form_groups_hint">Play Console, Geschlossener Test, Tester: die Google-Gruppe, die du dort hinzugefügt hast.</string>
+    <string name="form_opt_in_hint">Auf derselben Seite, Im Web teilnehmen: https://play.google.com/apps/testing/dein.paket</string>
+    <string name="profile_manage_subscription">Abo in Google Play verwalten</string>
+    <string name="profile_delete_account">Konto löschen</string>
+    <string name="confirm_delete_account">Dein Konto, deine Apps, deine Tests und deine Kommentare löschen? Das lässt sich nicht rückgängig machen. Ein aktives Abo wird hier nicht gekündigt: Kündige es in Google Play.</string>
+    <string name="paywall_terms">Verlängert sich automatisch, bis du kündigst. Du kannst jederzeit in Google Play unter Zahlungen &amp; Abos kündigen. Wenn du kündigst, bleiben deine Apps veröffentlicht und rücken wieder an ihren Platz in der Warteschlange; du kannst dann nur nicht mehr als eine App hinzufügen.</string>
+    <string name="paywall_terms_link">Nutzungsbedingungen</string>
+    <string name="price_per_week">%1$s/Woche</string>
+    <string name="price_per_month">%1$s/Monat</string>
+    <string name="price_per_year">%1$s/Jahr</string>
+
+    <plurals name="testing_count">
+        <item quantity="one">Testet %1$d App</item>
+        <item quantity="other">Testet %1$d Apps</item>
+    </plurals>
+    <string name="round_title">Deine Runde heute</string>
+    <string name="round_help">Google lehnt Apps ab, deren Tester sie nicht nutzen. Öffne jede App, die du testest, einmal am Tag: Der Entwickler sieht das.</string>
+    <string name="round_progress">%1$d von %2$d heute geöffnet</string>
+    <string name="round_done">Runde geschafft. Bis morgen.</string>
+    <string name="round_open">Öffnen</string>
+    <string name="round_opened">Heute geöffnet</string>
+    <string name="round_install">Installieren</string>
+    <string name="reminder_on">Tägliche Erinnerungen: einschalten</string>
+    <string name="reminder_off">Tägliche Erinnerungen aktiv. Ausschalten</string>
+    <string name="tester_never_opened">Nie über Test4Test geöffnet</string>
+    <plurals name="tester_open_days">
+        <item quantity="one">In den letzten 14 Tagen an einem Tag geöffnet</item>
+        <item quantity="other">In den letzten 14 Tagen an %1$d Tagen geöffnet</item>
+    </plurals>
+    <plurals name="reminder_text">
+        <item quantity="one">Öffne die App, die du testest: Der Entwickler braucht 14 Tage echte Nutzung.</item>
+        <item quantity="other">Öffne die %1$d Apps, die du testest: Die Entwickler brauchen 14 Tage echte Nutzung.</item>
+    </plurals>
+    <string name="queue_featured">Hervorgehoben</string>
+    <string name="queue_position">Platz %1$d in der Warteschlange</string>
+    <string name="my_apps_jump">Apps von Abonnenten stehen ganz vorn in der Warteschlange.</string>
+    <string name="my_apps_jump_action">Nach vorn</string>
+    <string name="nudge_title">Apps warten auf Tester</string>
+    <plurals name="nudge_text">
+        <item quantity="one">Eine App braucht Tester. Mach mit: Wer andere testet, steht in der Warteschlange weiter vorn.</item>
+        <item quantity="other">%1$d Apps brauchen Tester. Mach bei einer mit: Wer andere testet, steht in der Warteschlange weiter vorn.</item>
+    </plurals>
+    <string name="joined_title">Neuer Tester für %1$s</string>
+    <string name="joined_text">%1$d von 12 Testern. Teste andere Apps, um in der Warteschlange vorn zu bleiben.</string>
+</resources>

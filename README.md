@@ -94,19 +94,22 @@ a policy, grant or view.
     check and the system back handler.
 * [/androidApp](./androidApp) is the Android entry point: manifest, the
   `test4test://login` deep link and signing.
-* [/web](./web) holds only the privacy policy pages.
+* [/web](./web) holds the privacy policy pages, `app-ads.txt`, the one-page
+  index and `config.json`, the remote switch of the ads (`{"ads": false}`).
 * [/branding](./branding) holds the Play Store listing copy.
 * [/docs](./docs) holds the runbook for the external services.
 
 ### Translations
 
-`shared/src/commonMain/composeResources` carries eleven locale folders: `values`
-(English, the default), `values-es`, `values-pt-rBR`, `values-hi`, `values-id`,
-`values-in`, `values-ar`, `values-fr`, `values-ru`, `values-tr` and `values-zh`
-(Simplified Chinese). `values-id` and `values-in` are byte-identical on purpose:
-`in` is the old ISO code for Indonesian and Android still resolves it on older
-devices. Arabic is right to left and the app mirrors. Any string added to one
-folder has to be added to all of them or the build fails.
+`shared/src/commonMain/composeResources` carries eighteen locale folders for the
+seventeen languages of the family: `values` (English, the default), `values-es`, `values-pt-rBR`, `values-hi`, `values-id`, `values-in`,
+`values-ar`, `values-fr`, `values-ru`, `values-tr`, `values-zh` (Simplified
+Chinese), `values-de`, `values-it`, `values-nl`, `values-pl`, `values-ja`,
+`values-ko` and `values-vi`. `values-id` and `values-in` are byte-identical on
+purpose: `in` is the old ISO code for Indonesian and Android still resolves it on
+older devices. Arabic is right to left and the app mirrors. A string added to one
+folder should be added to all of them: nothing checks it, and a missing one shows
+in English.
 
 ### Running the apps
 
@@ -118,6 +121,34 @@ Before pushing, run exactly what CI runs:
 ```
 ./gradlew :androidApp:assembleDebug :androidApp:lintDebug :shared:testAndroidHostTest
 ```
+
+## Sin probar
+
+Not tested yet, because it needs a real device, account or service. Each point
+stays open until someone tries it and crosses it out here.
+
+- **The banner and its consent form on a real install.** Debug builds and Play's
+  Test Lab use Google's test unit, and the owner's own devices never see ads
+  (invalid traffic closes the shared AdMob account). The real unit, the UMP form
+  in the EEA and the 7-day gate (`ADS_AFTER_DAYS`) have not been seen end to end.
+- **`config.json` as the ads switch.** `web/config.json` is read at every return to
+  the foreground; flipping `"ads"` to `false` should remove the banner without a
+  release. Not tried against the deployed file yet.
+- **The subscription on a real Play account**: buying, restoring, and the
+  RevenueCat webhook that writes `profiles.is_premium` (the app waits up to ten
+  seconds for that row after paying).
+- **The daily reminder** (WorkManager, around 18:00) on phones with aggressive
+  battery managers, and after a reboot.
+- **The install check** (`rememberInstalledFromPlay`) with real closed-test
+  installs: a sideloaded APK must not count.
+- **The rating request**: Play never shows it in debug builds, so it can only be
+  seen on a version installed from the store.
+- **The daily ask budget and the Pro nudge in My apps** (one ask every 24 hours
+  between the nudge, the rating and the ads consent form; the nudge comes the
+  first time and once more after 7 days). The rules are unit-tested; the wiring
+  on a device is not.
+- **The seven newest interface languages** (de, it, nl, pl, ja, ko, vi) were
+  translated without a native speaker reviewing them.
 
 ## Releasing
 
