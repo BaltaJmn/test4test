@@ -67,8 +67,8 @@ class RulesTest {
 
     @Test
     fun whoUsedTheAppBeforeNeverSeesAds() {
-        // 2026-11-23T00:00:00Z: el dia 20 780 desde 1970, a medianoche en punto.
-        assertEquals(20_780L, ADS_EXEMPT_BEFORE_MS / adsDay)
+        // 2026-11-21T00:00:00Z: el dia 20 778 desde 1970, a medianoche en punto.
+        assertEquals(20_778L, ADS_EXEMPT_BEFORE_MS / adsDay)
         assertEquals(0L, ADS_EXEMPT_BEFORE_MS % adsDay)
         val before = ADS_EXEMPT_BEFORE_MS - 1
         assertFalse(ads(Profile(id = "a"), daysSinceInstall = 400, installed = before))

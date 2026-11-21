@@ -115,8 +115,9 @@ fun canCreateApp(isPremium: Boolean, ownedApps: Int): Boolean = isPremium || own
 // de consentimiento mientras tanto.
 const val ADS_AFTER_DAYS = 7
 
-// El dia en que sale la 1.15.0, la primera con la semana sin anuncios: 2026-11-23 UTC.
-const val ADS_EXEMPT_BEFORE_MS = 1_795_392_000_000L
+// El dia en que se envia la 1.15.0, la primera con la semana sin anuncios: 2026-11-21 UTC.
+// Nunca posterior a su publicacion: quien instalara entre medias quedaria exento para siempre.
+const val ADS_EXEMPT_BEFORE_MS = 1_795_219_200_000L
 
 // Si a esta persona le puede salir un anuncio alguna vez: sin perfil todavia, con
 // suscripcion, admin o instalada antes de ADS_EXEMPT_BEFORE_MS, nunca; y entonces ni

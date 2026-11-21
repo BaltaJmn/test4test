@@ -209,9 +209,9 @@ prueba de Google.
 
 Desde la 1.15 (D1 del estandar de apps) el banner no sale la primera semana
 desde instalar (`ADS_AFTER_DAYS`), ni nunca a quien ya tenia la app instalada
-antes del 23-11-2026 (`ADS_EXEMPT_BEFORE_MS`; tiene que ser el instante real en que
-la 1.15 llega a todos, asi que se corrige al publicarla si no es ese dia), y
-se apaga sin version con `"ads": false` en `web/config.json`, que se despliega con
+antes del 21-11-2026 (`ADS_EXEMPT_BEFORE_MS`, el dia en que se envia la 1.15: nunca
+puede ser posterior a su publicacion, o quien instale entre medias queda exento
+para siempre), y se apaga sin version con `"ads": false` en `web/config.json`, que se despliega con
 la web (`https://testers.baltajmn.dev/config.json`) y la app lee cada vez que
 vuelve al primer plano, sin enviar nada de la persona, y solo si a esa persona le
 puede salir un anuncio (premium, admin y quien ya usaba la app no piden el fichero).
