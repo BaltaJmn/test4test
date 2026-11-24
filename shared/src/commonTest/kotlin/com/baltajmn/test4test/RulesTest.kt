@@ -196,17 +196,14 @@ class RulesTest {
         val day = 86_400_000L
         val now = 100 * day
         fun due(
-            installed: Long = now - 3 * day,
-            launches: Int = 2,
             version: Long = 17,
             askedVersion: Long = 16,
             last: Long = 0,
             busy: Boolean = false,
             budgetOpen: Boolean = true,
-        ) = reviewDue(now, installed, launches, version, askedVersion, last, busy, budgetOpen)
+        ) = reviewDue(now, version, askedVersion, last, busy, budgetOpen)
+        // V3: instalacion recien hecha y primer arranque (sin espera): toca.
         assertTrue(due())
-        assertFalse(due(installed = now - day))
-        assertFalse(due(launches = 1))
         assertFalse(due(askedVersion = 17))
         assertFalse(due(last = now - 29 * day))
         assertTrue(due(last = now - 30 * day))

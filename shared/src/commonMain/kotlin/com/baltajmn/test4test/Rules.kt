@@ -43,18 +43,15 @@ fun dailyNudge(testing: Int, pending: Int, waiting: Int, daysSinceNudge: Long): 
 }
 
 // Valoracion (V3, V4): dialogo del sistema tras completar la ronda, que se
-// alcanza sin pagar. Todo a la vez: 2 dias o mas desde instalar, segundo
-// arranque o posterior, una vez por version, 30 dias o mas entre peticiones,
-// nada de Pro, consentimiento ni fallo en esta sesion (`busy`) y el presupuesto
-// del dia sin gastar (`budgetOpen`, M7).
-const val REVIEW_MIN_INSTALL_DAYS = 2
+// alcanza sin pagar. Todo a la vez: una vez por version, 30 dias o mas entre
+// peticiones, nada de Pro, consentimiento ni fallo en esta sesion (`busy`) y el
+// presupuesto del dia sin gastar (`budgetOpen`, M7). Sin espera desde la
+// instalacion ni minimo de arranques (V3).
 const val REVIEW_GAP_DAYS = 30
 private const val DAY_MS = 86_400_000L
 
 fun reviewDue(
     nowMs: Long,
-    installedMs: Long,
-    launches: Int,
     version: Long,
     askedVersion: Long,
     lastAskedMs: Long,
@@ -62,9 +59,7 @@ fun reviewDue(
     budgetOpen: Boolean,
 ): Boolean = !busy &&
     budgetOpen &&
-    launches >= 2 &&
     version != askedVersion &&
-    nowMs - installedMs >= REVIEW_MIN_INSTALL_DAYS * DAY_MS &&
     nowMs - lastAskedMs >= REVIEW_GAP_DAYS * DAY_MS
 
 // Presupuesto del dia (M7): como mucho una peticion cada 24 h entre el toque de Pro,

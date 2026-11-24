@@ -140,8 +140,6 @@ actual fun rememberAskReview(): () -> Unit {
                 val now = System.currentTimeMillis()
                 val due = reviewDue(
                     nowMs = now,
-                    installedMs = info.firstInstallTime,
-                    launches = prefs.getInt(KEY_LAUNCHES, 0),
                     version = version,
                     askedVersion = prefs.getLong(KEY_REVIEW_VERSION, 0),
                     lastAskedMs = prefs.getLong(KEY_REVIEW, 0),
@@ -149,14 +147,16 @@ actual fun rememberAskReview(): () -> Unit {
                     budgetOpen = activity.askBudgetOpen(),
                 )
                 if (due) {
-                    // Una vez por version y por sesion: se apunta antes de pedir.
+                    // Una sola peticion por sesion; la marca de "ya pedida" solo se apunta si el flujo
+                    // se lanzo de verdad: una peticion fallida no gasta la valoracion de esta version.
                     Session.busy = true
-                    activity.spendAsk()
-                    prefs.edit().putLong(KEY_REVIEW, now).putLong(KEY_REVIEW_VERSION, version).apply()
                     val manager = ReviewManagerFactory.create(activity)
                     manager.requestReviewFlow().addOnCompleteListener { task ->
-                        // Play decide si la ensena y no dice si lo hizo: no hay resultado que mirar.
-                        if (task.isSuccessful) runCatching { manager.launchReviewFlow(activity, task.result) }
+                        // Play decide si la ensena y no dice si lo hizo: basta con haberlo lanzado.
+                        if (task.isSuccessful && runCatching { manager.launchReviewFlow(activity, task.result) }.isSuccess) {
+                            activity.spendAsk()
+                            prefs.edit().putLong(KEY_REVIEW, now).putLong(KEY_REVIEW_VERSION, version).apply()
+                        }
                     }
                 }
             }
